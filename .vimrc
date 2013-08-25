@@ -16,13 +16,24 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 set wildmode=longest,list,full
 set wildmenu
 
+" when :split and :vsplit
 set splitbelow
 set splitright
 
+" always show
 set laststatus=2
 
+" make unvisible chars visible.
 set list
 set listchars=tab:>-
+
+" 256 colours
+set t_Co=256
+
+" folding?
+" set foldmethod=indent
+" set foldcolumn=5
+" set foldenable
 
 " adds < >  as matchpairs in % moving.
 " on second thought, no. 
@@ -36,6 +47,11 @@ set tabstop=4		"the width of a TAB is set to 4.
 					"still it is a \t.
 set shiftwidth=4	"indents will have a width of 4.
 set backspace=
+
+" vim-indent-guides (https://github.com/nathanaelkane/vim-indent-guides/)
+let g:indent_guides_guide_size=1
+autocmd Filetype * IndentGuidesDisable  " disabled for normal files
+
 
 " moving assistance in insert mode (thanks: http://gg-hogehoge.hatenablog.com/entry/2013/07/26/212223)
 inoremap <C-h> <Left>
@@ -64,6 +80,7 @@ set guifont=Ubuntumono\ 12
 "language specific modifications
 "    python
 autocmd Filetype python setlocal expandtab
+autocmd Filetype python IndentGuidesEnable
 "
 "
 "   haskell
@@ -74,12 +91,14 @@ autocmd Filetype haskell setlocal smarttab
 autocmd Filetype haskell setlocal shiftround
 autocmd Filetype haskell setlocal nojoinspaces
 autocmd Filetype haskell setlocal nofoldenable  "disable folding
+autocmd Filetype haskell IndentGuidesEnable
 
 "    ruby
 autocmd Filetype ruby setlocal shiftwidth=2
 autocmd Filetype ruby setlocal softtabstop=2
 autocmd Filetype ruby setlocal tabstop=2
 autocmd Filetype ruby setlocal expandtab
+autocmd Filetype ruby IndentGuidesEnable
 
 "    HTML
 autocmd Filetype html imap <C-b> <br />
@@ -90,7 +109,59 @@ set guioptions-=T
 set guioptions-=m
 set guioptions-=r
 
-" NeoComplCache
+" user functions
+"
+"
+"from http://cohama.hateblo.jp/entry/2013/08/11/020849,
+" :SyntaxInfo to display the syntax info.
+"_______________________________________________
+function! s:get_syn_id(transparent)
+  let synid = synID(line("."), col("."), 1)
+  if a:transparent
+    return synIDtrans(synid)
+  else
+    return synid
+  endif
+endfunction
+function! s:get_syn_attr(synid)
+  let name = synIDattr(a:synid, "name")
+  let ctermfg = synIDattr(a:synid, "fg", "cterm")
+  let ctermbg = synIDattr(a:synid, "bg", "cterm")
+  let guifg = synIDattr(a:synid, "fg", "gui")
+  let guibg = synIDattr(a:synid, "bg", "gui")
+  return {
+        \ "name": name,
+        \ "ctermfg": ctermfg,
+        \ "ctermbg": ctermbg,
+        \ "guifg": guifg,
+        \ "guibg": guibg}
+endfunction
+function! s:get_syn_info()
+  let baseSyn = s:get_syn_attr(s:get_syn_id(0))
+  echo "name: " . baseSyn.name .
+        \ " ctermfg: " . baseSyn.ctermfg .
+        \ " ctermbg: " . baseSyn.ctermbg .
+        \ " guifg: " . baseSyn.guifg .
+        \ " guibg: " . baseSyn.guibg
+  let linkedSyn = s:get_syn_attr(s:get_syn_id(1))
+  echo "link to"
+  echo "name: " . linkedSyn.name .
+        \ " ctermfg: " . linkedSyn.ctermfg .
+        \ " ctermbg: " . linkedSyn.ctermbg .
+        \ " guifg: " . linkedSyn.guifg .
+        \ " guibg: " . linkedSyn.guibg
+endfunction
+command! SyntaxInfo call s:get_syn_info()
+"_______________________________________________
+
+
+
+
+
+
+":::::::::::::::::::::::::::::::::::::
+" " NeoComplCache
+" ::::::::::::::::::::::::::::::::::::
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
@@ -195,3 +266,5 @@ set completeopt-=preview
 "A:
 ">
 "	set completeopt-=preview
+"
+"
