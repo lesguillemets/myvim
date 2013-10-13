@@ -1,8 +1,72 @@
+" set nocompatible
+" disabled, as it is not just unnnecessary
+" but it sets history 20.
+" http://lingr.com/room/vim/archives/2013/10/12#message-17037476
+
+""""""""""""""""""""""""""""""""""""""""""
+" NeoBundle
+filetype off
+
+if has('vim_starting')
+    set runtimepath+=/home/joll/.vim/bundle/neobundle.vim
+endif
+call neobundle#rc(expand('~/.vim/bundle'))
+
+
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+" NeoBundle plugins
+" NeoBundle 'git://github.com/Shougo/neocomplete.vim.git'
+NeoBundle 'git://github.com/Shougo/neocomplcache.vim.git'
+NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+NeoBundle 'git://github.com/vim-scripts/Align.git'
+NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
+NeoBundle 'git://github.com/ujihisa/neco-ghc.git'
+NeoBundle 'wikipedia.vim'
+NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
+NeoBundle 'git://github.com/vim-scripts/haskell.vim'
+NeoBundle 'git://github.com/dag/vim2hs.git'
+NeoBundle 'git://github.com/hynek/vim-python-pep8-indent.git'
+" NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git' 
+" Added my modifications.
+NeoBundle 'git://github.com/lesguillemets/rainbow_parentheses.vim.git'
+" Sadly the license is unknown
+NeoBundle 'git://github.com/vim-scripts/Colortest'
+NeoBundle 'git://github.com/vim-scripts/jpythonfold.vim.git'
+NeoBundle 'git://github.com/vim-scripts/CountJump.git'
+NeoBundle 'git://github.com/vim-scripts/tex.vim--Brauner.git'
+NeoBundle 'git://github.com/vim-scripts/loremipsum.git'
+NeoBundle 'git://github.com/guns/xterm-color-table.vim.git'
+NeoBundle 'git://github.com/tpope/vim-characterize.git'
+NeoBundle 'git://github.com/scrooloose/nerdtree.git'
+NeoBundle 'git://github.com/tpope/vim-surround.git'
+" enable when needed.
+" NeoBundle 'git://github.com/cocopon/colorswatch.vim.git'
+NeoBundle 'git://github.com/deris/columnjump.git'
+nmap <C-k> <Plug>(columnjump-backward)
+nmap <C-j> <Plug>(columnjump-forward)
+" NeoBundle 'git://github.com/deris/vim-duzzle.git'
+NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
+" Doesn't seem to work
+" NeoBundle 'git://github.com/kshenoy/vim-signature'
+" Not decided yet
+" NeoBundle 'Vim-LaTeX'
+" Cool, but perhaps too shiny
+" NeoBundle 'itchyny/lightline.vim'
+" I didn't like too much informathion
+" NeoBundle 'git://github.com/davidhalter/jedi-vim'
+" Not sure
+" NeoBundle 'git://github.com/lukerandall/haskellmode-vim'
+
+
+""""""""""""""""""""""""""""""""""""""""""
 " general settings
-set nocompatible
+
 syntax on
 filetype plugin on
+filetype indent on
 set smartindent
+set smarttab
 set ignorecase
 set smartcase
 set ruler
@@ -15,6 +79,14 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 set wildmode=longest,list,full
 set wildmenu
+
+" comments with # don't remove indentations
+inoremap # X#
+
+" Rainbow Parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadBraces
+au Syntax * RainbowParenthesesLoadSquare
 
 " when :split and :vsplit
 set splitbelow
@@ -31,9 +103,39 @@ set listchars=tab:>-
 set t_Co=256
 
 " folding?
+set foldmethod=manual
 " set foldmethod=indent
 " set foldcolumn=5
 " set foldenable
+
+" resize the devisions if the Vim window size changes
+" ( from: https://github.com/joedicastro/dotfiles/blob/master/vim/vimrc)
+" au VimResized * exe "normal! \<c-w>="
+
+
+" preserves folding 
+" autocmd BufLeave,BufWinLeave ?* call cursor (1,1) " reset cursor position
+" autocmd BufWritePost,BufLeave,BufWinLeave ?* mkview
+autocmd BufWinEnter ?* silent loadview
+
+
+" foldtext
+" from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext
+function! NeatFoldText() 
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+set foldtext=NeatFoldText()
+
+" <C-v> and voila!
+set virtualedit+=block
+
 
 " adds < >  as matchpairs in % moving.
 " on second thought, no. 
@@ -50,19 +152,20 @@ set backspace=
 
 " vim-indent-guides (https://github.com/nathanaelkane/vim-indent-guides/)
 let g:indent_guides_guide_size=1
-autocmd Filetype * IndentGuidesDisable  " disabled for normal files
+"autocmd Filetype * IndentGuidesDisable  " disabled for normal files
 
 
 " moving assistance in insert mode (thanks: http://gg-hogehoge.hatenablog.com/entry/2013/07/26/212223)
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-inoremap <C-k> <Up>
-inoremap <C-j> <Down>
+" inoremap <C-h> <Left>
+" inoremap <C-l> <Right>
+" inoremap <C-k> <Up>
+" inoremap <C-j> <Down>
 
 "inoremap { {}<LEFT>
 "
 " appearance
 set cursorline
+"set cursorcolumn
 "hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE
 " setting the following here works for 256 term
 "autocmd ColorScheme * highlight Normal ctermbg=None
@@ -81,6 +184,10 @@ set guifont=Ubuntumono\ 12
 "    python
 autocmd Filetype python setlocal expandtab
 autocmd Filetype python IndentGuidesEnable
+function JJPythonFold()
+	source ~/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
+endfunction
+command PyFold call JJPythonFold()
 "
 "
 "   haskell
@@ -99,10 +206,30 @@ autocmd Filetype ruby setlocal softtabstop=2
 autocmd Filetype ruby setlocal tabstop=2
 autocmd Filetype ruby setlocal expandtab
 autocmd Filetype ruby IndentGuidesEnable
+"autocmd Filetype ruby source /home/joll/.vim/ftplugin/ruby-matchit.vim
+"autocmd Filetype ruby source /home/joll/.vim/ftplugin/ruby.vim
 
 "    HTML
 autocmd Filetype html imap <C-b> <br />
 autocmd Filetype html set mps+=<:>
+
+"    markdown
+autocmd FileType markdown setlocal expandtab
+autocmd FileType markdown setlocal shiftwidth=2
+autocmd Filetype markdown setlocal softtabstop=2
+autocmd Filetype markdown setlocal tabstop=2
+
+"    mediawiki
+autocmd FileType mediawiki nnoremap <buffer> j gj
+autocmd FileType mediawiki nnoremap <buffer> k gk
+
+"    TeX
+autocmd FileType tex,plaintex,latex source ~/.vim/ftplugin/tex.vim
+autocmd FileType tex,plaintex,latex map <buffer> <silent> ]s :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
+autocmd FileType tex,plaintex,latex map <buffer> [s :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
+
+"    common lisp
+autocmd FileType lisp setlocal expandtab
 
 "gvim
 set guioptions-=T
@@ -156,12 +283,10 @@ command! SyntaxInfo call s:get_syn_info()
 
 
 
-
-
-
 ":::::::::::::::::::::::::::::::::::::
-" " NeoComplCache
+" " NeoComplcache
 " ::::::::::::::::::::::::::::::::::::
+
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
@@ -259,7 +384,7 @@ let g:neocomplcache_omni_patterns.cpp =
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_omni_patterns.perl =
 \ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-<
+"<
 set completeopt-=preview
 "Q: I want to disable preview window.
 "
