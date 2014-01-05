@@ -5,93 +5,139 @@
 
 """"""""""""""""""""""""""""""""""""""""""
 " NeoBundle {{{1
+" neobundle itself {{{2
 filetype off
 
 if has('vim_starting')
-    set runtimepath+=/home/myhome/.vim/bundle/neobundle.vim
+    set runtimepath+=~.vim/bundle/neobundle.vim
 endif
 call neobundle#rc(expand('~/.vim/bundle'))
 
 
 NeoBundleFetch 'Shougo/neobundle.vim'
-" NeoBundle plugins
-" NeoBundle 'git://github.com/Shougo/neocomplete.vim.git'
-" NeoBundle 'git://github.com/lesguillemets/paint.vim.git'
+" }}}
+"
+" Essentials {{{2
 NeoBundle 'git://github.com/Shougo/neocomplcache.vim.git'
+"NeoBundle 'git://github.com/Shougo/neocomplete.vim.git'
 NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+command! Q QuickRun
+" avoid conflict with Quickhl
 NeoBundle 'git://github.com/vim-scripts/Align.git'
 NeoBundle 'git://github.com/osyo-manga/vim-anzu.git'
-"NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)N
+nmap # <Plug>(anzu-sharp-with-echo)
 NeoBundle 'git://github.com/Yggdroot/indentLine.git'
-NeoBundle 'git://github.com/ujihisa/neco-ghc.git'
-NeoBundle 'wikipedia.vim'
-NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
-NeoBundle 'git://github.com/vim-scripts/haskell.vim'
-NeoBundle 'git://github.com/dag/vim2hs.git'
-NeoBundle 'git://github.com/hynek/vim-python-pep8-indent.git'
+"NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
 " NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git' 
 " Sadly the license is unknown
 " Added my modifications.
 NeoBundle 'git://github.com/lesguillemets/rainbow_parentheses.vim.git'
-NeoBundle 'git://github.com/vim-scripts/Colortest'
-" this plugin seems very good, although I don't need it for now.
-" Thanks jellybeans!
-" NeoBundle 'git://github.com/vim-scripts/CSApprox.git'
-NeoBundle 'git://github.com/vim-scripts/jpythonfold.vim.git'
-NeoBundle 'git://github.com/vim-scripts/CountJump.git'
-" NeoBundle 'git://github.com/vim-scripts/tex.vim--Brauner.git'
-NeoBundle 'git://github.com/vim-scripts/loremipsum.git'
-NeoBundle 'git://github.com/guns/xterm-color-table.vim.git'
+"NeoBundle 'git://github.com/lesguillemets/paint.vim.git'
 NeoBundle 'git://github.com/tpope/vim-characterize.git'
-NeoBundle 'git://github.com/scrooloose/nerdtree.git'
 NeoBundle 'git://github.com/tpope/vim-surround.git'
-NeoBundle 'git://github.com/jtratner/vim-flavored-markdown.git'
-" enable when needed.
-" NeoBundle 'git://github.com/cocopon/colorswatch.vim.git'
-NeoBundle 'git://github.com/deris/columnjump.git'
-nmap <C-k> <Plug>(columnjump-backward)
-nmap <C-j> <Plug>(columnjump-forward)
-NeoBundle 'git://github.com/deris/vim-duzzle.git'
-NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
-"NeoBundle 'git://github.com/lesguillemets/Ox-syntax.vim.git' ", 'dev'
-"NeoBundle 'git://github.com/vim-scripts/swap-parameters.git'
-" NeoBundle 'git://github.com/jlanzarotta/colorSchemeExplorer'
-" Doesn't seem to work
-" NeoBundle 'git://github.com/kshenoy/vim-signature'
-" Not decided yet
-" NeoBundle 'Vim-LaTeX'
-" Cool, but perhaps too shiny
-" NeoBundle 'itchyny/lightline.vim'
-" I didn't like too much informathion
-NeoBundle 'git://github.com/davidhalter/jedi-vim'
-let g:jedi#auto_initialization = 1
-let g:jedi#popup_on_dot = 0
-let g:jedi#show_call_signatures = 0
-autocmd FileType python let b:did_ftplugin = 1
-let g:jedi#auto_vim_configuration=0
-" Not sure
-" NeoBundle 'git://github.com/lukerandall/haskellmode-vim'
-NeoBundle 'git://github.com/jelera/vim-javascript-syntax.git'
-NeoBundle 'git://github.com/pangloss/vim-javascript.git'
-"NeoBundle 'git://github.com/thinca/vim-splash'
-"let g:splash#path="/home/myhome/Documents/vim/vim_intro.txt"
-" from https://gist.github.com/OrgaChem/7630711
-
 NeoBundle 'git://github.com/t9md/vim-quickhl.git'
 nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
 nmap <Space>M <Plug>(quickhl-manual-reset)
 xmap <Space>M <Plug>(quickhl-manual-reset)
+" }}}
+"
+" Language specific plugins {{{2
+NeoBundle 'git://github.com/ujihisa/neco-ghc.git'
+NeoBundle 'git://github.com/smancill/conky-syntax.vim'
+NeoBundle 'wikipedia.vim'
+NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
+NeoBundle 'git://github.com/vim-scripts/haskell.vim'
+NeoBundle 'git://github.com/dag/vim2hs.git'
+NeoBundle 'git://github.com/hynek/vim-python-pep8-indent.git'
+NeoBundle 'git://github.com/vim-scripts/jpythonfold.vim.git'
+NeoBundle 'git://github.com/vim-scripts/Colortest'
+NeoBundle 'git://github.com/jtratner/vim-flavored-markdown.git'
+NeoBundle 'git://github.com/davidhalter/jedi-vim'
+"NeoBundle 'git://github.com/lesguillemets/Ox-syntax.vim.git' ", 'dev'
+" NeoBundle 'git://github.com/vim-scripts/tex.vim--Brauner.git'
+" NeoBundle 'Vim-LaTeX' " not decided yet
+" Not sure
+" NeoBundle 'git://github.com/lukerandall/haskellmode-vim'
+NeoBundle 'git://github.com/jelera/vim-javascript-syntax.git'
+NeoBundle 'git://github.com/pangloss/vim-javascript.git'
+let g:jedi#auto_initialization = 1
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = 0
+autocmd FileType python let b:did_ftplugin = 1
+let g:jedi#auto_vim_configuration=0
+let g:jedi#rename_command = ""
+" prepare for neocomplete {{{3
+"did not work " from http://kazy.hatenablog.com/entry/2013/07/18/131118
+"did not work autocmd FileType python setlocal omnifunc=jedi#completions
+"did not work 
+"did not work let g:jedi#auto_vim_configuration = 0
+"did not work 
+"did not work if !exists('g:neocomplete#force_omni_input_patterns')
+"did not work         let g:neocomplete#force_omni_input_patterns = {}
+"did not work endif
+"did not work let g:neocomplete#force_omni_input_patterns.python =
+"did not work 	\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+"}}}
+" }}}
+
+" Benri {{{2
+NeoBundle 'git://github.com/vim-scripts/CountJump.git'
+NeoBundle 'git://github.com/vim-scripts/loremipsum.git'
+NeoBundle 'git://github.com/scrooloose/nerdtree.git'
+let NERDTreeShowHidden=1
+let g:indentLine_showFirstIndentLevel=1
+let g:indentLine_first_char = "┆"
+NeoBundle 'git://github.com/deris/columnjump.git'
+nmap <C-k> <Plug>(columnjump-backward)
+nmap <C-j> <Plug>(columnjump-forward)
+NeoBundle 'git://github.com/itchyny/thumbnail.vim.git'
+"}}}
+
+" Appearance {{{2
+" this plugin seems very good, although I don't need it for now.
+" Thanks jellybeans!
+" NeoBundle 'git://github.com/vim-scripts/CSApprox.git'
+NeoBundle 'git://github.com/guns/xterm-color-table.vim.git'
+" enable when needed.
+" NeoBundle 'git://github.com/cocopon/colorswatch.vim.git'
+NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
+" NeoBundle 'git://github.com/jlanzarotta/colorSchemeExplorer'
+" Doesn't seem to work
+" Cool, but perhaps too shiny
+" NeoBundle 'itchyny/lightline.vim'
+" I didn't like too much informathion
+"NeoBundle 'git://github.com/thinca/vim-splash'
+"let g:splash#path="~/Documents/vim/vim_intro.txt"
+" from https://gist.github.com/OrgaChem/7630711
+" }}}
+
+" Trial {{{2
+" NeoBundle 'git://github.com/vim-scripts/swap-parameters.git'
+" NeoBundle 'git://github.com/kshenoy/vim-signature'
 NeoBundle 'git://github.com/tyru/caw.vim.git'
 nmap <Leader>c <Plug>(caw:I:toggle)
 vmap <Leader>c <Plug>(caw:I:toggle)
 " }}}
 
-"NerdTree
-let NERDTreeShowHidden=1
+" leisure{{{2
+NeoBundle 'git://github.com/deris/vim-duzzle.git'
+" }}}
 
-let g:indentLine_showFirstIndentLevel=1
-let g:indentLine_first_char = "¿"
+"new colorschemes {{{2
+NeoBundle 'ataraxer/sapphire256.vim'
+NeoBundle 'sk1418/last256'
+NeoBundle 'john2x/flatui.vim'
+NeoBundle 'thomd/vim-wasabi-colorscheme'
+NeoBundle 'csexton/spacemanspiff.vim'
+NeoBundle 'atelierbram/vim-colors_atelier-schemes'
+NeoBundle 'cocopon/iceberg.vim'
+"}}}
+" }}}
+
 
 """"""""""""""""""""""""""""""""""""""""""
 " general settings
@@ -151,10 +197,10 @@ nnoremap ,cd :lcd %:p:h <CR>
 nmap <Leader>p p`[v`]=
 nmap <Leader>P P`[v`]=
 
-nnoremap ¿ :echo "You're using Georgian keyboard!"<CR>
-nnoremap ¿ :echo "You're using Georgian keyboard!"<CR>
+nnoremap ჯ :echoerr "You're using Georgian keyboard!"<CR>
+nnoremap კ :echoerr "You're using Georgian keyboard!"<CR>
 
-" Rainbow Parentheses
+" Rainbow Parentheses {{{
 " au VimEnter * RainbowParenthesesActivate
 " au Syntax * RainbowParenthesesLoadBraces
 " au Syntax * RainbowParenthesesLoadSquare
@@ -175,6 +221,7 @@ augroup TastetheRainbow
     autocmd Syntax * call Config_Rainbow()
     autocmd VimEnter,BufRead,BufWinEnter,BufNewFile * call Load_Rainbow()
 augroup END
+" }}}
 
 
 " resize the devisions if the Vim window size changes
@@ -188,8 +235,7 @@ augroup END
 autocmd BufWinEnter ?* silent loadview
 
 
-" foldtext
-" from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext
+" foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
 function! NeatFoldText() 
   let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
   let lines_count = v:foldend - v:foldstart + 1
@@ -201,6 +247,7 @@ function! NeatFoldText()
   return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
 endfunction
 set foldtext=NeatFoldText()
+" }}}
 
 " <C-v> and voila!
 set virtualedit+=block
@@ -241,11 +288,6 @@ set cursorcolumn
 colorscheme jellybeans2
 "hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE " for 256 colors
 
-"anzu.vim
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)N
-nmap # <Plug>(anzu-sharp-with-echo)
 
 hi StatusLine term=NONE ctermbg=black ctermfg=darkgreen
 set statusline=%f\ %m\ %y\ %<[%{getcwd()}]\ %=[%4l/%4L]\ [%3c]%5P 
@@ -254,17 +296,19 @@ set guifont=Ubuntumono\ 12
 "set guifont=monofur\ 12
 
 "_______________________________________________
-"language specific modifications
-"    python
+"language specific modifications {{{1
+
+" python {{{2
 autocmd Filetype python setlocal expandtab
 " autocmd Filetype python IndentGuidesEnable
 function JJPythonFold()
 	source ~/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
 endfunction
 command PyFold call JJPythonFold()
-"
-"
-"   haskell
+" }}}
+
+
+"haskell {{{2
 autocmd Filetype haskell setlocal expandtab
 autocmd Filetype haskell setlocal softtabstop=4
 autocmd Filetype haskell setlocal shiftwidth=4
@@ -273,61 +317,72 @@ autocmd Filetype haskell setlocal shiftround
 autocmd Filetype haskell setlocal nojoinspaces
 autocmd Filetype haskell setlocal nofoldenable  "disable folding
 " autocmd Filetype haskell IndentGuidesEnable
+" }}}
 
-"    ruby
+" ruby {{{2
 autocmd Filetype ruby setlocal shiftwidth=2
 autocmd Filetype ruby setlocal softtabstop=2
 autocmd Filetype ruby setlocal tabstop=2
 autocmd Filetype ruby setlocal expandtab
 " autocmd Filetype ruby IndentGuidesEnable
-"autocmd Filetype ruby source /home/myhome/.vim/ftplugin/ruby-matchit.vim
-"autocmd Filetype ruby source /home/myhome/.vim/ftplugin/ruby.vim
+"autocmd Filetype ruby source ~/.vim/ftplugin/ruby-matchit.vim
+"autocmd Filetype ruby source ~/.vim/ftplugin/ruby.vim
+" }}}
 
-"    HTML
+" HTML {{{2
 autocmd Filetype html imap <C-b> <br />
 autocmd Filetype html set mps+=<:>
+" }}}
 
-"    markdown
+" markdown {{{2
 autocmd FileType markdown setlocal expandtab
 autocmd FileType markdown setlocal shiftwidth=2
 autocmd Filetype markdown setlocal softtabstop=2
 autocmd Filetype markdown setlocal tabstop=2
+"}}}
 
-" vim
+" vim {{{2
 autocmd Filetype vim setlocal foldmethod=marker
+" }}}
 
-"    mediawiki
+" mediawiki {{{2
 autocmd FileType mediawiki nnoremap <buffer> j gj
 autocmd FileType mediawiki nnoremap <buffer> k gk
+" }}}
 
-"    TeX
+" TeX {{{2
 "autocmd FileType tex,plaintex,latex source ~/.vim/ftplugin/tex.vim
 "autocmd FileType tex,plaintex,latex map <buffer> <silent> ]s :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 "autocmd FileType tex,plaintex,latex map <buffer> [s :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 autocmd FileType tex,plaintex,latex nnoremap j gj
 autocmd FileType tex,plaintex,latex nnoremap k gk
 autocmd FileType tex,plaintex,latex setlocal conceallevel=0
+" }}}
 
-"    common lisp
+" common lisp {{{2
 autocmd FileType lisp setlocal expandtab
+"}}}
 
-" quickrun output
+" quickrun output {{{2
 autocmd Filetype quickrun noremap <buffer> j gj
 autocmd Filetype quickrun noremap <buffer> k gk
+"}}}
 
+" }}}
 
-"gvim
+" gvim {{{1
 set guioptions-=T
 set guioptions-=m
 set guioptions-=r
 set guioptions-=l
 set guioptions-=b
+"}}}
 
-" user functions
+" user functions {{{1
 "
 "
+" :SyntaxInfo to display the syntax info. {{{2
 "from http://cohama.hateblo.jp/entry/2013/08/11/020849,
-" :SyntaxInfo to display the syntax info.
 "_______________________________________________
 function! s:get_syn_id(transparent)
   let synid = synID(line("."), col("."), 1)
@@ -367,15 +422,17 @@ function! s:get_syn_info()
 endfunction
 command! SyntaxInfo call s:get_syn_info()
 "_______________________________________________
+" }}}
 
-" Quickrun
+" }}}
+
+" Additional settings for Quickrun {{{1
 let g:quickrun_config = {}
 let g:quickrun_config.ox = {'command' : 'oxl'}
+" }}}
 
 
 "_______________________________________________
-
-
 ":::::::::::::::::::::::::::::::::::::
 " " NeoComplcache {{{1
 " ::::::::::::::::::::::::::::::::::::
@@ -479,4 +536,3 @@ set completeopt-=preview
 ">
 "	set completeopt-=preview
 "}}}
-
