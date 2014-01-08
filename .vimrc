@@ -1,3 +1,4 @@
+
 " set nocompatible
 " disabled, as it is not just unnnecessary
 " but it sets history 20.
@@ -9,7 +10,7 @@
 filetype off
 
 if has('vim_starting')
-    set runtimepath+=~.vim/bundle/neobundle.vim
+    set runtimepath+=/.vim/bundle/neobundle.vim
 endif
 call neobundle#rc(expand('~/.vim/bundle'))
 
@@ -31,6 +32,9 @@ nmap * <Plug>(anzu-star-with-echo)N
 nmap # <Plug>(anzu-sharp-with-echo)
 NeoBundle 'git://github.com/Yggdroot/indentLine.git'
 "NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
+let g:indent_guides_guide_size=1
+" autocmd Filetype * IndentGuidesDisable  " disabled for normal files
+"
 " NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git' 
 " Sadly the license is unknown
 " Added my modifications.
@@ -73,9 +77,7 @@ let g:jedi#rename_command = ""
 " prepare for neocomplete {{{3
 "did not work " from http://kazy.hatenablog.com/entry/2013/07/18/131118
 "did not work autocmd FileType python setlocal omnifunc=jedi#completions
-"did not work 
 "did not work let g:jedi#auto_vim_configuration = 0
-"did not work 
 "did not work if !exists('g:neocomplete#force_omni_input_patterns')
 "did not work         let g:neocomplete#force_omni_input_patterns = {}
 "did not work endif
@@ -108,10 +110,10 @@ NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
 " NeoBundle 'git://github.com/jlanzarotta/colorSchemeExplorer'
 " Doesn't seem to work
 " Cool, but perhaps too shiny
-" NeoBundle 'itchyny/lightline.vim'
+"NeoBundle 'itchyny/lightline.vim'
 " I didn't like too much informathion
 "NeoBundle 'git://github.com/thinca/vim-splash'
-"let g:splash#path="~/Documents/vim/vim_intro.txt"
+"let g:splash#path="/Documents/vim/vim_intro.txt"
 " from https://gist.github.com/OrgaChem/7630711
 " }}}
 
@@ -121,6 +123,9 @@ NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
 NeoBundle 'git://github.com/tyru/caw.vim.git'
 nmap <Leader>c <Plug>(caw:I:toggle)
 vmap <Leader>c <Plug>(caw:I:toggle)
+
+NeoBundle 'lyokha/vim-publish-helper'
+
 " }}}
 
 " leisure{{{2
@@ -264,11 +269,7 @@ set mouse=c
 set tabstop=4		"the width of a TAB is set to 4.
 					"still it is a \t.
 set shiftwidth=4	"indents will have a width of 4.
-set backspace=
 
-" vim-indent-guides (https://github.com/nathanaelkane/vim-indent-guides/)
-let g:indent_guides_guide_size=1
-" autocmd Filetype * IndentGuidesDisable  " disabled for normal files
 
 
 " moving assistance in insert mode (thanks: http://gg-hogehoge.hatenablog.com/entry/2013/07/26/212223)
@@ -292,14 +293,17 @@ colorscheme jellybeans2
 hi StatusLine term=NONE ctermbg=black ctermfg=darkgreen
 set statusline=%f\ %m\ %y\ %<[%{getcwd()}]\ %=[%4l/%4L]\ [%3c]%5P 
 "set statusline=%<%f%m\ %{getcwd()}\ %=\ %l\/%L\,%=\ %c%V\ \(%P\)
-set guifont=Ubuntumono\ 12
-"set guifont=monofur\ 12
 
 "_______________________________________________
 "language specific modifications {{{1
 
+augroup myftsettings
+	autocmd!
+
 " python {{{2
 autocmd Filetype python setlocal expandtab
+autocmd Filetype python setlocal softtabstop=4
+autocmd Filetype python setlocal shiftwidth=4
 " autocmd Filetype python IndentGuidesEnable
 function JJPythonFold()
 	source ~/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
@@ -325,8 +329,8 @@ autocmd Filetype ruby setlocal softtabstop=2
 autocmd Filetype ruby setlocal tabstop=2
 autocmd Filetype ruby setlocal expandtab
 " autocmd Filetype ruby IndentGuidesEnable
-"autocmd Filetype ruby source ~/.vim/ftplugin/ruby-matchit.vim
-"autocmd Filetype ruby source ~/.vim/ftplugin/ruby.vim
+"autocmd Filetype ruby source /.vim/ftplugin/ruby-matchit.vim
+"autocmd Filetype ruby source /.vim/ftplugin/ruby.vim
 " }}}
 
 " HTML {{{2
@@ -368,6 +372,7 @@ autocmd Filetype quickrun noremap <buffer> j gj
 autocmd Filetype quickrun noremap <buffer> k gk
 "}}}
 
+augroup END
 " }}}
 
 " gvim {{{1
@@ -376,6 +381,8 @@ set guioptions-=m
 set guioptions-=r
 set guioptions-=l
 set guioptions-=b
+set guifont=Ubuntumono\ 12
+"set guifont=monofur\ 12
 "}}}
 
 " user functions {{{1
