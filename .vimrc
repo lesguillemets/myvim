@@ -396,6 +396,7 @@ nnoremap <C-right> <C-w>l
 autocmd BufWinEnter ?* silent loadview
 
 " appearance {{{
+" see http://lingr.com/room/vim/archives/2014/03/29#message-18683313 ?
 set cursorline
 set cursorcolumn
 "hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE
@@ -403,16 +404,22 @@ set cursorcolumn
 " setting the following here works for 256 term
 "autocmd ColorScheme * highlight Normal ctermbg=None
 "autocmd ColorScheme * highlight NonText ctermbg=None
+augroup myappearance
+	autocmd!
+	autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
+	autocmd ColorScheme * hi ZenkakuSpace ctermbg=white guibg=white
+augroup END
+
 colorscheme jellybeans2
 hi Visual term=reverse ctermbg=30
 "hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE " for 256 colors
 
-" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
-match ExtraWhiteSpace /\S\+.*\S\zs\s\+$/
 " http://vimwiki.net/?faq%2F4
-hi ZenkakuSpace ctermbg=white guibg=white
 match ZenkakuSpace /　/
+
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+match ExtraWhiteSpace /\(\S\+\)\@<=\s\+$/
+" without syn, only the latter works. with it ,nothing works.
 
 hi StatusLine term=NONE ctermbg=black ctermfg=green
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%4l/%4L]\ C[%3c]%5P
@@ -651,16 +658,6 @@ autocmd Filetype w3m IndentLinesToggle
 
 augroup END
 " }}}
-
-" gvim {{{1
-set guioptions-=T
-set guioptions-=m
-set guioptions-=r
-set guioptions-=l
-set guioptions-=b
-set guifont=Ubuntumono\ 12
-"set guifont=monofur\ 12
-"}}}
 
 " user functions {{{1
 "
