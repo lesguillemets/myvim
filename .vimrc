@@ -43,13 +43,14 @@ let g:indentLine_char = '❭'
 let g:indent_guides_guide_size=1
 " autocmd Filetype * IndentGuidesDisable  " disabled for normal files
 "
-"NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git' 
+NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git' 
 " Sadly the license is unknown
 " Added my modifications.
-NeoBundle 'git://github.com/lesguillemets/rainbow_parentheses.vim.git'
+"NeoBundle 'git://github.com/lesguillemets/rainbow_parentheses.vim.git'
 "NeoBundle 'git://github.com/lesguillemets/paint.vim.git'
 NeoBundle 'git://github.com/tpope/vim-characterize.git'
 NeoBundle 'git://github.com/tpope/vim-surround.git'
+NeoBundle 'tpope/vim-repeat'
 NeoBundle 'git://github.com/t9md/vim-quickhl.git'
 nmap <Space>m <Plug>(quickhl-manual-this)
 xmap <Space>m <Plug>(quickhl-manual-this)
@@ -63,7 +64,12 @@ xmap <Space>M <Plug>(quickhl-manual-reset)
 NeoBundle 'git://github.com/ujihisa/neco-ghc.git'
 NeoBundle 'git://github.com/vim-scripts/haskell.vim'
 NeoBundle 'git://github.com/dag/vim2hs.git'
+" disable concealing of "enumerations": commatized lists like
+" " deriving clauses and LANGUAGE pragmas,
+" " otherwise collapsed into a single ellipsis
+let g:haskell_conceal_enumerations=0
 "NeoBundle 'kana/vim-filetype-haskell'
+NeoBundle 'eagletmt/ghcmod-vim'
 " Not sure
 " NeoBundle 'git://github.com/lukerandall/haskellmode-vim'
 " }}}
@@ -78,6 +84,7 @@ let g:jedi#show_call_signatures = 0
 autocmd FileType python let b:did_ftplugin = 1
 let g:jedi#auto_vim_configuration=0
 let g:jedi#rename_command = ""
+NeoBundle 'mkomitee/vim-gf-python'
 " }}}
 
 " ruby {{{
@@ -91,6 +98,11 @@ NeoBundle 'st.vim'
 " html {{{
 NeoBundle 'othree/html5.vim'
 NeoBundle 'mattn/emmet-vim'
+" }}}
+
+" css {{{
+NeoBundle 'JulesWang/css.vim'
+NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 " }}}
 
 " javascript {{{
@@ -117,6 +129,10 @@ NeoBundle 'git://github.com/smancill/conky-syntax.vim'
 
 " processing {{{
 NeoBundle 'sophacles/vim-processing'
+" }}}
+
+" actionscript {{{
+NeoBundle 'jeroenbourgois/vim-actionscript'
 " }}}
 
 " others
@@ -149,7 +165,7 @@ NeoBundle 'git://github.com/itchyny/thumbnail.vim.git'
 " Appearance {{{2
 " this plugin seems very good, although I don't need it for now.
 " Thanks jellybeans!
-NeoBundle 'git://github.com/vim-scripts/CSApprox.git'
+"NeoBundle 'git://github.com/vim-scripts/CSApprox.git'
 NeoBundle 'git://github.com/guns/xterm-color-table.vim.git'
 " enable when needed.
 " NeoBundle 'git://github.com/cocopon/colorswatch.vim.git'
@@ -162,6 +178,8 @@ NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
 "NeoBundle 'git://github.com/thinca/vim-splash'
 "let g:splash#path="/Documents/vim/vim_intro.txt"
 " from https://gist.github.com/OrgaChem/7630711
+
+"NeoBundle 'ntpeters/vim-better-whitespace'
 " }}}
 
 " Trial {{{2
@@ -180,10 +198,34 @@ NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'sjl/gundo.vim'
 nnoremap <silent> <Space>u :GundoToggle<CR>
 
+NeoBundle 'mattn/benchvimrc-vim'
+NeoBundle 'lilydjwg/colorizer'
+"NeoBundle 'kana/vim-smartinput'
+
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'ujihisa/ref-hoogle'
+
+NeoBundle 'michaeljsmith/vim-indent-object'
+
+NeoBundle 'osyo-manga/vim-hideout'
+
+"NeoBundle 'yuratomo/w3m.vim'
+"seems nice, but uses up CPU?
 " }}}
 
 " leisure{{{2
 NeoBundle 'git://github.com/deris/vim-duzzle.git'
+NeoBundle 'thinca/vim-threes'
+"NeoBundle 'osyo-manga/vim-sound' => load in typewriter section.
+" I think we should use neobundlelazy.
+NeoBundle 'Shougo/vimproc', {
+      \ 'build' : {
+      \     'windows' : 'make -f make_mingw32.mak',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 " }}}
 
 "new colorschemes {{{2
@@ -200,13 +242,39 @@ NeoBundle 'hail2u/h2u_colorscheme'
 NeoBundle 'pocke/funyapoyo.vim'
 NeoBundle 'MaxSt/FlatColor'
 NeoBundle 'vaibhav276/lego-vim-colorscheme'
+NeoBundle 'dbb/vim-gummybears-colorscheme'
+NeoBundle 'Wise/darkburn.vim'
+NeoBundle 'chmllr/elrodeo-colorscheme'
+NeoBundle 'arnau/teaspoon.vim'
+NeoBundle 'svjunic/RadicalGoodSpeed.vim'
+NeoBundle 'mlp.vim'
+NeoBundle 'bluecloud'
+NeoBundle 'candy.vim'
+NeoBundle 'morhetz/gruvbox'
+NeoBundle 'peaksea'
+NeoBundle 'tylerball/vim-hypertint'
+NeoBundle 'miyakogi/slateblue.vim'
+NeoBundle 'bronzehedwick/impactjs-colorscheme'
+NeoBundle 'JNRowe/vim-jnrowe'
+NeoBundle 'beardedprojamz/vim-colors-blayden'
+NeoBundle 'ercolanelli-leo/candyVirus'
+"NeoBundle 'movax4c00h/cthulhu'
+NeoBundle 'vim-scripts/khaki.vim'
+NeoBundle 'vim-scripts/tabula.vim'
+"NeoBundle 'vim-scripts/darkrobot.vim'
+NeoBundle 'vim-scripts/leo256'
+NeoBundle 'ftzeng/futora'
+NeoBundle 'octol/vombatidae-vim'
+NeoBundle 'romainl/Apprentice'
+NeoBundle 'xenomachina/vim-holodark'
 "}}}
 " }}}
 
 
 """"""""""""""""""""""""""""""""""""""""""
-" general settings
+" general settings {{{
 
+let g:typewritersound = 0
 syntax on
 filetype plugin on
 filetype indent on
@@ -239,6 +307,7 @@ set laststatus=2
 " make unvisible chars visible.
 set list
 set listchars=tab:>-
+set conceallevel=1
 " supermomonga
 "set listchars=tab:\ ,trail:˼,extends:»,precedes:«,nbsp:%
 
@@ -255,7 +324,29 @@ set foldmethod=manual
 " set foldcolumn=5
 " set foldenable
 
+" modeline
+set modeline
+
 map Y y$
+" let macros go faster (dsummersl/dotvim/_vimrc)
+set lazyredraw
+
+" <C-v> and voila!
+set virtualedit+=block
+
+" adds < >  as matchpairs in % moving.
+" on second thought, no.
+"set matchpairs+=<:>
+
+"disable mouse
+set mouse=c
+
+" tab modifications
+set tabstop=4		"the width of a TAB is set to 4.
+					"still it is a \t.
+set shiftwidth=4	"indents will have a width of 4.
+
+" }}}
 
 " maps without plugin {{{
 "
@@ -273,6 +364,73 @@ nmap <Leader>P P`[v`]=
 nnoremap ჯ :echoerr "You're using Georgian keyboard!"<CR>
 nnoremap კ :echoerr "You're using Georgian keyboard!"<CR>
 
+" let vim ignore mousewheel
+" cf. http://vim.1045645.n5.nabble.com/disable-the-mouse-wheel-td1166386.html
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+" I don't know, but do real vimmers need this?
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+
+" better moving?
+nnoremap <C-Down> <C-w>j
+nnoremap <C-Up> <C-w>k
+nnoremap <C-Left> <C-w>h
+nnoremap <C-right> <C-w>l
+
+" moving assistance in insert mode (thanks: http://gg-hogehoge.hatenablog.com/entry/2013/07/26/212223)
+"inoremap <C-h> <Left>
+"inoremap <C-l> <Right>
+"inoremap <C-k> <Up>
+"inoremap <C-j> <Down>
+
+" }}}
+
+" resize the devisions if the Vim window size changes
+" ( from: https://github.com/joedicastro/dotfiles/blob/master/vim/vimrc)
+" au VimResized * exe "normal! \<c-w>="
+
+" preserves folding
+" autocmd BufLeave,BufWinLeave ?* call cursor (1,1) " reset cursor position
+" autocmd BufWritePost,BufLeave,BufWinLeave ?* mkview
+autocmd BufWinEnter ?* silent loadview
+
+" appearance {{{
+set cursorline
+set cursorcolumn
+"hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE
+"colorscheme strawimodo_termvim
+" setting the following here works for 256 term
+"autocmd ColorScheme * highlight Normal ctermbg=None
+"autocmd ColorScheme * highlight NonText ctermbg=None
+colorscheme jellybeans2
+hi Visual term=reverse ctermbg=30
+"hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE " for 256 colors
+
+" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
+match ExtraWhiteSpace /\S\+.*\S\zs\s\+$/
+" http://vimwiki.net/?faq%2F4
+hi ZenkakuSpace ctermbg=white guibg=white
+match ZenkakuSpace /　/
+
+hi StatusLine term=NONE ctermbg=black ctermfg=green
+set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%4l/%4L]\ C[%3c]%5P
+" added [%n] and L,C
+"set statusline=%<%f%m\ %{getcwd()}\ %=\ %l\/%L\,%=\ %c%V\ \(%P\)
+
+" foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
+function! NeatFoldText() 
+  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+  let lines_count = v:foldend - v:foldstart + 1
+  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+  let foldchar = matchstr(&fillchars, 'fold:\zs.')
+  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+  let foldtextend = lines_count_text . repeat(foldchar, 8)
+  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+set foldtext=NeatFoldText()
 " }}}
 
 " Rainbow Parentheses {{{
@@ -296,75 +454,55 @@ augroup TastetheRainbow
     autocmd Syntax * call Config_Rainbow()
     autocmd VimEnter,BufRead,BufWinEnter,BufNewFile * call Load_Rainbow()
 augroup END
+let g:rbpt_colorpairs = [
+	\ ['240',   'LightGray'],
+	\ ['247',   'gray'],
+	\ ['255',   'LightGray'],
+	\ ['240',   'white'],
+	\ ['247',   'LightGray'],
+	\ ['255',   'gray'],
+	\ ['240',   'LightGray'],
+	\ ['247',   'white'],
+	\ ['255',   'LightGray'],
+	\ ['240',   'gray'],
+	\ ['247',   'LightGray'],
+	\ ['255',   'white'],
+	\ ['247',   'LightGray'],
+	\ ['240',   'gray'],
+	\ ['247',   'LightGray'],
+	\ ['None',  'white'],
+\ ]
+" }}}
 " }}}
 
+" Typewriter {{{
 
-" resize the devisions if the Vim window size changes
-" ( from: https://github.com/joedicastro/dotfiles/blob/master/vim/vimrc)
-" au VimResized * exe "normal! \<c-w>="
-
-
-" preserves folding 
-" autocmd BufLeave,BufWinLeave ?* call cursor (1,1) " reset cursor position
-" autocmd BufWritePost,BufLeave,BufWinLeave ?* mkview
-autocmd BufWinEnter ?* silent loadview
-
-
-" foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
-function! NeatFoldText() 
-  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-  let lines_count = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-  let foldchar = matchstr(&fillchars, 'fold:\zs.')
-  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-  let foldtextend = lines_count_text . repeat(foldchar, 8)
-  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-endfunction
-set foldtext=NeatFoldText()
-" }}}
-
-" <C-v> and voila!
-" set virtualedit+=block
-
-" adds < >  as matchpairs in % moving.
-" on second thought, no. 
-"set matchpairs+=<:>
-
-"disable mouse
-set mouse=c
-
-" tab modifications
-set tabstop=4		"the width of a TAB is set to 4.
-					"still it is a \t.
-set shiftwidth=4	"indents will have a width of 4.
-
-
-
-" moving assistance in insert mode (thanks: http://gg-hogehoge.hatenablog.com/entry/2013/07/26/212223)
-"inoremap <C-h> <Left>
-"inoremap <C-l> <Right>
-"inoremap <C-k> <Up>
-"inoremap <C-j> <Down>
-
-
-" appearance {{{
-set cursorline
-set cursorcolumn
-"hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE
-"colorscheme strawimodo_termvim
-" setting the following here works for 256 term
-"autocmd ColorScheme * highlight Normal ctermbg=None
-"autocmd ColorScheme * highlight NonText ctermbg=None
-colorscheme jellybeans2
-hi Visual term=reverse ctermbg=30
-"hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE " for 256 colors
-
-
-hi StatusLine term=NONE ctermbg=black ctermfg=green
-set statusline=[%n]\ %f\ %m\ %y\ %<[%{getcwd()}]\ %=L[%4l/%4L]\ C[%3c]%5P 
-" added [%n] and L,C
-"set statusline=%<%f%m\ %{getcwd()}\ %=\ %l\/%L\,%=\ %c%V\ \(%P\)
+if !exists("g:typewritersound")
+	let g:typewritersound = 0
+endif
+if g:typewritersound
+	NeoBundle 'osyo-manga/vim-sound'
+	let s:se_path = "~/Music/typewriter/"
+	let s:se_ext = ".wav"
+	function! s:change_sound_name(base_name)
+		return expand(s:se_path . a:base_name . s:se_ext)
+	endfunction
+	
+	function! PlaySE(name)
+		call sound#play_wav(s:change_sound_name(a:name))
+	endfunction
+	autocmd CompleteDone * call PlaySE("spacebarpress")
+	autocmd BufEnter * call PlaySE("Clamp")
+	autocmd InsertCharPre * call PlaySE("key1pressrelease")
+	autocmd BufWrite * call PlaySE("Ding")
+	autocmd InsertEnter * call PlaySE("Ding")
+	autocmd InsertLeave * call PlaySE("Ding")
+	autocmd TabEnter * call PlaySE("newline1")
+	nnoremap <silent> j j:<C-u>call PlaySE("arrowkeypressrelease")<CR>
+	nnoremap <silent> k k:<C-u>call PlaySE("arrowkeypressrelease")<CR>
+	nnoremap <silent> l l:<C-u>call PlaySE("arrowkeypressrelease")<CR>
+	nnoremap <silent> h h:<C-u>call PlaySE("arrowkeypressrelease")<CR>
+endif
 " }}}
 
 "______________________________________________
@@ -378,10 +516,10 @@ autocmd Filetype python setlocal expandtab
 autocmd Filetype python setlocal softtabstop=4
 autocmd Filetype python setlocal shiftwidth=4
 " autocmd Filetype python IndentGuidesEnable
-function JJPythonFold()
+function! JJPythonFold()
 	source $HOME/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
 endfunction
-command PyFold call JJPythonFold()
+command! PyFold call JJPythonFold()
 " }}}
 
 "haskell {{{2
@@ -392,6 +530,10 @@ autocmd Filetype haskell setlocal smarttab
 autocmd Filetype haskell setlocal shiftround
 autocmd Filetype haskell setlocal nojoinspaces
 autocmd Filetype haskell setlocal nofoldenable  "disable folding
+"autocmd Filetype haskell setlocal conceallevel=0  " no lambda as lambda.
+autocmd Filetype haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
+autocmd Filetype haskell nnoremap <buffer><slient> <Space>T :<C-u>GhcModType<CR>:nohlsearch<CR>
+autocmd Filetype haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
 " autocmd Filetype haskell IndentGuidesEnable
 " }}}
 
@@ -405,6 +547,26 @@ autocmd Filetype ruby setlocal expandtab
 "autocmd Filetype ruby source /.vim/ftplugin/ruby.vim
 " }}}
 
+" C {{{2
+autocmd Filetype c setlocal expandtab
+autocmd Filetype c setlocal shiftwidth=2
+autocmd Filetype c setlocal softtabstop=2
+autocmd Filetype c setlocal tabstop=2
+" }}}
+
+" C++ {{{2
+autocmd Filetype cpp setlocal expandtab
+autocmd Filetype cpp setlocal shiftwidth=2
+autocmd Filetype cpp setlocal softtabstop=2
+autocmd Filetype cpp setlocal tabstop=2
+" }}}
+
+" java {{{2
+autocmd Filetype java setlocal expandtab
+autocmd Filetype java setlocal softtabstop=4
+autocmd Filetype java setlocal shiftwidth=4
+"}}}
+
 " HTML {{{2
 autocmd Filetype html setlocal shiftwidth=2
 autocmd Filetype html setlocal softtabstop=2
@@ -413,6 +575,10 @@ autocmd Filetype html setlocal expandtab
 autocmd Filetype html inoremap <buffer> <C-b> <br />
 autocmd Filetype html setlocal mps+=<:>
 autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+autocmd Filetype html nnoremap j gj
+autocmd Filetype html nnoremap k gk
+autocmd Filetype html nnoremap gj j
+autocmd Filetype html nnoremap gk k
 " }}}
 
 " XHTML {{{2
@@ -441,6 +607,10 @@ autocmd FileType markdown setlocal expandtab
 autocmd FileType markdown setlocal shiftwidth=2
 autocmd Filetype markdown setlocal softtabstop=2
 autocmd Filetype markdown setlocal tabstop=2
+autocmd Filetype markdown nnoremap j gj
+autocmd Filetype markdown nnoremap k gk
+autocmd Filetype markdown nnoremap gj j
+autocmd Filetype markdown nnoremap gk k
 "}}}
 
 " vim {{{2
@@ -450,8 +620,9 @@ autocmd Filetype vim setlocal foldmethod=marker
 " mediawiki {{{2
 autocmd FileType mediawiki nnoremap <buffer> j gj
 autocmd FileType mediawiki nnoremap <buffer> k gk
-autocmd FileType mediawiki setlocal synmaxcol=300
-autocmd Filetype mediawiki QuotableEducateOn
+autocmd Filetype mediawiki inoremap <buffer> </ </<C-x><C-o>
+autocmd FileType mediawiki setlocal synmaxcol=-1
+"autocmd Filetype mediawiki QuotableEducateOn
 " }}}
 
 " TeX {{{2
@@ -470,6 +641,12 @@ autocmd FileType lisp setlocal expandtab
 " quickrun output {{{2
 autocmd Filetype quickrun noremap <buffer> j gj
 autocmd Filetype quickrun noremap <buffer> k gk
+"}}}
+
+" w3m {{{2
+autocmd Filetype w3m noremap <buffer> j gj
+autocmd Filetype w3m noremap <buffer> k gk
+autocmd Filetype w3m IndentLinesToggle
 "}}}
 
 augroup END
@@ -541,7 +718,7 @@ let g:quickrun_config.st = {'command' : 'gst'}
 let g:quickrun_config.processing = {
 			\	'command': 'processing-java',
 			\	'cmdopt': '--run --force',
-			\	'exec': '%c --sketch=%s:%h --output=~/Documents/Processing/ %o',
+			\	'exec': '%c --sketch=%s:%h --output=~/Documents/Processing/%o',
 			\	'outputter' : 'error:buffer:quickfix',
 			\}
 " }}}
