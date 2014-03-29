@@ -393,7 +393,7 @@ nnoremap <C-right> <C-w>l
 " preserves folding
 " autocmd BufLeave,BufWinLeave ?* call cursor (1,1) " reset cursor position
 " autocmd BufWritePost,BufLeave,BufWinLeave ?* mkview
-autocmd BufWinEnter ?* silent loadview
+"autocmd BufWinEnter ?* silent loadview
 
 " appearance {{{
 " see http://lingr.com/room/vim/archives/2014/03/29#message-18683313 ?
