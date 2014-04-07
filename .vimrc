@@ -72,6 +72,8 @@ let g:haskell_conceal_enumerations=0
 NeoBundle 'eagletmt/ghcmod-vim'
 " Not sure
 " NeoBundle 'git://github.com/lukerandall/haskellmode-vim'
+NeoBundle 'ujihisa/ref-hoogle'
+" together with vim-ref
 " }}}
 
 " python {{{
@@ -84,7 +86,11 @@ let g:jedi#show_call_signatures = 0
 autocmd FileType python let b:did_ftplugin = 1
 let g:jedi#auto_vim_configuration=0
 let g:jedi#rename_command = ""
+let g:jedi#documentation_command = ""
+" <K> conflicts with vim-ref.
 NeoBundle 'mkomitee/vim-gf-python'
+NeoBundle 'tmhedberg/SimpylFold'
+
 " }}}
 
 " ruby {{{
@@ -179,6 +185,7 @@ NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
 "let g:splash#path="/Documents/vim/vim_intro.txt"
 " from https://gist.github.com/OrgaChem/7630711
 
+NeoBundle 'lilydjwg/colorizer'
 "NeoBundle 'ntpeters/vim-better-whitespace'
 " }}}
 
@@ -199,16 +206,16 @@ NeoBundle 'sjl/gundo.vim'
 nnoremap <silent> <Space>u :GundoToggle<CR>
 
 NeoBundle 'mattn/benchvimrc-vim'
-NeoBundle 'lilydjwg/colorizer'
 "NeoBundle 'kana/vim-smartinput'
 
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'ujihisa/ref-hoogle'
 
 NeoBundle 'michaeljsmith/vim-indent-object'
 
 NeoBundle 'osyo-manga/vim-hideout'
 
+"NeoBundle 'osyo-manga/shabadou.vim'
+"NeoBundle 'osyo-manga/vim-watchdogs'
 "NeoBundle 'yuratomo/w3m.vim'
 "seems nice, but uses up CPU?
 " }}}
@@ -378,6 +385,10 @@ nnoremap <C-Up> <C-w>k
 nnoremap <C-Left> <C-w>h
 nnoremap <C-right> <C-w>l
 
+" activate shell keeping vim visible.
+" http://mattn.kaoriya.net/software/vim/20070510122133.htm
+nmap <silent> gsh :set t_te= t_ti= <cr>:sh<cr>:set t_te& t_ti&<cr>
+
 " moving assistance in insert mode (thanks: http://gg-hogehoge.hatenablog.com/entry/2013/07/26/212223)
 "inoremap <C-h> <Left>
 "inoremap <C-l> <Right>
@@ -522,6 +533,7 @@ augroup myftsettings
 autocmd Filetype python setlocal expandtab
 autocmd Filetype python setlocal softtabstop=4
 autocmd Filetype python setlocal shiftwidth=4
+autocmd Filetype python setlocal foldlevel=1
 " autocmd Filetype python IndentGuidesEnable
 function! JJPythonFold()
 	source $HOME/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
@@ -629,6 +641,9 @@ autocmd FileType mediawiki nnoremap <buffer> j gj
 autocmd FileType mediawiki nnoremap <buffer> k gk
 autocmd Filetype mediawiki inoremap <buffer> </ </<C-x><C-o>
 autocmd FileType mediawiki setlocal synmaxcol=-1
+autocmd FileType mediawiki setlocal foldexpr=
+			\ getline(v:lnum)=~'^\\(=\\+\\)[^=]\\+\\1\\(\\s*<!--.*-->\\)\\=\\s*$'?\">\".(len(matchstr(getline(v:lnum),'^=\\+'))-1):\"=\"
+autocmd FileType mediawiki setlocal foldmethod=expr
 "autocmd Filetype mediawiki QuotableEducateOn
 " }}}
 
@@ -648,6 +663,8 @@ autocmd FileType lisp setlocal expandtab
 " quickrun output {{{2
 autocmd Filetype quickrun noremap <buffer> j gj
 autocmd Filetype quickrun noremap <buffer> k gk
+autocmd Filetype quickrun noremap <buffer> gj j
+autocmd Filetype quickrun noremap <buffer> gk k
 "}}}
 
 " w3m {{{2
