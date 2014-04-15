@@ -218,6 +218,11 @@ NeoBundle 'osyo-manga/vim-hideout'
 "NeoBundle 'osyo-manga/vim-watchdogs'
 "NeoBundle 'yuratomo/w3m.vim'
 "seems nice, but uses up CPU?
+
+NeoBundle 'rking/ag.vim'
+
+"NeoBundle 'kannokanno/previm'
+"let g:previm_open_cmd="epiphany"
 " }}}
 
 " leisure{{{2
@@ -274,6 +279,7 @@ NeoBundle 'ftzeng/futora'
 NeoBundle 'octol/vombatidae-vim'
 NeoBundle 'romainl/Apprentice'
 NeoBundle 'xenomachina/vim-holodark'
+NeoBundle 'vim-scripts/Risto-Color-Scheme'
 "}}}
 " }}}
 
@@ -344,6 +350,7 @@ set virtualedit+=block
 " adds < >  as matchpairs in % moving.
 " on second thought, no.
 "set matchpairs+=<:>
+set matchpairs=(:),{:},[:]
 
 "disable mouse
 set mouse=c
@@ -586,6 +593,13 @@ autocmd Filetype java setlocal softtabstop=4
 autocmd Filetype java setlocal shiftwidth=4
 "}}}
 
+" lua {{{
+autocmd Filetype lua setlocal shiftwidth=2
+autocmd Filetype lua setlocal softtabstop=2
+autocmd Filetype lua setlocal tabstop=2
+autocmd Filetype lua setlocal expandtab
+" }}}
+
 " HTML {{{2
 autocmd Filetype html setlocal shiftwidth=2
 autocmd Filetype html setlocal softtabstop=2
@@ -671,6 +685,12 @@ autocmd Filetype quickrun noremap <buffer> gk k
 autocmd Filetype w3m noremap <buffer> j gj
 autocmd Filetype w3m noremap <buffer> k gk
 autocmd Filetype w3m IndentLinesToggle
+"}}}
+
+" NERDTree {{{
+autocmd Filetype nerdtree setlocal shiftwidth=2
+autocmd Filetype nerdtree setlocal softtabstop=2
+autocmd Filetype nerdtree setlocal tabstop=2
 "}}}
 
 augroup END
