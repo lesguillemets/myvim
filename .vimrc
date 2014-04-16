@@ -238,6 +238,9 @@ NeoBundle 'Shougo/vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
+
+NeoBundle 'mopp/rogue.vim'
+
 " }}}
 
 "new colorschemes {{{2
@@ -774,6 +777,25 @@ onoremap <expr> m <SID>ToggleRelativeNumber() . <SID>norelativenumber()
 
 "}}}
 
+" detect filetype. When editing cgi, etc. {{{
+function! s:mydetectft()
+	if did_filetype()
+		return
+	endif
+	let shebang=getline(1)
+	if shebang =~# '^#!.*python[23]\=$'
+		setfiletype python
+	elseif shebang =~# '^#!.*ruby[0-9.]\*$'
+		setfiletype ruby
+	elseif shebang =~# '^#!.*perl[0-9.]\*$'
+		setfiletype perl
+	endif
+endfunction
+augroup detectft
+autocmd detectft BufRead call mydetectft
+augroup end
+" }}}
+
 " }}}
 
 " Additional settings for Quickrun {{{1
@@ -788,6 +810,7 @@ let g:quickrun_config.processing = {
 			\	'outputter' : 'error:buffer:quickfix',
 			\}
 " }}}
+
 
 "_______________________________________________
 ":::::::::::::::::::::::::::::::::::::
