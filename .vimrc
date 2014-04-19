@@ -1,5 +1,5 @@
 """"""""""""""""""""""""""""""""""""""""""
-
+"_________________________________________
 " NeoBundle {{{1
 " NeoBundle itself {{{2
 filetype off
@@ -46,10 +46,10 @@ NeoBundle 'git://github.com/Yggdroot/indentLine.git'
 " let g:indent_guides_guide_size=1
 " augroup iguidessettings
 " autocmd!
-" autocmd iguidessettings Filetype * IndentGuidesDisable  " disabled for normal files
-" autocmd iguidessettings Filetype python IndentGuidesEnable
-" autocmd iguidessettings Filetype haskell IndentGuidesEnable
-" autocmd iguidessettings Filetype ruby IndentGuidesEnable
+" autocmd Filetype * IndentGuidesDisable  " disabled for normal files
+" autocmd Filetype python IndentGuidesEnable
+" autocmd Filetype haskell IndentGuidesEnable
+" autocmd Filetype ruby IndentGuidesEnable
 " augroup END
 
 NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git'
@@ -295,17 +295,19 @@ NeoBundle 'rdark-terminal'
 "\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 " }}}
 " }}}
+"_________________________________________
 
-
-""""""""""""""""""""""""""""""""""""""""""
+"_________________________________________
 " general settings {{{
 
-let g:typewritersound = 0
 syntax on
 filetype plugin on
 filetype indent on
 set smartindent
 set smarttab
+set tabstop=4
+set shiftwidth=4
+set expandtab
 set ignorecase
 set smartcase
 set ruler
@@ -314,16 +316,17 @@ set number
 set showcmd
 set hlsearch
 set incsearch
-set showmode
+set showmode  " tells us which mode we're in.
 set showtabline=1
 set backspace=
-" Maximum column in which to search for syntax items.
 set synmaxcol=200
+
+set cursorline
+set cursorcolumn
 
 set wildmode=longest,list,full
 set wildmenu
 
-" when :split and :vsplit
 set splitbelow
 set splitright
 
@@ -333,9 +336,10 @@ set laststatus=2
 " make unvisible chars visible.
 set list
 set listchars=tab:>-
-set conceallevel=1
 " supermomonga
-"set listchars=tab:\ ,trail:˼,extends:»,precedes:«,nbsp:%
+" set listchars=tab:\ ,trail:˼,extends:»,precedes:«,nbsp:%
+set conceallevel=1
+set matchpairs=(:),{:},[:]
 
 " 256 colours
 set t_Co=256
@@ -346,48 +350,42 @@ set nrformats+=alpha
 
 " folding?
 set foldmethod=manual
-" set foldmethod=indent
-" set foldcolumn=5
-" set foldenable
+set foldcolumn=0
 
 " modeline
 set modeline
 
-map Y y$
 " let macros go faster (dsummersl/dotvim/_vimrc)
 set lazyredraw
 
 " <C-v> and voila!
 set virtualedit+=block
 
-" adds < >  as matchpairs in % moving.
-" on second thought, no.
-"set matchpairs+=<:>
-set matchpairs=(:),{:},[:]
-
 "disable mouse
-set mouse=c
+set mouse=
 
-" tab modifications
-set tabstop=4		"the width of a TAB is set to 4.
-					"still it is a \t.
-set shiftwidth=4	"indents will have a width of 4.
+let g:typewritersound = 0
 
 " }}}
+"_________________________________________
 
+"_________________________________________
 " maps without plugin {{{
-"
-nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+map Y y$
 nnoremap * *N
 " comments with # don't remove indentations
 inoremap # X#
 " set working directory to the current file
 nnoremap ,cd :lcd %:p:h <CR>
-" Paste from unnamed registar and fix indentation.
-" cf: github://gregstallings/vimfiles/vimrc
+
+" Paste and fix indentation.
+" cf: github:gregstallings/vimfiles/vimrc
 nmap <Leader>p p`[v`]=
 nmap <Leader>P P`[v`]=
 
+" No more 'oops, vim froze? No way!'s
 nnoremap ჯ :echoerr "You're using Georgian keyboard!"<CR>
 nnoremap კ :echoerr "You're using Georgian keyboard!"<CR>
 
@@ -407,78 +405,50 @@ nnoremap <C-right> <C-w>l
 
 " activate shell keeping vim visible.
 " http://mattn.kaoriya.net/software/vim/20070510122133.htm
-nmap <silent> gsh :set t_te= t_ti= <cr>:sh<cr>:set t_te& t_ti&<cr>
+nmap <silent> gsh :set t_te= t_ti= <CR>:sh<CR>:set t_te& t_ti&<CR>
 
-" from: vim-reading #94, https://github.com/gcmt/dotfiles/blob/2afa347cffe1de895b4349c86258d753ff9ab0f0/vim/.vimrc
+" from: vim-reading #94,
+" github:gcmt/dotfiles/vim/.vimrc (@2afa347)
 " selects the current line without indentation
 nnoremap vv ^vg_
 
-" moving assistance in insert mode (thanks: http://gg-hogehoge.hatenablog.com/entry/2013/07/26/212223)
-"inoremap <C-h> <Left>
-"inoremap <C-l> <Right>
-"inoremap <C-k> <Up>
-"inoremap <C-j> <Down>
-
 " }}}
+"_________________________________________
 
-" resize the devisions if the Vim window size changes
-" ( from: https://github.com/joedicastro/dotfiles/blob/master/vim/vimrc)
-" au VimResized * exe "normal! \<c-w>="
-
-" preserves folding
-" autocmd BufLeave,BufWinLeave ?* call cursor (1,1) " reset cursor position
-" autocmd BufWritePost,BufLeave,BufWinLeave ?* mkview
-"autocmd BufWinEnter ?* silent loadview
-
+"_________________________________________
 " appearance {{{
 " see http://lingr.com/room/vim/archives/2014/03/29#message-18683313 ?
-set cursorline
-set cursorcolumn
-"hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE
-"colorscheme strawimodo_termvim
 " setting the following here works for 256 term
 "autocmd ColorScheme * highlight Normal ctermbg=None
 "autocmd ColorScheme * highlight NonText ctermbg=None
 " http://vimwiki.net/?faq%2F4
+
 augroup myappearance
-	autocmd!
-	autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
-	autocmd ColorScheme * hi ZenkakuSpace ctermfg=white guifg=white
-	"autocmd ColorScheme * hi Conceal ctermfg=gray guifg=gray
-	" set by indentline.
+    autocmd!
+    autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
+    autocmd ColorScheme * hi ZenkakuSpace ctermfg=white guifg=white
 augroup END
 
 colorscheme jellybeans2
 let g:jellybeans_background_color_256='NONE'
+" although this does not seem to be working...
 let g:jellybeans_overrides = {
-	\'rubyRegexp' : {'ctermfg':'200'},
-	\'rubyRegexpSpecial' : {'ctermfg':'206'},
-	\'rubyRegexpDelimiter' : {'ctermfg': '126'},
-	\}
+    \'rubyRegexp' : {'ctermfg':'200'},
+    \'rubyRegexpSpecial' : {'ctermfg':'206'},
+    \'rubyRegexpDelimiter' : {'ctermfg': '126'},
+    \}
+
+" I expect colorschemes to override these highlight settings.
 hi Visual term=reverse ctermbg=30
-"hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE " for 256 colors
+hi StatusLine term=NONE ctermbg=black ctermfg=green
+set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%4l/%4L]\ C[%3c]%5P
 
 match ZenkakuSpace /　/
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 match ExtraWhiteSpace /\(\S\+\)\@<=\s\+$/
 " without syn, only the latter works. with it ,nothing works.
 
-hi StatusLine term=NONE ctermbg=black ctermfg=green
-set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%4l/%4L]\ C[%3c]%5P
-" added [%n] and L,C
-"set statusline=%<%f%m\ %{getcwd()}\ %=\ %l\/%L\,%=\ %c%V\ \(%P\)
-
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
-function! NeatFoldText() 
-  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-  let lines_count = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-  let foldchar = matchstr(&fillchars, 'fold:\zs.')
-  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-  let foldtextend = lines_count_text . repeat(foldchar, 8)
-  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-endfunction
 set foldtext=NeatFoldText()
 " }}}
 
@@ -504,61 +474,67 @@ augroup TastetheRainbow
     autocmd VimEnter,BufRead,BufWinEnter,BufNewFile * call Load_Rainbow()
 augroup END
 let g:rbpt_colorpairs = [
-	\ ['240',   'LightGray'],
-	\ ['247',   'gray'],
-	\ ['255',   'LightGray'],
-	\ ['240',   'white'],
-	\ ['247',   'LightGray'],
-	\ ['255',   'gray'],
-	\ ['240',   'LightGray'],
-	\ ['247',   'white'],
-	\ ['255',   'LightGray'],
-	\ ['240',   'gray'],
-	\ ['247',   'LightGray'],
-	\ ['255',   'white'],
-	\ ['247',   'LightGray'],
-	\ ['240',   'gray'],
-	\ ['247',   'LightGray'],
-	\ ['None',  'white'],
+    \ ['240',  'LightGray'],
+    \ ['247',  'gray'],
+    \ ['255',  'LightGray'],
+    \ ['240',  'white'],
+    \ ['247',  'LightGray'],
+    \ ['255',  'gray'],
+    \ ['240',  'LightGray'],
+    \ ['247',  'white'],
+    \ ['255',  'LightGray'],
+    \ ['240',  'gray'],
+    \ ['247',  'LightGray'],
+    \ ['255',  'white'],
+    \ ['247',  'LightGray'],
+    \ ['240',  'gray'],
+    \ ['247',  'LightGray'],
+    \ ['None', 'white'],
 \ ]
 " }}}
 " }}}
+"_________________________________________
 
+"_________________________________________
 " Typewriter {{{
 
 if !exists("g:typewritersound")
-	let g:typewritersound = 0
+    let g:typewritersound = 0
 endif
 if g:typewritersound
-	NeoBundle 'osyo-manga/vim-sound'
-	let s:se_path = "~/Music/typewriter/"
-	let s:se_ext = ".wav"
-	function! s:change_sound_name(base_name)
-		return expand(s:se_path . a:base_name . s:se_ext)
-	endfunction
-	
-	function! PlaySE(name)
-		call sound#play_wav(s:change_sound_name(a:name))
-	endfunction
-	autocmd CompleteDone * call PlaySE("spacebarpress")
-	autocmd BufEnter * call PlaySE("Clamp")
-	autocmd InsertCharPre * call PlaySE("key1pressrelease")
-	autocmd BufWrite * call PlaySE("Ding")
-	autocmd InsertEnter * call PlaySE("Ding")
-	autocmd InsertLeave * call PlaySE("Ding")
-	autocmd TabEnter * call PlaySE("newline1")
-	nnoremap <silent> j j:<C-u>call PlaySE("arrowkeypressrelease")<CR>
-	nnoremap <silent> k k:<C-u>call PlaySE("arrowkeypressrelease")<CR>
-	nnoremap <silent> l l:<C-u>call PlaySE("arrowkeypressrelease")<CR>
-	nnoremap <silent> h h:<C-u>call PlaySE("arrowkeypressrelease")<CR>
+    NeoBundle 'osyo-manga/vim-sound'
+    let s:se_path = "~/Music/typewriter/"
+    let s:se_ext = ".wav"
+    function! s:change_sound_name(base_name)
+        return expand(s:se_path . a:base_name . s:se_ext)
+    endfunction
+    
+    function! PlaySE(name)
+        call sound#play_wav(s:change_sound_name(a:name))
+    endfunction
+    augroup typesound
+        autocmd !
+        autocmd CompleteDone * call PlaySE("spacebarpress")
+        autocmd BufEnter * call PlaySE("Clamp")
+        autocmd InsertCharPre * call PlaySE("key1pressrelease")
+        autocmd BufWrite * call PlaySE("Ding")
+        autocmd InsertEnter * call PlaySE("Ding")
+        autocmd InsertLeave * call PlaySE("Ding")
+        autocmd TabEnter * call PlaySE("newline1")
+    augroup END
+    nnoremap <silent> j j:<C-u>call PlaySE("arrowkeypressrelease")<CR>
+    nnoremap <silent> k k:<C-u>call PlaySE("arrowkeypressrelease")<CR>
+    nnoremap <silent> l l:<C-u>call PlaySE("arrowkeypressrelease")<CR>
+    nnoremap <silent> h h:<C-u>call PlaySE("arrowkeypressrelease")<CR>
 endif
 " }}}
+"_________________________________________
 
-"______________________________________________
+"_________________________________________
 "language specific modifications {{{1
 
 augroup myftsettings
-	autocmd!
+autocmd!
 
 " python {{{2
 autocmd Filetype python setlocal expandtab
@@ -719,9 +695,10 @@ autocmd Filetype nerdtree setlocal tabstop=2
 
 augroup END
 " }}}
+"_________________________________________
 
+"_________________________________________
 " user functions {{{1
-"
 "
 " :SyntaxInfo to display the syntax info. {{{2
 "from http://cohama.hateblo.jp/entry/2013/08/11/020849,
@@ -767,7 +744,7 @@ command! SyntaxInfo call s:get_syn_info()
 " }}}
 
 " dm in normal mode {{{
-"(http://lingr.com/room/vim/archives/2014/04/12#message-18780856)
+" (http://lingr.com/room/vim/archives/2014/04/12#message-18780856)
 function! s:norelativenumber()
     augroup restore_op
         autocmd!
@@ -781,11 +758,11 @@ endfunction
 
 function! s:ToggleRelativeNumber()
     if &relativenumber
-      set norelativenumber
-      let &number = exists("b:togglernu_number") ? b:togglernu_number : 1
+        set norelativenumber
+        let &number = exists("b:togglernu_number") ? b:togglernu_number : 1
     else
-      let b:togglernu_number = &number
-      set relativenumber
+        let b:togglernu_number = &number
+        set relativenumber
     endif
     redraw!  " these two lines required for omap
 
@@ -817,9 +794,28 @@ autocmd detectft BufRead call mydetectft
 augroup end
 " }}}
 
+" foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
+function! NeatFoldText()
+    let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+    let lines_count = v:foldend - v:foldstart + 1
+    let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+    let foldchar = matchstr(&fillchars, 'fold:\zs.')
+    let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+    let foldtextend = lines_count_text . repeat(foldchar, 8)
+    let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+    return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+
 " }}}
 
-" Additional settings for Quickrun {{{1
+"_________________________________________
+"}}}
+"_________________________________________
+
+"_________________________________________
+" Additional, extensible settings for plugins {{{
+
+" Quickrun {{{
 let g:quickrun_config = {}
 let g:quickrun_config.ox = {'command' : 'oxl'}
 let g:quickrun_config.st = {'command' : 'gst'}
@@ -832,12 +828,7 @@ let g:quickrun_config.processing = {
 			\}
 " }}}
 
-
-"_______________________________________________
-":::::::::::::::::::::::::::::::::::::
-" " NeoComplcache {{{1
-" ::::::::::::::::::::::::::::::::::::
-
+" NeoComplcache {{{
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
@@ -936,4 +927,6 @@ set completeopt-=preview
 "A:
 ">
 "	set completeopt-=preview
+"}}}
+"_________________________________________
 "}}}
