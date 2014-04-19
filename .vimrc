@@ -442,6 +442,12 @@ augroup myappearance
 augroup END
 
 colorscheme jellybeans2
+let g:jellybeans_background_color_256='NONE'
+let g:jellybeans_overrides = {
+	\'rubyRegexp' : {'ctermfg':'200'},
+	\'rubyRegexpSpecial' : {'ctermfg':'206'},
+	\'rubyRegexpDelimiter' : {'ctermfg': '126'},
+	\}
 hi Visual term=reverse ctermbg=30
 "hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE " for 256 colors
 
