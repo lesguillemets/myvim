@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""
 
 " NeoBundle {{{1
-" neobundle itself {{{2
+" NeoBundle itself {{{2
 filetype off
 
 if has('vim_starting')
@@ -11,92 +11,97 @@ call neobundle#rc(expand('$HOME/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
-"
+
 " Essentials {{{2
-NeoBundle 'git://github.com/Shougo/neocomplcache.vim.git'
-"NeoBundle 'git://github.com/Shougo/neocomplete.vim.git'
-NeoBundle 'git://github.com/thinca/vim-quickrun.git'
-command! Q QuickRun
+
+NeoBundle 'Shougo/neocomplcache.vim.git'
+
+NeoBundle 'thinca/vim-quickrun.git'
 " avoid conflict with Quickhl
-NeoBundle 'git://github.com/vim-scripts/Align.git'
-NeoBundle 'git://github.com/osyo-manga/vim-anzu.git'
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)N
-nmap # <Plug>(anzu-sharp-with-echo)
+    command! Q QuickRun
+
+NeoBundle 'vim-scripts/Align.git'
+
+NeoBundle 'osyo-manga/vim-anzu.git'
+    nmap n <Plug>(anzu-n-with-echo)
+    nmap N <Plug>(anzu-N-with-echo)
+    nmap * <Plug>(anzu-star-with-echo)N
+    nmap # <Plug>(anzu-sharp-with-echo)
+
 NeoBundle 'git://github.com/Yggdroot/indentLine.git'
-let g:indentLine_showFirstIndentLevel=1
-let g:indentLine_first_char = '┆'
-"let g:indentLine_first_char = '❯'
-"let g:indentLine_first_char = '║'
-"let g:indentLine_first_char = '⧫'
-"let g:indentLine_char = '❭'
-"let g:indentLine_char = '║'
-"let g:indentLine_char = '⦙'
-let g:indentLine_char = '⟩'
-" these settings affect ALL conceal highlighting.
-let g:indentLine_color_term=62
-let g:indentLine_color_gui='#aabbaa'
-let g:indentLine_fileType=[]
-let g:indentLine_fileTypeExclude = [
-			\'text', 'quickrun', 'help', 'quickfix'
-			\]
-"NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
-let g:indent_guides_guide_size=1
-" autocmd Filetype * IndentGuidesDisable  " disabled for normal files
-"
+    let g:indentLine_showFirstIndentLevel=1
+    let g:indentLine_first_char = '┆'
+        " other candidates : '❯', '║', '⧫',
+    let g:indentLine_char = '⟩'
+        " other candidates : '❭', '║', '⦙'
+    " these settings affect ALL conceal highlighting.
+    let g:indentLine_color_term=62
+    let g:indentLine_color_gui='#aabbaa'
+    let g:indentLine_fileType=[]
+    let g:indentLine_fileTypeExclude = [
+                \ 'text', 'quickrun', 'help', 'quickfix'
+                \]
+" When in the mood for a smoother appearance
+" NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
+" let g:indent_guides_guide_size=1
+" augroup iguidessettings
+" autocmd!
+" autocmd iguidessettings Filetype * IndentGuidesDisable  " disabled for normal files
+" autocmd iguidessettings Filetype python IndentGuidesEnable
+" autocmd iguidessettings Filetype haskell IndentGuidesEnable
+" autocmd iguidessettings Filetype ruby IndentGuidesEnable
+" augroup END
+
 NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git'
-" Sadly the license is unknown
-" Added my modifications.
-"NeoBundle 'git://github.com/lesguillemets/rainbow_parentheses.vim.git'
-"NeoBundle 'git://github.com/lesguillemets/paint.vim.git'
-NeoBundle 'git://github.com/tpope/vim-characterize.git'
-NeoBundle 'git://github.com/tpope/vim-surround.git'
+" settings are in the appearance section.
+
+NeoBundle 'vim-characterize.git'
+NeoBundle 'vim-surround.git'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 'git://github.com/t9md/vim-quickhl.git'
-nmap <Space>m <Plug>(quickhl-manual-this)
-xmap <Space>m <Plug>(quickhl-manual-this)
-nmap <Space>M <Plug>(quickhl-manual-reset)
-xmap <Space>M <Plug>(quickhl-manual-reset)
+NeoBundle 't9md/vim-quickhl.git'
+    nmap <Space>m <Plug>(quickhl-manual-this)
+    xmap <Space>m <Plug>(quickhl-manual-this)
+    nmap <Space>M <Plug>(quickhl-manual-reset)
+    xmap <Space>M <Plug>(quickhl-manual-reset)
 " }}}
-"
-" Language specific plugins {{{2
+
+" Language specific plugins {{{
 
 " haskell {{{
-NeoBundle 'git://github.com/ujihisa/neco-ghc.git'
-NeoBundle 'git://github.com/vim-scripts/haskell.vim'
-NeoBundle 'git://github.com/dag/vim2hs.git'
-" disable concealing of "enumerations": commatized lists like
-" " deriving clauses and LANGUAGE pragmas,
-" " otherwise collapsed into a single ellipsis
-let g:haskell_conceal_enumerations=0
-"NeoBundle 'kana/vim-filetype-haskell'
+NeoBundle 'ujihisa/neco-ghc.git'
+NeoBundle 'vim-scripts/haskell.vim'
+NeoBundle 'dag/vim2hs.git'
+    " disable concealing of "enumerations": commatized lists like
+    " deriving clauses and LANGUAGE pragmas,
+    " otherwise collapsed into a single ellipsis
+    let g:haskell_conceal_enumerations=0
 NeoBundle 'eagletmt/ghcmod-vim'
-" Not sure
-" NeoBundle 'git://github.com/lukerandall/haskellmode-vim'
 NeoBundle 'ujihisa/ref-hoogle'
-" together with vim-ref
 " }}}
 
 " python {{{
 NeoBundle 'git://github.com/hynek/vim-python-pep8-indent.git'
-NeoBundle 'git://github.com/vim-scripts/jpythonfold.vim.git'
 NeoBundle 'git://github.com/davidhalter/jedi-vim'
-let g:jedi#auto_initialization = 1
-let g:jedi#popup_on_dot = 0
-let g:jedi#show_call_signatures = 0
-autocmd FileType python let b:did_ftplugin = 1
-let g:jedi#auto_vim_configuration=0
-let g:jedi#rename_command = ""
-let g:jedi#documentation_command = ""
-" <K> conflicts with vim-ref.
+    let g:jedi#auto_initialization = 1
+    let g:jedi#popup_on_dot = 0
+    let g:jedi#show_call_signatures = 0
+    augroup jedigroup
+        autocmd!
+        autocmd FileType python let b:did_ftplugin = 1
+    augroup END
+    let g:jedi#auto_vim_configuration=0
+    let g:jedi#rename_command = ""
+    " <K> conflicts with vim-ref.
+    let g:jedi#documentation_command = ""
 NeoBundle 'mkomitee/vim-gf-python'
 NeoBundle 'tmhedberg/SimpylFold'
+" Which to use?
+" NeoBundle 'git://github.com/vim-scripts/jpythonfold.vim.git'
 
 " }}}
 
 " ruby {{{
-NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
+NeoBundle 'vim-ruby/vim-ruby.git'
 " }}}
 
 " smalltalk {{{
@@ -114,17 +119,20 @@ NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 " }}}
 
 " javascript {{{
-NeoBundle 'git://github.com/jelera/vim-javascript-syntax.git'
-NeoBundle 'git://github.com/pangloss/vim-javascript.git'
+NeoBundle 'jelera/vim-javascript-syntax.git'
+NeoBundle 'pangloss/vim-javascript.git'
 " }}}
 
 " tex / latex {{{
-" NeoBundle 'git://github.com/vim-scripts/tex.vim--Brauner.git'
-"NeoBundle 'Vim-LaTeX' " not decided yet
+" Both seemed too much. Let's reconsider when necessary.
+" NeoBundle 'vim-scripts/tex.vim--Brauner.git'
+" NeoBundle 'Vim-LaTeX' "
 " }}}
 
 " markdown {{{
-NeoBundle 'git://github.com/jtratner/vim-flavored-markdown.git'
+NeoBundle 'jtratner/vim-flavored-markdown.git'
+"NeoBundle 'kannokanno/previm'
+"let g:previm_open_cmd="epiphany"
 " }}}
 
 " wikipedia {{{
@@ -132,7 +140,7 @@ NeoBundle 'wikipedia.vim'
 " }}}
 
 " conky {{{
-NeoBundle 'git://github.com/smancill/conky-syntax.vim'
+NeoBundle 'smancill/conky-syntax.vim'
 "}}}
 
 " processing {{{
@@ -147,91 +155,80 @@ NeoBundle 'jeroenbourgois/vim-actionscript'
 NeoBundle 'git://github.com/vim-scripts/Colortest'
 "NeoBundle 'git://github.com/lesguillemets/Ox-syntax.vim.git' ", 'dev'
 
-" prepare for neocomplete {{{3
-"did not work " from http://kazy.hatenablog.com/entry/2013/07/18/131118
-"did not work autocmd FileType python setlocal omnifunc=jedi#completions
-"did not work let g:jedi#auto_vim_configuration = 0
-"did not work if !exists('g:neocomplete#force_omni_input_patterns')
-"did not work         let g:neocomplete#force_omni_input_patterns = {}
-"did not work endif
-"did not work let g:neocomplete#force_omni_input_patterns.python =
-"did not work 	\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-"}}}
 " }}}
 
 " Benri {{{2
-NeoBundle 'git://github.com/vim-scripts/CountJump.git'
-NeoBundle 'git://github.com/vim-scripts/loremipsum.git'
-NeoBundle 'git://github.com/scrooloose/nerdtree.git'
-let NERDTreeShowHidden=1
-NeoBundle 'git://github.com/deris/columnjump.git'
-nmap <C-k> <Plug>(columnjump-backward)
-nmap <C-j> <Plug>(columnjump-forward)
-NeoBundle 'git://github.com/itchyny/thumbnail.vim.git'
+NeoBundle 'vim-scripts/loremipsum'
+NeoBundle 'scrooloose/nerdtree'
+    let NERDTreeShowHidden=1
+NeoBundle 'deris/columnjump'
+    " Hey, remember me!
+    nmap <C-k> <Plug>(columnjump-backward)
+    nmap <C-j> <Plug>(columnjump-forward)
+NeoBundle 'tyru/caw.vim'
+    nmap <Leader>c <Plug>(caw:I:toggle)
+    vmap <Leader>c <Plug>(caw:I:toggle)
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'osyo-manga/vim-hideout'
 "}}}
 
-" Appearance {{{2
-" this plugin seems very good, although I don't need it for now.
-" Thanks jellybeans!
-"NeoBundle 'git://github.com/vim-scripts/CSApprox.git'
-NeoBundle 'git://github.com/guns/xterm-color-table.vim.git'
-" enable when needed.
-" NeoBundle 'git://github.com/cocopon/colorswatch.vim.git'
-NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
-" NeoBundle 'git://github.com/jlanzarotta/colorSchemeExplorer'
-" Doesn't seem to work
-" Cool, but perhaps too shiny
-"NeoBundle 'itchyny/lightline.vim'
-" I didn't like too much informathion
-"NeoBundle 'git://github.com/thinca/vim-splash'
-"let g:splash#path="/Documents/vim/vim_intro.txt"
-" from https://gist.github.com/OrgaChem/7630711
-
+" Appearance {{{
+NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'lilydjwg/colorizer'
-"NeoBundle 'ntpeters/vim-better-whitespace'
+" NeoBundle 'git://github.com/cocopon/colorswatch.vim.git'
+    " enable when needed.
+" NeoBundle 'git://github.com/vim-scripts/CSApprox.git'
+    " this plugin seems very good, although I don't need it for now.
+    " Thanks jellybeans!
+" NeoBundle 'git://github.com/jlanzarotta/colorSchemeExplorer'
+    " Errors.. why?
+" NeoBundle 'itchyny/lightline.vim'
+    " Cool, but perhaps too shiny with too many informations for me.
+" NeoBundle 'git://github.com/thinca/vim-splash'
+    " from https://gist.github.com/OrgaChem/7630711
+" NeoBundle 'ntpeters/vim-better-whitespace'
 " }}}
 
 " Trial {{{2
-" NeoBundle 'git://github.com/vim-scripts/swap-parameters.git'
-" NeoBundle 'git://github.com/kshenoy/vim-signature'
-NeoBundle 'git://github.com/tyru/caw.vim.git'
-nmap <Leader>c <Plug>(caw:I:toggle)
-vmap <Leader>c <Plug>(caw:I:toggle)
+NeoBundle 'itchyny/thumbnail.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'vim-scripts/CountJump'
+    " supposed to be good with latex
+NeoBundle 'kshenoy/vim-signature'
+    " let's use marks more often, really.
+
+" NeoBundle 'vim-scripts/swap-parameters'
+    " too specific a command, perhaps?
 
 NeoBundle 'lyokha/vim-publish-helper'
+
 NeoBundle 'reedes/vim-quotable'
-noremap <Space>q :QuotableEducateToggle<CR>
-" for that
+    noremap <Space>q :QuotableEducateToggle<CR>
+" for quotable
 NeoBundle 'kana/vim-textobj-user'
 
 NeoBundle 'sjl/gundo.vim'
-nnoremap <silent> <Space>u :GundoToggle<CR>
+    nnoremap <silent> <Space>u :GundoToggle<CR>
 
 NeoBundle 'mattn/benchvimrc-vim'
-"NeoBundle 'kana/vim-smartinput'
-
-NeoBundle 'thinca/vim-ref'
-
+" NeoBundle 'kana/vim-smartinput'
 NeoBundle 'michaeljsmith/vim-indent-object'
-
-NeoBundle 'osyo-manga/vim-hideout'
-
-"NeoBundle 'osyo-manga/shabadou.vim'
-"NeoBundle 'osyo-manga/vim-watchdogs'
-"NeoBundle 'yuratomo/w3m.vim'
-"seems nice, but uses up CPU?
-
 NeoBundle 'rking/ag.vim'
 
-"NeoBundle 'kannokanno/previm'
-"let g:previm_open_cmd="epiphany"
+" NeoBundle 'yuratomo/w3m.vim'
+    "seems nice, but uses up CPU?
+
+" willing to configure .. someday.
+" NeoBundle 'osyo-manga/shabadou.vim'
+" NeoBundle 'osyo-manga/vim-watchdogs'
+
 " }}}
 
 " leisure{{{2
-NeoBundle 'git://github.com/deris/vim-duzzle.git'
+NeoBundle 'deris/vim-duzzle'
 NeoBundle 'thinca/vim-threes'
-"NeoBundle 'osyo-manga/vim-sound' => load in typewriter section.
-" I think we should use neobundlelazy.
+" NeoBundle 'osyo-manga/vim-sound' => load in typewriter section.
+" I think we should be using neobundlelazy by now.
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : 'make -f make_mingw32.mak',
@@ -240,9 +237,7 @@ NeoBundle 'Shougo/vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
-
 NeoBundle 'mopp/rogue.vim'
-
 " }}}
 
 "new colorschemes {{{2
@@ -287,6 +282,18 @@ NeoBundle 'xenomachina/vim-holodark'
 NeoBundle 'vim-scripts/Risto-Color-Scheme'
 NeoBundle 'rdark-terminal'
 "}}}
+
+" prepare for neocomplete {{{
+" following are the trail of failure
+" from http://kazy.hatenablog.com/entry/2013/07/18/131118
+"autocmd FileType python setlocal omnifunc=jedi#completions
+"let g:jedi#auto_vim_configuration = 0
+"if !exists('g:neocomplete#force_omni_input_patterns')
+"        let g:neocomplete#force_omni_input_patterns = {}
+"endif
+"let g:neocomplete#force_omni_input_patterns.python =
+"\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+" }}}
 " }}}
 
 
@@ -558,7 +565,6 @@ autocmd Filetype python setlocal expandtab
 autocmd Filetype python setlocal softtabstop=4
 autocmd Filetype python setlocal shiftwidth=4
 autocmd Filetype python setlocal foldlevel=1
-" autocmd Filetype python IndentGuidesEnable
 function! JJPythonFold()
 	source $HOME/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
 endfunction
@@ -577,7 +583,6 @@ autocmd Filetype haskell setlocal nofoldenable  "disable folding
 autocmd Filetype haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
 autocmd Filetype haskell nnoremap <buffer><slient> <Space>T :<C-u>GhcModType<CR>:nohlsearch<CR>
 autocmd Filetype haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
-" autocmd Filetype haskell IndentGuidesEnable
 " }}}
 
 " ruby {{{2
@@ -585,7 +590,6 @@ autocmd Filetype ruby setlocal shiftwidth=2
 autocmd Filetype ruby setlocal softtabstop=2
 autocmd Filetype ruby setlocal tabstop=2
 autocmd Filetype ruby setlocal expandtab
-" autocmd Filetype ruby IndentGuidesEnable
 "autocmd Filetype ruby source /.vim/ftplugin/ruby-matchit.vim
 "autocmd Filetype ruby source /.vim/ftplugin/ruby.vim
 " }}}
