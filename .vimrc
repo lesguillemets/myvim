@@ -67,18 +67,6 @@ NeoBundle 't9md/vim-quickhl.git'
 
 " Language specific plugins {{{
 
-" haskell {{{
-NeoBundle 'ujihisa/neco-ghc.git'
-NeoBundle 'vim-scripts/haskell.vim'
-NeoBundle 'dag/vim2hs.git'
-    " disable concealing of "enumerations": commatized lists like
-    " deriving clauses and LANGUAGE pragmas,
-    " otherwise collapsed into a single ellipsis
-    let g:haskell_conceal_enumerations=0
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'ujihisa/ref-hoogle'
-" }}}
-
 " python {{{
 NeoBundle 'git://github.com/hynek/vim-python-pep8-indent.git'
 NeoBundle 'git://github.com/davidhalter/jedi-vim'
@@ -100,12 +88,24 @@ NeoBundle 'tmhedberg/SimpylFold'
 
 " }}}
 
-" ruby {{{
-NeoBundle 'vim-ruby/vim-ruby.git'
+" haskell {{{
+NeoBundle 'ujihisa/neco-ghc.git'
+NeoBundle 'vim-scripts/haskell.vim'
+NeoBundle 'dag/vim2hs.git'
+    " disable concealing of "enumerations": commatized lists like
+    " deriving clauses and LANGUAGE pragmas,
+    " otherwise collapsed into a single ellipsis
+    let g:haskell_conceal_enumerations=0
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'ujihisa/ref-hoogle'
 " }}}
 
-" smalltalk {{{
-NeoBundle 'st.vim'
+" {{{ perl
+NeoBundle 'c9s/perlomni.vim'
+" }}}
+
+" ruby {{{
+NeoBundle 'vim-ruby/vim-ruby.git'
 " }}}
 
 " html {{{
@@ -137,6 +137,10 @@ NeoBundle 'jtratner/vim-flavored-markdown.git'
 
 " wikipedia {{{
 NeoBundle 'wikipedia.vim'
+" }}}
+
+" smalltalk {{{
+NeoBundle 'st.vim'
 " }}}
 
 " conky {{{
@@ -542,7 +546,7 @@ autocmd Filetype python setlocal softtabstop=4
 autocmd Filetype python setlocal shiftwidth=4
 autocmd Filetype python setlocal foldlevel=1
 function! JJPythonFold()
-	source $HOME/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
+    source $HOME/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
 endfunction
 command! PyFold call JJPythonFold()
 " }}}
@@ -554,8 +558,7 @@ autocmd Filetype haskell setlocal shiftwidth=4
 autocmd Filetype haskell setlocal smarttab
 autocmd Filetype haskell setlocal shiftround
 autocmd Filetype haskell setlocal nojoinspaces
-autocmd Filetype haskell setlocal nofoldenable  "disable folding
-"autocmd Filetype haskell setlocal conceallevel=0  " no lambda as lambda.
+autocmd Filetype haskell setlocal foldlevel=0
 autocmd Filetype haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
 autocmd Filetype haskell nnoremap <buffer><slient> <Space>T :<C-u>GhcModType<CR>:nohlsearch<CR>
 autocmd Filetype haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
@@ -566,8 +569,6 @@ autocmd Filetype ruby setlocal shiftwidth=2
 autocmd Filetype ruby setlocal softtabstop=2
 autocmd Filetype ruby setlocal tabstop=2
 autocmd Filetype ruby setlocal expandtab
-"autocmd Filetype ruby source /.vim/ftplugin/ruby-matchit.vim
-"autocmd Filetype ruby source /.vim/ftplugin/ruby.vim
 " }}}
 
 " C {{{2
@@ -605,10 +606,7 @@ autocmd Filetype html setlocal expandtab
 autocmd Filetype html inoremap <buffer> <C-b> <br />
 autocmd Filetype html setlocal mps+=<:>
 autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-autocmd Filetype html nnoremap j gj
-autocmd Filetype html nnoremap k gk
-autocmd Filetype html nnoremap gj j
-autocmd Filetype html nnoremap gk k
+autocmd Filetype html call s:displaymovement()
 " }}}
 
 " XHTML {{{2
@@ -619,10 +617,12 @@ autocmd Filetype xhtml setlocal expandtab
 autocmd Filetype xhtml inoremap <buffer> <C-b> <br />
 autocmd Filetype xhtml setlocal mps+=<:>
 autocmd Filetype xhtml inoremap <buffer> </ </<C-x><C-o>
+autocmd Filetype xhtml call s:displaymovement()
 " }}}
 
 " XML {{{2
 autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+autocmd Filetype xml call s:displaymovement()
 "}}}
 
 " javascript {{{2
@@ -637,10 +637,7 @@ autocmd FileType markdown setlocal expandtab
 autocmd FileType markdown setlocal shiftwidth=2
 autocmd Filetype markdown setlocal softtabstop=2
 autocmd Filetype markdown setlocal tabstop=2
-autocmd Filetype markdown nnoremap j gj
-autocmd Filetype markdown nnoremap k gk
-autocmd Filetype markdown nnoremap gj j
-autocmd Filetype markdown nnoremap gk k
+autocmd Filetype markdown call s:displaymovement()
 "}}}
 
 " vim {{{2
@@ -651,12 +648,11 @@ autocmd Filetype vim setlocal shiftwidth=4
 " }}}
 
 " mediawiki {{{2
-autocmd FileType mediawiki nnoremap <buffer> j gj
-autocmd FileType mediawiki nnoremap <buffer> k gk
+autocmd Filetype mediawiki call s:displaymovement()
 autocmd Filetype mediawiki inoremap <buffer> </ </<C-x><C-o>
 autocmd FileType mediawiki setlocal synmaxcol=-1
 autocmd FileType mediawiki setlocal foldexpr=
-			\ getline(v:lnum)=~'^\\(=\\+\\)[^=]\\+\\1\\(\\s*<!--.*-->\\)\\=\\s*$'?\">\".(len(matchstr(getline(v:lnum),'^=\\+'))-1):\"=\"
+    \ getline(v:lnum)=~'^\\(=\\+\\)[^=]\\+\\1\\(\\s*<!--.*-->\\)\\=\\s*$'?\">\".(len(matchstr(getline(v:lnum),'^=\\+'))-1):\"=\"
 autocmd FileType mediawiki setlocal foldmethod=expr
 "autocmd Filetype mediawiki QuotableEducateOn
 " }}}
@@ -665,8 +661,7 @@ autocmd FileType mediawiki setlocal foldmethod=expr
 "autocmd FileType tex,plaintex,latex source $HOME/.vim/ftplugin/tex.vim
 "autocmd FileType tex,plaintex,latex map <buffer> <silent> ]s :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 "autocmd FileType tex,plaintex,latex map <buffer> [s :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
-autocmd FileType tex,plaintex,latex nnoremap j gj
-autocmd FileType tex,plaintex,latex nnoremap k gk
+autocmd Filetype tex,plaintex,latex call s:displaymovement()
 autocmd FileType tex,plaintex,latex setlocal conceallevel=0
 " }}}
 
@@ -675,15 +670,11 @@ autocmd FileType lisp setlocal expandtab
 "}}}
 
 " quickrun output {{{2
-autocmd Filetype quickrun noremap <buffer> j gj
-autocmd Filetype quickrun noremap <buffer> k gk
-autocmd Filetype quickrun noremap <buffer> gj j
-autocmd Filetype quickrun noremap <buffer> gk k
+autocmd Filetype quickrun call s:displaymovement()
 "}}}
 
 " w3m {{{2
-autocmd Filetype w3m noremap <buffer> j gj
-autocmd Filetype w3m noremap <buffer> k gk
+autocmd Filetype w3m call s:displaymovement()
 autocmd Filetype w3m IndentLinesToggle
 "}}}
 
@@ -808,6 +799,20 @@ endfunction
 
 " }}}
 
+" {{{ mapping j as gj, etc.
+function! s:displaymovement()
+    nnoremap <buffer> j gj
+    nnoremap <buffer> k gk
+    nnoremap <buffer> gj j
+    nnoremap <buffer> gk k
+    nnoremap <buffer> $ g$
+    nnoremap <buffer> g$ $
+    nnoremap <buffer> ^ g^
+    nnoremap <buffer> g^ ^
+endfunction
+
+"}}}
+
 "_________________________________________
 "}}}
 "_________________________________________
@@ -821,16 +826,15 @@ let g:quickrun_config.ox = {'command' : 'oxl'}
 let g:quickrun_config.st = {'command' : 'gst'}
 " for processing : from github.com/5t111111/dotfiles/.vimrc
 let g:quickrun_config.processing = {
-			\	'command': 'processing-java',
-			\	'cmdopt': '--run --force',
-			\	'exec': '%c --sketch=%s:%h --output=~/Documents/Processing/%o',
-			\	'outputter' : 'error:buffer:quickfix',
-			\}
+    \    'command': 'processing-java',
+    \    'cmdopt': '--run --force',
+    \    'exec': '%c --sketch=%s:%h --output=~/Documents/Processing/%o',
+    \    'outputter' : 'error:buffer:quickfix',
+    \}
 " }}}
 
 " NeoComplcache {{{
 
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -849,14 +853,14 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-	\ 'default' : '',
-	\ 'vimshell' : $HOME.'/.vimshell_hist',
-	\ 'scheme' : $HOME.'/.gosh_completions'
-		\ }
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
-	let g:neocomplcache_keyword_patterns = {}
+    let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
@@ -881,16 +885,6 @@ inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplcache_enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplcache_enable_insert_char_pre = 1
 
 " AutoComplPop like behavior.
 "let g:neocomplcache_enable_auto_select = 1
@@ -920,13 +914,8 @@ let g:neocomplcache_omni_patterns.cpp =
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_omni_patterns.perl =
 \ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-"<
 set completeopt-=preview
-"Q: I want to disable preview window.
-"
-"A:
-">
-"	set completeopt-=preview
 "}}}
 "_________________________________________
 "}}}
+"_________________________________________
