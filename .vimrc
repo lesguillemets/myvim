@@ -1,9 +1,5 @@
-" set nocompatible
-" disabled, as it is not just unnnecessary
-" but it sets history 20.
-" http://lingr.com/room/vim/archives/2013/10/12#message-17037476
-
 """"""""""""""""""""""""""""""""""""""""""
+
 " NeoBundle {{{1
 " neobundle itself {{{2
 filetype off
@@ -12,7 +8,6 @@ if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 call neobundle#rc(expand('$HOME/.vim/bundle'))
-
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
@@ -290,6 +285,7 @@ NeoBundle 'octol/vombatidae-vim'
 NeoBundle 'romainl/Apprentice'
 NeoBundle 'xenomachina/vim-holodark'
 NeoBundle 'vim-scripts/Risto-Color-Scheme'
+NeoBundle 'rdark-terminal'
 "}}}
 " }}}
 
@@ -405,6 +401,10 @@ nnoremap <C-right> <C-w>l
 " activate shell keeping vim visible.
 " http://mattn.kaoriya.net/software/vim/20070510122133.htm
 nmap <silent> gsh :set t_te= t_ti= <cr>:sh<cr>:set t_te& t_ti&<cr>
+
+" from: vim-reading #94, https://github.com/gcmt/dotfiles/blob/2afa347cffe1de895b4349c86258d753ff9ab0f0/vim/.vimrc
+" selects the current line without indentation
+nnoremap vv ^vg_
 
 " moving assistance in insert mode (thanks: http://gg-hogehoge.hatenablog.com/entry/2013/07/26/212223)
 "inoremap <C-h> <Left>
@@ -665,6 +665,9 @@ autocmd Filetype markdown nnoremap gk k
 
 " vim {{{2
 autocmd Filetype vim setlocal foldmethod=marker
+autocmd Filetype vim setlocal expandtab
+autocmd Filetype vim setlocal softtabstop=4
+autocmd Filetype vim setlocal shiftwidth=4
 " }}}
 
 " mediawiki {{{2
