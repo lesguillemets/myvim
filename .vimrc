@@ -40,7 +40,7 @@ let g:indentLine_first_char = '┆'
 "let g:indentLine_char = '⦙'
 let g:indentLine_char = '⟩'
 " these settings affect ALL conceal highlighting.
-let g:indentLine_color_term='lightgray'
+let g:indentLine_color_term=62
 let g:indentLine_color_gui='#aabbaa'
 let g:indentLine_fileType=[]
 let g:indentLine_fileTypeExclude = [
