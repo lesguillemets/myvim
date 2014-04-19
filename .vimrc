@@ -39,8 +39,9 @@ let g:indentLine_char = '❭'
 "let g:indentLine_char = '║'
 "let g:indentLine_char = '⦙'
 "let g:indentLine_char = '⟩'
-let g:indentLine_color_term=239
-let g:indentLine_color_gui='#8090a0'
+" these settings affect ALL conceal highlighting.
+let g:indentLine_color_term='lightgray'
+let g:indentLine_color_gui='#aabbaa'
 "NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
 let g:indent_guides_guide_size=1
 " autocmd Filetype * IndentGuidesDisable  " disabled for normal files
@@ -215,11 +216,6 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'michaeljsmith/vim-indent-object'
 
 NeoBundle 'osyo-manga/vim-hideout'
-" hi default hideout_unicode_escape ctermfg=white
-" augroup Hideouter
-" 	autocmd!
-" 	autocmd Colorscheme * hi hideout_unicode_escape ctermfg=white
-" augroup END
 
 "NeoBundle 'osyo-manga/shabadou.vim'
 "NeoBundle 'osyo-manga/vim-watchdogs'
@@ -437,6 +433,8 @@ augroup myappearance
 	autocmd!
 	autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
 	autocmd ColorScheme * hi ZenkakuSpace ctermfg=white guifg=white
+	"autocmd ColorScheme * hi Conceal ctermfg=gray guifg=gray
+	" set by indentline.
 augroup END
 
 colorscheme jellybeans2
