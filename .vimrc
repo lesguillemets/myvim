@@ -31,17 +31,21 @@ nmap * <Plug>(anzu-star-with-echo)N
 nmap # <Plug>(anzu-sharp-with-echo)
 NeoBundle 'git://github.com/Yggdroot/indentLine.git'
 let g:indentLine_showFirstIndentLevel=1
-"let g:indentLine_first_char = '┆'
+let g:indentLine_first_char = '┆'
 "let g:indentLine_first_char = '❯'
-let g:indentLine_first_char = '║'
+"let g:indentLine_first_char = '║'
 "let g:indentLine_first_char = '⧫'
-let g:indentLine_char = '❭'
+"let g:indentLine_char = '❭'
 "let g:indentLine_char = '║'
 "let g:indentLine_char = '⦙'
-"let g:indentLine_char = '⟩'
+let g:indentLine_char = '⟩'
 " these settings affect ALL conceal highlighting.
 let g:indentLine_color_term='lightgray'
 let g:indentLine_color_gui='#aabbaa'
+let g:indentLine_fileType=[]
+let g:indentLine_fileTypeExclude = [
+			\'text', 'quickrun', 'help', 'quickfix'
+			\]
 "NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
 let g:indent_guides_guide_size=1
 " autocmd Filetype * IndentGuidesDisable  " disabled for normal files
