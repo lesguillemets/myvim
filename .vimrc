@@ -39,11 +39,13 @@ let g:indentLine_char = '❭'
 "let g:indentLine_char = '║'
 "let g:indentLine_char = '⦙'
 "let g:indentLine_char = '⟩'
+let g:indentLine_color_term=239
+let g:indentLine_color_gui='#8090a0'
 "NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
 let g:indent_guides_guide_size=1
 " autocmd Filetype * IndentGuidesDisable  " disabled for normal files
 "
-NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git' 
+NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git'
 " Sadly the license is unknown
 " Added my modifications.
 "NeoBundle 'git://github.com/lesguillemets/rainbow_parentheses.vim.git'
@@ -213,6 +215,11 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'michaeljsmith/vim-indent-object'
 
 NeoBundle 'osyo-manga/vim-hideout'
+" hi default hideout_unicode_escape ctermfg=white
+" augroup Hideouter
+" 	autocmd!
+" 	autocmd Colorscheme * hi hideout_unicode_escape ctermfg=white
+" augroup END
 
 "NeoBundle 'osyo-manga/shabadou.vim'
 "NeoBundle 'osyo-manga/vim-watchdogs'
@@ -425,19 +432,18 @@ set cursorcolumn
 " setting the following here works for 256 term
 "autocmd ColorScheme * highlight Normal ctermbg=None
 "autocmd ColorScheme * highlight NonText ctermbg=None
+" http://vimwiki.net/?faq%2F4
 augroup myappearance
 	autocmd!
 	autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
-	autocmd ColorScheme * hi ZenkakuSpace ctermbg=white guibg=white
+	autocmd ColorScheme * hi ZenkakuSpace ctermfg=white guifg=white
 augroup END
 
 colorscheme jellybeans2
 hi Visual term=reverse ctermbg=30
 "hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE " for 256 colors
 
-" http://vimwiki.net/?faq%2F4
 match ZenkakuSpace /　/
-
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 match ExtraWhiteSpace /\(\S\+\)\@<=\s\+$/
 " without syn, only the latter works. with it ,nothing works.
