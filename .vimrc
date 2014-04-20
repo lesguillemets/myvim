@@ -1,7 +1,7 @@
 """"""""""""""""""""""""""""""""""""""""""
-
+"_________________________________________
 " NeoBundle {{{1
-" neobundle itself {{{2
+" NeoBundle itself {{{2
 filetype off
 
 if has('vim_starting')
@@ -11,96 +11,101 @@ call neobundle#rc(expand('$HOME/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
-"
-" Essentials {{{2
-NeoBundle 'git://github.com/Shougo/neocomplcache.vim.git'
-"NeoBundle 'git://github.com/Shougo/neocomplete.vim.git'
-NeoBundle 'git://github.com/thinca/vim-quickrun.git'
-command! Q QuickRun
-" avoid conflict with Quickhl
-NeoBundle 'git://github.com/vim-scripts/Align.git'
-NeoBundle 'git://github.com/osyo-manga/vim-anzu.git'
-nmap n <Plug>(anzu-n-with-echo)
-nmap N <Plug>(anzu-N-with-echo)
-nmap * <Plug>(anzu-star-with-echo)N
-nmap # <Plug>(anzu-sharp-with-echo)
-NeoBundle 'git://github.com/Yggdroot/indentLine.git'
-let g:indentLine_showFirstIndentLevel=1
-let g:indentLine_first_char = '┆'
-"let g:indentLine_first_char = '❯'
-"let g:indentLine_first_char = '║'
-"let g:indentLine_first_char = '⧫'
-"let g:indentLine_char = '❭'
-"let g:indentLine_char = '║'
-"let g:indentLine_char = '⦙'
-let g:indentLine_char = '⟩'
-" these settings affect ALL conceal highlighting.
-let g:indentLine_color_term=62
-let g:indentLine_color_gui='#aabbaa'
-let g:indentLine_fileType=[]
-let g:indentLine_fileTypeExclude = [
-			\'text', 'quickrun', 'help', 'quickfix'
-			\]
-"NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
-let g:indent_guides_guide_size=1
-" autocmd Filetype * IndentGuidesDisable  " disabled for normal files
-"
-NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git'
-" Sadly the license is unknown
-" Added my modifications.
-"NeoBundle 'git://github.com/lesguillemets/rainbow_parentheses.vim.git'
-"NeoBundle 'git://github.com/lesguillemets/paint.vim.git'
-NeoBundle 'git://github.com/tpope/vim-characterize.git'
-NeoBundle 'git://github.com/tpope/vim-surround.git'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'git://github.com/t9md/vim-quickhl.git'
-nmap <Space>m <Plug>(quickhl-manual-this)
-xmap <Space>m <Plug>(quickhl-manual-this)
-nmap <Space>M <Plug>(quickhl-manual-reset)
-xmap <Space>M <Plug>(quickhl-manual-reset)
-" }}}
-"
-" Language specific plugins {{{2
 
-" haskell {{{
-NeoBundle 'git://github.com/ujihisa/neco-ghc.git'
-NeoBundle 'git://github.com/vim-scripts/haskell.vim'
-NeoBundle 'git://github.com/dag/vim2hs.git'
-" disable concealing of "enumerations": commatized lists like
-" " deriving clauses and LANGUAGE pragmas,
-" " otherwise collapsed into a single ellipsis
-let g:haskell_conceal_enumerations=0
-"NeoBundle 'kana/vim-filetype-haskell'
-NeoBundle 'eagletmt/ghcmod-vim'
-" Not sure
-" NeoBundle 'git://github.com/lukerandall/haskellmode-vim'
-NeoBundle 'ujihisa/ref-hoogle'
-" together with vim-ref
+" Essentials {{{2
+
+NeoBundle 'Shougo/neocomplcache.vim.git'
+
+NeoBundle 'thinca/vim-quickrun.git'
+" avoid conflict with Quickhl
+    command! Q QuickRun
+
+NeoBundle 'vim-scripts/Align.git'
+
+NeoBundle 'osyo-manga/vim-anzu.git'
+    nmap n <Plug>(anzu-n-with-echo)
+    nmap N <Plug>(anzu-N-with-echo)
+    nmap * <Plug>(anzu-star-with-echo)N
+    nmap # <Plug>(anzu-sharp-with-echo)
+
+NeoBundle 'git://github.com/Yggdroot/indentLine.git'
+    let g:indentLine_showFirstIndentLevel=1
+    let g:indentLine_first_char = '┆'
+        " other candidates : '❯', '║', '⧫',
+    let g:indentLine_char = '⟩'
+        " other candidates : '❭', '║', '⦙'
+    " these settings affect ALL conceal highlighting.
+    let g:indentLine_color_term=62
+    let g:indentLine_color_gui='#aabbaa'
+    let g:indentLine_fileType=[]
+    let g:indentLine_fileTypeExclude = [
+                \ 'text', 'quickrun', 'help', 'quickfix'
+                \]
+" When in the mood for a smoother appearance
+" NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
+" let g:indent_guides_guide_size=1
+" augroup iguidessettings
+" autocmd!
+" autocmd Filetype * IndentGuidesDisable  " disabled for normal files
+" autocmd Filetype python IndentGuidesEnable
+" autocmd Filetype haskell IndentGuidesEnable
+" autocmd Filetype ruby IndentGuidesEnable
+" augroup END
+
+NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git'
+" settings are in the appearance section.
+
+NeoBundle 'vim-characterize.git'
+NeoBundle 'vim-surround.git'
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 't9md/vim-quickhl.git'
+    nmap <Space>m <Plug>(quickhl-manual-this)
+    xmap <Space>m <Plug>(quickhl-manual-this)
+    nmap <Space>M <Plug>(quickhl-manual-reset)
+    xmap <Space>M <Plug>(quickhl-manual-reset)
 " }}}
+
+" Language specific plugins {{{
 
 " python {{{
 NeoBundle 'git://github.com/hynek/vim-python-pep8-indent.git'
-NeoBundle 'git://github.com/vim-scripts/jpythonfold.vim.git'
 NeoBundle 'git://github.com/davidhalter/jedi-vim'
-let g:jedi#auto_initialization = 1
-let g:jedi#popup_on_dot = 0
-let g:jedi#show_call_signatures = 0
-autocmd FileType python let b:did_ftplugin = 1
-let g:jedi#auto_vim_configuration=0
-let g:jedi#rename_command = ""
-let g:jedi#documentation_command = ""
-" <K> conflicts with vim-ref.
+    let g:jedi#auto_initialization = 1
+    let g:jedi#popup_on_dot = 0
+    let g:jedi#show_call_signatures = 0
+    augroup jedigroup
+        autocmd!
+        autocmd FileType python let b:did_ftplugin = 1
+    augroup END
+    let g:jedi#auto_vim_configuration=0
+    let g:jedi#rename_command = ""
+    " <K> conflicts with vim-ref.
+    let g:jedi#documentation_command = ""
 NeoBundle 'mkomitee/vim-gf-python'
 NeoBundle 'tmhedberg/SimpylFold'
+" Which to use?
+" NeoBundle 'git://github.com/vim-scripts/jpythonfold.vim.git'
 
+" }}}
+
+" haskell {{{
+NeoBundle 'ujihisa/neco-ghc.git'
+NeoBundle 'vim-scripts/haskell.vim'
+NeoBundle 'dag/vim2hs.git'
+    " disable concealing of "enumerations": commatized lists like
+    " deriving clauses and LANGUAGE pragmas,
+    " otherwise collapsed into a single ellipsis
+    let g:haskell_conceal_enumerations=0
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'ujihisa/ref-hoogle'
+" }}}
+
+" {{{ perl
+NeoBundle 'c9s/perlomni.vim'
 " }}}
 
 " ruby {{{
-NeoBundle 'git://github.com/vim-ruby/vim-ruby.git'
-" }}}
-
-" smalltalk {{{
-NeoBundle 'st.vim'
+NeoBundle 'vim-ruby/vim-ruby.git'
 " }}}
 
 " html {{{
@@ -114,25 +119,32 @@ NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 " }}}
 
 " javascript {{{
-NeoBundle 'git://github.com/jelera/vim-javascript-syntax.git'
-NeoBundle 'git://github.com/pangloss/vim-javascript.git'
+NeoBundle 'jelera/vim-javascript-syntax.git'
+NeoBundle 'pangloss/vim-javascript.git'
 " }}}
 
 " tex / latex {{{
-" NeoBundle 'git://github.com/vim-scripts/tex.vim--Brauner.git'
-"NeoBundle 'Vim-LaTeX' " not decided yet
+" Both seemed too much. Let's reconsider when necessary.
+" NeoBundle 'vim-scripts/tex.vim--Brauner.git'
+" NeoBundle 'Vim-LaTeX' "
 " }}}
 
 " markdown {{{
-NeoBundle 'git://github.com/jtratner/vim-flavored-markdown.git'
+NeoBundle 'jtratner/vim-flavored-markdown.git'
+"NeoBundle 'kannokanno/previm'
+"let g:previm_open_cmd="epiphany"
 " }}}
 
 " wikipedia {{{
 NeoBundle 'wikipedia.vim'
 " }}}
 
+" smalltalk {{{
+NeoBundle 'st.vim'
+" }}}
+
 " conky {{{
-NeoBundle 'git://github.com/smancill/conky-syntax.vim'
+NeoBundle 'smancill/conky-syntax.vim'
 "}}}
 
 " processing {{{
@@ -147,91 +159,80 @@ NeoBundle 'jeroenbourgois/vim-actionscript'
 NeoBundle 'git://github.com/vim-scripts/Colortest'
 "NeoBundle 'git://github.com/lesguillemets/Ox-syntax.vim.git' ", 'dev'
 
-" prepare for neocomplete {{{3
-"did not work " from http://kazy.hatenablog.com/entry/2013/07/18/131118
-"did not work autocmd FileType python setlocal omnifunc=jedi#completions
-"did not work let g:jedi#auto_vim_configuration = 0
-"did not work if !exists('g:neocomplete#force_omni_input_patterns')
-"did not work         let g:neocomplete#force_omni_input_patterns = {}
-"did not work endif
-"did not work let g:neocomplete#force_omni_input_patterns.python =
-"did not work 	\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-"}}}
 " }}}
 
 " Benri {{{2
-NeoBundle 'git://github.com/vim-scripts/CountJump.git'
-NeoBundle 'git://github.com/vim-scripts/loremipsum.git'
-NeoBundle 'git://github.com/scrooloose/nerdtree.git'
-let NERDTreeShowHidden=1
-NeoBundle 'git://github.com/deris/columnjump.git'
-nmap <C-k> <Plug>(columnjump-backward)
-nmap <C-j> <Plug>(columnjump-forward)
-NeoBundle 'git://github.com/itchyny/thumbnail.vim.git'
+NeoBundle 'vim-scripts/loremipsum'
+NeoBundle 'scrooloose/nerdtree'
+    let NERDTreeShowHidden=1
+NeoBundle 'deris/columnjump'
+    " Hey, remember me!
+    nmap <C-k> <Plug>(columnjump-backward)
+    nmap <C-j> <Plug>(columnjump-forward)
+NeoBundle 'tyru/caw.vim'
+    nmap <Leader>c <Plug>(caw:I:toggle)
+    vmap <Leader>c <Plug>(caw:I:toggle)
+NeoBundle 'thinca/vim-ref'
+NeoBundle 'osyo-manga/vim-hideout'
 "}}}
 
-" Appearance {{{2
-" this plugin seems very good, although I don't need it for now.
-" Thanks jellybeans!
-"NeoBundle 'git://github.com/vim-scripts/CSApprox.git'
-NeoBundle 'git://github.com/guns/xterm-color-table.vim.git'
-" enable when needed.
-" NeoBundle 'git://github.com/cocopon/colorswatch.vim.git'
-NeoBundle 'git://github.com/terryma/vim-multiple-cursors'
-" NeoBundle 'git://github.com/jlanzarotta/colorSchemeExplorer'
-" Doesn't seem to work
-" Cool, but perhaps too shiny
-"NeoBundle 'itchyny/lightline.vim'
-" I didn't like too much informathion
-"NeoBundle 'git://github.com/thinca/vim-splash'
-"let g:splash#path="/Documents/vim/vim_intro.txt"
-" from https://gist.github.com/OrgaChem/7630711
-
+" Appearance {{{
+NeoBundle 'guns/xterm-color-table.vim'
 NeoBundle 'lilydjwg/colorizer'
-"NeoBundle 'ntpeters/vim-better-whitespace'
+" NeoBundle 'git://github.com/cocopon/colorswatch.vim.git'
+    " enable when needed.
+" NeoBundle 'git://github.com/vim-scripts/CSApprox.git'
+    " this plugin seems very good, although I don't need it for now.
+    " Thanks jellybeans!
+" NeoBundle 'git://github.com/jlanzarotta/colorSchemeExplorer'
+    " Errors.. why?
+" NeoBundle 'itchyny/lightline.vim'
+    " Cool, but perhaps too shiny with too many informations for me.
+" NeoBundle 'git://github.com/thinca/vim-splash'
+    " from https://gist.github.com/OrgaChem/7630711
+" NeoBundle 'ntpeters/vim-better-whitespace'
 " }}}
 
 " Trial {{{2
-" NeoBundle 'git://github.com/vim-scripts/swap-parameters.git'
-" NeoBundle 'git://github.com/kshenoy/vim-signature'
-NeoBundle 'git://github.com/tyru/caw.vim.git'
-nmap <Leader>c <Plug>(caw:I:toggle)
-vmap <Leader>c <Plug>(caw:I:toggle)
+NeoBundle 'itchyny/thumbnail.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'vim-scripts/CountJump'
+    " supposed to be good with latex
+NeoBundle 'kshenoy/vim-signature'
+    " let's use marks more often, really.
+
+" NeoBundle 'vim-scripts/swap-parameters'
+    " too specific a command, perhaps?
 
 NeoBundle 'lyokha/vim-publish-helper'
+
 NeoBundle 'reedes/vim-quotable'
-noremap <Space>q :QuotableEducateToggle<CR>
-" for that
+    noremap <Space>q :QuotableEducateToggle<CR>
+" for quotable
 NeoBundle 'kana/vim-textobj-user'
 
 NeoBundle 'sjl/gundo.vim'
-nnoremap <silent> <Space>u :GundoToggle<CR>
+    nnoremap <silent> <Space>u :GundoToggle<CR>
 
 NeoBundle 'mattn/benchvimrc-vim'
-"NeoBundle 'kana/vim-smartinput'
-
-NeoBundle 'thinca/vim-ref'
-
+" NeoBundle 'kana/vim-smartinput'
 NeoBundle 'michaeljsmith/vim-indent-object'
-
-NeoBundle 'osyo-manga/vim-hideout'
-
-"NeoBundle 'osyo-manga/shabadou.vim'
-"NeoBundle 'osyo-manga/vim-watchdogs'
-"NeoBundle 'yuratomo/w3m.vim'
-"seems nice, but uses up CPU?
-
 NeoBundle 'rking/ag.vim'
 
-"NeoBundle 'kannokanno/previm'
-"let g:previm_open_cmd="epiphany"
+" NeoBundle 'yuratomo/w3m.vim'
+    "seems nice, but uses up CPU?
+
+" willing to configure .. someday.
+" NeoBundle 'osyo-manga/shabadou.vim'
+" NeoBundle 'osyo-manga/vim-watchdogs'
+
 " }}}
 
 " leisure{{{2
-NeoBundle 'git://github.com/deris/vim-duzzle.git'
+NeoBundle 'deris/vim-duzzle'
 NeoBundle 'thinca/vim-threes'
-"NeoBundle 'osyo-manga/vim-sound' => load in typewriter section.
-" I think we should use neobundlelazy.
+" NeoBundle 'osyo-manga/vim-sound' => load in typewriter section.
+" I think we should be using neobundlelazy by now.
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : 'make -f make_mingw32.mak',
@@ -240,9 +241,7 @@ NeoBundle 'Shougo/vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
-
 NeoBundle 'mopp/rogue.vim'
-
 " }}}
 
 "new colorschemes {{{2
@@ -287,18 +286,32 @@ NeoBundle 'xenomachina/vim-holodark'
 NeoBundle 'vim-scripts/Risto-Color-Scheme'
 NeoBundle 'rdark-terminal'
 "}}}
+
+" prepare for neocomplete {{{
+" following are the trail of failure
+" from http://kazy.hatenablog.com/entry/2013/07/18/131118
+"autocmd FileType python setlocal omnifunc=jedi#completions
+"let g:jedi#auto_vim_configuration = 0
+"if !exists('g:neocomplete#force_omni_input_patterns')
+"        let g:neocomplete#force_omni_input_patterns = {}
+"endif
+"let g:neocomplete#force_omni_input_patterns.python =
+"\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 " }}}
+" }}}
+"_________________________________________
 
-
-""""""""""""""""""""""""""""""""""""""""""
+"_________________________________________
 " general settings {{{
 
-let g:typewritersound = 0
 syntax on
 filetype plugin on
 filetype indent on
 set smartindent
 set smarttab
+set tabstop=4
+set shiftwidth=4
+set expandtab
 set ignorecase
 set smartcase
 set ruler
@@ -307,16 +320,17 @@ set number
 set showcmd
 set hlsearch
 set incsearch
-set showmode
+set showmode  " tells us which mode we're in.
 set showtabline=1
 set backspace=
-" Maximum column in which to search for syntax items.
 set synmaxcol=200
+
+set cursorline
+set cursorcolumn
 
 set wildmode=longest,list,full
 set wildmenu
 
-" when :split and :vsplit
 set splitbelow
 set splitright
 
@@ -326,9 +340,10 @@ set laststatus=2
 " make unvisible chars visible.
 set list
 set listchars=tab:>-
-set conceallevel=1
 " supermomonga
-"set listchars=tab:\ ,trail:˼,extends:»,precedes:«,nbsp:%
+" set listchars=tab:\ ,trail:˼,extends:»,precedes:«,nbsp:%
+set conceallevel=1
+set matchpairs=(:),{:},[:]
 
 " 256 colours
 set t_Co=256
@@ -339,48 +354,42 @@ set nrformats+=alpha
 
 " folding?
 set foldmethod=manual
-" set foldmethod=indent
-" set foldcolumn=5
-" set foldenable
+set foldcolumn=0
 
 " modeline
 set modeline
 
-map Y y$
 " let macros go faster (dsummersl/dotvim/_vimrc)
 set lazyredraw
 
 " <C-v> and voila!
 set virtualedit+=block
 
-" adds < >  as matchpairs in % moving.
-" on second thought, no.
-"set matchpairs+=<:>
-set matchpairs=(:),{:},[:]
-
 "disable mouse
-set mouse=c
+set mouse=
 
-" tab modifications
-set tabstop=4		"the width of a TAB is set to 4.
-					"still it is a \t.
-set shiftwidth=4	"indents will have a width of 4.
+let g:typewritersound = 0
 
 " }}}
+"_________________________________________
 
+"_________________________________________
 " maps without plugin {{{
-"
-nmap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+map Y y$
 nnoremap * *N
 " comments with # don't remove indentations
 inoremap # X#
 " set working directory to the current file
 nnoremap ,cd :lcd %:p:h <CR>
-" Paste from unnamed registar and fix indentation.
-" cf: github://gregstallings/vimfiles/vimrc
+
+" Paste and fix indentation.
+" cf: github:gregstallings/vimfiles/vimrc
 nmap <Leader>p p`[v`]=
 nmap <Leader>P P`[v`]=
 
+" No more 'oops, vim froze? No way!'s
 nnoremap ჯ :echoerr "You're using Georgian keyboard!"<CR>
 nnoremap კ :echoerr "You're using Georgian keyboard!"<CR>
 
@@ -400,78 +409,46 @@ nnoremap <C-right> <C-w>l
 
 " activate shell keeping vim visible.
 " http://mattn.kaoriya.net/software/vim/20070510122133.htm
-nmap <silent> gsh :set t_te= t_ti= <cr>:sh<cr>:set t_te& t_ti&<cr>
+nmap <silent> gsh :set t_te= t_ti= <CR>:sh<CR>:set t_te& t_ti&<CR>
 
-" from: vim-reading #94, https://github.com/gcmt/dotfiles/blob/2afa347cffe1de895b4349c86258d753ff9ab0f0/vim/.vimrc
+" from: vim-reading #94,
+" github:gcmt/dotfiles/vim/.vimrc (@2afa347)
 " selects the current line without indentation
 nnoremap vv ^vg_
 
-" moving assistance in insert mode (thanks: http://gg-hogehoge.hatenablog.com/entry/2013/07/26/212223)
-"inoremap <C-h> <Left>
-"inoremap <C-l> <Right>
-"inoremap <C-k> <Up>
-"inoremap <C-j> <Down>
-
 " }}}
+"_________________________________________
 
-" resize the devisions if the Vim window size changes
-" ( from: https://github.com/joedicastro/dotfiles/blob/master/vim/vimrc)
-" au VimResized * exe "normal! \<c-w>="
-
-" preserves folding
-" autocmd BufLeave,BufWinLeave ?* call cursor (1,1) " reset cursor position
-" autocmd BufWritePost,BufLeave,BufWinLeave ?* mkview
-"autocmd BufWinEnter ?* silent loadview
-
+"_________________________________________
 " appearance {{{
 " see http://lingr.com/room/vim/archives/2014/03/29#message-18683313 ?
-set cursorline
-set cursorcolumn
-"hi CursorLine cterm=NONE ctermbg=darkgrey ctermfg=NONE
-"colorscheme strawimodo_termvim
 " setting the following here works for 256 term
 "autocmd ColorScheme * highlight Normal ctermbg=None
 "autocmd ColorScheme * highlight NonText ctermbg=None
-" http://vimwiki.net/?faq%2F4
+
 augroup myappearance
-	autocmd!
-	autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
-	autocmd ColorScheme * hi ZenkakuSpace ctermfg=white guifg=white
-	"autocmd ColorScheme * hi Conceal ctermfg=gray guifg=gray
-	" set by indentline.
+    autocmd!
+    autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
+    autocmd ColorScheme * hi ZenkakuSpace ctermbg=white guibg=white
+    autocmd VimEnter,WinEnter * call s:syntax_additional()
 augroup END
 
 colorscheme jellybeans2
 let g:jellybeans_background_color_256='NONE'
+" although this does not seem to be working...
 let g:jellybeans_overrides = {
-	\'rubyRegexp' : {'ctermfg':'200'},
-	\'rubyRegexpSpecial' : {'ctermfg':'206'},
-	\'rubyRegexpDelimiter' : {'ctermfg': '126'},
-	\}
+    \'rubyRegexp' : {'ctermfg':'200'},
+    \'rubyRegexpSpecial' : {'ctermfg':'206'},
+    \'rubyRegexpDelimiter' : {'ctermfg': '126'},
+    \}
+
+" I expect colorschemes to override these highlight settings.
 hi Visual term=reverse ctermbg=30
-"hi CursorLine cterm=NONE ctermbg=black ctermfg=NONE " for 256 colors
-
-match ZenkakuSpace /　/
-" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-match ExtraWhiteSpace /\(\S\+\)\@<=\s\+$/
-" without syn, only the latter works. with it ,nothing works.
-
 hi StatusLine term=NONE ctermbg=black ctermfg=green
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%4l/%4L]\ C[%3c]%5P
-" added [%n] and L,C
-"set statusline=%<%f%m\ %{getcwd()}\ %=\ %l\/%L\,%=\ %c%V\ \(%P\)
+
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
-function! NeatFoldText() 
-  let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
-  let lines_count = v:foldend - v:foldstart + 1
-  let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
-  let foldchar = matchstr(&fillchars, 'fold:\zs.')
-  let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
-  let foldtextend = lines_count_text . repeat(foldchar, 8)
-  let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
-  return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
-endfunction
 set foldtext=NeatFoldText()
 " }}}
 
@@ -497,70 +474,75 @@ augroup TastetheRainbow
     autocmd VimEnter,BufRead,BufWinEnter,BufNewFile * call Load_Rainbow()
 augroup END
 let g:rbpt_colorpairs = [
-	\ ['240',   'LightGray'],
-	\ ['247',   'gray'],
-	\ ['255',   'LightGray'],
-	\ ['240',   'white'],
-	\ ['247',   'LightGray'],
-	\ ['255',   'gray'],
-	\ ['240',   'LightGray'],
-	\ ['247',   'white'],
-	\ ['255',   'LightGray'],
-	\ ['240',   'gray'],
-	\ ['247',   'LightGray'],
-	\ ['255',   'white'],
-	\ ['247',   'LightGray'],
-	\ ['240',   'gray'],
-	\ ['247',   'LightGray'],
-	\ ['None',  'white'],
+    \ ['240',  'LightGray'],
+    \ ['247',  'gray'],
+    \ ['255',  'LightGray'],
+    \ ['240',  'white'],
+    \ ['247',  'LightGray'],
+    \ ['255',  'gray'],
+    \ ['240',  'LightGray'],
+    \ ['247',  'white'],
+    \ ['255',  'LightGray'],
+    \ ['240',  'gray'],
+    \ ['247',  'LightGray'],
+    \ ['255',  'white'],
+    \ ['247',  'LightGray'],
+    \ ['240',  'gray'],
+    \ ['247',  'LightGray'],
+    \ ['None', 'white'],
 \ ]
 " }}}
 " }}}
+"_________________________________________
 
+"_________________________________________
 " Typewriter {{{
 
 if !exists("g:typewritersound")
-	let g:typewritersound = 0
+    let g:typewritersound = 0
 endif
 if g:typewritersound
-	NeoBundle 'osyo-manga/vim-sound'
-	let s:se_path = "~/Music/typewriter/"
-	let s:se_ext = ".wav"
-	function! s:change_sound_name(base_name)
-		return expand(s:se_path . a:base_name . s:se_ext)
-	endfunction
-	
-	function! PlaySE(name)
-		call sound#play_wav(s:change_sound_name(a:name))
-	endfunction
-	autocmd CompleteDone * call PlaySE("spacebarpress")
-	autocmd BufEnter * call PlaySE("Clamp")
-	autocmd InsertCharPre * call PlaySE("key1pressrelease")
-	autocmd BufWrite * call PlaySE("Ding")
-	autocmd InsertEnter * call PlaySE("Ding")
-	autocmd InsertLeave * call PlaySE("Ding")
-	autocmd TabEnter * call PlaySE("newline1")
-	nnoremap <silent> j j:<C-u>call PlaySE("arrowkeypressrelease")<CR>
-	nnoremap <silent> k k:<C-u>call PlaySE("arrowkeypressrelease")<CR>
-	nnoremap <silent> l l:<C-u>call PlaySE("arrowkeypressrelease")<CR>
-	nnoremap <silent> h h:<C-u>call PlaySE("arrowkeypressrelease")<CR>
+    NeoBundle 'osyo-manga/vim-sound'
+    let s:se_path = "~/Music/typewriter/"
+    let s:se_ext = ".wav"
+    function! s:change_sound_name(base_name)
+        return expand(s:se_path . a:base_name . s:se_ext)
+    endfunction
+    
+    function! PlaySE(name)
+        call sound#play_wav(s:change_sound_name(a:name))
+    endfunction
+    augroup typesound
+        autocmd !
+        autocmd CompleteDone * call PlaySE("spacebarpress")
+        autocmd BufEnter * call PlaySE("Clamp")
+        autocmd InsertCharPre * call PlaySE("key1pressrelease")
+        autocmd BufWrite * call PlaySE("Ding")
+        autocmd InsertEnter * call PlaySE("Ding")
+        autocmd InsertLeave * call PlaySE("Ding")
+        autocmd TabEnter * call PlaySE("newline1")
+    augroup END
+    nnoremap <silent> j j:<C-u>call PlaySE("arrowkeypressrelease")<CR>
+    nnoremap <silent> k k:<C-u>call PlaySE("arrowkeypressrelease")<CR>
+    nnoremap <silent> l l:<C-u>call PlaySE("arrowkeypressrelease")<CR>
+    nnoremap <silent> h h:<C-u>call PlaySE("arrowkeypressrelease")<CR>
 endif
 " }}}
+"_________________________________________
 
-"______________________________________________
+"_________________________________________
 "language specific modifications {{{1
 
 augroup myftsettings
-	autocmd!
+autocmd!
 
 " python {{{2
 autocmd Filetype python setlocal expandtab
 autocmd Filetype python setlocal softtabstop=4
 autocmd Filetype python setlocal shiftwidth=4
 autocmd Filetype python setlocal foldlevel=1
-" autocmd Filetype python IndentGuidesEnable
 function! JJPythonFold()
-	source $HOME/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
+    source $HOME/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
 endfunction
 command! PyFold call JJPythonFold()
 " }}}
@@ -572,12 +554,10 @@ autocmd Filetype haskell setlocal shiftwidth=4
 autocmd Filetype haskell setlocal smarttab
 autocmd Filetype haskell setlocal shiftround
 autocmd Filetype haskell setlocal nojoinspaces
-autocmd Filetype haskell setlocal nofoldenable  "disable folding
-"autocmd Filetype haskell setlocal conceallevel=0  " no lambda as lambda.
+autocmd Filetype haskell setlocal foldlevel=0
 autocmd Filetype haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
 autocmd Filetype haskell nnoremap <buffer><slient> <Space>T :<C-u>GhcModType<CR>:nohlsearch<CR>
 autocmd Filetype haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
-" autocmd Filetype haskell IndentGuidesEnable
 " }}}
 
 " ruby {{{2
@@ -585,9 +565,6 @@ autocmd Filetype ruby setlocal shiftwidth=2
 autocmd Filetype ruby setlocal softtabstop=2
 autocmd Filetype ruby setlocal tabstop=2
 autocmd Filetype ruby setlocal expandtab
-" autocmd Filetype ruby IndentGuidesEnable
-"autocmd Filetype ruby source /.vim/ftplugin/ruby-matchit.vim
-"autocmd Filetype ruby source /.vim/ftplugin/ruby.vim
 " }}}
 
 " C {{{2
@@ -625,10 +602,7 @@ autocmd Filetype html setlocal expandtab
 autocmd Filetype html inoremap <buffer> <C-b> <br />
 autocmd Filetype html setlocal mps+=<:>
 autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-autocmd Filetype html nnoremap j gj
-autocmd Filetype html nnoremap k gk
-autocmd Filetype html nnoremap gj j
-autocmd Filetype html nnoremap gk k
+autocmd Filetype html call s:displaymovement()
 " }}}
 
 " XHTML {{{2
@@ -639,10 +613,12 @@ autocmd Filetype xhtml setlocal expandtab
 autocmd Filetype xhtml inoremap <buffer> <C-b> <br />
 autocmd Filetype xhtml setlocal mps+=<:>
 autocmd Filetype xhtml inoremap <buffer> </ </<C-x><C-o>
+autocmd Filetype xhtml call s:displaymovement()
 " }}}
 
 " XML {{{2
 autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+autocmd Filetype xml call s:displaymovement()
 "}}}
 
 " javascript {{{2
@@ -657,10 +633,7 @@ autocmd FileType markdown setlocal expandtab
 autocmd FileType markdown setlocal shiftwidth=2
 autocmd Filetype markdown setlocal softtabstop=2
 autocmd Filetype markdown setlocal tabstop=2
-autocmd Filetype markdown nnoremap j gj
-autocmd Filetype markdown nnoremap k gk
-autocmd Filetype markdown nnoremap gj j
-autocmd Filetype markdown nnoremap gk k
+autocmd Filetype markdown call s:displaymovement()
 "}}}
 
 " vim {{{2
@@ -671,12 +644,11 @@ autocmd Filetype vim setlocal shiftwidth=4
 " }}}
 
 " mediawiki {{{2
-autocmd FileType mediawiki nnoremap <buffer> j gj
-autocmd FileType mediawiki nnoremap <buffer> k gk
+autocmd Filetype mediawiki call s:displaymovement()
 autocmd Filetype mediawiki inoremap <buffer> </ </<C-x><C-o>
 autocmd FileType mediawiki setlocal synmaxcol=-1
 autocmd FileType mediawiki setlocal foldexpr=
-			\ getline(v:lnum)=~'^\\(=\\+\\)[^=]\\+\\1\\(\\s*<!--.*-->\\)\\=\\s*$'?\">\".(len(matchstr(getline(v:lnum),'^=\\+'))-1):\"=\"
+    \ getline(v:lnum)=~'^\\(=\\+\\)[^=]\\+\\1\\(\\s*<!--.*-->\\)\\=\\s*$'?\">\".(len(matchstr(getline(v:lnum),'^=\\+'))-1):\"=\"
 autocmd FileType mediawiki setlocal foldmethod=expr
 "autocmd Filetype mediawiki QuotableEducateOn
 " }}}
@@ -685,8 +657,7 @@ autocmd FileType mediawiki setlocal foldmethod=expr
 "autocmd FileType tex,plaintex,latex source $HOME/.vim/ftplugin/tex.vim
 "autocmd FileType tex,plaintex,latex map <buffer> <silent> ]s :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 "autocmd FileType tex,plaintex,latex map <buffer> [s :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
-autocmd FileType tex,plaintex,latex nnoremap j gj
-autocmd FileType tex,plaintex,latex nnoremap k gk
+autocmd Filetype tex,plaintex,latex call s:displaymovement()
 autocmd FileType tex,plaintex,latex setlocal conceallevel=0
 " }}}
 
@@ -695,15 +666,11 @@ autocmd FileType lisp setlocal expandtab
 "}}}
 
 " quickrun output {{{2
-autocmd Filetype quickrun noremap <buffer> j gj
-autocmd Filetype quickrun noremap <buffer> k gk
-autocmd Filetype quickrun noremap <buffer> gj j
-autocmd Filetype quickrun noremap <buffer> gk k
+autocmd Filetype quickrun call s:displaymovement()
 "}}}
 
 " w3m {{{2
-autocmd Filetype w3m noremap <buffer> j gj
-autocmd Filetype w3m noremap <buffer> k gk
+autocmd Filetype w3m call s:displaymovement()
 autocmd Filetype w3m IndentLinesToggle
 "}}}
 
@@ -715,12 +682,13 @@ autocmd Filetype nerdtree setlocal tabstop=2
 
 augroup END
 " }}}
+"_________________________________________
 
+"_________________________________________
 " user functions {{{1
 "
-"
 " :SyntaxInfo to display the syntax info. {{{2
-"from http://cohama.hateblo.jp/entry/2013/08/11/020849,
+" from http://cohama.hateblo.jp/entry/2013/08/11/020849,
 "_______________________________________________
 function! s:get_syn_id(transparent)
   let synid = synID(line("."), col("."), 1)
@@ -763,7 +731,7 @@ command! SyntaxInfo call s:get_syn_info()
 " }}}
 
 " dm in normal mode {{{
-"(http://lingr.com/room/vim/archives/2014/04/12#message-18780856)
+" (http://lingr.com/room/vim/archives/2014/04/12#message-18780856)
 function! s:norelativenumber()
     augroup restore_op
         autocmd!
@@ -777,11 +745,11 @@ endfunction
 
 function! s:ToggleRelativeNumber()
     if &relativenumber
-      set norelativenumber
-      let &number = exists("b:togglernu_number") ? b:togglernu_number : 1
+        set norelativenumber
+        let &number = exists("b:togglernu_number") ? b:togglernu_number : 1
     else
-      let b:togglernu_number = &number
-      set relativenumber
+        let b:togglernu_number = &number
+        set relativenumber
     endif
     redraw!  " these two lines required for omap
 
@@ -796,46 +764,97 @@ onoremap <expr> m <SID>ToggleRelativeNumber() . <SID>norelativenumber()
 
 " detect filetype. When editing cgi, etc. {{{
 function! s:mydetectft()
-	if did_filetype()
-		return
-	endif
-	let shebang=getline(1)
-	if shebang =~# '^#!.*python[23]\=$'
-		setfiletype python
-	elseif shebang =~# '^#!.*ruby[0-9.]\*$'
-		setfiletype ruby
-	elseif shebang =~# '^#!.*perl[0-9.]\*$'
-		setfiletype perl
-	endif
+    if did_filetype()
+        return
+    endif
+    let shebang=getline(1)
+    if shebang =~# '^#!.*python[23]\=$'
+        setfiletype python
+    elseif shebang =~# '^#!.*ruby[0-9.]\*$'
+        setfiletype ruby
+    elseif shebang =~# '^#!.*perl[0-9.]\*$'
+        setfiletype perl
+    endif
+    unlet shebang
 endfunction
 augroup detectft
 autocmd detectft BufRead call mydetectft
 augroup end
 " }}}
 
+" foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
+function! NeatFoldText()
+    let line = ' ' . substitute(getline(v:foldstart), '^\s*"\?\s*\|\s*"\?\s*{{' . '{\d*\s*', '', 'g') . ' '
+    let lines_count = v:foldend - v:foldstart + 1
+    let lines_count_text = '| ' . printf("%10s", lines_count . ' lines') . ' |'
+    let foldchar = matchstr(&fillchars, 'fold:\zs.')
+    let foldtextstart = strpart('+' . repeat(foldchar, v:foldlevel*2) . line, 0, (winwidth(0)*2)/3)
+    let foldtextend = lines_count_text . repeat(foldchar, 8)
+    let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
+    return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
+endfunction
+
 " }}}
 
-" Additional settings for Quickrun {{{1
+" {{{ mapping j as gj, etc.
+function! s:displaymovement()
+    nnoremap <buffer> j gj
+    nnoremap <buffer> k gk
+    nnoremap <buffer> gj j
+    nnoremap <buffer> gk k
+    nnoremap <buffer> $ g$
+    nnoremap <buffer> g$ $
+    nnoremap <buffer> ^ g^
+    nnoremap <buffer> g^ ^
+endfunction
+
+"}}}
+
+" additional syntax for highlighting spaces. {{{
+" from thinca's vimrc
+function! s:syntax_additional()
+    let preset = exists('w:syntax_additional')
+    if &l:list
+        if !preset
+            " http://vimwiki.net/?faq%2F4
+            " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+            let w:syntax_additional = [
+            \ matchadd('ZenkakuSpace', '　',0),
+            \ matchadd('ExtraWhiteSpace', '\(\S\+\)\@<=\s\+$',0),
+            \ ]
+        endif
+    elseif preset
+        for added in w:syntax_additional
+            call matchdelete(added)
+        endfor
+        unlet added
+        unlet w:syntax_additional
+    endif
+endfunction
+" }}}
+
+"_________________________________________
+"}}}
+"_________________________________________
+
+"_________________________________________
+" Additional, extensible settings for plugins {{{
+
+" Quickrun {{{
 let g:quickrun_config = {}
 let g:quickrun_config.ox = {'command' : 'oxl'}
 let g:quickrun_config.st = {'command' : 'gst'}
 " for processing : from github.com/5t111111/dotfiles/.vimrc
 let g:quickrun_config.processing = {
-			\	'command': 'processing-java',
-			\	'cmdopt': '--run --force',
-			\	'exec': '%c --sketch=%s:%h --output=~/Documents/Processing/%o',
-			\	'outputter' : 'error:buffer:quickfix',
-			\}
+    \    'command': 'processing-java',
+    \    'cmdopt': '--run --force',
+    \    'exec': '%c --sketch=%s:%h --output=~/Documents/Processing/%o',
+    \    'outputter' : 'error:buffer:quickfix',
+    \}
 " }}}
 
+" NeoComplcache {{{
 
-"_______________________________________________
-":::::::::::::::::::::::::::::::::::::
-" " NeoComplcache {{{1
-" ::::::::::::::::::::::::::::::::::::
-
-
-"Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
 " Use neocomplcache.
@@ -854,14 +873,14 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
-	\ 'default' : '',
-	\ 'vimshell' : $HOME.'/.vimshell_hist',
-	\ 'scheme' : $HOME.'/.gosh_completions'
-		\ }
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+        \ }
 
 " Define keyword.
 if !exists('g:neocomplcache_keyword_patterns')
-	let g:neocomplcache_keyword_patterns = {}
+    let g:neocomplcache_keyword_patterns = {}
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
@@ -886,16 +905,6 @@ inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " Close popup by <Space>.
 "inoremap <expr><Space> pumvisible() ? neocomplcache#close_popup() : "\<Space>"
-
-" For cursor moving in insert mode(Not recommended)
-"inoremap <expr><Left>  neocomplcache#close_popup() . "\<Left>"
-"inoremap <expr><Right> neocomplcache#close_popup() . "\<Right>"
-"inoremap <expr><Up>    neocomplcache#close_popup() . "\<Up>"
-"inoremap <expr><Down>  neocomplcache#close_popup() . "\<Down>"
-" Or set this.
-"let g:neocomplcache_enable_cursor_hold_i = 1
-" Or set this.
-"let g:neocomplcache_enable_insert_char_pre = 1
 
 " AutoComplPop like behavior.
 "let g:neocomplcache_enable_auto_select = 1
@@ -925,11 +934,8 @@ let g:neocomplcache_omni_patterns.cpp =
 " https://github.com/c9s/perlomni.vim
 let g:neocomplcache_omni_patterns.perl =
 \ '[^. \t]->\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
-"<
 set completeopt-=preview
-"Q: I want to disable preview window.
-"
-"A:
-">
-"	set completeopt-=preview
 "}}}
+"_________________________________________
+"}}}
+"_________________________________________
