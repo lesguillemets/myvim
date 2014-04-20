@@ -688,7 +688,7 @@ augroup END
 " user functions {{{1
 "
 " :SyntaxInfo to display the syntax info. {{{2
-"from http://cohama.hateblo.jp/entry/2013/08/11/020849,
+" from http://cohama.hateblo.jp/entry/2013/08/11/020849,
 "_______________________________________________
 function! s:get_syn_id(transparent)
   let synid = synID(line("."), col("."), 1)
@@ -764,17 +764,18 @@ onoremap <expr> m <SID>ToggleRelativeNumber() . <SID>norelativenumber()
 
 " detect filetype. When editing cgi, etc. {{{
 function! s:mydetectft()
-	if did_filetype()
-		return
-	endif
-	let shebang=getline(1)
-	if shebang =~# '^#!.*python[23]\=$'
-		setfiletype python
-	elseif shebang =~# '^#!.*ruby[0-9.]\*$'
-		setfiletype ruby
-	elseif shebang =~# '^#!.*perl[0-9.]\*$'
-		setfiletype perl
-	endif
+    if did_filetype()
+        return
+    endif
+    let shebang=getline(1)
+    if shebang =~# '^#!.*python[23]\=$'
+        setfiletype python
+    elseif shebang =~# '^#!.*ruby[0-9.]\*$'
+        setfiletype ruby
+    elseif shebang =~# '^#!.*perl[0-9.]\*$'
+        setfiletype perl
+    endif
+    unlet shebang
 endfunction
 augroup detectft
 autocmd detectft BufRead call mydetectft
