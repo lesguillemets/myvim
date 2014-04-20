@@ -425,12 +425,12 @@ nnoremap vv ^vg_
 " setting the following here works for 256 term
 "autocmd ColorScheme * highlight Normal ctermbg=None
 "autocmd ColorScheme * highlight NonText ctermbg=None
-" http://vimwiki.net/?faq%2F4
 
 augroup myappearance
     autocmd!
     autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
     autocmd ColorScheme * hi ZenkakuSpace ctermbg=white guibg=white
+    autocmd VimEnter,WinEnter * call s:syntax_additional()
 augroup END
 
 colorscheme jellybeans2
@@ -447,10 +447,6 @@ hi Visual term=reverse ctermbg=30
 hi StatusLine term=NONE ctermbg=black ctermfg=green
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%4l/%4L]\ C[%3c]%5P
 
-match ZenkakuSpace /　/
-" http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-2match ExtraWhiteSpace /\(\S\+\)\@<=\s\+$/
-" seems it's better if I use matchadd.
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
 set foldtext=NeatFoldText()
@@ -812,6 +808,29 @@ function! s:displaymovement()
 endfunction
 
 "}}}
+
+" additional syntax for highlighting spaces. {{{
+" from thinca's vimrc
+function! s:syntax_additional()
+    let preset = exists('w:syntax_additional')
+    if &l:list
+        if !preset
+            " http://vimwiki.net/?faq%2F4
+            " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+            let w:syntax_additional = [
+            \ matchadd('ZenkakuSpace', '　',0),
+            \ matchadd('ExtraWhiteSpace', '\(\S\+\)\@<=\s\+$',0),
+            \ ]
+        endif
+    elseif preset
+        for added in w:syntax_additional
+            call matchdelete(added)
+        endfor
+        unlet added
+        unlet w:syntax_additional
+    endif
+endfunction
+" }}}
 
 "_________________________________________
 "}}}
