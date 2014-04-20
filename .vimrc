@@ -641,6 +641,8 @@ autocmd Filetype vim setlocal foldmethod=marker
 autocmd Filetype vim setlocal expandtab
 autocmd Filetype vim setlocal softtabstop=4
 autocmd Filetype vim setlocal shiftwidth=4
+" view help for the word under cursor.
+autocmd Filetype vim nnoremap <buffer> K :<C-u>help <C-r>=expand("<cword>")<CR><CR>
 " }}}
 
 " mediawiki {{{2
