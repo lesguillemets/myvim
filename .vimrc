@@ -430,7 +430,7 @@ nnoremap vv ^vg_
 augroup myappearance
     autocmd!
     autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
-    autocmd ColorScheme * hi ZenkakuSpace ctermfg=white guifg=white
+    autocmd ColorScheme * hi ZenkakuSpace ctermbg=white guibg=white
 augroup END
 
 colorscheme jellybeans2
@@ -449,8 +449,8 @@ set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%4l/%4L]
 
 match ZenkakuSpace /　/
 " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-match ExtraWhiteSpace /\(\S\+\)\@<=\s\+$/
-" without syn, only the latter works. with it ,nothing works.
+2match ExtraWhiteSpace /\(\S\+\)\@<=\s\+$/
+" seems it's better if I use matchadd.
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
 set foldtext=NeatFoldText()
