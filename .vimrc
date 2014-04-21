@@ -219,6 +219,8 @@ NeoBundle 'mattn/benchvimrc-vim'
 NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'rking/ag.vim'
 
+NeoBundle 'junegunn/goyo.vim'
+
 " NeoBundle 'yuratomo/w3m.vim'
     "seems nice, but uses up CPU?
 
@@ -415,6 +417,9 @@ nmap <silent> gsh :set t_te= t_ti= <CR>:sh<CR>:set t_te& t_ti&<CR>
 " github:gcmt/dotfiles/vim/.vimrc (@2afa347)
 " selects the current line without indentation
 nnoremap vv ^vg_
+
+"edit vimrc from everywhere you go.
+nnoremap <Leader>vim :<C-u>ed $MYVIMRC<CR>
 
 " }}}
 "_________________________________________
@@ -780,7 +785,8 @@ function! s:mydetectft()
     unlet shebang
 endfunction
 augroup detectft
-autocmd detectft BufRead call mydetectft
+autocmd!
+autocmd BufRead call mydetectft
 augroup end
 " }}}
 
