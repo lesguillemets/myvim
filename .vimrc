@@ -207,7 +207,8 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'lyokha/vim-publish-helper'
 
 NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-indent'
+    NeoBundle 'kana/vim-textobj-indent'
+    NeoBundle 'h1mesuke/textobj-wiw'
 NeoBundle 'reedes/vim-quotable'
     noremap <Space>q :QuotableEducateToggle<CR>
 
