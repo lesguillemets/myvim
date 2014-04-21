@@ -283,7 +283,7 @@ NeoBundle 'vim-scripts/tabula.vim'
 NeoBundle 'vim-scripts/leo256'
 NeoBundle 'ftzeng/futora'
 NeoBundle 'octol/vombatidae-vim'
-NeoBundle 'romainl/Apprentice'
+NeoBundle 'romainl/Apprentice' " Quite nice.
 NeoBundle 'xenomachina/vim-holodark'
 NeoBundle 'vim-scripts/Risto-Color-Scheme'
 NeoBundle 'rdark-terminal'
@@ -937,6 +937,7 @@ let g:neocomplcache_omni_patterns.c =
 \ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?'
 let g:neocomplcache_omni_patterns.cpp =
 \ '[^.[:digit:] *\t]\%(\.\|->\)\%(\h\w*\)\?\|\h\w*::\%(\h\w*\)\?'
+let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
