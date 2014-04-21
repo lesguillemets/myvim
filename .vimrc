@@ -206,17 +206,16 @@ NeoBundle 'kshenoy/vim-signature'
 
 NeoBundle 'lyokha/vim-publish-helper'
 
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-indent'
 NeoBundle 'reedes/vim-quotable'
     noremap <Space>q :QuotableEducateToggle<CR>
-" for quotable
-NeoBundle 'kana/vim-textobj-user'
 
 NeoBundle 'sjl/gundo.vim'
     nnoremap <silent> <Space>u :GundoToggle<CR>
 
 NeoBundle 'mattn/benchvimrc-vim'
 " NeoBundle 'kana/vim-smartinput'
-NeoBundle 'michaeljsmith/vim-indent-object'
 NeoBundle 'rking/ag.vim'
 
 NeoBundle 'junegunn/goyo.vim'
