@@ -209,8 +209,16 @@ NeoBundle 'lyokha/vim-publish-helper'
 NeoBundle 'kana/vim-textobj-user'
     NeoBundle 'kana/vim-textobj-indent'
     NeoBundle 'h1mesuke/textobj-wiw'
-NeoBundle 'reedes/vim-quotable'
-    noremap <Space>q :QuotableEducateToggle<CR>
+    NeoBundle 'reedes/vim-textobj-quote'
+        augroup textobj_quote
+            autocmd!
+            autocmd Filetype markdown call textobj#quote#init()
+            autocmd Filetype text call textobj#quote#init()
+        augroup END
+        nnoremap <Space>q :<C-u>ToggleEducate<CR>
+        " q because it was once called vim-quotable
+
+NeoBundle 'reedes/vim-wordy'
 
 NeoBundle 'sjl/gundo.vim'
     nnoremap <silent> <Space>u :GundoToggle<CR>
