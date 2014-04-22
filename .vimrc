@@ -219,6 +219,7 @@ NeoBundle 'kana/vim-textobj-user'
         " q because it was once called vim-quotable
 
 NeoBundle 'reedes/vim-wordy'
+NeoBundle 'reedes/vim-pencil'
 
 NeoBundle 'sjl/gundo.vim'
     nnoremap <silent> <Space>u :GundoToggle<CR>
