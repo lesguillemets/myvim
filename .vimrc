@@ -430,6 +430,30 @@ nnoremap vv ^vg_
 "edit vimrc from everywhere you go.
 nnoremap <Leader>vim :<C-u>ed $MYVIMRC<CR>
 
+" handy with quickrun
+
+function! s:python_quick_new(pos)
+    if a:pos ==? 'v'
+        vnew
+    else
+        new
+    endif
+    set ft=python
+endfunction
+command! Pynew call s:python_quick_new('s')
+command! VPynew call s:python_quick_new('v')
+
+function! s:ruby_quick_new(pos)
+    if a:pos ==? 'v'
+        vnew
+    else
+        new
+    endif
+    set ft=ruby
+endfunction
+command! Rubynew call s:ruby_quick_new('s')
+command! VRubynew call s:ruby_quick_new('v')
+
 " }}}
 "_________________________________________
 
@@ -457,8 +481,10 @@ let g:jellybeans_overrides = {
     \}
 
 " I expect colorschemes to override these highlight settings.
+hi VertSplit ctermfg=144 ctermbg=NONE guifg=lightblue guibg=NONE
 hi Visual term=reverse ctermbg=30
 hi StatusLine term=NONE ctermbg=black ctermfg=green
+set fillchars=vert:║,fold:-
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%4l/%4L]\ C[%3c]%5P
 
 
