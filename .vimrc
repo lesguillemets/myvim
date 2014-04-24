@@ -397,8 +397,12 @@ nnoremap ,cd :lcd %:p:h <CR>
 
 " Paste and fix indentation.
 " cf: github:gregstallings/vimfiles/vimrc
-nmap <Leader>p p`[v`]=
-nmap <Leader>P P`[v`]=
+nnoremap <Leader>p p`[v`]=
+nnoremap <Leader>P P`[v`]=
+
+" Paste what yanked in C-v as a independent block.
+nnoremap <silent> ,p :<C-u>call MakeLineWise()<CR>p
+nnoremap <silent> ,P :<C-u>call MakeLineWise()<CR>P
 
 " No more 'oops, vim froze? No way!'s
 nnoremap ჯ :echoerr "You're using Georgian keyboard!"<CR>
@@ -873,6 +877,12 @@ function! s:syntax_additional()
         unlet added
         unlet w:syntax_additional
     endif
+endfunction
+" }}}
+
+" Makes block-wise register line-wise. {{{
+function! MakeLineWise()
+    call setreg(v:register, getreg(),'l')
 endfunction
 " }}}
 
