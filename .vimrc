@@ -581,7 +581,6 @@ augroup myftsettings
 autocmd!
 
 " python {{{2
-autocmd Filetype python setlocal expandtab
 autocmd Filetype python setlocal softtabstop=4
 autocmd Filetype python setlocal shiftwidth=4
 autocmd Filetype python setlocal foldlevel=1
@@ -592,7 +591,6 @@ command! PyFold call JJPythonFold()
 " }}}
 
 "haskell {{{2
-autocmd Filetype haskell setlocal expandtab
 autocmd Filetype haskell setlocal softtabstop=4
 autocmd Filetype haskell setlocal shiftwidth=4
 autocmd Filetype haskell setlocal smarttab
@@ -608,25 +606,21 @@ autocmd Filetype haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsyn
 autocmd Filetype ruby setlocal shiftwidth=2
 autocmd Filetype ruby setlocal softtabstop=2
 autocmd Filetype ruby setlocal tabstop=2
-autocmd Filetype ruby setlocal expandtab
 " }}}
 
 " C {{{2
-autocmd Filetype c setlocal expandtab
 autocmd Filetype c setlocal shiftwidth=2
 autocmd Filetype c setlocal softtabstop=2
 autocmd Filetype c setlocal tabstop=2
 " }}}
 
 " C++ {{{2
-autocmd Filetype cpp setlocal expandtab
 autocmd Filetype cpp setlocal shiftwidth=2
 autocmd Filetype cpp setlocal softtabstop=2
 autocmd Filetype cpp setlocal tabstop=2
 " }}}
 
 " java {{{2
-autocmd Filetype java setlocal expandtab
 autocmd Filetype java setlocal softtabstop=4
 autocmd Filetype java setlocal shiftwidth=4
 "}}}
@@ -635,14 +629,12 @@ autocmd Filetype java setlocal shiftwidth=4
 autocmd Filetype lua setlocal shiftwidth=2
 autocmd Filetype lua setlocal softtabstop=2
 autocmd Filetype lua setlocal tabstop=2
-autocmd Filetype lua setlocal expandtab
 " }}}
 
 " HTML {{{2
 autocmd Filetype html setlocal shiftwidth=2
 autocmd Filetype html setlocal softtabstop=2
 autocmd Filetype html setlocal tabstop=2
-autocmd Filetype html setlocal expandtab
 autocmd Filetype html inoremap <buffer> <C-b> <br />
 autocmd Filetype html setlocal mps+=<:>
 autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
@@ -653,7 +645,6 @@ autocmd Filetype html call s:displaymovement()
 autocmd Filetype xhtml setlocal shiftwidth=2
 autocmd Filetype xhtml setlocal softtabstop=2
 autocmd Filetype xhtml setlocal tabstop=2
-autocmd Filetype xhtml setlocal expandtab
 autocmd Filetype xhtml inoremap <buffer> <C-b> <br />
 autocmd Filetype xhtml setlocal mps+=<:>
 autocmd Filetype xhtml inoremap <buffer> </ </<C-x><C-o>
@@ -666,14 +657,12 @@ autocmd Filetype xml call s:displaymovement()
 "}}}
 
 " javascript {{{2
-autocmd Filetype javascript setlocal expandtab
-autocmd Filetype javascript setlocal tabstop=4
-autocmd Filetype javascript setlocal softtabstop=4
-autocmd Filetype javascript setlocal shiftwidth=4
+autocmd Filetype javascript setlocal tabstop=2
+autocmd Filetype javascript setlocal softtabstop=2
+autocmd Filetype javascript setlocal shiftwidth=2
 "}}}
 
 " markdown {{{2
-autocmd FileType markdown setlocal expandtab
 autocmd FileType markdown setlocal shiftwidth=2
 autocmd Filetype markdown setlocal softtabstop=2
 autocmd Filetype markdown setlocal tabstop=2
@@ -682,7 +671,6 @@ autocmd Filetype markdown call s:displaymovement()
 
 " vim {{{2
 autocmd Filetype vim setlocal foldmethod=marker
-autocmd Filetype vim setlocal expandtab
 autocmd Filetype vim setlocal softtabstop=4
 autocmd Filetype vim setlocal shiftwidth=4
 " view help for the word under cursor.
@@ -708,7 +696,9 @@ autocmd FileType tex,plaintex,latex setlocal conceallevel=0
 " }}}
 
 " common lisp {{{2
-autocmd FileType lisp setlocal expandtab
+autocmd Filetype ruby setlocal tabstop=2
+autocmd FileType lisp setlocal softtabstop=2
+autocmd FileType lisp setlocal shiftwidth=2
 "}}}
 
 " quickrun output {{{2
