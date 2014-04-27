@@ -1,4 +1,4 @@
-""""""""""""""""""""""""""""""""""""""""""
+j"""""""""""""""""""""""""""""""""""""""""
 "_________________________________________
 " NeoBundle {{{1
 " NeoBundle itself {{{2
@@ -231,6 +231,9 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'junegunn/goyo.vim'
 
 NeoBundle 'tyru/open-browser.vim'
+    let g:netrw_nogx=1
+    nmap <leader>b <Plug>(openbrowser-smart-search)
+    vmap <leader>b <Plug>(openbrowser-smart-search)
 
 " NeoBundle 'yuratomo/w3m.vim'
     "seems nice, but uses up CPU?
@@ -442,7 +445,6 @@ nnoremap <Leader>vim :<C-u>ed $MYVIMRC<CR>
 
 command! Pynew call s:python_quick_new('s')
 command! VPynew call s:python_quick_new('v')
-
 command! Rubynew call s:ruby_quick_new('s')
 command! VRubynew call s:ruby_quick_new('v')
 
@@ -675,6 +677,7 @@ autocmd Filetype vim setlocal softtabstop=4
 autocmd Filetype vim setlocal shiftwidth=4
 " view help for the word under cursor.
 autocmd Filetype vim nnoremap <buffer> K :<C-u>help <C-r>=expand("<cword>")<CR><CR>
+autocmd Filetype vim nnoremap <leader>b :<C-u>call OpenBundle()<CR>
 " }}}
 
 " mediawiki {{{2
@@ -892,6 +895,15 @@ function! s:ruby_quick_new(pos)
     endif
     set ft=ruby
 endfunction
+" }}}
+
+" openbundle! {{{
+" TODO : need support for 'git://github.com/amazing/plugin' etc.
+function! OpenBundle()
+    let bundle_name=substitute(expand("<cWORD>"), "[\'\"]", "", 'g')
+    call openbrowser#open(neobundle#parser#path(bundle_name)['uri'])
+endfunction
+
 " }}}
 
 "_________________________________________
