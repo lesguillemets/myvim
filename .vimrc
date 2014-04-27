@@ -1,4 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""
+" vim:fileencoding=utf-8 ts=4 sts=4 sw=4
 "_________________________________________
 " NeoBundle {{{1
 " NeoBundle itself {{{2
@@ -325,17 +326,14 @@ filetype plugin on
 filetype indent on
 set smartindent
 set smarttab
-set tabstop=4
-set shiftwidth=4
+set tabstop=4 softtabstop=4 shiftwidth=4
 set expandtab
-set ignorecase
-set smartcase
+set ignorecase smartcase
+set hlsearch incsearch
 set ruler
 set title
 set number
 set showcmd
-set hlsearch
-set incsearch
 set showmode  " tells us which mode we're in.
 set showtabline=1
 set backspace=
@@ -629,7 +627,7 @@ autocmd Filetype markdown call s:displaymovement()
 
 " vim {{{2
 autocmd Filetype vim setlocal foldmethod=marker
-autocmd Filetype vim setlocal call s:settabs(4)
+autocmd Filetype vim call s:settabs(4)
 " view help for the word under cursor.
 autocmd Filetype vim nnoremap <buffer> K :<C-u>help <C-r>=expand("<cword>")<CR><CR>
 " and open project pages for plugins with <leader>b.
