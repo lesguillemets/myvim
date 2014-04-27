@@ -1,4 +1,4 @@
-j"""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""
 "_________________________________________
 " NeoBundle {{{1
 " NeoBundle itself {{{2
@@ -571,8 +571,7 @@ augroup myftsettings
 autocmd!
 
 " python {{{2
-autocmd Filetype python setlocal softtabstop=4
-autocmd Filetype python setlocal shiftwidth=4
+autocmd FileType python call s:settabs(4)
 autocmd Filetype python setlocal foldlevel=1
 function! JJPythonFold()
     source $HOME/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
@@ -581,9 +580,7 @@ command! PyFold call JJPythonFold()
 " }}}
 
 "haskell {{{2
-autocmd Filetype haskell setlocal softtabstop=4
-autocmd Filetype haskell setlocal shiftwidth=4
-autocmd Filetype haskell setlocal smarttab
+autocmd FileType haskell call s:settabs(4)
 autocmd Filetype haskell setlocal shiftround
 autocmd Filetype haskell setlocal nojoinspaces
 autocmd Filetype haskell setlocal foldlevel=0
@@ -593,52 +590,27 @@ autocmd Filetype haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsyn
 " }}}
 
 " ruby {{{2
-autocmd Filetype ruby setlocal shiftwidth=2
-autocmd Filetype ruby setlocal softtabstop=2
-autocmd Filetype ruby setlocal tabstop=2
+autocmd Filetype ruby call s:settabs(2)
 " }}}
 
-" C {{{2
-autocmd Filetype c setlocal shiftwidth=2
-autocmd Filetype c setlocal softtabstop=2
-autocmd Filetype c setlocal tabstop=2
-" }}}
-
-" C++ {{{2
-autocmd Filetype cpp setlocal shiftwidth=2
-autocmd Filetype cpp setlocal softtabstop=2
-autocmd Filetype cpp setlocal tabstop=2
+" C, C++  {{{2
+autocmd Filetype c,cpp call s:settabs(2)
 " }}}
 
 " java {{{2
-autocmd Filetype java setlocal softtabstop=4
-autocmd Filetype java setlocal shiftwidth=4
+autocmd Filetype java call s:settabs(2)
 "}}}
 
 " lua {{{
-autocmd Filetype lua setlocal shiftwidth=2
-autocmd Filetype lua setlocal softtabstop=2
-autocmd Filetype lua setlocal tabstop=2
+autocmd Filetype lua call s:settabs(2)
 " }}}
 
-" HTML {{{2
-autocmd Filetype html setlocal shiftwidth=2
-autocmd Filetype html setlocal softtabstop=2
-autocmd Filetype html setlocal tabstop=2
-autocmd Filetype html inoremap <buffer> <C-b> <br />
-autocmd Filetype html setlocal mps+=<:>
-autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-autocmd Filetype html call s:displaymovement()
-" }}}
-
-" XHTML {{{2
-autocmd Filetype xhtml setlocal shiftwidth=2
-autocmd Filetype xhtml setlocal softtabstop=2
-autocmd Filetype xhtml setlocal tabstop=2
-autocmd Filetype xhtml inoremap <buffer> <C-b> <br />
-autocmd Filetype xhtml setlocal mps+=<:>
-autocmd Filetype xhtml inoremap <buffer> </ </<C-x><C-o>
-autocmd Filetype xhtml call s:displaymovement()
+" HTML, XHTML {{{2
+autocmd Filetype html,xhtml call s:settabs(2)
+autocmd Filetype html,xhtml inoremap <buffer> <C-b> <br />
+autocmd Filetype html,xhtml setlocal mps+=<:>
+autocmd Filetype html,xhtml inoremap <buffer> </ </<C-x><C-o>
+autocmd Filetype html,xhtml call s:displaymovement()
 " }}}
 
 " XML {{{2
@@ -647,24 +619,20 @@ autocmd Filetype xml call s:displaymovement()
 "}}}
 
 " javascript {{{2
-autocmd Filetype javascript setlocal tabstop=2
-autocmd Filetype javascript setlocal softtabstop=2
-autocmd Filetype javascript setlocal shiftwidth=2
+autocmd Filetype javascript call s:settabs(2)
 "}}}
 
 " markdown {{{2
-autocmd FileType markdown setlocal shiftwidth=2
-autocmd Filetype markdown setlocal softtabstop=2
-autocmd Filetype markdown setlocal tabstop=2
+autocmd FileType markdown call s:settabs(2)
 autocmd Filetype markdown call s:displaymovement()
 "}}}
 
 " vim {{{2
 autocmd Filetype vim setlocal foldmethod=marker
-autocmd Filetype vim setlocal softtabstop=4
-autocmd Filetype vim setlocal shiftwidth=4
+autocmd Filetype vim setlocal call s:settabs(4)
 " view help for the word under cursor.
 autocmd Filetype vim nnoremap <buffer> K :<C-u>help <C-r>=expand("<cword>")<CR><CR>
+" and open project pages for plugins with <leader>b.
 autocmd Filetype vim nnoremap <leader>b :<C-u>call OpenBundle()<CR>
 " }}}
 
@@ -682,14 +650,13 @@ autocmd FileType mediawiki setlocal foldmethod=expr
 "autocmd FileType tex,plaintex,latex source $HOME/.vim/ftplugin/tex.vim
 "autocmd FileType tex,plaintex,latex map <buffer> <silent> ]s :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 "autocmd FileType tex,plaintex,latex map <buffer> [s :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
-autocmd Filetype tex,plaintex,latex call s:displaymovement()
+autocmd FileType tex,plaintex,latex call s:displaymovement()
+autocmd FileType tex,plaintex,latex call s:settabs(4)
 autocmd FileType tex,plaintex,latex setlocal conceallevel=0
 " }}}
 
 " common lisp {{{2
-autocmd Filetype ruby setlocal tabstop=2
-autocmd FileType lisp setlocal softtabstop=2
-autocmd FileType lisp setlocal shiftwidth=2
+autocmd FileType lisp call s:settabs(2)
 "}}}
 
 " quickrun output {{{2
@@ -821,7 +788,14 @@ function! NeatFoldText()
     let foldtextlength = strlen(substitute(foldtextstart . foldtextend, '.', 'x', 'g')) + &foldcolumn
     return foldtextstart . repeat(foldchar, winwidth(0)-foldtextlength) . foldtextend
 endfunction
+" }}}
 
+" set shiftwidth, softtabstop, tabstop.{{{
+function! s:settabs(n)
+    let &l:shiftwidth=a:n
+    let &l:softtabstop=a:n
+    let &l:tabstop=a:n
+endfunction
 " }}}
 
 " {{{ mapping j as gj, etc.
