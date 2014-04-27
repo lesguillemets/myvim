@@ -230,6 +230,8 @@ NeoBundle 'rking/ag.vim'
 
 NeoBundle 'junegunn/goyo.vim'
 
+NeoBundle 'tyru/open-browser.vim'
+
 " NeoBundle 'yuratomo/w3m.vim'
     "seems nice, but uses up CPU?
 
@@ -431,30 +433,16 @@ nmap <silent> gsh :set t_te= t_ti= <CR>:sh<CR>:set t_te& t_ti&<CR>
 " selects the current line without indentation
 nnoremap vv ^vg_
 
+nnoremap ,scr :<C-u>windo set scrollbind<CR>
+
 "edit vimrc from everywhere you go.
 nnoremap <Leader>vim :<C-u>ed $MYVIMRC<CR>
 
 " handy with quickrun
 
-function! s:python_quick_new(pos)
-    if a:pos ==? 'v'
-        vnew
-    else
-        new
-    endif
-    set ft=python
-endfunction
 command! Pynew call s:python_quick_new('s')
 command! VPynew call s:python_quick_new('v')
 
-function! s:ruby_quick_new(pos)
-    if a:pos ==? 'v'
-        vnew
-    else
-        new
-    endif
-    set ft=ruby
-endfunction
 command! Rubynew call s:ruby_quick_new('s')
 command! VRubynew call s:ruby_quick_new('v')
 
@@ -883,6 +871,26 @@ endfunction
 " Makes block-wise register line-wise. {{{
 function! MakeLineWise()
     call setreg(v:register, getreg(),'l')
+endfunction
+" }}}
+
+" split and set ft=python/ruby. {{{
+function! s:python_quick_new(pos)
+    if a:pos ==? 'v'
+        vnew
+    else
+        new
+    endif
+    set ft=python
+endfunction
+
+function! s:ruby_quick_new(pos)
+    if a:pos ==? 'v'
+        vnew
+    else
+        new
+    endif
+    set ft=ruby
 endfunction
 " }}}
 
