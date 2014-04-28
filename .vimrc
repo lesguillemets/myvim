@@ -464,7 +464,7 @@ augroup myappearance
 augroup END
 
 colorscheme jellybeans2
-let g:jellybeans_background_color_256='NONE'
+let g:jellybeans_background_color_256 = 'NONE'
 " although this does not seem to be working...
 let g:jellybeans_overrides = {
     \'rubyRegexp' : {'ctermfg':'200'},
@@ -759,7 +759,7 @@ function! s:mydetectft()
     if did_filetype()
         return
     endif
-    let shebang=getline(1)
+    let shebang = getline(1)
     if shebang =~# '^#!.*python[23]\=$'
         setfiletype python
     elseif shebang =~# '^#!.*ruby[0-9.]\*$'
@@ -790,9 +790,9 @@ endfunction
 
 " set shiftwidth, softtabstop, tabstop.{{{
 function! s:settabs(n)
-    let &l:shiftwidth=a:n
-    let &l:softtabstop=a:n
-    let &l:tabstop=a:n
+    let &l:shiftwidth = a:n
+    let &l:softtabstop = a:n
+    let &l:tabstop = a:n
 endfunction
 " }}}
 
@@ -862,7 +862,8 @@ endfunction
 " openbundle! {{{
 " TODO : need support for 'git://github.com/amazing/plugin' etc.
 function! OpenBundle()
-    let bundle_name=substitute(split(expand("<cWORD>"),',')[0], "[\'\"]", "", 'g')
+    let bundle_name =
+                \ substitute(split(expand("<cWORD>"),',')[0], "[\'\"]", "", 'g')
     call openbrowser#open(neobundle#parser#path(bundle_name)['uri'])
 endfunction
 
