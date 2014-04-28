@@ -351,7 +351,7 @@ set splitright
 " always show
 set laststatus=2
 
-" make unvisible chars visible.
+" make invisible chars visible.
 set list
 set listchars=tab:>-
 " supermomonga
@@ -436,7 +436,7 @@ nnoremap vv ^vg_
 
 nnoremap ,scr :<C-u>windo set scrollbind<CR>
 
-"edit vimrc from everywhere you go.
+" edit vimrc from everywhere you go.
 nnoremap <Leader>vim :<C-u>ed $MYVIMRC<CR>
 
 " handy with quickrun
@@ -862,7 +862,7 @@ endfunction
 " openbundle! {{{
 " TODO : need support for 'git://github.com/amazing/plugin' etc.
 function! OpenBundle()
-    let bundle_name=substitute(expand("<cWORD>"), "[\'\"]", "", 'g')
+    let bundle_name=substitute(split(expand("<cWORD>"),',')[0], "[\'\"]", "", 'g')
     call openbrowser#open(neobundle#parser#path(bundle_name)['uri'])
 endfunction
 
