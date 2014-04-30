@@ -1,5 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""
 " vim:fileencoding=utf-8 ts=4 sts=4 sw=4
+scriptencoding  utf-8
 "_________________________________________
 " NeoBundle {{{1
 " NeoBundle itself {{{2
@@ -317,7 +318,6 @@ NeoBundle 'rdark-terminal'
 " }}}
 " }}}
 "_________________________________________
-
 "_________________________________________
 " general settings {{{
 
@@ -345,8 +345,7 @@ set cursorcolumn
 set wildmode=longest,list,full
 set wildmenu
 
-set splitbelow
-set splitright
+set splitbelow splitright
 
 " always show
 set laststatus=2
@@ -370,23 +369,20 @@ set nrformats+=alpha
 set foldmethod=manual
 set foldcolumn=0
 
-" modeline
 set modeline
 
-" let macros go faster (dsummersl/dotvim/_vimrc)
 set lazyredraw
+set timeout timeoutlen=1000 ttimeoutlen=100
 
 " <C-v> and voila!
 set virtualedit+=block
 
-"disable mouse
+" disable mouse
 set mouse=
 
 let g:typewritersound = 0
-
 " }}}
 "_________________________________________
-
 "_________________________________________
 " maps without plugin {{{
 
@@ -440,7 +436,6 @@ nnoremap ,scr :<C-u>windo set scrollbind<CR>
 nnoremap <Leader>vim :<C-u>ed $MYVIMRC<CR>
 
 " handy with quickrun
-
 command! Pynew call s:python_quick_new('s')
 command! VPynew call s:python_quick_new('v')
 command! Rubynew call s:ruby_quick_new('s')
@@ -448,7 +443,6 @@ command! VRubynew call s:ruby_quick_new('v')
 
 " }}}
 "_________________________________________
-
 "_________________________________________
 " appearance {{{
 " see http://lingr.com/room/vim/archives/2014/03/29#message-18683313 ?
@@ -526,7 +520,6 @@ let g:rbpt_colorpairs = [
 " }}}
 " }}}
 "_________________________________________
-
 "_________________________________________
 " Typewriter {{{
 
@@ -561,7 +554,6 @@ if g:typewritersound
 endif
 " }}}
 "_________________________________________
-
 "_________________________________________
 "language specific modifications {{{1
 
@@ -639,7 +631,7 @@ autocmd Filetype mediawiki call s:displaymovement()
 autocmd Filetype mediawiki inoremap <buffer> </ </<C-x><C-o>
 autocmd FileType mediawiki setlocal synmaxcol=-1
 autocmd FileType mediawiki setlocal foldexpr=
-    \ getline(v:lnum)=~'^\\(=\\+\\)[^=]\\+\\1\\(\\s*<!--.*-->\\)\\=\\s*$'?\">\".(len(matchstr(getline(v:lnum),'^=\\+'))-1):\"=\"
+            \getline(v:lnum)=~'^\\(=\\+\\)[^=]\\+\\1\\(\\s*<!--.*-->\\)\\=\\s*$'?\">\".(len(matchstr(getline(v:lnum),'^=\\+'))-1):\"=\"
 autocmd FileType mediawiki setlocal foldmethod=expr
 "autocmd Filetype mediawiki QuotableEducateOn
 " }}}
@@ -675,7 +667,6 @@ autocmd Filetype nerdtree setlocal tabstop=2
 augroup END
 " }}}
 "_________________________________________
-
 "_________________________________________
 " user functions {{{1
 "
@@ -807,11 +798,10 @@ function! s:displaymovement()
     nnoremap <buffer> ^ g^
     nnoremap <buffer> g^ ^
 endfunction
-
 "}}}
 
 " additional syntax for highlighting spaces. {{{
-" from thinca's vimrc
+" adopted from thinca's vimrc
 function! s:syntax_additional()
     let preset = exists('w:syntax_additional')
     if &l:list
@@ -872,13 +862,12 @@ endfunction
 "_________________________________________
 "}}}
 "_________________________________________
-
 "_________________________________________
 " Additional, extensible settings for plugins {{{
 
 " Quickrun {{{
 let g:quickrun_config = {}
-let g:quickrun_config.ox = {'command' : 'oxl'}
+let g:quickrun_config.ox = {'command' : 'autoox.sh'}
 let g:quickrun_config.st = {'command' : 'gst'}
 " for processing : from github.com/5t111111/dotfiles/.vimrc
 let g:quickrun_config.processing = {
