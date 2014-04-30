@@ -859,7 +859,16 @@ endfunction
 
 " }}}
 
-"_________________________________________
+" config for vim-anywhere {{{
+" where should we store these settings?
+function! ConfigAnywhere()
+    set bg=light
+    colorscheme pencil
+    set guifont=Ubuntu\ Mono\ 12
+    set guifontwide=IPAGothic
+    set ft=text
+endfunction
+"}}}
 "}}}
 "_________________________________________
 "_________________________________________
