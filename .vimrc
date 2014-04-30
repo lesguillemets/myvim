@@ -54,7 +54,7 @@ NeoBundle 'git://github.com/Yggdroot/indentLine.git'
 " autocmd Filetype ruby IndentGuidesEnable
 " augroup END
 
-NeoBundle 'git://github.com/kien/rainbow_parentheses.vim.git'
+NeoBundle 'kien/rainbow_parentheses.vim.git'
 " settings are in the appearance section.
 
 NeoBundle 'vim-characterize.git'
@@ -440,7 +440,6 @@ command! Pynew call s:python_quick_new('s')
 command! VPynew call s:python_quick_new('v')
 command! Rubynew call s:ruby_quick_new('s')
 command! VRubynew call s:ruby_quick_new('v')
-
 " }}}
 "_________________________________________
 "_________________________________________
@@ -538,7 +537,7 @@ if g:typewritersound
         call sound#play_wav(s:change_sound_name(a:name))
     endfunction
     augroup typesound
-        autocmd !
+        autocmd!
         autocmd CompleteDone * call PlaySE("spacebarpress")
         autocmd BufEnter * call PlaySE("Clamp")
         autocmd InsertCharPre * call PlaySE("key1pressrelease")
