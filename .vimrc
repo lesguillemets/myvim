@@ -41,7 +41,7 @@ NeoBundle 'git://github.com/Yggdroot/indentLine.git'
     let g:indentLine_color_gui='#aabbaa'
     let g:indentLine_fileType=[]
     let g:indentLine_fileTypeExclude = [
-                \ 'text', 'quickrun', 'help', 'quickfix'
+                \ 'text', 'quickrun', 'help', 'quickfix',
                 \]
 " When in the mood for a smoother appearance
 " NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
@@ -55,7 +55,7 @@ NeoBundle 'git://github.com/Yggdroot/indentLine.git'
 " augroup END
 
 NeoBundle 'kien/rainbow_parentheses.vim.git'
-" settings are in the appearance section.
+    " settings are in the appearance section.
 
 NeoBundle 'vim-characterize.git'
 NeoBundle 'vim-surround.git'
@@ -70,8 +70,8 @@ NeoBundle 't9md/vim-quickhl.git'
 " Language specific plugins {{{
 
 " python {{{
-NeoBundle 'git://github.com/hynek/vim-python-pep8-indent.git'
-NeoBundle 'git://github.com/davidhalter/jedi-vim'
+NeoBundle 'hynek/vim-python-pep8-indent.git'
+NeoBundle 'davidhalter/jedi-vim'
     let g:jedi#auto_initialization = 1
     let g:jedi#popup_on_dot = 0
     let g:jedi#show_call_signatures = 0
@@ -87,7 +87,6 @@ NeoBundle 'mkomitee/vim-gf-python'
 NeoBundle 'tmhedberg/SimpylFold'
 " Which to use?
 " NeoBundle 'git://github.com/vim-scripts/jpythonfold.vim.git'
-
 " }}}
 
 " haskell {{{
@@ -138,7 +137,7 @@ NeoBundle 'jtratner/vim-flavored-markdown.git'
 " }}}
 
 " wikipedia {{{
-NeoBundle 'wikipedia.vim'
+NeoBundle 'wikipedia.vim' " this is not good..
 " }}}
 
 " smalltalk {{{
@@ -303,6 +302,9 @@ NeoBundle 'romainl/Apprentice' " Quite nice.
 NeoBundle 'xenomachina/vim-holodark'
 NeoBundle 'vim-scripts/Risto-Color-Scheme'
 NeoBundle 'rdark-terminal'
+NeoBundle 'Pychimp/vim-sol'
+NeoBundle 'Pychimp/vim-luna'
+NeoBundle 'xironix/zarniwoop.vim'
 "}}}
 
 " prepare for neocomplete {{{
@@ -338,7 +340,7 @@ set showmode  " tells us which mode we're in.
 set showtabline=1
 set backspace=
 set synmaxcol=200
-
+set tildeop
 set cursorline
 set cursorcolumn
 
@@ -358,7 +360,6 @@ set listchars=tab:>-
 set conceallevel=1
 set matchpairs=(:),{:},[:]
 
-" 256 colours
 set t_Co=256
 
 " allow incrementing alphabets.
@@ -372,9 +373,10 @@ set foldcolumn=0
 set modeline
 
 set lazyredraw
-set timeout timeoutlen=1000 ttimeoutlen=100
+set timeout timeoutlen=1000 ttimeoutlen=10
 
 " <C-v> and voila!
+set virtualedit&
 set virtualedit+=block
 
 " disable mouse
@@ -394,6 +396,10 @@ inoremap # X#
 " set working directory to the current file
 nnoremap ,cd :lcd %:p:h <CR>
 
+" when in command line, it feels a little like we're in shell..
+cnoremap <C-a> <Home>
+cnoremap <C-k> <End><C-u>
+
 " Paste and fix indentation.
 " cf: github:gregstallings/vimfiles/vimrc
 nnoremap <Leader>p p`[v`]=
@@ -409,17 +415,23 @@ nnoremap კ :echoerr "You're using Georgian keyboard!"<CR>
 
 " let vim ignore mousewheel
 " cf. http://vim.1045645.n5.nabble.com/disable-the-mouse-wheel-td1166386.html
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
 " I don't know, but do real vimmers need this?
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
-" better moving?
+" better moving ?
 nnoremap <C-Down> <C-w>j
 nnoremap <C-Up> <C-w>k
 nnoremap <C-Left> <C-w>h
 nnoremap <C-right> <C-w>l
+
+" I know what you wanted to type here..
+noremap <F1> <Esc>
+inoremap <F1> <Esc>
+" ` might be a little too far
+noremap <F3> `
 
 " activate shell keeping vim visible.
 " http://mattn.kaoriya.net/software/vim/20070510122133.htm
@@ -444,8 +456,6 @@ command! VRubynew call s:ruby_quick_new('v')
 "_________________________________________
 "_________________________________________
 " appearance {{{
-" see http://lingr.com/room/vim/archives/2014/03/29#message-18683313 ?
-" setting the following here works for 256 term
 "autocmd ColorScheme * highlight Normal ctermbg=None
 "autocmd ColorScheme * highlight NonText ctermbg=None
 
@@ -471,7 +481,7 @@ hi Visual term=reverse ctermbg=30
 hi StatusLine term=NONE ctermbg=black ctermfg=green
 set fillchars=vert:║,fold:-
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%4l/%4L]\ C[%3c]%5P
-
+" [4] .vimrc [+] [vim] [~/]                      L[474/981] C[65] 45%
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
 set foldtext=NeatFoldText()
@@ -596,10 +606,10 @@ autocmd Filetype lua call s:settabs(2)
 
 " HTML, XHTML {{{2
 autocmd Filetype html,xhtml call s:settabs(2)
-autocmd Filetype html,xhtml inoremap <buffer> <C-b> <br />
+autocmd Filetype html,xhtml call s:displaymovement()
 autocmd Filetype html,xhtml setlocal mps+=<:>
 autocmd Filetype html,xhtml inoremap <buffer> </ </<C-x><C-o>
-autocmd Filetype html,xhtml call s:displaymovement()
+autocmd Filetype html,xhtml inoremap <buffer> <C-b> <br />
 " }}}
 
 " XML {{{2
@@ -636,7 +646,6 @@ autocmd FileType mediawiki setlocal foldmethod=expr
 " }}}
 
 " TeX {{{2
-"autocmd FileType tex,plaintex,latex source $HOME/.vim/ftplugin/tex.vim
 "autocmd FileType tex,plaintex,latex map <buffer> <silent> ]s :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 "autocmd FileType tex,plaintex,latex map <buffer> [s :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 autocmd FileType tex,plaintex,latex call s:displaymovement()
@@ -717,9 +726,9 @@ command! SyntaxInfo call s:get_syn_info()
 function! s:norelativenumber()
     augroup restore_op
         autocmd!
-        autocmd CursorMoved * setlocal norelativenumber 
+        autocmd CursorMoved * setlocal norelativenumber
         autocmd CursorMoved * augroup restore_op | execute "autocmd!" | execute "augroup END"
-        autocmd CursorHold * setlocal norelativenumber 
+        autocmd CursorHold * setlocal norelativenumber
         autocmd CursorHold * augroup restore_op | execute "autocmd!" | execute "augroup END"
     augroup END
     return ""
@@ -734,14 +743,12 @@ function! s:ToggleRelativeNumber()
         set relativenumber
     endif
     redraw!  " these two lines required for omap
-
+    
     return ''
 endfunction
 
 nnoremap <silent> <Leader>m :call <SID>ToggleRelativeNumber()<CR>
-"   vnoremap <silent> m :<C-U>call <SID>ToggleRelativeNumber()<CR>gv
 onoremap <expr> m <SID>ToggleRelativeNumber() . <SID>norelativenumber()
-
 "}}}
 
 " detect filetype. When editing cgi, etc. {{{
@@ -877,13 +884,6 @@ endfunction
 let g:quickrun_config = {}
 let g:quickrun_config.ox = {'command' : 'autoox.sh'}
 let g:quickrun_config.st = {'command' : 'gst'}
-" for processing : from github.com/5t111111/dotfiles/.vimrc
-let g:quickrun_config.processing = {
-    \    'command': 'processing-java',
-    \    'cmdopt': '--run --force',
-    \    'exec': '%c --sketch=%s:%h --output=~/Documents/Processing/%o',
-    \    'outputter' : 'error:buffer:quickfix',
-    \}
 " }}}
 
 " NeoComplcache {{{
@@ -942,12 +942,18 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " AutoComplPop like behavior.
 "let g:neocomplcache_enable_auto_select = 1
 
+augroup NeoCmplcache
+autocmd!
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" disable for certain filetypes.
+autocmd FileType text :NeoComplCacheLock
+augroup END
 
 " Enable heavy omni completion.
 if !exists('g:neocomplcache_omni_patterns')
@@ -973,3 +979,4 @@ set completeopt-=preview
 "_________________________________________
 "}}}
 "_________________________________________
+
