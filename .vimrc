@@ -856,10 +856,11 @@ endfunction
 " }}}
 
 " openbundle! {{{
-" TODO : need support for 'git://github.com/amazing/plugin' etc.
+" TODO : need more comprehensive support.
 function! OpenBundle()
-    let bundle_name =
-                \ substitute(split(expand("<cWORD>"),',')[0], "[\'\"]", "", 'g')
+    let bundle_name = substitute(
+                \ substitute(split(expand("<cWORD>"),',')[0], "[\'\"]", "", 'g'),
+                \ "git://", "https://", '')
     call openbrowser#open(neobundle#parser#path(bundle_name)['uri'])
 endfunction
 
