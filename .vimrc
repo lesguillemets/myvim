@@ -416,6 +416,8 @@ nnoremap კ :echoerr "You're using Georgian keyboard!"<CR>
 " cf. http://vim.1045645.n5.nabble.com/disable-the-mouse-wheel-td1166386.html
 noremap <Up> <Nop>
 noremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
 " I don't know, but do real vimmers need this?
 noremap <Left> <Nop>
 noremap <Right> <Nop>
@@ -447,10 +449,10 @@ nnoremap ,scr :<C-u>windo set scrollbind<CR>
 nnoremap <Leader>vim :<C-u>ed $MYVIMRC<CR>
 
 " handy with quickrun
-command! Pynew call s:python_quick_new('s')
-command! VPynew call s:python_quick_new('v')
-command! Rubynew call s:ruby_quick_new('s')
-command! VRubynew call s:ruby_quick_new('v')
+command! Pynew call s:quick_new('python', 's')
+command! VPynew call s:quick_new('python', 'v')
+command! Rubynew call s:quick_new('ruby', 's')
+command! VRubynew call s:quick_new('ruby', 'v')
 " }}}
 "_________________________________________
 "_________________________________________
@@ -480,7 +482,7 @@ hi Visual term=reverse ctermbg=30
 hi StatusLine term=NONE ctermbg=black ctermfg=green
 set fillchars=vert:║,fold:-
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%4l/%4L]\ C[%3c]%5P
-" [4] .vimrc [+] [vim] [~/]                      L[474/981] C[65] 45%
+" [4] .vimrc [+] [vim] [~/]                      L[ 474/ 981] C[ 65] 45%
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
 set foldtext=NeatFoldText()
@@ -620,11 +622,6 @@ autocmd Filetype xml call s:displaymovement()
 autocmd Filetype javascript call s:settabs(2)
 "}}}
 
-" markdown {{{2
-autocmd FileType markdown call s:settabs(2)
-autocmd Filetype markdown call s:displaymovement()
-"}}}
-
 " vim {{{2
 autocmd Filetype vim setlocal foldmethod=marker
 autocmd Filetype vim call s:settabs(4)
@@ -633,6 +630,11 @@ autocmd Filetype vim nnoremap <buffer> K :<C-u>help <C-r>=expand("<cword>")<CR><
 " and open project pages for plugins with <leader>b.
 autocmd Filetype vim nnoremap <leader>b :<C-u>call OpenBundle()<CR>
 " }}}
+
+" markdown {{{2
+autocmd FileType markdown call s:settabs(2)
+autocmd Filetype markdown call s:displaymovement()
+"}}}
 
 " mediawiki {{{2
 autocmd Filetype mediawiki call s:displaymovement()
@@ -750,7 +752,7 @@ nnoremap <silent> <Leader>m :call <SID>ToggleRelativeNumber()<CR>
 onoremap <expr> m <SID>ToggleRelativeNumber() . <SID>norelativenumber()
 "}}}
 
-" detect filetype. When editing cgi, etc. {{{
+" detect filetype based on shebang {{{
 function! s:mydetectft()
     if did_filetype()
         return
@@ -758,9 +760,9 @@ function! s:mydetectft()
     let shebang = getline(1)
     if shebang =~# '^#!.*python[23]\=$'
         setfiletype python
-    elseif shebang =~# '^#!.*ruby[0-9.]\*$'
+    elseif shebang =~# '^#!.*ruby[0-9\.]*$'
         setfiletype ruby
-    elseif shebang =~# '^#!.*perl[0-9.]\*$'
+    elseif shebang =~# '^#!.*perl[0-9\.]*$'
         setfiletype perl
     endif
     unlet shebang
@@ -794,14 +796,14 @@ endfunction
 
 " {{{ mapping j as gj, etc.
 function! s:displaymovement()
-    nnoremap <buffer> j gj
-    nnoremap <buffer> k gk
-    nnoremap <buffer> gj j
-    nnoremap <buffer> gk k
-    nnoremap <buffer> $ g$
-    nnoremap <buffer> g$ $
-    nnoremap <buffer> ^ g^
-    nnoremap <buffer> g^ ^
+    noremap <buffer> j gj
+    noremap <buffer> k gk
+    noremap <buffer> gj j
+    noremap <buffer> gk k
+    noremap <buffer> $ g$
+    noremap <buffer> g$ $
+    noremap <buffer> ^ g^
+    noremap <buffer> g^ ^
 endfunction
 "}}}
 
@@ -834,23 +836,14 @@ function! MakeLineWise()
 endfunction
 " }}}
 
-" split and set ft=python/ruby. {{{
-function! s:python_quick_new(pos)
+" split and set ft=whatever. {{{
+function! s:quick_new(ft, pos)
     if a:pos ==? 'v'
         vnew
     else
         new
     endif
-    set ft=python
-endfunction
-
-function! s:ruby_quick_new(pos)
-    if a:pos ==? 'v'
-        vnew
-    else
-        new
-    endif
-    set ft=ruby
+    let &l:filetype = a:ft
 endfunction
 " }}}
 
