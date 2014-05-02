@@ -262,6 +262,7 @@ NeoBundle 'mopp/rogue.vim'
 " }}}
 
 "new colorschemes {{{2
+NeoBundle 'junegunn/seoul256.vim'
 NeoBundle 'ataraxer/sapphire256.vim'
 NeoBundle 'sk1418/last256'
 NeoBundle 'john2x/flatui.vim'
@@ -291,10 +292,8 @@ NeoBundle 'bronzehedwick/impactjs-colorscheme'
 NeoBundle 'JNRowe/vim-jnrowe'
 NeoBundle 'beardedprojamz/vim-colors-blayden'
 NeoBundle 'ercolanelli-leo/candyVirus'
-"NeoBundle 'movax4c00h/cthulhu'
 NeoBundle 'vim-scripts/khaki.vim'
 NeoBundle 'vim-scripts/tabula.vim'
-"NeoBundle 'vim-scripts/darkrobot.vim'
 NeoBundle 'vim-scripts/leo256'
 NeoBundle 'ftzeng/futora'
 NeoBundle 'octol/vombatidae-vim'
@@ -338,19 +337,19 @@ set number
 set showcmd
 set showmode  " tells us which mode we're in.
 set showtabline=1
+set laststatus=2 " always show
 set backspace=
 set synmaxcol=200
 set tildeop
 set cursorline
 set cursorcolumn
+set splitbelow splitright
+
+set spelllang=en_gb,cjk
+set helplang=en
 
 set wildmode=longest,list,full
 set wildmenu
-
-set splitbelow splitright
-
-" always show
-set laststatus=2
 
 " make invisible chars visible.
 set list
@@ -375,7 +374,7 @@ set modeline
 set lazyredraw
 set timeout timeoutlen=1000 ttimeoutlen=10
 
-" <C-v> and voila!
+" <C-v> et voila!
 set virtualedit&
 set virtualedit+=block
 
@@ -405,7 +404,7 @@ cnoremap <C-k> <End><C-u>
 nnoremap <Leader>p p`[v`]=
 nnoremap <Leader>P P`[v`]=
 
-" Paste what yanked in C-v as a independent block.
+" Paste what yanked in C-v mode as a independent block.
 nnoremap <silent> ,p :<C-u>call MakeLineWise()<CR>p
 nnoremap <silent> ,P :<C-u>call MakeLineWise()<CR>P
 
@@ -425,7 +424,7 @@ noremap <Right> <Nop>
 nnoremap <C-Down> <C-w>j
 nnoremap <C-Up> <C-w>k
 nnoremap <C-Left> <C-w>h
-nnoremap <C-right> <C-w>l
+nnoremap <C-Right> <C-w>l
 
 " I know what you wanted to type here..
 noremap <F1> <Esc>
@@ -899,12 +898,6 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
-" Enable heavy features.
-" Use camel case completion.
-"let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-"let g:neocomplcache_enable_underbar_completion = 1
-
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
     \ 'default' : '',
@@ -980,4 +973,3 @@ set completeopt-=preview
 "_________________________________________
 "}}}
 "_________________________________________
-
