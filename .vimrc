@@ -346,6 +346,7 @@ set cursorcolumn
 set splitbelow splitright
 
 set spelllang=en_gb,cjk
+" cjk seems unavailable for some environment: should check later
 set helplang=en
 
 set wildmode=longest,list,full
@@ -398,6 +399,8 @@ nnoremap ,cd :lcd %:p:h <CR>
 " when in command line, it feels a little like we're in shell..
 cnoremap <C-a> <Home>
 cnoremap <C-k> <End><C-u>
+" but let's keep handy digraph
+cnoremap <C-g> <C-k>
 
 " Paste and fix indentation.
 " cf: github:gregstallings/vimfiles/vimrc
