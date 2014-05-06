@@ -115,8 +115,9 @@ NeoBundle 'mattn/emmet-vim'
 " }}}
 
 " css {{{
+" NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 NeoBundle 'JulesWang/css.vim'
-NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+"NeoBundle 'hail2u/vim-css3-syntax'
 " }}}
 
 " javascript {{{
@@ -497,14 +498,23 @@ set foldtext=NeatFoldText()
 " au Syntax * RainbowParenthesesLoadSquare
 " this doesn't work when using tabs.
 " http://stackoverflow.com/questions/17399533/vim-plugin-rainbow-parentheses-using-tab
+
+let g:rainbow_off_fts = [
+    \ "css", "text", "html", "quickrun",
+    \ ]
+
 function! Config_Rainbow()
-    call rainbow_parentheses#load(0)
-    call rainbow_parentheses#load(1)
-    call rainbow_parentheses#load(2)
+    if (index(g:rainbow_off_fts, &l:filetype) == -1)
+        call rainbow_parentheses#load(0)
+        call rainbow_parentheses#load(1)
+        call rainbow_parentheses#load(2)
+    endif
 endfunction
 
 function! Load_Rainbow()
-    call rainbow_parentheses#activate()
+    if (index(g:rainbow_off_fts, &l:filetype) == -1)
+        call rainbow_parentheses#activate()
+    endif
 endfunction
 
 augroup TastetheRainbow
@@ -943,6 +953,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " disable for certain filetypes.
 autocmd FileType text :NeoComplCacheLock
+autocmd FileType quickrun :NeoComplCacheLock
 augroup END
 
 " Enable heavy omni completion.
