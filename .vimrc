@@ -244,6 +244,8 @@ NeoBundle 'tyru/open-browser.vim'
 " NeoBundle 'osyo-manga/shabadou.vim'
 " NeoBundle 'osyo-manga/vim-watchdogs'
 
+NeoBundle 'motemen/git-vim'
+
 " }}}
 
 " leisure{{{2
@@ -487,6 +489,8 @@ hi StatusLine term=NONE ctermbg=black ctermfg=green
 set fillchars=vert:║,fold:-
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%4l/%4L]\ C[%3c]%5P
 " [4] .vimrc [+] [vim] [~/]                      L[ 474/ 981] C[ 65] 45%
+set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=L[%4l/%4L]\ C[%3c]%5P
+" [4] .vimrc [+] [vim] [~/] [master]                      L[ 474/ 981] C[ 65] 45%
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
 set foldtext=NeatFoldText()
