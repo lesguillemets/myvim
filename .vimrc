@@ -935,7 +935,7 @@ augroup NeoComp
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
     
     " disable for certain filetypes.
-    autocmd FileType text :NeoComplCacheLock
+    autocmd FileType text :NeoCompleteLock
     autocmd FileType quickrun :NeoCompleteLock
 augroup END
 
