@@ -16,21 +16,21 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Essentials {{{2
 
-NeoBundle 'Shougo/neocomplcache.vim.git'
+NeoBundle 'Shougo/neocomplcache.vim'
 
-NeoBundle 'thinca/vim-quickrun.git'
+NeoBundle 'thinca/vim-quickrun'
 " avoid conflict with Quickhl
     command! Q QuickRun
 
-NeoBundle 'vim-scripts/Align.git'
+NeoBundle 'Align'
 
-NeoBundle 'osyo-manga/vim-anzu.git'
+NeoBundle 'osyo-manga/vim-anzu'
     nmap n <Plug>(anzu-n-with-echo)
     nmap N <Plug>(anzu-N-with-echo)
     nmap * <Plug>(anzu-star-with-echo)N
     nmap # <Plug>(anzu-sharp-with-echo)
 
-NeoBundle 'git://github.com/Yggdroot/indentLine.git'
+NeoBundle 'Yggdroot/indentLine'
     let g:indentLine_showFirstIndentLevel=1
     let g:indentLine_first_char = '┆'
         " other candidates : '❯', '║', '⧫',
@@ -41,26 +41,26 @@ NeoBundle 'git://github.com/Yggdroot/indentLine.git'
     let g:indentLine_color_gui='#aabbaa'
     let g:indentLine_fileType=[]
     let g:indentLine_fileTypeExclude = [
-                \ 'text', 'quickrun', 'help', 'quickfix',
-                \]
+            \ 'text', 'quickrun', 'help', 'quickfix',
+            \]
 " When in the mood for a smoother appearance
 " NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
 " let g:indent_guides_guide_size=1
 " augroup iguidessettings
 " autocmd!
-" autocmd Filetype * IndentGuidesDisable  " disabled for normal files
-" autocmd Filetype python IndentGuidesEnable
-" autocmd Filetype haskell IndentGuidesEnable
-" autocmd Filetype ruby IndentGuidesEnable
+" autocmd FileType * IndentGuidesDisable  " disabled for normal files
+" autocmd FileType python IndentGuidesEnable
+" autocmd FileType haskell IndentGuidesEnable
+" autocmd FileType ruby IndentGuidesEnable
 " augroup END
 
-NeoBundle 'kien/rainbow_parentheses.vim.git'
+NeoBundle 'kien/rainbow_parentheses.vim'
     " settings are in the appearance section.
 
-NeoBundle 'vim-characterize.git'
-NeoBundle 'vim-surround.git'
+NeoBundle 'vim-characterize'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
-NeoBundle 't9md/vim-quickhl.git'
+NeoBundle 't9md/vim-quickhl'
     nmap <Space>m <Plug>(quickhl-manual-this)
     xmap <Space>m <Plug>(quickhl-manual-this)
     nmap <Space>M <Plug>(quickhl-manual-reset)
@@ -70,7 +70,7 @@ NeoBundle 't9md/vim-quickhl.git'
 " Language specific plugins {{{
 
 " python {{{
-NeoBundle 'hynek/vim-python-pep8-indent.git'
+NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'davidhalter/jedi-vim'
     let g:jedi#auto_initialization = 1
     let g:jedi#popup_on_dot = 0
@@ -90,9 +90,9 @@ NeoBundle 'tmhedberg/SimpylFold'
 " }}}
 
 " haskell {{{
-NeoBundle 'ujihisa/neco-ghc.git'
-NeoBundle 'vim-scripts/haskell.vim'
-NeoBundle 'dag/vim2hs.git'
+NeoBundle 'ujihisa/neco-ghc'
+NeoBundle 'haskell.vim'
+NeoBundle 'dag/vim2hs'
     " disable concealing of "enumerations": commatized lists like
     " deriving clauses and LANGUAGE pragmas,
     " otherwise collapsed into a single ellipsis
@@ -106,7 +106,7 @@ NeoBundle 'c9s/perlomni.vim'
 " }}}
 
 " ruby {{{
-NeoBundle 'vim-ruby/vim-ruby.git'
+NeoBundle 'vim-ruby/vim-ruby'
 " }}}
 
 " html {{{
@@ -121,8 +121,8 @@ NeoBundle 'JulesWang/css.vim'
 " }}}
 
 " javascript {{{
-NeoBundle 'jelera/vim-javascript-syntax.git'
-NeoBundle 'pangloss/vim-javascript.git'
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'pangloss/vim-javascript'
 " }}}
 
 " tex / latex {{{
@@ -132,7 +132,7 @@ NeoBundle 'pangloss/vim-javascript.git'
 " }}}
 
 " markdown {{{
-NeoBundle 'jtratner/vim-flavored-markdown.git'
+NeoBundle 'jtratner/vim-flavored-markdown'
 "NeoBundle 'kannokanno/previm'
 "let g:previm_open_cmd="epiphany"
 " }}}
@@ -158,13 +158,13 @@ NeoBundle 'jeroenbourgois/vim-actionscript'
 " }}}
 
 " others
-NeoBundle 'git://github.com/vim-scripts/Colortest'
-"NeoBundle 'git://github.com/lesguillemets/Ox-syntax.vim.git' ", 'dev'
+NeoBundle 'Colortest'
+"NeoBundle 'git://github.com/lesguillemets/Ox-syntax.vim' ", 'dev'
 
 " }}}
 
 " Benri {{{2
-NeoBundle 'vim-scripts/loremipsum'
+NeoBundle 'loremipsum'
 NeoBundle 'scrooloose/nerdtree'
     let NERDTreeShowHidden=1
 NeoBundle 'deris/columnjump'
@@ -198,7 +198,7 @@ NeoBundle 'lilydjwg/colorizer'
 " Trial {{{2
 NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'vim-scripts/CountJump'
+NeoBundle 'CountJump'
     " supposed to be good with latex
 NeoBundle 'kshenoy/vim-signature'
     " let's use marks more often, really.
@@ -214,8 +214,8 @@ NeoBundle 'kana/vim-textobj-user'
     NeoBundle 'reedes/vim-textobj-quote'
         augroup textobj_quote
             autocmd!
-            autocmd Filetype markdown call textobj#quote#init()
-            autocmd Filetype text call textobj#quote#init()
+            autocmd FileType markdown call textobj#quote#init()
+            autocmd FileType text call textobj#quote#init()
         augroup END
         nnoremap <Space>q :<C-u>ToggleEducate<CR>
         " q because it was once called vim-quotable
@@ -293,14 +293,14 @@ NeoBundle 'bronzehedwick/impactjs-colorscheme'
 NeoBundle 'JNRowe/vim-jnrowe'
 NeoBundle 'beardedprojamz/vim-colors-blayden'
 NeoBundle 'ercolanelli-leo/candyVirus'
-NeoBundle 'vim-scripts/khaki.vim'
-NeoBundle 'vim-scripts/tabula.vim'
-NeoBundle 'vim-scripts/leo256'
+NeoBundle 'khaki.vim'
+NeoBundle 'tabula.vim'
+NeoBundle 'leo256'
 NeoBundle 'ftzeng/futora'
 NeoBundle 'octol/vombatidae-vim'
 NeoBundle 'romainl/Apprentice' " Quite nice.
 NeoBundle 'xenomachina/vim-holodark'
-NeoBundle 'vim-scripts/Risto-Color-Scheme'
+NeoBundle 'Risto-Color-Scheme'
 NeoBundle 'rdark-terminal'
 NeoBundle 'Pychimp/vim-sol'
 NeoBundle 'Pychimp/vim-luna'
@@ -389,11 +389,11 @@ let g:typewritersound = 0
 "_________________________________________
 " maps without plugin {{{
 
-nnoremap <silent> <Esc><Esc> :nohlsearch<CR><Esc>
+nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
 map Y y$
 nnoremap * *N
 " comments with # don't remove indentations
-inoremap # X#
+inoremap # X<C-h>#
 " set working directory to the current file
 nnoremap ,cd :lcd %:p:h <CR>
 
@@ -585,7 +585,7 @@ autocmd!
 
 " python {{{2
 autocmd FileType python call s:settabs(4)
-autocmd Filetype python setlocal foldlevel=1
+autocmd FileType python setlocal foldlevel=1
 function! JJPythonFold()
     source $HOME/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
 endfunction
@@ -594,69 +594,69 @@ command! PyFold call JJPythonFold()
 
 "haskell {{{2
 autocmd FileType haskell call s:settabs(4)
-autocmd Filetype haskell setlocal shiftround
-autocmd Filetype haskell setlocal nojoinspaces
-autocmd Filetype haskell setlocal foldlevel=0
-autocmd Filetype haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
-autocmd Filetype haskell nnoremap <buffer><slient> <Space>T :<C-u>GhcModType<CR>:nohlsearch<CR>
-autocmd Filetype haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
+autocmd FileType haskell setlocal shiftround
+autocmd FileType haskell setlocal nojoinspaces
+autocmd FileType haskell setlocal foldlevel=0
+autocmd FileType haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
+autocmd FileType haskell nnoremap <buffer><slient> <Space>T :<C-u>GhcModType<CR>:nohlsearch<CR>
+autocmd FileType haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
 " }}}
 
 " ruby {{{2
-autocmd Filetype ruby call s:settabs(2)
+autocmd FileType ruby call s:settabs(2)
 " }}}
 
 " C, C++  {{{2
-autocmd Filetype c,cpp call s:settabs(2)
+autocmd FileType c,cpp call s:settabs(2)
 " }}}
 
 " java {{{2
-autocmd Filetype java call s:settabs(2)
+autocmd FileType java call s:settabs(2)
 "}}}
 
 " lua {{{
-autocmd Filetype lua call s:settabs(2)
+autocmd FileType lua call s:settabs(2)
 " }}}
 
 " HTML, XHTML {{{2
-autocmd Filetype html,xhtml call s:settabs(2)
-autocmd Filetype html,xhtml call s:displaymovement()
-autocmd Filetype html,xhtml setlocal mps+=<:>
-autocmd Filetype html,xhtml inoremap <buffer> </ </<C-x><C-o>
-autocmd Filetype html,xhtml inoremap <buffer> <C-b> <br />
+autocmd FileType html,xhtml call s:settabs(2)
+autocmd FileType html,xhtml call s:displaymovement()
+autocmd FileType html,xhtml setlocal mps+=<:>
+autocmd FileType html,xhtml inoremap <buffer> </ </<C-x><C-o>
+autocmd FileType html,xhtml inoremap <buffer> <C-b> <br />
 " }}}
 
 " XML {{{2
-autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-autocmd Filetype xml call s:displaymovement()
+autocmd FileType xml inoremap <buffer> </ </<C-x><C-o>
+autocmd FileType xml call s:displaymovement()
 "}}}
 
 " javascript {{{2
-autocmd Filetype javascript call s:settabs(2)
+autocmd FileType javascript call s:settabs(2)
 "}}}
 
 " vim {{{2
-autocmd Filetype vim setlocal foldmethod=marker
-autocmd Filetype vim call s:settabs(4)
+autocmd FileType vim setlocal foldmethod=marker
+autocmd FileType vim call s:settabs(4)
 " view help for the word under cursor.
-autocmd Filetype vim nnoremap <buffer> K :<C-u>help <C-r>=expand("<cword>")<CR><CR>
+autocmd FileType vim nnoremap <buffer> K :<C-u>help <C-r>=expand("<cword>")<CR><CR>
 " and open project pages for plugins with <leader>b.
-autocmd Filetype vim nnoremap <leader>b :<C-u>call OpenBundle()<CR>
+autocmd FileType vim nnoremap <leader>b :<C-u>call OpenBundle()<CR>
 " }}}
 
 " markdown {{{2
 autocmd FileType markdown call s:settabs(2)
-autocmd Filetype markdown call s:displaymovement()
+autocmd FileType markdown call s:displaymovement()
 "}}}
 
 " mediawiki {{{2
-autocmd Filetype mediawiki call s:displaymovement()
-autocmd Filetype mediawiki inoremap <buffer> </ </<C-x><C-o>
+autocmd FileType mediawiki call s:displaymovement()
+autocmd FileType mediawiki inoremap <buffer> </ </<C-x><C-o>
 autocmd FileType mediawiki setlocal synmaxcol=-1
 autocmd FileType mediawiki setlocal foldexpr=
             \getline(v:lnum)=~'^\\(=\\+\\)[^=]\\+\\1\\(\\s*<!--.*-->\\)\\=\\s*$'?\">\".(len(matchstr(getline(v:lnum),'^=\\+'))-1):\"=\"
 autocmd FileType mediawiki setlocal foldmethod=expr
-"autocmd Filetype mediawiki QuotableEducateOn
+"autocmd FileType mediawiki QuotableEducateOn
 " }}}
 
 " TeX {{{2
@@ -672,18 +672,18 @@ autocmd FileType lisp call s:settabs(2)
 "}}}
 
 " quickrun output {{{2
-autocmd Filetype quickrun call s:displaymovement()
+autocmd FileType quickrun call s:displaymovement()
 "}}}
 
 " w3m {{{2
-autocmd Filetype w3m call s:displaymovement()
-autocmd Filetype w3m IndentLinesToggle
+autocmd FileType w3m call s:displaymovement()
+autocmd FileType w3m IndentLinesToggle
 "}}}
 
 " NERDTree {{{
-autocmd Filetype nerdtree setlocal shiftwidth=2
-autocmd Filetype nerdtree setlocal softtabstop=2
-autocmd Filetype nerdtree setlocal tabstop=2
+autocmd FileType nerdtree setlocal shiftwidth=2
+autocmd FileType nerdtree setlocal softtabstop=2
+autocmd FileType nerdtree setlocal tabstop=2
 "}}}
 
 augroup END
@@ -783,7 +783,7 @@ endfunction
 augroup detectft
 autocmd!
 autocmd BufRead call mydetectft
-augroup end
+augroup END
 " }}}
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
