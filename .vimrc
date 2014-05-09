@@ -307,6 +307,10 @@ NeoBundle 'rdark-terminal'
 NeoBundle 'Pychimp/vim-sol'
 NeoBundle 'Pychimp/vim-luna'
 NeoBundle 'xironix/zarniwoop.vim'
+NeoBundle 'JohnnyMudcrab/vim-mudcrab'
+NeoBundle 'wolf-dog/sceaduhelm.vim'
+NeoBundle 'jordwalke/flatlandia'
+NeoBundle 'romainl/Disciple'
 "}}}
 
 " prepare for neocomplete {{{
