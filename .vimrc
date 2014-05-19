@@ -197,7 +197,6 @@ NeoBundle 'lilydjwg/colorizer'
 
 " Trial {{{2
 NeoBundle 'itchyny/thumbnail.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'CountJump'
     " supposed to be good with latex
 NeoBundle 'kshenoy/vim-signature'
