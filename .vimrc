@@ -310,6 +310,8 @@ NeoBundle 'JohnnyMudcrab/vim-mudcrab'
 NeoBundle 'wolf-dog/sceaduhelm.vim'
 NeoBundle 'jordwalke/flatlandia'
 NeoBundle 'romainl/Disciple'
+NeoBundle 'philananin/seastone.vim'
+NeoBundle 'gryftir/gryffin'
 "}}}
 " }}}
 "_________________________________________
