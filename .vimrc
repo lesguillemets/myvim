@@ -363,7 +363,8 @@ set nrformats&
 set nrformats+=alpha
 
 " folding?
-set foldmethod=manual
+"set foldmethod=manual
+set foldmethod=marker
 set foldcolumn=0
 
 set modeline
