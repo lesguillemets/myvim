@@ -687,6 +687,17 @@ autocmd FileType nerdtree setlocal tabstop=2
 augroup END
 " }}}
 "_________________________________________
+"
+" Alias for filetype {{{
+augroup FTAlias
+    autocmd!
+    autocmd FileType js setlocal ft=javascript
+    autocmd FileType md setlocal ft=markdown
+    autocmd FileType py setlocal ft=python
+    autocmd FileType rb setlocal ft=ruby
+    autocmd FileType hs setlocal ft=haskell
+augroup END
+" }}}
 "_________________________________________
 " user functions {{{1
 "
