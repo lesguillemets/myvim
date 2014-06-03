@@ -312,6 +312,7 @@ NeoBundle 'jordwalke/flatlandia'
 NeoBundle 'romainl/Disciple'
 NeoBundle 'philananin/seastone.vim'
 NeoBundle 'gryftir/gryffin'
+NeoBundle 'chriskempson/base16-vim'
 "}}}
 " }}}
 "_________________________________________
@@ -696,6 +697,7 @@ augroup FTAlias
     autocmd FileType py setlocal ft=python
     autocmd FileType rb setlocal ft=ruby
     autocmd FileType hs setlocal ft=haskell
+    autocmd FileType txt setlocal ft=text
 augroup END
 " }}}
 "_________________________________________
