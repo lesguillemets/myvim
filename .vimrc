@@ -246,6 +246,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'motemen/git-vim'
 NeoBundle 'FriedSock/smeargle'
     let g:smeargle_colouring_scheme = ''
+    let g:smeargle_newline_term_colour = 'None'
 " }}}
 
 " leisure{{{2
