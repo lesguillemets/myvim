@@ -3,8 +3,6 @@
 scriptencoding  utf-8
 " set nocompatible: when use with vim -u
 "_________________________________________
-"_________________________________________
-"_________________________________________
 " general settings {{{
 
 syntax on
@@ -268,6 +266,19 @@ autocmd FileType quickrun call s:displaymovement()
 augroup END
 " }}}
 "_________________________________________
+"
+"_________________________________________
+" Alias for filetype {{{
+augroup FTAlias
+    autocmd!
+    autocmd FileType js setlocal ft=javascript
+    autocmd FileType md setlocal ft=markdown
+    autocmd FileType py setlocal ft=python
+    autocmd FileType rb setlocal ft=ruby
+    autocmd FileType hs setlocal ft=haskell
+    autocmd FileType txt setlocal ft=text
+augroup END
+" }}}
 "_________________________________________
 " user functions {{{1
 "
