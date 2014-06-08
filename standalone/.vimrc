@@ -1,7 +1,7 @@
 """""""""""""""""""""""""""""""""""""""""
 " vim:fileencoding=utf-8 ts=4 sts=4 sw=4
 scriptencoding  utf-8
-" set nocompatible: when use with vim -u
+"set nocompatible "when use with vim -u
 "_________________________________________
 " general settings {{{
 

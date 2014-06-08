@@ -244,9 +244,10 @@ NeoBundle 'tyru/open-browser.vim'
 " NeoBundle 'osyo-manga/vim-watchdogs'
 
 NeoBundle 'motemen/git-vim'
-NeoBundle 'FriedSock/smeargle'
-    let g:smeargle_colouring_scheme = ''
-    let g:smeargle_newline_term_colour = 'None'
+"NeoBundle 'FriedSock/smeargle'
+"    let g:smeargle_colouring_scheme = ''
+"    let g:smeargle_newline_term_colour = 'None'
+NeoBundle 'lesguillemets/threejsify.vim.dev'
 " }}}
 
 " leisure{{{2
