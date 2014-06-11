@@ -626,6 +626,7 @@ autocmd FileType html,xhtml call s:displaymovement()
 autocmd FileType html,xhtml setlocal mps+=<:>
 autocmd FileType html,xhtml inoremap <buffer> </ </<C-x><C-o>
 autocmd FileType html,xhtml inoremap <buffer> <C-b> <br />
+autocmd FileType html,xhtml setlocal synmaxcol=300
 " }}}
 
 " XML {{{2
