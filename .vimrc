@@ -316,6 +316,7 @@ NeoBundle 'romainl/Disciple'
 NeoBundle 'philananin/seastone.vim'
 NeoBundle 'gryftir/gryffin'
 NeoBundle 'chriskempson/base16-vim'
+NeoBundle 'mgutz/vim-colors'
 "}}}
 " }}}
 "_________________________________________
