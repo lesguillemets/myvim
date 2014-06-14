@@ -248,6 +248,12 @@ NeoBundle 'motemen/git-vim'
 "    let g:smeargle_colouring_scheme = ''
 "    let g:smeargle_newline_term_colour = 'None'
 NeoBundle 'lesguillemets/threejsify.vim.dev'
+NeoBundle 'rhysd/committia.vim'
+    let g:committia_hooks = {}
+    let g:committia_min_window_width = 100
+    function! g:committia_hooks.edit_open()
+        setlocal spell
+    endfunction
 " }}}
 
 " leisure{{{2
@@ -317,6 +323,7 @@ NeoBundle 'philananin/seastone.vim'
 NeoBundle 'gryftir/gryffin'
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'mgutz/vim-colors'
+NeoBundle 'toupeira/vim-desertink'
 "}}}
 " }}}
 "_________________________________________
