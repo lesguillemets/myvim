@@ -176,6 +176,27 @@ NeoBundle 'tyru/caw.vim'
     vmap <Leader>c <Plug>(caw:I:toggle)
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'osyo-manga/vim-hideout'
+NeoBundle 'motemen/git-vim'
+
+NeoBundle 'rhysd/committia.vim'
+    let g:committia_hooks = {}
+    let g:committia_min_window_width = 100
+    function! g:committia_hooks.edit_open()
+        setlocal spell
+    endfunction
+
+NeoBundle 'kana/vim-textobj-user'
+    NeoBundle 'kana/vim-textobj-indent'
+    NeoBundle 'h1mesuke/textobj-wiw'
+    NeoBundle 'reedes/vim-textobj-quote'
+        augroup textobj_quote
+            autocmd!
+            autocmd FileType markdown call textobj#quote#init()
+            autocmd FileType text call textobj#quote#init()
+        augroup END
+        nnoremap <Space>q :<C-u>ToggleEducate<CR>
+        " q because it was once called vim-quotable
+
 "}}}
 
 " Appearance {{{
@@ -207,18 +228,6 @@ NeoBundle 'kshenoy/vim-signature'
 
 NeoBundle 'lyokha/vim-publish-helper'
 
-NeoBundle 'kana/vim-textobj-user'
-    NeoBundle 'kana/vim-textobj-indent'
-    NeoBundle 'h1mesuke/textobj-wiw'
-    NeoBundle 'reedes/vim-textobj-quote'
-        augroup textobj_quote
-            autocmd!
-            autocmd FileType markdown call textobj#quote#init()
-            autocmd FileType text call textobj#quote#init()
-        augroup END
-        nnoremap <Space>q :<C-u>ToggleEducate<CR>
-        " q because it was once called vim-quotable
-
 NeoBundle 'reedes/vim-wordy'
 NeoBundle 'reedes/vim-pencil'
 
@@ -243,17 +252,11 @@ NeoBundle 'tyru/open-browser.vim'
 " NeoBundle 'osyo-manga/shabadou.vim'
 " NeoBundle 'osyo-manga/vim-watchdogs'
 
-NeoBundle 'motemen/git-vim'
 "NeoBundle 'FriedSock/smeargle'
 "    let g:smeargle_colouring_scheme = ''
 "    let g:smeargle_newline_term_colour = 'None'
+
 NeoBundle 'lesguillemets/threejsify.vim.dev'
-NeoBundle 'rhysd/committia.vim'
-    let g:committia_hooks = {}
-    let g:committia_min_window_width = 100
-    function! g:committia_hooks.edit_open()
-        setlocal spell
-    endfunction
 " }}}
 
 " leisure{{{2
