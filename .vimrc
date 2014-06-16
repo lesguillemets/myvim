@@ -41,7 +41,7 @@ NeoBundle 'Yggdroot/indentLine'
     let g:indentLine_color_gui='#aabbaa'
     let g:indentLine_fileType=[]
     let g:indentLine_fileTypeExclude = [
-            \ 'text', 'quickrun', 'help', 'quickfix',
+            \ 'text', 'quickrun', 'help', 'quickfix', 'man',
             \]
 " When in the mood for a smoother appearance
 " NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
