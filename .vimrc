@@ -327,6 +327,7 @@ NeoBundle 'gryftir/gryffin'
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'mgutz/vim-colors'
 NeoBundle 'toupeira/vim-desertink'
+NeoBundle 'endel/vim-github-colorscheme'
 "}}}
 " }}}
 "_________________________________________
