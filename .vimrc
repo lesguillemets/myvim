@@ -919,6 +919,17 @@ let g:quickrun_config.ox = {'command' : 'autoox.sh'}
 let g:quickrun_config.st = {'command' : 'gst'}
 " }}}
 
+" emmet {{{
+let g:user_emmet_settings = {
+\  'markdown' : {
+\      'indentation' : '  ',
+\      'snippets' : {
+\          'syn' : "{% highlight | %}\n|\n{% endhighlight %}",
+\       },
+\   },
+\ }
+" }}}
+
 " NeoComplete {{{
 " copied from neocomplete's readme
 " Disable AutoComplPop.
