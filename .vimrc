@@ -662,6 +662,9 @@ autocmd FileType vim nnoremap <leader>b :<C-u>call OpenBundle()<CR>
 " markdown {{{2
 autocmd FileType markdown call s:settabs(2)
 autocmd FileType markdown call s:displaymovement()
+let g:markdown_fenced_languages = [
+\ 'python', 'ruby', 'vim', 'haskell', 'javascript'
+\]
 "}}}
 
 " mediawiki {{{2
