@@ -132,7 +132,10 @@ NeoBundle 'pangloss/vim-javascript'
 " }}}
 
 " markdown {{{
-NeoBundle 'jtratner/vim-flavored-markdown'
+NeoBundle 'gabrielelana/vim-markdown'
+    let g:markdown_include_jekyll_support = 1
+    let g:markdown_enable_mappings = 0
+"NeoBundle 'jtratner/vim-flavored-markdown'
 "NeoBundle 'kannokanno/previm'
 "let g:previm_open_cmd="epiphany"
 " }}}
@@ -662,6 +665,7 @@ autocmd FileType vim nnoremap <leader>b :<C-u>call OpenBundle()<CR>
 " markdown {{{2
 autocmd FileType markdown call s:settabs(2)
 autocmd FileType markdown call s:displaymovement()
+autocmd FileType markdown nnoremap <buffer> ,tim a<C-r>=strftime("%Y-%m-%d %H:%M:%S UTC+9")<CR><Esc>
 let g:markdown_fenced_languages = [
 \ 'python', 'ruby', 'vim', 'haskell', 'javascript'
 \]
