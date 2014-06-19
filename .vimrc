@@ -260,6 +260,9 @@ NeoBundle 'tyru/open-browser.vim'
 "    let g:smeargle_newline_term_colour = 'None'
 
 NeoBundle 'lesguillemets/threejsify.vim.dev'
+
+NeoBundle 'thinca/vim-qfreplace'
+" http://blog.supermomonga.com/articles/vim/qfreplace-benri.html
 " }}}
 
 " leisure{{{2
@@ -981,6 +984,7 @@ inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
+inoremap <expr><C-x><C-f> neocomplete#start_manual_complete('file')
 
 augroup NeoComp
     autocmd!
