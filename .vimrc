@@ -184,7 +184,7 @@ NeoBundle 'motemen/git-vim'
 NeoBundle 'rhysd/committia.vim'
     let g:committia_hooks = {}
     let g:committia_min_window_width = 100
-    function! g:committia_hooks.edit_open()
+    function! g:committia_hooks.edit_open(e)
         setlocal spell
     endfunction
 
