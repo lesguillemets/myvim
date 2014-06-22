@@ -73,7 +73,8 @@ NeoBundle 'davidhalter/jedi-vim'
     let g:jedi#rename_command = ""
     " <K> conflicts with vim-ref.
     let g:jedi#documentation_command = ""
-NeoBundle 'mkomitee/vim-gf-python'
+    let g:jedi#force_py_version = 3
+" NeoBundle 'mkomitee/vim-gf-python' -- not for python3
 NeoBundle 'tmhedberg/SimpylFold'
 " Which to use?
 " NeoBundle 'git://github.com/vim-scripts/jpythonfold.vim.git'
@@ -398,7 +399,7 @@ let g:typewritersound = 0
 " maps without plugin {{{
 
 nnoremap <silent> <Esc><Esc> :nohlsearch<CR>
-map Y y$
+nnoremap Y y$
 nnoremap * *N
 " comments with # don't remove indentations
 inoremap # X<C-h>#
@@ -410,6 +411,10 @@ cnoremap <C-a> <Home>
 cnoremap <C-k> <End><C-u>
 " but let's keep handy digraph
 cnoremap <C-g> <C-k>
+
+" 'stronger' h and l.
+nnoremap <C-h> ^
+nnoremap <C-l> $
 
 " Paste and fix indentation.
 " cf: github:gregstallings/vimfiles/vimrc
@@ -448,7 +453,7 @@ noremap <F3> `
 
 " activate shell keeping vim visible.
 " http://mattn.kaoriya.net/software/vim/20070510122133.htm
-nmap <silent> gsh :set t_te= t_ti= <CR>:sh<CR>:set t_te& t_ti&<CR>
+nnoremap <silent> gsh :set t_te= t_ti= <CR>:sh<CR>:set t_te& t_ti&<CR>
 
 " from: vim-reading #94,
 " github:gcmt/dotfiles/vim/.vimrc (@2afa347)
@@ -975,20 +980,6 @@ inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 inoremap <expr><C-x><C-f> neocomplete#start_manual_complete('file')
 
-augroup NeoComp
-    autocmd!
-    " Enable omni completion.
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    
-    " disable for certain filetypes.
-    autocmd FileType text :NeoCompleteLock
-    autocmd FileType quickrun :NeoCompleteLock
-augroup END
-
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
@@ -996,6 +987,26 @@ endif
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
+
+augroup NeoComp
+    autocmd!
+    " jedi-vim
+    autocmd FileType python setlocal omnifunc=jedi#completions
+    let g:jedi#completions_enabled = 0
+    "let g:jedi#auto_vim_configuration = 0
+    let g:neocomplete#force_omni_input_patterns.python =
+    \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+    " Enable omni completion.
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    
+    " disable for certain filetypes.
+    autocmd FileType text :NeoCompleteLock
+    autocmd FileType quickrun :NeoCompleteLock
+augroup END
+
 let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
