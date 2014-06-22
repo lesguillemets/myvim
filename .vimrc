@@ -31,18 +31,8 @@ NeoBundle 'osyo-manga/vim-anzu'
     nmap # <Plug>(anzu-sharp-with-echo)
 
 NeoBundle 'Yggdroot/indentLine'
-    let g:indentLine_showFirstIndentLevel=1
-    let g:indentLine_first_char = '┆'
-        " other candidates : '❯', '║', '⧫',
-    let g:indentLine_char = '⟩'
-        " other candidates : '❭', '║', '⦙'
-    " these settings affect ALL conceal highlighting.
-    let g:indentLine_color_term=62
-    let g:indentLine_color_gui='#aabbaa'
-    let g:indentLine_fileType=[]
-    let g:indentLine_fileTypeExclude = [
-            \ 'text', 'quickrun', 'help', 'quickfix', 'man',
-            \]
+" settings in the last section.
+
 " When in the mood for a smoother appearance
 " NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
 " let g:indent_guides_guide_size=1
@@ -702,7 +692,6 @@ autocmd FileType quickrun call s:displaymovement()
 
 " w3m {{{2
 autocmd FileType w3m call s:displaymovement()
-autocmd FileType w3m IndentLinesToggle
 "}}}
 
 " NERDTree {{{
@@ -1017,4 +1006,44 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 set completeopt-=preview
 "_________________________________________
 "}}}
+"
+" indentLine {{{
+let g:indentLine_showFirstIndentLevel=1
+let g:indentLine_first_char = '┆'
+    " other candidates : '❯', '║', '⧫',
+let g:indentLine_char = '⟩'
+    " other candidates : '❭', '║', '⦙'
+" these settings affect ALL conceal highlighting.
+let g:indentLine_color_term=62
+let g:indentLine_color_gui='#aabbaa'
+let g:indentLine_fileType=[]
+let g:indentLine_fileTypeExclude = [
+        \ 'text', 'quickrun', 'help', 'quickfix', 'man',
+        \ 'w3m',
+        \]
+" This is a dirty workaround.
+" It seems something is hiding indentLine
+" when setting ft after opening buffer.
+" :enew
+" :set ft=py
+" (no indent shown)
+" :IndentLinesToggle
+" (no indent shown)
+" :IndentLinesToggle
+" (indent shown)
+function! s:setIndentLine()
+    for excludeft in g:indentLine_fileTypeExclude
+        if &ft ==# excludeft
+            execute "IndentLinesDisable"
+            return
+        endif
+    endfor
+    execute "IndentLinesEnable"
+endfunction
+
+augroup IndentLineGroup
+    autocmd!
+    autocmd Filetype * call s:setIndentLine()
+augroup END
+" }}}
 "_________________________________________
