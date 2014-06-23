@@ -88,6 +88,7 @@ NeoBundle 'dag/vim2hs'
     " deriving clauses and LANGUAGE pragmas,
     " otherwise collapsed into a single ellipsis
     let g:haskell_conceal_enumerations=0
+" NeoBundle 'travitch/hasksyn'
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'ujihisa/ref-hoogle'
 " }}}
@@ -496,11 +497,11 @@ let g:jellybeans_overrides = {
 " I expect colorschemes to override these highlight settings.
 hi VertSplit ctermfg=144 ctermbg=NONE guifg=lightblue guibg=NONE
 hi Visual term=reverse ctermbg=30
-hi StatusLine term=NONE ctermbg=black ctermfg=green
 set fillchars=vert:║,fold:-
-set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%4l/%4L]\ C[%3c]%5P
+hi StatusLine term=NONE ctermbg=black ctermfg=green
+set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%2.4l/%2.4L]\ C[%2.3c]%5P
 " [4] .vimrc [+] [vim] [~/]                      L[ 474/ 981] C[ 65] 45%
-set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=L[%4l/%4L]\ C[%3c]%5P
+set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=L[%2.4l/%2.4L]\ C[%2.3c]%5P
 " [4] .vimrc [+] [vim] [~/] [master]                      L[ 474/ 981] C[ 65] 45%
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
@@ -1045,7 +1046,7 @@ let g:indentLine_fileTypeExclude = [
 function! s:setIndentLine()
     for excludeft in g:indentLine_fileTypeExclude
         if &ft ==# excludeft
-            execute "IndentLinesDisable"
+            " execute "IndentLinesDisable"
             return
         endif
     endfor
