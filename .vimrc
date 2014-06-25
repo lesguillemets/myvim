@@ -115,6 +115,7 @@ NeoBundle 'JulesWang/css.vim'
 " javascript {{{
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle '1995eaton/vim-better-javascript-completion'
 " }}}
 
 " tex / latex {{{
@@ -1000,7 +1001,7 @@ augroup NeoComp
     " Enable omni completion.
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType javascript setlocal omnifunc=js#CompleteJS
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
     
     " disable for certain filetypes.
