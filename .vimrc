@@ -232,7 +232,8 @@ NeoBundle 'sjl/gundo.vim'
 
 NeoBundle 'mattn/benchvimrc-vim'
 " NeoBundle 'kana/vim-smartinput'
-NeoBundle 'rking/ag.vim'
+"NeoBundle 'rking/ag.vim'
+NeoBundle 'lesguillemets/ag.vim', 'prevent_results_leaking_into_terminal'
 
 NeoBundle 'junegunn/goyo.vim'
 
@@ -327,6 +328,9 @@ NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'mgutz/vim-colors'
 NeoBundle 'toupeira/vim-desertink'
 NeoBundle 'endel/vim-github-colorscheme'
+NeoBundle 'xoria256.vim'
+NeoBundle 'mne/as_xoria.vim'
+NeoBundle 'hhubbell/vim-hubs'
 "}}}
 " }}}
 "_________________________________________
