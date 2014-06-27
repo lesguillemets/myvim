@@ -171,6 +171,7 @@ NeoBundle 'tyru/caw.vim'
     nmap <Leader>c <Plug>(caw:I:toggle)
     vmap <Leader>c <Plug>(caw:I:toggle)
 NeoBundle 'thinca/vim-ref'
+    let g:ref_pydoc_cmd = "pydoc3"
 NeoBundle 'osyo-manga/vim-hideout'
 NeoBundle 'motemen/git-vim'
 
