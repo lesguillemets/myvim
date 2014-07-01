@@ -364,6 +364,7 @@ set tildeop
 set cursorline
 set cursorcolumn
 set splitbelow splitright
+set history=255
 
 set spelllang=en_gb,cjk
 " cjk seems unavailable for some environment: should check later
