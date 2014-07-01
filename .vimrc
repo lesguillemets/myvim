@@ -16,7 +16,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Essentials {{{2
 
-NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neocomplete.vim', 'next'
 
 NeoBundle 'thinca/vim-quickrun'
 " avoid conflict with Quickhl
@@ -510,9 +510,9 @@ hi VertSplit ctermfg=144 ctermbg=NONE guifg=lightblue guibg=NONE
 hi Visual term=reverse ctermbg=30
 set fillchars=vert:║,fold:-
 hi StatusLine term=NONE ctermbg=black ctermfg=green
-set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%2.4l/%2.4L]\ C[%2.3c]%5P
+set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%2.l/%2.L]\ C[%2.3c]%5P
 " [4] .vimrc [+] [vim] [~/]                      L[ 474/ 981] C[ 65] 45%
-set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=L[%2.4l/%2.4L]\ C[%2.3c]%5P
+set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=L[%2.l/%2.L]\ C[%2.3c]%5P
 " [4] .vimrc [+] [vim] [~/] [master]                      L[ 474/ 981] C[ 65] 45%
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
@@ -955,6 +955,7 @@ let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
 let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
+let g:neocomplete#auto_completion_start_length = 2
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
@@ -1017,6 +1018,7 @@ augroup NeoComp
     " disable for certain filetypes.
     autocmd FileType text :NeoCompleteLock
     autocmd FileType quickrun :NeoCompleteLock
+    autocmd FileType help :NeoCompleteLock
 augroup END
 
 let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
