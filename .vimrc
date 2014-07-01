@@ -55,6 +55,7 @@ NeoBundle 't9md/vim-quickhl'
     xmap <Space>m <Plug>(quickhl-manual-this)
     nmap <Space>M <Plug>(quickhl-manual-reset)
     xmap <Space>M <Plug>(quickhl-manual-reset)
+    nmap <Space>j <Plug>(quickhl-cword-toggle)
 " }}}
 
 " Language specific plugins {{{
@@ -174,6 +175,7 @@ NeoBundle 'thinca/vim-ref'
     let g:ref_pydoc_cmd = "pydoc3"
 NeoBundle 'osyo-manga/vim-hideout'
 NeoBundle 'motemen/git-vim'
+    let g:git_no_map_default=1
 
 NeoBundle 'rhysd/committia.vim'
     let g:committia_hooks = {}
@@ -488,7 +490,7 @@ augroup myappearance
     autocmd!
     autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
     autocmd ColorScheme * hi ZenkakuSpace ctermbg=white guibg=white
-    autocmd VimEnter,WinEnter * call s:syntax_additional()
+    autocmd VimEnter,WinEnter,Bufread * call s:syntax_additional()
 augroup END
 
 colorscheme jellybeans2
