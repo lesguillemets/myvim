@@ -196,6 +196,8 @@ NeoBundle 'kana/vim-textobj-user'
         nnoremap <Space>q :<C-u>ToggleEducate<CR>
         " q because it was once called vim-quotable
 
+NeoBundle 'tyru/capture.vim'
+" http://d.hatena.ne.jp/osyo-manga/20131230/1388413632
 "}}}
 
 " Appearance {{{
