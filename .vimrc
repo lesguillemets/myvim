@@ -262,6 +262,10 @@ NeoBundle 'lesguillemets/threejsify.vim.dev'
 
 NeoBundle 'thinca/vim-qfreplace'
 " http://blog.supermomonga.com/articles/vim/qfreplace-benri.html
+
+NeoBundle 'rhysd/git-messenger.vim'
+" NeoBundle 'rhysd/inazuma.vim'
+" http://rhysd.hatenablog.com/entry/2013/12/31/191302
 " }}}
 
 " leisure{{{2
