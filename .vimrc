@@ -611,7 +611,7 @@ augroup myftsettings
 autocmd!
 
 " python {{{2
-autocmd FileType python call s:settabs(4)
+autocmd FileType python call SetTabs(4)
 autocmd FileType python setlocal foldlevel=1
 function! JJPythonFold()
     source $HOME/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
@@ -620,7 +620,7 @@ command! PyFold call JJPythonFold()
 " }}}
 
 "haskell {{{2
-autocmd FileType haskell call s:settabs(4)
+autocmd FileType haskell call SetTabs(4)
 autocmd FileType haskell setlocal shiftround
 autocmd FileType haskell setlocal nojoinspaces
 autocmd FileType haskell setlocal foldlevel=0
@@ -630,23 +630,23 @@ autocmd FileType haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsyn
 " }}}
 
 " ruby {{{2
-autocmd FileType ruby call s:settabs(2)
+autocmd FileType ruby call SetTabs(2)
 " }}}
 
 " C, C++  {{{2
-autocmd FileType c,cpp call s:settabs(2)
+autocmd FileType c,cpp call SetTabs(2)
 " }}}
 
 " java {{{2
-autocmd FileType java call s:settabs(2)
+autocmd FileType java call SetTabs(2)
 "}}}
 
 " lua {{{
-autocmd FileType lua call s:settabs(2)
+autocmd FileType lua call SetTabs(2)
 " }}}
 
 " HTML, XHTML {{{2
-autocmd FileType html,xhtml call s:settabs(2)
+autocmd FileType html,xhtml call SetTabs(2)
 autocmd FileType html,xhtml call s:displaymovement()
 autocmd FileType html,xhtml setlocal mps+=<:>
 autocmd FileType html,xhtml inoremap <buffer> </ </<C-x><C-o>
@@ -660,12 +660,12 @@ autocmd FileType xml call s:displaymovement()
 "}}}
 
 " javascript {{{2
-autocmd FileType javascript call s:settabs(2)
+autocmd FileType javascript call SetTabs(2)
 "}}}
 
 " vim {{{2
 autocmd FileType vim setlocal foldmethod=marker
-autocmd FileType vim call s:settabs(4)
+autocmd FileType vim call SetTabs(4)
 " view help for the word under cursor.
 autocmd FileType vim nnoremap <buffer> K :<C-u>help <C-r>=expand("<cword>")<CR><CR>
 " and open project pages for plugins with <leader>b.
@@ -673,7 +673,7 @@ autocmd FileType vim nnoremap <leader>b :<C-u>call OpenBundle()<CR>
 " }}}
 
 " markdown {{{2
-autocmd FileType markdown call s:settabs(2)
+autocmd FileType markdown call SetTabs(2)
 autocmd FileType markdown call s:displaymovement()
 autocmd FileType markdown nnoremap <buffer> ,tim a<C-r>=strftime("%Y-%m-%d %H:%M:%S UTC+9")<CR><Esc>
 let g:markdown_fenced_languages = [
@@ -695,12 +695,12 @@ autocmd FileType mediawiki setlocal foldmethod=expr
 "autocmd FileType tex,plaintex,latex map <buffer> <silent> ]s :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 "autocmd FileType tex,plaintex,latex map <buffer> [s :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 autocmd FileType tex,plaintex,latex call s:displaymovement()
-autocmd FileType tex,plaintex,latex call s:settabs(4)
+autocmd FileType tex,plaintex,latex call SetTabs(4)
 autocmd FileType tex,plaintex,latex setlocal conceallevel=0
 " }}}
 
 " common lisp {{{2
-autocmd FileType lisp call s:settabs(2)
+autocmd FileType lisp call SetTabs(2)
 "}}}
 
 " quickrun output {{{2
@@ -843,7 +843,7 @@ endfunction
 " }}}
 
 " set shiftwidth, softtabstop, tabstop.{{{
-function! s:settabs(n)
+function! SetTabs(n)
     let &l:shiftwidth = a:n
     let &l:softtabstop = a:n
     let &l:tabstop = a:n
