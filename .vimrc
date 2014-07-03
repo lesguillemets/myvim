@@ -336,6 +336,7 @@ NeoBundle 'endel/vim-github-colorscheme'
 NeoBundle 'xoria256.vim'
 NeoBundle 'mne/as_xoria.vim'
 NeoBundle 'hhubbell/vim-hubs'
+NeoBundle 'ChrisKempson/Vim-Tomorrow-Theme'
 "}}}
 " }}}
 "_________________________________________
