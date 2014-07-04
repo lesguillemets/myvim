@@ -198,6 +198,9 @@ NeoBundle 'kana/vim-textobj-user'
 
 NeoBundle 'tyru/capture.vim'
 " http://d.hatena.ne.jp/osyo-manga/20131230/1388413632
+
+"NeoBundle 'rking/ag.vim'
+NeoBundle 'lesguillemets/ag.vim', 'prevent_results_leaking_into_terminal'
 "}}}
 
 " Appearance {{{
@@ -237,8 +240,6 @@ NeoBundle 'sjl/gundo.vim'
 
 NeoBundle 'mattn/benchvimrc-vim'
 " NeoBundle 'kana/vim-smartinput'
-"NeoBundle 'rking/ag.vim'
-NeoBundle 'lesguillemets/ag.vim', 'prevent_results_leaking_into_terminal'
 
 NeoBundle 'junegunn/goyo.vim'
 
