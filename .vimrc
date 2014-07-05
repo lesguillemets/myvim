@@ -876,10 +876,9 @@ function! s:syntax_additional()
     if &l:list
         if !preset
             " http://vimwiki.net/?faq%2F4
-            " http://vim.wikia.com/wiki/Highlight_unwanted_spaces
             let w:syntax_additional = [
             \ matchadd('ZenkakuSpace', '　',0),
-            \ matchadd('ExtraWhiteSpace', '\(\S\+\)\@<=\s\+$',0),
+            \ matchadd('ExtraWhiteSpace', '\S\+\zs\s\+\ze$',0),
             \ ]
         endif
     elseif preset
