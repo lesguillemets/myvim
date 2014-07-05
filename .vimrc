@@ -432,7 +432,9 @@ cnoremap <C-g> <C-k>
 
 " 'stronger' h and l.
 nnoremap <C-h> ^
+vnoremap <C-h> ^
 nnoremap <C-l> $
+vnoremap <C-l> $
 
 " Paste and fix indentation.
 " cf: github:gregstallings/vimfiles/vimrc
@@ -1010,6 +1012,7 @@ augroup NeoComp
     autocmd!
     " jedi-vim
     autocmd FileType python setlocal omnifunc=jedi#completions
+    "autocmd FileType python setlocal omnifunc=python3complete#Complete
     let g:jedi#completions_enabled = 0
     "let g:jedi#auto_vim_configuration = 0
     let g:neocomplete#force_omni_input_patterns.python =
