@@ -516,9 +516,9 @@ hi VertSplit ctermfg=144 ctermbg=NONE guifg=lightblue guibg=NONE
 hi Visual term=reverse ctermbg=30
 set fillchars=vert:║,fold:-
 hi StatusLine term=NONE ctermbg=black ctermfg=green
-set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%2.l/%2.L]\ C[%2.3c]%5P
+set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%2.l/%2.L]\ C[%2.c]%5P
 " [4] .vimrc [+] [vim] [~/]                      L[ 474/ 981] C[ 65] 45%
-set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=L[%2.l/%2.L]\ C[%2.3c]%5P
+set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=L[%2.l/%2.L]\ C[%2.c]%5P
 " [4] .vimrc [+] [vim] [~/] [master]                      L[ 474/ 981] C[ 65] 45%
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
