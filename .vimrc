@@ -812,8 +812,8 @@ function! s:ToggleRelativeNumber()
     return ''
 endfunction
 
-nnoremap <silent> <Leader>m :call <SID>ToggleRelativeNumber()<CR>
-onoremap <expr> m <SID>ToggleRelativeNumber() . <SID>norelativenumber()
+nnoremap <silent> <Space>r :call <SID>ToggleRelativeNumber()<CR>
+onoremap <expr> r <SID>ToggleRelativeNumber() . <SID>norelativenumber()
 "}}}
 
 " detect filetype based on shebang {{{
