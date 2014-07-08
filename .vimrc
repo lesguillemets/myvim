@@ -267,6 +267,14 @@ NeoBundle 'thinca/vim-qfreplace'
 NeoBundle 'rhysd/git-messenger.vim'
 " NeoBundle 'rhysd/inazuma.vim'
 " http://rhysd.hatenablog.com/entry/2013/12/31/191302
+
+NeoBundle 'thinca/vim-fontzoom'
+    let g:fontzoom_no_default_key_mappings=1
+    silent! nmap <unique> <silent> + <Plug>(fontzoom-larger)
+    silent! nmap <unique> <silent> - <Plug>(fontzoom-smaller)
+    " FIXME : why doesn't this work?
+    " silent! nmap <unique> <silent> <C-+> <Plug>(fontzoom-larger)
+    " silent! nmap <unique> <silent> <C--> <Plug>(fontzoom-smaller)
 " }}}
 
 " leisure{{{2
