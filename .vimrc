@@ -254,6 +254,7 @@ NeoBundle 'tyru/open-browser.vim'
 " willing to configure .. someday.
 " NeoBundle 'osyo-manga/shabadou.vim'
 " NeoBundle 'osyo-manga/vim-watchdogs'
+" NeoBundle 'jceb/vim-hier'
 
 "NeoBundle 'FriedSock/smeargle'
 "    let g:smeargle_colouring_scheme = ''
@@ -443,6 +444,10 @@ nnoremap <C-h> ^
 vnoremap <C-h> ^
 nnoremap <C-l> $
 vnoremap <C-l> $
+
+" smash. <C-y> n is sometimes mistaken
+nnoremap <C-n> <Nop>
+nnoremap <C-p> <Nop>
 
 " Paste and fix indentation.
 " cf: github:gregstallings/vimfiles/vimrc
