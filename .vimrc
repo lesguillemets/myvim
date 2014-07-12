@@ -503,6 +503,17 @@ command! Pynew call s:quick_new('python', 's')
 command! VPynew call s:quick_new('python', 'v')
 command! Rubynew call s:quick_new('ruby', 's')
 command! VRubynew call s:quick_new('ruby', 'v')
+
+" open current buffer in firefox
+function! s:open_in_firefox()
+    let l:t_ti_back=&t_ti
+    let l:t_te_back=&t_te
+    set t_ti= t_te=
+    silent! exec "! firefox % &"
+    let &t_ti=l:t_ti_back
+    let &t_te=l:t_te_back
+endfunction
+command! Firefox call s:open_in_firefox()
 " }}}
 "_________________________________________
 "_________________________________________
