@@ -498,6 +498,9 @@ nnoremap ,scr :<C-u>windo set scrollbind<CR>
 " edit vimrc from everywhere you go.
 nnoremap <Leader>vim :<C-u>ed $MYVIMRC<CR>
 
+" stop NUL key from misbehaving
+inoremap <C-@> <Nop>
+
 " handy with quickrun
 command! Pynew call s:quick_new('python', 's')
 command! VPynew call s:quick_new('python', 'v')
