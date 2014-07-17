@@ -187,6 +187,7 @@ NeoBundle 'rhysd/committia.vim'
 NeoBundle 'kana/vim-textobj-user'
     NeoBundle 'kana/vim-textobj-indent'
     NeoBundle 'h1mesuke/textobj-wiw'
+    NeoBundle 'rhysd/vim-textobj-word-column'
     NeoBundle 'reedes/vim-textobj-quote'
         augroup textobj_quote
             autocmd!
@@ -275,15 +276,14 @@ NeoBundle 'thinca/vim-fontzoom'
     let g:fontzoom_no_default_key_mappings=1
     silent! nmap <unique> <silent> + <Plug>(fontzoom-larger)
     silent! nmap <unique> <silent> - <Plug>(fontzoom-smaller)
-    " FIXME : why doesn't this work?
-    " silent! nmap <unique> <silent> <C-+> <Plug>(fontzoom-larger)
-    " silent! nmap <unique> <silent> <C--> <Plug>(fontzoom-smaller)
 
 NeoBundle 'Lokaltog/vim-easymotion'
     nmap s <Plug>(easymotion-s2)
     let g:EasyMotion_smartcase = 1
     map <Leader>j <Plug>(easymotion-j)
     map <Leader>k <Plug>(easymotion-k)
+
+NeoBundle 'h1mesuke/vim-alignta'
 " }}}
 
 " leisure{{{2
