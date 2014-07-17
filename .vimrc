@@ -276,6 +276,12 @@ NeoBundle 'thinca/vim-fontzoom'
     " FIXME : why doesn't this work?
     " silent! nmap <unique> <silent> <C-+> <Plug>(fontzoom-larger)
     " silent! nmap <unique> <silent> <C--> <Plug>(fontzoom-smaller)
+
+NeoBundle 'Lokaltog/vim-easymotion'
+    nmap s <Plug>(easymotion-s2)
+    let g:EasyMotion_smartcase = 1
+    map <Leader>j <Plug>(easymotion-j)
+    map <Leader>k <Plug>(easymotion-k)
 " }}}
 
 " leisure{{{2
