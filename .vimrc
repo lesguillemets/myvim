@@ -22,7 +22,7 @@ NeoBundle 'thinca/vim-quickrun'
 " avoid conflict with Quickhl
     command! Q QuickRun
 
-NeoBundle 'Align'
+" NeoBundle 'Align'
 
 NeoBundle 'osyo-manga/vim-anzu'
     nmap n <Plug>(anzu-n-with-echo)
