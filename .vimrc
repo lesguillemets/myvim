@@ -201,6 +201,13 @@ NeoBundle 'tyru/capture.vim'
 
 "NeoBundle 'rking/ag.vim'
 NeoBundle 'lesguillemets/ag.vim', 'prevent_results_leaking_into_terminal'
+
+NeoBundle 'kshenoy/vim-signature'
+    " let's use marks more often, really.
+
+NeoBundle 'thinca/vim-qfreplace'
+" http://blog.supermomonga.com/articles/vim/qfreplace-benri.html
+
 "}}}
 
 " Appearance {{{
@@ -221,11 +228,9 @@ NeoBundle 'lilydjwg/colorizer'
 " }}}
 
 " Trial {{{2
-NeoBundle 'itchyny/thumbnail.vim'
+" NeoBundle 'itchyny/thumbnail.vim'
 NeoBundle 'CountJump'
     " supposed to be good with latex
-NeoBundle 'kshenoy/vim-signature'
-    " let's use marks more often, really.
 
 " NeoBundle 'vim-scripts/swap-parameters'
     " too specific a command, perhaps?
@@ -261,9 +266,6 @@ NeoBundle 'tyru/open-browser.vim'
 "    let g:smeargle_newline_term_colour = 'None'
 
 NeoBundle 'lesguillemets/threejsify.vim.dev'
-
-NeoBundle 'thinca/vim-qfreplace'
-" http://blog.supermomonga.com/articles/vim/qfreplace-benri.html
 
 NeoBundle 'rhysd/git-messenger.vim'
 " NeoBundle 'rhysd/inazuma.vim'
