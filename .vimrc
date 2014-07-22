@@ -359,6 +359,8 @@ NeoBundle 'xoria256.vim'
 NeoBundle 'mne/as_xoria.vim'
 NeoBundle 'hhubbell/vim-hubs'
 NeoBundle 'ChrisKempson/Vim-Tomorrow-Theme'
+NeoBundle 'dstrunk/atom-dark-vim'
+NeoBundle 'twerth/ir_black'
 "}}}
 " }}}
 "_________________________________________
