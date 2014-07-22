@@ -977,6 +977,7 @@ endfunction
 let g:quickrun_config = {}
 let g:quickrun_config.ox = {'command' : 'autoox.sh'}
 let g:quickrun_config.st = {'command' : 'gst'}
+let g:quickrun_config.scheme = {'command' : 'guile'}
 " }}}
 
 " emmet {{{
