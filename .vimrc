@@ -280,8 +280,11 @@ NeoBundle 'thinca/vim-fontzoom'
 NeoBundle 'Lokaltog/vim-easymotion'
     nmap s <Plug>(easymotion-s2)
     let g:EasyMotion_smartcase = 1
+    let g:EasyMotion_startofline = 0
     map <Leader>j <Plug>(easymotion-j)
     map <Leader>k <Plug>(easymotion-k)
+    map <Leader>h <Plug>(easymotion-linebackward)
+    map <Leader>l <Plug>(easymotion-lineforward)
 
 NeoBundle 'h1mesuke/vim-alignta'
 " }}}
