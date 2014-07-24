@@ -557,7 +557,7 @@ let g:jellybeans_overrides = {
 hi VertSplit ctermfg=144 ctermbg=NONE guifg=lightblue guibg=NONE
 hi Visual term=reverse ctermbg=30
 set fillchars=vert:║,fold:-
-hi StatusLine term=NONE ctermbg=black ctermfg=green
+hi StatusLine term=NONE ctermbg=black ctermfg=40 gui=bold guibg=black guifg=#00aa00
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%2.l/%2.L]\ C[%2.c]%5P
 " [4] .vimrc [+] [vim] [~/]                      L[ 474/ 981] C[ 65] 45%
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=L[%2.l/%2.L]\ C[%2.c]%5P
