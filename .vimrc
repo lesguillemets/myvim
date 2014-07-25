@@ -435,6 +435,13 @@ set virtualedit+=block
 set mouse=
 
 let g:typewritersound = 0
+
+" set filetype to sh when <C-x><C-e> on terminal
+" http://stackoverflow.com/questions/7115324/
+if expand('%:t') =~?'bash-fc-\d\+'
+    setfiletype sh
+endif
+
 " }}}
 "_________________________________________
 "_________________________________________
@@ -1124,3 +1131,4 @@ augroup IndentLineGroup
 augroup END
 " }}}
 "_________________________________________
+"
