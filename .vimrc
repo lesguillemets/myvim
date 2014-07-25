@@ -287,6 +287,8 @@ NeoBundle 'Lokaltog/vim-easymotion'
     map <Leader>l <Plug>(easymotion-lineforward)
 
 NeoBundle 'h1mesuke/vim-alignta'
+
+NeoBundle 'lesguillemets/ft-grass.vim'
 " }}}
 
 " leisure{{{2
