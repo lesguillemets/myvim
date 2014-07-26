@@ -366,6 +366,7 @@ NeoBundle 'hhubbell/vim-hubs'
 NeoBundle 'ChrisKempson/Vim-Tomorrow-Theme'
 NeoBundle 'dstrunk/atom-dark-vim'
 NeoBundle 'twerth/ir_black'
+NeoBundle 'scheakur/vim-scheakur'
 "}}}
 " }}}
 "_________________________________________
