@@ -760,6 +760,10 @@ autocmd FileType tex,plaintex,latex setlocal conceallevel=0
 autocmd FileType lisp call SetTabs(2)
 "}}}
 
+" csv {{{
+autocmd FileType csv setlocal nowrap
+" }}}
+
 " quickrun output {{{2
 autocmd FileType quickrun call s:displaymovement()
 "}}}
