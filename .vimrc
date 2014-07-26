@@ -569,8 +569,8 @@ set fillchars=vert:║,fold:-
 hi StatusLine term=NONE ctermbg=black ctermfg=40 gui=bold guibg=black guifg=#00aa00
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%2.l/%2.L]\ C[%2.c]%5P
 " [4] .vimrc [+] [vim] [~/]                      L[ 474/ 981] C[ 65] 45%
-set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=L[%2.l/%2.L]\ C[%2.c]%5P
-" [4] .vimrc [+] [vim] [~/] [master]                      L[ 474/ 981] C[ 65] 45%
+set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=[%{&ff}]\ L[%2.l/%2.L]\ C[%2.c]%5P
+" [4] .vimrc [+] [vim] [~/] [master]                     [unix]  L[ 474/ 981] C[ 65] 45%
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
 set foldtext=NeatFoldText()
