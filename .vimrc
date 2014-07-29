@@ -963,6 +963,11 @@ function! s:quick_new(ft, pos)
         new
     endif
     let &l:filetype = a:ft
+    if a:ft ==? 'python'
+        exec 'normal! i#!/usr/bin/env python3'
+    elseif a:ft ==? 'ruby'
+        exec 'normal! i#!/usr/bin/env ruby'
+    endif
 endfunction
 " }}}
 
@@ -1068,8 +1073,8 @@ endif
 augroup NeoComp
     autocmd!
     " jedi-vim
-    "autocmd FileType python setlocal omnifunc=jedi#completions
-    autocmd FileType python setlocal omnifunc=python3complete#Complete
+    autocmd FileType python setlocal omnifunc=jedi#completions
+    "autocmd FileType python setlocal omnifunc=python3complete#Complete
     let g:jedi#completions_enabled = 0
     let g:jedi#show_call_signatures = 0
     "let g:jedi#auto_vim_configuration = 0
