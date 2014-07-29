@@ -367,6 +367,8 @@ NeoBundle 'ChrisKempson/Vim-Tomorrow-Theme'
 NeoBundle 'dstrunk/atom-dark-vim'
 NeoBundle 'twerth/ir_black'
 NeoBundle 'scheakur/vim-scheakur'
+NeoBundle 'AlxHnr/clear_colors'
+NeoBundle 'ArivottiC/rivotti256.vim'
 "}}}
 " }}}
 "_________________________________________
