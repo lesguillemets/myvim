@@ -173,6 +173,10 @@ NeoBundle 'tyru/caw.vim'
     vmap <Leader>c <Plug>(caw:I:toggle)
 NeoBundle 'thinca/vim-ref'
     let g:ref_pydoc_cmd = "pydoc3"
+    if !exists("g:ref_detect_filetype")
+        let g:ref_detect_filetype = {}
+    endif
+    let g:ref_detect_filetype.sh = "man"
 NeoBundle 'osyo-manga/vim-hideout'
 NeoBundle 'motemen/git-vim'
     let g:git_no_map_default=1
