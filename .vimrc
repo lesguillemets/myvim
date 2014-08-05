@@ -16,7 +16,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Essentials {{{2
 
-NeoBundle 'Shougo/neocomplete.vim', 'next'
+NeoBundle 'Shougo/neocomplete.vim'
 
 NeoBundle 'thinca/vim-quickrun'
 " avoid conflict with Quickhl
