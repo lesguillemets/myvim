@@ -83,7 +83,7 @@ NeoBundle 'tmhedberg/SimpylFold'
 
 " haskell {{{
 NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'haskell.vim'
+" NeoBundle 'haskell.vim'
 NeoBundle 'dag/vim2hs'
     " disable concealing of "enumerations": commatized lists like
     " deriving clauses and LANGUAGE pragmas,
@@ -591,7 +591,7 @@ set foldtext=NeatFoldText()
 " http://stackoverflow.com/questions/17399533/vim-plugin-rainbow-parentheses-using-tab
 
 let g:rainbow_off_fts = [
-    \ "css", "text", "html", "javascript", "quickrun",
+    \ "css", "text", "html", "javascript", "quickrun", "haskell"
     \ ]
 
 function! Config_Rainbow()
