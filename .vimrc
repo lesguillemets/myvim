@@ -399,7 +399,7 @@ set backspace=
 set synmaxcol=200
 set tildeop
 set cursorline
-set cursorcolumn
+set nocursorcolumn
 set splitbelow splitright
 set history=255
 
