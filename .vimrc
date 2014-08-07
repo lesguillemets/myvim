@@ -677,6 +677,14 @@ autocmd!
 " python {{{2
 autocmd FileType python call SetTabs(4)
 autocmd FileType python setlocal foldlevel=1
+function! Pyaddpath()
+python3 << EOF
+import sys
+if "/usr/local/lib/python3.4/site-packages" not in sys.path:
+    sys.path.append("/usr/local/lib/python3.4/site-packages")
+EOF
+endfunction
+call Pyaddpath()
 function! JJPythonFold()
     source $HOME/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
 endfunction
@@ -1079,7 +1087,7 @@ augroup NeoComp
     " jedi-vim
     autocmd FileType python setlocal omnifunc=jedi#completions
     "autocmd FileType python setlocal omnifunc=python3complete#Complete
-    let g:jedi#completions_enabled = 0
+    let g:jedi#completions_enabled = 1
     let g:jedi#show_call_signatures = 0
     "let g:jedi#auto_vim_configuration = 0
     let g:neocomplete#force_omni_input_patterns.python =
