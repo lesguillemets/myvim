@@ -684,7 +684,9 @@ if "/usr/local/lib/python3.4/site-packages" not in sys.path:
     sys.path.append("/usr/local/lib/python3.4/site-packages")
 EOF
 endfunction
-call Pyaddpath()
+if has('python3')
+    call Pyaddpath()
+endif
 function! JJPythonFold()
     source $HOME/.vim/syntax/jjpythonfold.vim/syntax/jjpythonfold.vim
 endfunction
