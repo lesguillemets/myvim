@@ -246,6 +246,7 @@ NeoBundle 'reedes/vim-wordy'
 NeoBundle 'reedes/vim-pencil'
 
 NeoBundle 'sjl/gundo.vim'
+    let g:gundo_prefer_python3 = 1
     nnoremap <silent> <Space>u :GundoToggle<CR>
 
 NeoBundle 'mattn/benchvimrc-vim'
