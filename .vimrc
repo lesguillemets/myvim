@@ -294,6 +294,8 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'h1mesuke/vim-alignta'
 
 NeoBundle 'lesguillemets/ft-grass.vim'
+
+NeoBundle 'cohama/agit.vim'
 " }}}
 
 " leisure{{{2
