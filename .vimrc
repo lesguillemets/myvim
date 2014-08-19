@@ -199,7 +199,7 @@ NeoBundle 'kana/vim-textobj-user'
             autocmd FileType markdown call textobj#quote#init()
             autocmd FileType text call textobj#quote#init()
         augroup END
-        nnoremap <Space>q :<C-u>ToggleEducate<CR>
+        nnoremap <Space>Q :<C-u>ToggleEducate<CR>
         " q because it was once called vim-quotable
 
 NeoBundle 'tyru/capture.vim'
