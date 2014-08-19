@@ -56,6 +56,7 @@ NeoBundle 't9md/vim-quickhl'
     nmap <Space>M <Plug>(quickhl-manual-reset)
     xmap <Space>M <Plug>(quickhl-manual-reset)
     nmap <Space>j <Plug>(quickhl-cword-toggle)
+NeoBundle 'cohama/agit.vim'
 " }}}
 
 " Language specific plugins {{{
@@ -295,7 +296,6 @@ NeoBundle 'h1mesuke/vim-alignta'
 
 NeoBundle 'lesguillemets/ft-grass.vim'
 
-NeoBundle 'cohama/agit.vim'
 " }}}
 
 " leisure{{{2
