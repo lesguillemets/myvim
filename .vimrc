@@ -100,7 +100,7 @@ NeoBundle 'c9s/perlomni.vim'
 " }}}
 
 " ruby {{{
-NeoBundle 'vim-ruby/vim-ruby'
+"NeoBundle 'vim-ruby/vim-ruby'
 " }}}
 
 " html {{{
@@ -296,6 +296,7 @@ NeoBundle 'h1mesuke/vim-alignta'
 
 NeoBundle 'lesguillemets/ft-grass.vim'
 
+NeoBundle 'osyo-manga/vim-monster'
 " }}}
 
 " leisure{{{2
