@@ -80,6 +80,8 @@ NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'tmhedberg/SimpylFold'
 " Which to use?
 " NeoBundle 'git://github.com/vim-scripts/jpythonfold.vim.git'
+NeoBundle 'nvie/vim-flake8'
+    autocmd FileType python nnoremap <Space>q :call Flake8()<CR>
 " }}}
 
 " haskell {{{
