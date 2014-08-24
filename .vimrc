@@ -77,7 +77,6 @@ NeoBundle 'davidhalter/jedi-vim'
     let g:jedi#documentation_command = ""
     let g:jedi#force_py_version = 3
 " NeoBundle 'mkomitee/vim-gf-python' -- not for python3
-NeoBundle 'tmhedberg/SimpylFold'
 " Which to use?
 " NeoBundle 'git://github.com/vim-scripts/jpythonfold.vim.git'
 NeoBundle 'nvie/vim-flake8'
