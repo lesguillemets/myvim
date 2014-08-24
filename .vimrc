@@ -381,6 +381,7 @@ NeoBundle 'AlxHnr/clear_colors'
 NeoBundle 'ArivottiC/rivotti256.vim'
 NeoBundle 'guns/jellyx.vim'
 NeoBundle 'alem0lars/vim-colorscheme-darcula'
+NeoBundle 'https://bitbucket.org/kb/vim-colorscheme-krxt.git'
 "}}}
 " }}}
 "_________________________________________
