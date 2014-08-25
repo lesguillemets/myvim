@@ -380,6 +380,8 @@ NeoBundle 'ArivottiC/rivotti256.vim'
 NeoBundle 'guns/jellyx.vim'
 NeoBundle 'alem0lars/vim-colorscheme-darcula'
 NeoBundle 'https://bitbucket.org/kb/vim-colorscheme-krxt.git'
+NeoBundle 'fisadev/fisa-vim-colorscheme'
+"NeoBundle 'Grimy/vim-rainbow'
 "}}}
 " }}}
 "_________________________________________
