@@ -136,7 +136,7 @@ NeoBundle 'gabrielelana/vim-markdown'
 " }}}
 
 " wikipedia {{{
-NeoBundle 'wikipedia.vim' " this is not good..
+" NeoBundle 'wikipedia.vim' " this is not good..
 " }}}
 
 " smalltalk {{{
