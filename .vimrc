@@ -118,6 +118,8 @@ NeoBundle 'JulesWang/css.vim'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'pangloss/vim-javascript'
 NeoBundle '1995eaton/vim-better-javascript-completion'
+NeoBundle 'Shutnik/jshint2.vim'
+" configurations in the language settings
 " }}}
 
 " tex / latex {{{
@@ -744,6 +746,8 @@ autocmd FileType xml call s:displaymovement()
 
 " javascript {{{2
 autocmd FileType javascript call SetTabs(2)
+autocmd FileType javascript nnoremap <buffer> <Space>q :<C-u>JSHint<CR>
+autocmd FileType javascript vnoremap <buffer> <Space>q :<C-u>JSHint<CR>
 "}}}
 
 " vim {{{2
