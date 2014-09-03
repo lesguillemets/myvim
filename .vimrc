@@ -782,7 +782,7 @@ autocmd FileType mediawiki setlocal foldmethod=expr
 "autocmd FileType tex,plaintex,latex map <buffer> <silent> ]s :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 "autocmd FileType tex,plaintex,latex map <buffer> [s :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 autocmd FileType tex,plaintex,latex call s:displaymovement()
-autocmd FileType tex,plaintex,latex call SetTabs(4)
+autocmd FileType tex,plaintex,latex call SetTabs(2)
 autocmd FileType tex,plaintex,latex setlocal conceallevel=0
 " }}}
 
