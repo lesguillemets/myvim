@@ -541,6 +541,10 @@ nnoremap <Leader>vim :<C-u>ed $MYVIMRC<CR>
 " stop NUL key from misbehaving
 inoremap <C-@> <Nop>
 
+" search for selected text in visual mode
+" at the cost of the l register.
+vnoremap * "ly:let @/ = @l<CR>n
+
 " handy with quickrun
 command! Pynew call s:quick_new('python', 's')
 command! VPynew call s:quick_new('python', 'v')
