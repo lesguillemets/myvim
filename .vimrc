@@ -384,6 +384,7 @@ NeoBundle 'alem0lars/vim-colorscheme-darcula'
 NeoBundle 'https://bitbucket.org/kb/vim-colorscheme-krxt.git'
 NeoBundle 'fisadev/fisa-vim-colorscheme'
 "NeoBundle 'Grimy/vim-rainbow'
+NeoBundle 'qwelyt/TrippingRobot'
 "}}}
 " }}}
 "_________________________________________
