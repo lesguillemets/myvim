@@ -543,6 +543,8 @@ inoremap <C-@> <Nop>
 
 " search for selected text in visual mode
 " at the cost of the l register.
+" from : http://memo.officebrook.net/20091022.html
+" via http://labs.timedia.co.jp/2014/09/learn-about-vim-in-the-workplace.html
 vnoremap * "ly:let @/ = @l<CR>n
 
 " handy with quickrun
