@@ -198,7 +198,7 @@ NeoBundle 'kana/vim-textobj-user'
     NeoBundle 'reedes/vim-textobj-quote'
         augroup textobj_quote
             autocmd!
-            autocmd FileType markdown call textobj#quote#init()
+            " autocmd FileType markdown call textobj#quote#init()
             autocmd FileType text call textobj#quote#init()
         augroup END
         nnoremap <Space>Q :<C-u>ToggleEducate<CR>
