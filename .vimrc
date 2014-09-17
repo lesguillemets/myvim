@@ -216,6 +216,7 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'thinca/vim-qfreplace'
 " http://blog.supermomonga.com/articles/vim/qfreplace-benri.html
 
+NeoBundle 'KabbAmine/vullScreen.vim'
 "}}}
 
 " Appearance {{{
