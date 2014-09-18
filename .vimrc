@@ -386,6 +386,10 @@ NeoBundle 'https://bitbucket.org/kb/vim-colorscheme-krxt.git'
 NeoBundle 'fisadev/fisa-vim-colorscheme'
 "NeoBundle 'Grimy/vim-rainbow'
 NeoBundle 'qwelyt/TrippingRobot'
+NeoBundle 'petobens/heraldish'
+NeoBundle 'MichaelMalick/vim-colors-bluedrake'
+    let g:bluedrake_256=1
+ "}}}
 "}}}
 " }}}
 "_________________________________________
