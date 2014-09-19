@@ -391,7 +391,6 @@ NeoBundle 'MichaelMalick/vim-colors-bluedrake'
     let g:bluedrake_256=1
  "}}}
 "}}}
-" }}}
 "_________________________________________
 "_________________________________________
 " general settings {{{
