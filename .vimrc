@@ -287,15 +287,20 @@ NeoBundle 'thinca/vim-fontzoom'
     silent! nmap <unique> <silent> - <Plug>(fontzoom-smaller)
 
 NeoBundle 'Lokaltog/vim-easymotion'
-    nmap s <Plug>(easymotion-s2)
     let g:EasyMotion_smartcase = 1
     let g:EasyMotion_startofline = 0
+    nmap s <Plug>(easymotion-s2)
     map <Leader>j <Plug>(easymotion-j)
     map <Leader>k <Plug>(easymotion-k)
     map <Leader>h <Plug>(easymotion-linebackward)
     map <Leader>l <Plug>(easymotion-lineforward)
     map <Leader>w <Plug>(easymotion-bd-wl)
     map <Leader>e <Plug>(easymotion-bd-el)
+    augroup VemSettings
+        autocmd!
+        autocmd ColorScheme * hi EasyMotionTargetMine cterm=bold ctermfg=blue gui=bold guifg=#0044ff
+    augroup END
+    hi link EasyMotionTarget EasyMotionTargetMine
 
 NeoBundle 'h1mesuke/vim-alignta'
 
