@@ -294,6 +294,8 @@ NeoBundle 'Lokaltog/vim-easymotion'
     map <Leader>k <Plug>(easymotion-k)
     map <Leader>h <Plug>(easymotion-linebackward)
     map <Leader>l <Plug>(easymotion-lineforward)
+    map <Leader>w <Plug>(easymotion-bd-wl)
+    map <Leader>e <Plug>(easymotion-bd-el)
 
 NeoBundle 'h1mesuke/vim-alignta'
 
