@@ -290,6 +290,8 @@ NeoBundle 'Lokaltog/vim-easymotion'
     let g:EasyMotion_smartcase = 1
     let g:EasyMotion_startofline = 0
     nmap s <Plug>(easymotion-s2)
+    vmap s <Plug>(easymotion-s2)
+    omap <Leader>s <Plug>(easymotion-s2)
     map <Leader>j <Plug>(easymotion-j)
     map <Leader>k <Plug>(easymotion-k)
     map <Leader>h <Plug>(easymotion-linebackward)
