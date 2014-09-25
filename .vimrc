@@ -309,6 +309,10 @@ NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'lesguillemets/ft-grass.vim'
 
 NeoBundle 'osyo-manga/vim-monster'
+NeoBundle 'haya14busa/incsearch.vim'
+    map / <Plug>(incsearch-forward)
+    map ? <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
 " }}}
 
 " leisure{{{2
