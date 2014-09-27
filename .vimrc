@@ -25,8 +25,8 @@ NeoBundle 'thinca/vim-quickrun'
 " NeoBundle 'Align'
 
 NeoBundle 'osyo-manga/vim-anzu'
-    nmap n <Plug>(anzu-n-with-echo)
-    nmap N <Plug>(anzu-N-with-echo)
+    nmap n <Plug>(anzu-n-with-echo)zv
+    nmap N <Plug>(anzu-N-with-echo)zv
     nmap * <Plug>(anzu-star-with-echo)N
     nmap # <Plug>(anzu-sharp-with-echo)
 
@@ -310,9 +310,10 @@ NeoBundle 'lesguillemets/ft-grass.vim'
 
 NeoBundle 'osyo-manga/vim-monster'
 NeoBundle 'haya14busa/incsearch.vim'
-    map / <Plug>(incsearch-forward)
-    map ? <Plug>(incsearch-backward)
+    map / <Plug>(incsearch-forward)zv
+    map ? <Plug>(incsearch-backward)zv
     map g/ <Plug>(incsearch-stay)
+
 " }}}
 
 " leisure{{{2
