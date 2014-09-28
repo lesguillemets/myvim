@@ -310,8 +310,8 @@ NeoBundle 'lesguillemets/ft-grass.vim'
 
 NeoBundle 'osyo-manga/vim-monster'
 NeoBundle 'haya14busa/incsearch.vim'
-    map / <Plug>(incsearch-forward)zv
-    map ? <Plug>(incsearch-backward)zv
+    map / <Plug>(incsearch-forward)
+    map ? <Plug>(incsearch-backward)
     map g/ <Plug>(incsearch-stay)
 
 " }}}
