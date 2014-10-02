@@ -85,7 +85,7 @@ NeoBundle 'nvie/vim-flake8'
 " haskell {{{
 NeoBundle 'ujihisa/neco-ghc'
 " NeoBundle 'haskell.vim'
-NeoBundleLazy 'dag/vim2hs', {'filetype' : 'haskell'}
+NeoBundle 'dag/vim2hs'
     " disable concealing of "enumerations": commatized lists like
     " deriving clauses and LANGUAGE pragmas,
     " otherwise collapsed into a single ellipsis
