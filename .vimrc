@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""
 " vim:fileencoding=utf-8 ts=4 sts=4 sw=4
 scriptencoding  utf-8
 "_________________________________________
@@ -710,6 +710,10 @@ endif
 
 augroup myftsettings
 autocmd!
+
+" everywhere
+" I want it to be consistent. ref:#16
+autocmd FileType * setlocal iskeyword&
 
 " python {{{2
 autocmd FileType python call SetTabs(4)
