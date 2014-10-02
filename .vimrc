@@ -85,7 +85,7 @@ NeoBundle 'nvie/vim-flake8'
 " haskell {{{
 NeoBundle 'ujihisa/neco-ghc'
 " NeoBundle 'haskell.vim'
-NeoBundle 'dag/vim2hs'
+NeoBundleLazy 'dag/vim2hs', {'filetype' : 'haskell'}
     " disable concealing of "enumerations": commatized lists like
     " deriving clauses and LANGUAGE pragmas,
     " otherwise collapsed into a single ellipsis
@@ -787,8 +787,6 @@ autocmd FileType vim nnoremap <leader>b :<C-u>call OpenBundle()<CR>
 
 " markdown {{{2
 " I want it to be consistent. ref:#16
-autocmd FileType markdown setlocal iskeyword&
-autocmd FileType markdown setlocal iskeyword+=:,+,-
 autocmd FileType markdown call SetTabs(2)
 autocmd FileType markdown call s:displaymovement()
 autocmd FileType markdown nnoremap <buffer> ,tim a<C-r>=strftime("%Y-%m-%d %H:%M:%S UTC+9")<CR><Esc>
