@@ -711,10 +711,6 @@ endif
 augroup myftsettings
 autocmd!
 
-" everywhere
-" I want it to be consistent. ref:#16
-autocmd FileType * setlocal iskeyword&
-
 " python {{{2
 autocmd FileType python call SetTabs(4)
 autocmd FileType python setlocal foldlevel=1
@@ -790,6 +786,9 @@ autocmd FileType vim nnoremap <leader>b :<C-u>call OpenBundle()<CR>
 " }}}
 
 " markdown {{{2
+" I want it to be consistent. ref:#16
+autocmd FileType markdown setlocal iskeyword&
+autocmd FileType markdown setlocal iskeyword+=:,+,-
 autocmd FileType markdown call SetTabs(2)
 autocmd FileType markdown call s:displaymovement()
 autocmd FileType markdown nnoremap <buffer> ,tim a<C-r>=strftime("%Y-%m-%d %H:%M:%S UTC+9")<CR><Esc>
