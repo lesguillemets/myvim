@@ -60,10 +60,10 @@ NeoBundle 'cohama/agit.vim'
 " }}}
 
 " Language specific plugins {{{
-
+augroup FiletypeBundle
 " python {{{
-NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'davidhalter/jedi-vim'
+NeoBundleLazy 'hynek/vim-python-pep8-indent', {'autoload': {'filetypes': ['python']}}
+NeoBundleLazy 'davidhalter/jedi-vim', {'autoload': {'filetypes': ['python']}}
     let g:jedi#auto_initialization = 1
     let g:jedi#popup_on_dot = 0
     let g:jedi#show_call_signatures = 0
@@ -76,91 +76,92 @@ NeoBundle 'davidhalter/jedi-vim'
     " <K> conflicts with vim-ref.
     let g:jedi#documentation_command = ""
     let g:jedi#force_py_version = 3
-" NeoBundle 'mkomitee/vim-gf-python' -- not for python3
-NeoBundle 'tmhedberg/SimpylFold'
-NeoBundle 'nvie/vim-flake8'
+" NeoBundleLazy 'mkomitee/vim-gf-python' -- not for python3
+NeoBundleLazy 'tmhedberg/SimpylFold', {'autoload': {'filetypes': ['python']}}
+NeoBundleLazy 'nvie/vim-flake8', {'autoload': {'filetypes': ['python']}}
     autocmd FileType python nnoremap <Space>q :call Flake8()<CR>
 " }}}
 
 " haskell {{{
-NeoBundle 'ujihisa/neco-ghc'
-" NeoBundle 'haskell.vim'
-NeoBundle 'dag/vim2hs'
+NeoBundleLazy 'ujihisa/neco-ghc', {'autoload' : {'filetypes': ['haskell']}}
+" NeoBundleLazy 'haskell.vim'
+NeoBundleLazy 'dag/vim2hs', {'autoload' : {'filetypes': ['haskell']}}
     " disable concealing of "enumerations": commatized lists like
     " deriving clauses and LANGUAGE pragmas,
     " otherwise collapsed into a single ellipsis
     let g:haskell_conceal_enumerations=0
-" NeoBundle 'travitch/hasksyn'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'ujihisa/ref-hoogle'
+" NeoBundleLazy 'travitch/hasksyn'
+NeoBundleLazy 'eagletmt/ghcmod-vim', {'autoload' : {'filetypes': ['haskell']}}
+NeoBundleLazy 'ujihisa/ref-hoogle', {'autoload' : {'filetypes': ['haskell']}}
 " }}}
 
 " {{{ perl
-NeoBundle 'c9s/perlomni.vim'
+NeoBundleLazy 'c9s/perlomni.vim', {'autoload': {'filetypes': ['perl']}}
 " }}}
 
 " ruby {{{
-"NeoBundle 'vim-ruby/vim-ruby'
+"NeoBundleLazy 'vim-ruby/vim-ruby'
 " }}}
 
 " html {{{
-NeoBundle 'othree/html5.vim'
-NeoBundle 'mattn/emmet-vim'
+NeoBundleLazy 'othree/html5.vim', {'autoload': {'filetypes': ['html', 'css']}}
+NeoBundleLazy 'mattn/emmet-vim', {'autoload': {'filetypes': ['html', 'css', 'markdown']}}
 " }}}
 
 " css {{{
-" NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-NeoBundle 'JulesWang/css.vim'
-"NeoBundle 'hail2u/vim-css3-syntax'
+" NeoBundleLazy 'ChrisYip/Better-CSS-Syntax-for-Vim'
+NeoBundleLazy 'JulesWang/css.vim', {'autoload': {'filetypes': ['css']}}
+"NeoBundleLazy 'hail2u/vim-css3-syntax'
 " }}}
 
 " javascript {{{
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle '1995eaton/vim-better-javascript-completion'
-NeoBundle 'Shutnik/jshint2.vim'
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload': {'filetypes': ['javascript', 'html']}}
+NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes': ['javascript', 'html']}}
+NeoBundleLazy '1995eaton/vim-better-javascript-completion', {'autoload': {'filetypes': ['javascript', 'html']}}
+NeoBundleLazy 'Shutnik/jshint2.vim', {'autoload': {'filetypes': ['javascript']}}
 " configurations in the language settings
 " }}}
 
 " tex / latex {{{
 " Both seemed too much. Let's reconsider when necessary.
-" NeoBundle 'vim-scripts/tex.vim--Brauner.git'
-" NeoBundle 'Vim-LaTeX' "
+" NeoBundleLazy 'vim-scripts/tex.vim--Brauner.git'
+" NeoBundleLazy 'Vim-LaTeX' "
 " }}}
 
 " markdown {{{
-NeoBundle 'gabrielelana/vim-markdown'
+NeoBundleLazy 'gabrielelana/vim-markdown', {'autoload': {'filetypes': ['markdown']}}
     let g:markdown_include_jekyll_support = 1
     let g:markdown_enable_mappings = 0
-"NeoBundle 'jtratner/vim-flavored-markdown'
-"NeoBundle 'kannokanno/previm'
+"NeoBundleLazy 'jtratner/vim-flavored-markdown'
+"NeoBundleLazy 'kannokanno/previm'
 "let g:previm_open_cmd="epiphany"
 " }}}
 
 " wikipedia {{{
-" NeoBundle 'wikipedia.vim' " this is not good..
+" NeoBundleLazy 'wikipedia.vim' " this is not good..
 " }}}
 
 " smalltalk {{{
-NeoBundle 'st.vim'
+NeoBundleLazy 'st.vim', {'autoload': {'filetypes': ['smalltalk']}}
 " }}}
 
 " conky {{{
-NeoBundle 'smancill/conky-syntax.vim'
+NeoBundleLazy 'smancill/conky-syntax.vim', {'autoload': {'filetypes': ['conky']}}
 "}}}
 
 " processing {{{
-NeoBundle 'sophacles/vim-processing'
+NeoBundleLazy 'sophacles/vim-processing', {'autoload': {'filetypes': ['processing']}}
 " }}}
 
 " actionscript {{{
-NeoBundle 'jeroenbourgois/vim-actionscript'
+NeoBundleLazy 'jeroenbourgois/vim-actionscript', {'autoload': {'filetypes': ['actionscript']}}
 " }}}
 
 " others
-NeoBundle 'Colortest'
-"NeoBundle 'git://github.com/lesguillemets/Ox-syntax.vim' ", 'dev'
+NeoBundleLazy 'Colortest'
+"NeoBundleLazy 'git://github.com/lesguillemets/Ox-syntax.vim' ", 'dev'
 
+augroup END
 " }}}
 
 " Benri {{{2
