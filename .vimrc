@@ -166,7 +166,7 @@ augroup END
 
 " Benri {{{2
 NeoBundle 'loremipsum'
-NeoBundle 'scrooloose/nerdtree'
+NeoBundleLazy 'scrooloose/nerdtree', {'autoload': {'commands':['NERDTree']}}
     let NERDTreeShowHidden=1
 NeoBundle 'deris/columnjump'
     " Hey, remember me!
