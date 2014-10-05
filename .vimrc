@@ -165,7 +165,8 @@ augroup END
 " }}}
 
 " Benri {{{2
-NeoBundle 'loremipsum'
+NeoBundleLazy 'loremipsum', {'autoload': {'commands':
+    \ ['Loremipsum', 'Loreplace']}}
 NeoBundleLazy 'scrooloose/nerdtree', {'autoload': {'commands':['NERDTree']}}
     let NERDTreeShowHidden=1
 NeoBundle 'deris/columnjump'
@@ -181,7 +182,9 @@ NeoBundle 'thinca/vim-ref'
         let g:ref_detect_filetype = {}
     endif
     let g:ref_detect_filetype.sh = "man"
-NeoBundle 'osyo-manga/vim-hideout'
+NeoBundleLazy 'osyo-manga/vim-hideout', {'autoload': {
+    \ 'commands': ['HideoutOn']
+    \ }}
 NeoBundle 'motemen/git-vim'
     let g:git_no_map_default=1
 
@@ -217,7 +220,8 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'thinca/vim-qfreplace'
 " http://blog.supermomonga.com/articles/vim/qfreplace-benri.html
 
-NeoBundle 'KabbAmine/vullScreen.vim'
+NeoBundleLazy 'KabbAmine/vullScreen.vim'
+" source in .gvimrc (or write here with autocmd?)
 "}}}
 
 " Appearance {{{
@@ -245,7 +249,10 @@ NeoBundle 'CountJump'
 " NeoBundle 'vim-scripts/swap-parameters'
     " too specific a command, perhaps?
 
-NeoBundle 'lyokha/vim-publish-helper'
+NeoBundleLazy 'lyokha/vim-publish-helper',
+    \ {'autoload' : {'commands': [
+        \ 'MakeHtmlCodeHighlight', 'MakeTexCodeHighlight'
+    \ ] } }
 
 NeoBundle 'reedes/vim-wordy'
 NeoBundle 'reedes/vim-pencil'
@@ -254,10 +261,10 @@ NeoBundle 'sjl/gundo.vim'
     let g:gundo_prefer_python3 = 1
     nnoremap <silent> <Space>u :GundoToggle<CR>
 
-NeoBundle 'mattn/benchvimrc-vim'
+NeoBundleLazy 'mattn/benchvimrc-vim', {'autoload': {'commands': ['BenchVimrc']}}
 " NeoBundle 'kana/vim-smartinput'
 
-NeoBundle 'junegunn/goyo.vim'
+NeoBundleLazy 'junegunn/goyo.vim', {'autoload': {'commands': ['Goyo']}}
 
 NeoBundle 'tyru/open-browser.vim'
     let g:netrw_nogx=1
