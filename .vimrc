@@ -56,11 +56,10 @@ NeoBundle 't9md/vim-quickhl'
     nmap <Space>M <Plug>(quickhl-manual-reset)
     xmap <Space>M <Plug>(quickhl-manual-reset)
     nmap <Space>j <Plug>(quickhl-cword-toggle)
-NeoBundle 'cohama/agit.vim'
+NeoBundleLazy 'cohama/agit.vim', {'autoload': {'commands':['Agit']}}
 " }}}
 
 " Language specific plugins {{{
-augroup FiletypeBundle
 " python {{{
 NeoBundleLazy 'hynek/vim-python-pep8-indent', {'autoload': {'filetypes': ['python']}}
 NeoBundleLazy 'davidhalter/jedi-vim', {'autoload': {'filetypes': ['python']}}
@@ -161,7 +160,6 @@ NeoBundleLazy 'jeroenbourgois/vim-actionscript', {'autoload': {'filetypes': ['ac
 NeoBundleLazy 'Colortest'
 "NeoBundleLazy 'git://github.com/lesguillemets/Ox-syntax.vim' ", 'dev'
 
-augroup END
 " }}}
 
 " Benri {{{2
@@ -255,7 +253,8 @@ NeoBundleLazy 'lyokha/vim-publish-helper',
     \ ] } }
 
 NeoBundle 'reedes/vim-wordy'
-NeoBundle 'reedes/vim-pencil'
+NeoBundleLazy 'reedes/vim-pencil', {'autoload': {'commands':
+    \ ['SoftPencil', 'HardPencil', 'TogglePencil']}}
 
 NeoBundle 'sjl/gundo.vim'
     let g:gundo_prefer_python3 = 1
@@ -285,7 +284,8 @@ NeoBundle 'tyru/open-browser.vim'
 
 NeoBundle 'lesguillemets/threejsify.vim.dev'
 
-NeoBundle 'rhysd/git-messenger.vim'
+NeoBundleLazy 'rhysd/git-messenger.vim', {'autoload':{'commands':
+    \ ['GitMessengerToggle', 'GitMessengerBalloonToggle']}}
 " NeoBundle 'rhysd/inazuma.vim'
 " http://rhysd.hatenablog.com/entry/2013/12/31/191302
 
@@ -316,7 +316,7 @@ NeoBundle 'h1mesuke/vim-alignta'
 
 NeoBundle 'lesguillemets/ft-grass.vim'
 
-NeoBundle 'osyo-manga/vim-monster'
+NeoBundleLazy 'osyo-manga/vim-monster', {'autoload':{'filetype':['ruby']}}
 NeoBundle 'haya14busa/incsearch.vim'
     map / <Plug>(incsearch-forward)
     map ? <Plug>(incsearch-backward)
