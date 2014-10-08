@@ -404,6 +404,7 @@ NeoBundle 'petobens/heraldish'
 NeoBundle 'MichaelMalick/vim-colors-bluedrake'
     let g:bluedrake_256=1
 NeoBundle "YorickPeterse/happy_hacking.vim"
+NeoBundle "mhinz/vim-janah"
  "}}}
 "}}}
 "_________________________________________
