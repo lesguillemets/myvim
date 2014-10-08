@@ -441,6 +441,7 @@ set cursorline
 set nocursorcolumn
 set splitbelow splitright
 set history=255
+set nostartofline "don't move with <C-f>, etc.
 
 set spelllang=en_gb,cjk
 " cjk seems unavailable for some environment: should check later
