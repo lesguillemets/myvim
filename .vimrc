@@ -314,6 +314,7 @@ NeoBundle 'haya14busa/incsearch.vim'
     map ? <Plug>(incsearch-backward)
     map g/ <Plug>(incsearch-stay)
 
+NeoBundle 'AndrewRadev/gapply.vim'
 " }}}
 
 " leisure{{{2
