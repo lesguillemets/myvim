@@ -322,6 +322,7 @@ NeoBundle 'haya14busa/incsearch.vim'
     map ? <Plug>(incsearch-backward)
     map g/ <Plug>(incsearch-stay)
 
+NeoBundleLazy 'AndrewRadev/gapply.vim', {'autoload': {'commands': ['Gapply']}}
 " }}}
 
 " leisure{{{2
