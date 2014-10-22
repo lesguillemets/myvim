@@ -75,10 +75,10 @@ NeoBundleLazy 'davidhalter/jedi-vim', {'autoload': {'filetypes': ['python']}}
     " <K> conflicts with vim-ref.
     let g:jedi#documentation_command = ""
     let g:jedi#force_py_version = 3
-" NeoBundleLazy 'mkomitee/vim-gf-python' -- not for python3
-NeoBundleLazy 'tmhedberg/SimpylFold', {'autoload': {'filetypes': ['python']}}
-NeoBundleLazy 'nvie/vim-flake8', {'autoload': {'filetypes': ['python']}}
-    autocmd FileType python nnoremap <Space>q :call Flake8()<CR>
+" NeoBundle 'mkomitee/vim-gf-python' -- not for python3
+NeoBundle 'tmhedberg/SimpylFold'
+"NeoBundle 'nvie/vim-flake8' -- less likely to use?
+"    autocmd FileType python nnoremap <Space>q :call Flake8()<CR>
 " }}}
 
 " haskell {{{
@@ -274,9 +274,12 @@ NeoBundle 'tyru/open-browser.vim'
     "seems nice, but uses up CPU?
 
 " willing to configure .. someday.
-" NeoBundle 'osyo-manga/shabadou.vim'
-" NeoBundle 'osyo-manga/vim-watchdogs'
-" NeoBundle 'jceb/vim-hier'
+NeoBundle 'osyo-manga/vim-watchdogs'
+NeoBundle 'osyo-manga/shabadou.vim'
+augroup WatchDogs
+    autocmd FileType c,cpp,vim,python,ruby,perl nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
+augroup END
+NeoBundle 'jceb/vim-hier'
 
 "NeoBundle 'FriedSock/smeargle'
 "    let g:smeargle_colouring_scheme = ''
@@ -1059,6 +1062,8 @@ let g:quickrun_config = {}
 let g:quickrun_config.ox = {'command' : 'autoox.sh'}
 let g:quickrun_config.st = {'command' : 'gst'}
 let g:quickrun_config.scheme = {'command' : 'guile'}
+" watchdogs
+call watchdogs#setup(g:quickrun_config)
 " }}}
 
 " emmet {{{
