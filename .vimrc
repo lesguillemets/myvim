@@ -274,12 +274,12 @@ NeoBundle 'tyru/open-browser.vim'
     "seems nice, but uses up CPU?
 
 " willing to configure .. someday.
-NeoBundle 'osyo-manga/vim-watchdogs'
+NeoBundleLazy 'osyo-manga/vim-watchdogs', {'autoload': {'commands': ['WatchdogsRun']}}
 NeoBundle 'osyo-manga/shabadou.vim'
 augroup WatchDogs
     autocmd FileType c,cpp,vim,python,ruby,perl nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
 augroup END
-NeoBundle 'jceb/vim-hier'
+NeoBundleLazy 'jceb/vim-hier', {'autoload': {'commands': ['WatchdogsRun', 'GhcModCheckAndLintAsync', 'JSHint']}}
 
 "NeoBundle 'FriedSock/smeargle'
 "    let g:smeargle_colouring_scheme = ''
