@@ -1055,6 +1055,8 @@ let g:quickrun_config.ox = {'command' : 'autoox.sh'}
 let g:quickrun_config.st = {'command' : 'gst'}
 let g:quickrun_config.scheme = {'command' : 'guile'}
 " watchdogs
+
+let g:quickrun_config["watchdogs_checker/_"] = {"runner/vimproc/updatetime" : 40}
 call watchdogs#setup(g:quickrun_config)
 " }}}
 
