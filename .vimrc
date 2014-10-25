@@ -121,6 +121,10 @@ NeoBundleLazy 'Shutnik/jshint2.vim', {'autoload': {'filetypes': ['javascript']}}
 " configurations in the language settings
 " }}}
 
+" c/cpp {{{
+NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {'autoload': {'filetypes': ['cpp']}}
+" }}}
+
 " tex / latex {{{
 " Both seemed too much. Let's reconsider when necessary.
 " NeoBundleLazy 'vim-scripts/tex.vim--Brauner.git'
@@ -1063,6 +1067,8 @@ let g:quickrun_config.ox = {'command' : 'autoox.sh'}
 let g:quickrun_config.st = {'command' : 'gst'}
 let g:quickrun_config.scheme = {'command' : 'guile'}
 " watchdogs
+
+let g:quickrun_config["watchdogs_checker/_"] = {"runner/vimproc/updatetime" : 40}
 call watchdogs#setup(g:quickrun_config)
 " }}}
 
