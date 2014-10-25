@@ -122,6 +122,10 @@ NeoBundle 'Shutnik/jshint2.vim'
 " configurations in the language settings
 " }}}
 
+" c/cpp {{{
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
+" }}}
+
 " tex / latex {{{
 " Both seemed too much. Let's reconsider when necessary.
 " NeoBundle 'vim-scripts/tex.vim--Brauner.git'
