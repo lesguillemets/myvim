@@ -549,6 +549,8 @@ inoremap <Down> <Nop>
 " I don't know, but do real vimmers need this?
 noremap <Left> <Nop>
 noremap <Right> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
 
 " better moving ?
 nnoremap <C-Down> <C-w>j
