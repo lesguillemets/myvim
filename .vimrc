@@ -283,7 +283,7 @@ NeoBundle 'osyo-manga/shabadou.vim'
 augroup WatchDogs
     autocmd FileType c,cpp,vim,python,ruby,perl nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
 augroup END
-NeoBundleLazy 'jceb/vim-hier', {'autoload': {'commands': ['WatchdogsRun', 'GhcModCheckAndLintAsync', 'JSHint']}}
+NeoBundleLazy 'jceb/vim-hier', {'autoload': {'commands': ['WatchdogsRun', 'GhcModCheckAndLintAsync']}}
 
 "NeoBundle 'FriedSock/smeargle'
 "    let g:smeargle_colouring_scheme = ''
