@@ -125,6 +125,7 @@ NeoBundleLazy 'Shutnik/jshint2.vim', {'autoload': {'filetypes': ['javascript']}}
 NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {'autoload': {'filetypes': ['cpp']}}
 NeoBundleLazy 'osyo-manga/vim-marching', {'autoload' : {'filetypes': ['cpp']}}
     let g:marching_enable_neocomplete = 1
+    let g:marching#clang_command#options = { "cpp" : "-std=gnu++1y" }
 " }}}
 
 " tex / latex {{{
