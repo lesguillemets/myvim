@@ -56,14 +56,13 @@ NeoBundle 't9md/vim-quickhl'
     nmap <Space>M <Plug>(quickhl-manual-reset)
     xmap <Space>M <Plug>(quickhl-manual-reset)
     nmap <Space>j <Plug>(quickhl-cword-toggle)
-NeoBundle 'cohama/agit.vim'
+NeoBundleLazy 'cohama/agit.vim', {'autoload': {'commands':['Agit']}}
 " }}}
 
 " Language specific plugins {{{
-
 " python {{{
-NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'davidhalter/jedi-vim'
+NeoBundleLazy 'hynek/vim-python-pep8-indent', {'autoload': {'filetypes': ['python']}}
+NeoBundleLazy 'davidhalter/jedi-vim', {'autoload': {'filetypes': ['python']}}
     let g:jedi#auto_initialization = 1
     let g:jedi#popup_on_dot = 0
     let g:jedi#show_call_signatures = 0
@@ -83,93 +82,94 @@ NeoBundle 'tmhedberg/SimpylFold'
 " }}}
 
 " haskell {{{
-NeoBundle 'ujihisa/neco-ghc'
-" NeoBundle 'haskell.vim'
-NeoBundle 'dag/vim2hs'
+NeoBundleLazy 'ujihisa/neco-ghc', {'autoload' : {'filetypes': ['haskell']}}
+" NeoBundleLazy 'haskell.vim'
+NeoBundleLazy 'dag/vim2hs', {'autoload' : {'filetypes': ['haskell']}}
     " disable concealing of "enumerations": commatized lists like
     " deriving clauses and LANGUAGE pragmas,
     " otherwise collapsed into a single ellipsis
     let g:haskell_conceal_enumerations=0
-" NeoBundle 'travitch/hasksyn'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'ujihisa/ref-hoogle'
+" NeoBundleLazy 'travitch/hasksyn'
+NeoBundleLazy 'eagletmt/ghcmod-vim', {'autoload' : {'filetypes': ['haskell']}}
+NeoBundleLazy 'ujihisa/ref-hoogle', {'autoload' : {'filetypes': ['haskell']}}
 " }}}
 
 " {{{ perl
-NeoBundle 'c9s/perlomni.vim'
+NeoBundleLazy 'c9s/perlomni.vim', {'autoload': {'filetypes': ['perl']}}
 " }}}
 
 " ruby {{{
-"NeoBundle 'vim-ruby/vim-ruby'
+"NeoBundleLazy 'vim-ruby/vim-ruby'
 " }}}
 
 " html {{{
-NeoBundle 'othree/html5.vim'
-NeoBundle 'mattn/emmet-vim'
+NeoBundleLazy 'othree/html5.vim', {'autoload': {'filetypes': ['html', 'css']}}
+NeoBundleLazy 'mattn/emmet-vim', {'autoload': {'filetypes': ['html', 'css', 'markdown']}}
 " }}}
 
 " css {{{
-" NeoBundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
-NeoBundle 'JulesWang/css.vim'
-"NeoBundle 'hail2u/vim-css3-syntax'
+" NeoBundleLazy 'ChrisYip/Better-CSS-Syntax-for-Vim'
+NeoBundleLazy 'JulesWang/css.vim', {'autoload': {'filetypes': ['css']}}
+"NeoBundleLazy 'hail2u/vim-css3-syntax'
 " }}}
 
 " javascript {{{
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle '1995eaton/vim-better-javascript-completion'
-NeoBundle 'Shutnik/jshint2.vim'
+NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload': {'filetypes': ['javascript', 'html']}}
+NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes': ['javascript', 'html']}}
+NeoBundleLazy '1995eaton/vim-better-javascript-completion', {'autoload': {'filetypes': ['javascript', 'html']}}
+NeoBundleLazy 'Shutnik/jshint2.vim', {'autoload': {'filetypes': ['javascript']}}
 " configurations in the language settings
 " }}}
 
 " c/cpp {{{
-NeoBundle 'octol/vim-cpp-enhanced-highlight'
+NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {'autoload': {'filetypes': ['cpp']}}
 " }}}
 
 " tex / latex {{{
 " Both seemed too much. Let's reconsider when necessary.
-" NeoBundle 'vim-scripts/tex.vim--Brauner.git'
-" NeoBundle 'Vim-LaTeX' "
+" NeoBundleLazy 'vim-scripts/tex.vim--Brauner.git'
+" NeoBundleLazy 'Vim-LaTeX' "
 " }}}
 
 " markdown {{{
-NeoBundle 'gabrielelana/vim-markdown'
+NeoBundleLazy 'gabrielelana/vim-markdown', {'autoload': {'filetypes': ['markdown']}}
     let g:markdown_include_jekyll_support = 1
     let g:markdown_enable_mappings = 0
-"NeoBundle 'jtratner/vim-flavored-markdown'
-"NeoBundle 'kannokanno/previm'
+"NeoBundleLazy 'jtratner/vim-flavored-markdown'
+"NeoBundleLazy 'kannokanno/previm'
 "let g:previm_open_cmd="epiphany"
 " }}}
 
 " wikipedia {{{
-" NeoBundle 'wikipedia.vim' " this is not good..
+" NeoBundleLazy 'wikipedia.vim' " this is not good..
 " }}}
 
 " smalltalk {{{
-NeoBundle 'st.vim'
+NeoBundleLazy 'st.vim', {'autoload': {'filetypes': ['smalltalk']}}
 " }}}
 
 " conky {{{
-NeoBundle 'smancill/conky-syntax.vim'
+NeoBundleLazy 'smancill/conky-syntax.vim', {'autoload': {'filetypes': ['conky']}}
 "}}}
 
 " processing {{{
-NeoBundle 'sophacles/vim-processing'
+NeoBundleLazy 'sophacles/vim-processing', {'autoload': {'filetypes': ['processing']}}
 " }}}
 
 " actionscript {{{
-NeoBundle 'jeroenbourgois/vim-actionscript'
+NeoBundleLazy 'jeroenbourgois/vim-actionscript', {'autoload': {'filetypes': ['actionscript']}}
 " }}}
 
 " others
-NeoBundle 'Colortest'
-"NeoBundle 'git://github.com/lesguillemets/Ox-syntax.vim' ", 'dev'
+NeoBundleLazy 'Colortest'
+"NeoBundleLazy 'git://github.com/lesguillemets/Ox-syntax.vim' ", 'dev'
 
 " }}}
 
 " Benri {{{2
-NeoBundle 'loremipsum'
-NeoBundle 'scrooloose/nerdtree'
+NeoBundleLazy 'loremipsum', {'autoload': {'commands':
+    \ ['Loremipsum', 'Loreplace']}}
+NeoBundleLazy 'scrooloose/nerdtree', {'autoload': {'commands':['NERDTree']}}
     let NERDTreeShowHidden=1
 NeoBundle 'deris/columnjump'
     " Hey, remember me!
@@ -184,7 +184,9 @@ NeoBundle 'thinca/vim-ref'
         let g:ref_detect_filetype = {}
     endif
     let g:ref_detect_filetype.sh = "man"
-NeoBundle 'osyo-manga/vim-hideout'
+NeoBundleLazy 'osyo-manga/vim-hideout', {'autoload': {
+    \ 'commands': ['HideoutOn']
+    \ }}
 NeoBundle 'motemen/git-vim'
     let g:git_no_map_default=1
 
@@ -220,7 +222,8 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'thinca/vim-qfreplace'
 " http://blog.supermomonga.com/articles/vim/qfreplace-benri.html
 
-NeoBundle 'KabbAmine/vullScreen.vim'
+NeoBundleLazy 'KabbAmine/vullScreen.vim'
+" source in .gvimrc (or write here with autocmd?)
 "}}}
 
 " Appearance {{{
@@ -248,19 +251,23 @@ NeoBundle 'CountJump'
 " NeoBundle 'vim-scripts/swap-parameters'
     " too specific a command, perhaps?
 
-NeoBundle 'lyokha/vim-publish-helper'
+NeoBundleLazy 'lyokha/vim-publish-helper',
+    \ {'autoload' : {'commands': [
+        \ 'MakeHtmlCodeHighlight', 'MakeTexCodeHighlight'
+    \ ] } }
 
 NeoBundle 'reedes/vim-wordy'
-NeoBundle 'reedes/vim-pencil'
+NeoBundleLazy 'reedes/vim-pencil', {'autoload': {'commands':
+    \ ['SoftPencil', 'HardPencil', 'TogglePencil']}}
 
 NeoBundle 'sjl/gundo.vim'
     let g:gundo_prefer_python3 = 1
     nnoremap <silent> <Space>u :GundoToggle<CR>
 
-NeoBundle 'mattn/benchvimrc-vim'
+NeoBundleLazy 'mattn/benchvimrc-vim', {'autoload': {'commands': ['BenchVimrc']}}
 " NeoBundle 'kana/vim-smartinput'
 
-NeoBundle 'junegunn/goyo.vim'
+NeoBundleLazy 'junegunn/goyo.vim', {'autoload': {'commands': ['Goyo']}}
 
 NeoBundle 'tyru/open-browser.vim'
     let g:netrw_nogx=1
@@ -271,12 +278,12 @@ NeoBundle 'tyru/open-browser.vim'
     "seems nice, but uses up CPU?
 
 " willing to configure .. someday.
-NeoBundle 'osyo-manga/vim-watchdogs'
+NeoBundleLazy 'osyo-manga/vim-watchdogs', {'autoload': {'commands': ['WatchdogsRun']}}
 NeoBundle 'osyo-manga/shabadou.vim'
 augroup WatchDogs
     autocmd FileType c,cpp,vim,python,ruby,perl nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
 augroup END
-NeoBundle 'jceb/vim-hier'
+NeoBundleLazy 'jceb/vim-hier', {'autoload': {'commands': ['WatchdogsRun', 'GhcModCheckAndLintAsync']}}
 
 "NeoBundle 'FriedSock/smeargle'
 "    let g:smeargle_colouring_scheme = ''
@@ -284,7 +291,8 @@ NeoBundle 'jceb/vim-hier'
 
 NeoBundle 'lesguillemets/threejsify.vim.dev'
 
-NeoBundle 'rhysd/git-messenger.vim'
+NeoBundleLazy 'rhysd/git-messenger.vim', {'autoload':{'commands':
+    \ ['GitMessengerToggle', 'GitMessengerBalloonToggle']}}
 " NeoBundle 'rhysd/inazuma.vim'
 " http://rhysd.hatenablog.com/entry/2013/12/31/191302
 
@@ -315,18 +323,18 @@ NeoBundle 'h1mesuke/vim-alignta'
 
 NeoBundle 'lesguillemets/ft-grass.vim'
 
-NeoBundle 'osyo-manga/vim-monster'
+NeoBundleLazy 'osyo-manga/vim-monster', {'autoload':{'filetype':['ruby']}}
 NeoBundle 'haya14busa/incsearch.vim'
     map / <Plug>(incsearch-forward)
     map ? <Plug>(incsearch-backward)
     map g/ <Plug>(incsearch-stay)
 
-NeoBundle 'AndrewRadev/gapply.vim'
+NeoBundleLazy 'AndrewRadev/gapply.vim', {'autoload': {'commands': ['Gapply']}}
 " }}}
 
 " leisure{{{2
-NeoBundle 'deris/vim-duzzle'
-NeoBundle 'thinca/vim-threes'
+NeoBundleLazy 'deris/vim-duzzle', {'autoload' : {'commands': ['DuzzleStart']}}
+NeoBundle 'thinca/vim-threes', {'autoload' : {'commands': ['ThreesStart']}}
 " NeoBundle 'osyo-manga/vim-sound' => load in typewriter section.
 " I think we should be using neobundlelazy by now.
 NeoBundle 'Shougo/vimproc', {
@@ -337,7 +345,7 @@ NeoBundle 'Shougo/vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
-NeoBundle 'mopp/rogue.vim'
+NeoBundle 'mopp/rogue.vim', {'autoload': {'commands': ['RogueStart'] }}
 " }}}
 
 "new colorschemes {{{2
