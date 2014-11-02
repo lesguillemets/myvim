@@ -424,6 +424,9 @@ NeoBundle 'MichaelMalick/vim-colors-bluedrake'
     let g:bluedrake_256=1
 NeoBundle "YorickPeterse/happy_hacking.vim"
 NeoBundle "mhinz/vim-janah"
+NeoBundle "crusoexia/vim-dream"
+NeoBundle "crusoexia/vim-dracula"
+" NeoBundle "cseelus/vim-colors-clearance" " no support for 256.
  "}}}
 "}}}
 "_________________________________________
