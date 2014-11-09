@@ -9,7 +9,7 @@ filetype off
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
-call neobundle#rc(expand('$HOME/.vim/bundle'))
+call neobundle#begin(expand('$HOME/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
@@ -428,6 +428,8 @@ NeoBundle "crusoexia/vim-dream"
 NeoBundle "crusoexia/vim-dracula"
 " NeoBundle "cseelus/vim-colors-clearance" " no support for 256.
  "}}}
+
+call neobundle#end()
 "}}}
 "_________________________________________
 "_________________________________________
