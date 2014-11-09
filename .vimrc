@@ -1076,7 +1076,7 @@ let g:quickrun_config.st = {'command' : 'gst'}
 let g:quickrun_config.scheme = {'command' : 'guile'}
 " watchdogs
 
-let g:quickrun_config["watchdogs_checker/_"] = {"runner/vimproc/updatetime" : 40}
+let g:quickrun_config["watchdogs_checker/_"] = {"runner/vimproc/updatetime" : 40, "hook/echo/enable":1, "hook/echo/output_success": "> No Errors Found."}
 call watchdogs#setup(g:quickrun_config)
 " }}}
 
