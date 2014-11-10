@@ -626,14 +626,15 @@ augroup myappearance
     autocmd VimEnter,WinEnter,Bufread * call s:syntax_additional()
 augroup END
 
-colorscheme jellybeans2
 let g:jellybeans_background_color_256 = 'NONE'
 " although this does not seem to be working...
 let g:jellybeans_overrides = {
+    \'CursorLine' : {'ctermbg' : '235'},
     \'rubyRegexp' : {'ctermfg':'200'},
     \'rubyRegexpSpecial' : {'ctermfg':'206'},
     \'rubyRegexpDelimiter' : {'ctermfg': '126'},
     \}
+colorscheme jellybeans
 
 " I expect colorschemes to override these highlight settings.
 hi VertSplit ctermfg=144 ctermbg=NONE guifg=lightblue guibg=NONE
