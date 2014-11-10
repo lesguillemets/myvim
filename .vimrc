@@ -507,6 +507,10 @@ if expand('%:t') =~?'bash-fc-\d\+'
     setfiletype sh
 endif
 
+augroup UserHooks
+autocmd QuickFixCmdPost vimgrep cwindow
+augroup END
+
 " }}}
 "_________________________________________
 "_________________________________________
