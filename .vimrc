@@ -57,6 +57,7 @@ NeoBundle 't9md/vim-quickhl'
     xmap <Space>M <Plug>(quickhl-manual-reset)
     nmap <Space>j <Plug>(quickhl-cword-toggle)
 NeoBundleLazy 'cohama/agit.vim', {'autoload': {'commands':['Agit']}}
+NeoBundle 'nanotech/jellybeans.vim'
 " }}}
 
 " Language specific plugins {{{
