@@ -226,6 +226,36 @@ NeoBundle 'kshenoy/vim-signature'
 NeoBundle 'thinca/vim-qfreplace'
 " http://blog.supermomonga.com/articles/vim/qfreplace-benri.html
 
+NeoBundleLazy 'osyo-manga/vim-watchdogs', {'autoload': {'commands': ['WatchdogsRun']}}
+NeoBundle 'osyo-manga/shabadou.vim'
+augroup WatchDogs
+    autocmd FileType c,cpp,vim,python,ruby,perl nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
+augroup END
+NeoBundleLazy 'jceb/vim-hier', {'autoload': {'commands': ['WatchdogsRun', 'GhcModCheckAndLintAsync']}}
+
+NeoBundle 'Lokaltog/vim-easymotion'
+    let g:EasyMotion_smartcase = 1
+    let g:EasyMotion_startofline = 0
+    nmap s <Plug>(easymotion-s2)
+    vmap s <Plug>(easymotion-s2)
+    omap <Leader>s <Plug>(easymotion-s2)
+    map <Leader>j <Plug>(easymotion-j)
+    map <Leader>k <Plug>(easymotion-k)
+    map <Leader>h <Plug>(easymotion-linebackward)
+    map <Leader>l <Plug>(easymotion-lineforward)
+    map <Leader>w <Plug>(easymotion-bd-wl)
+    map <Leader>e <Plug>(easymotion-bd-el)
+    augroup VemSettings
+        autocmd!
+        autocmd ColorScheme * hi EasyMotionTargetMine cterm=bold ctermfg=blue gui=bold guifg=#0044ff
+    augroup END
+    hi link EasyMotionTarget EasyMotionTargetMine
+
+NeoBundle 'haya14busa/incsearch.vim'
+    map / <Plug>(incsearch-forward)
+    map ? <Plug>(incsearch-backward)
+    map g/ <Plug>(incsearch-stay)
+
 NeoBundleLazy 'KabbAmine/vullScreen.vim'
 " source in .gvimrc (or write here with autocmd?)
 "}}}
@@ -281,14 +311,6 @@ NeoBundle 'tyru/open-browser.vim'
 " NeoBundle 'yuratomo/w3m.vim'
     "seems nice, but uses up CPU?
 
-" willing to configure .. someday.
-NeoBundleLazy 'osyo-manga/vim-watchdogs', {'autoload': {'commands': ['WatchdogsRun']}}
-NeoBundle 'osyo-manga/shabadou.vim'
-augroup WatchDogs
-    autocmd FileType c,cpp,vim,python,ruby,perl nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
-augroup END
-NeoBundleLazy 'jceb/vim-hier', {'autoload': {'commands': ['WatchdogsRun', 'GhcModCheckAndLintAsync']}}
-
 "NeoBundle 'FriedSock/smeargle'
 "    let g:smeargle_colouring_scheme = ''
 "    let g:smeargle_newline_term_colour = 'None'
@@ -305,33 +327,11 @@ NeoBundle 'thinca/vim-fontzoom'
     silent! nmap <unique> <silent> + <Plug>(fontzoom-larger)
     silent! nmap <unique> <silent> - <Plug>(fontzoom-smaller)
 
-NeoBundle 'Lokaltog/vim-easymotion'
-    let g:EasyMotion_smartcase = 1
-    let g:EasyMotion_startofline = 0
-    nmap s <Plug>(easymotion-s2)
-    vmap s <Plug>(easymotion-s2)
-    omap <Leader>s <Plug>(easymotion-s2)
-    map <Leader>j <Plug>(easymotion-j)
-    map <Leader>k <Plug>(easymotion-k)
-    map <Leader>h <Plug>(easymotion-linebackward)
-    map <Leader>l <Plug>(easymotion-lineforward)
-    map <Leader>w <Plug>(easymotion-bd-wl)
-    map <Leader>e <Plug>(easymotion-bd-el)
-    augroup VemSettings
-        autocmd!
-        autocmd ColorScheme * hi EasyMotionTargetMine cterm=bold ctermfg=blue gui=bold guifg=#0044ff
-    augroup END
-    hi link EasyMotionTarget EasyMotionTargetMine
-
 NeoBundle 'h1mesuke/vim-alignta'
 
 NeoBundle 'lesguillemets/ft-grass.vim'
 
 NeoBundleLazy 'osyo-manga/vim-monster', {'autoload':{'filetype':['ruby']}}
-NeoBundle 'haya14busa/incsearch.vim'
-    map / <Plug>(incsearch-forward)
-    map ? <Plug>(incsearch-backward)
-    map g/ <Plug>(incsearch-stay)
 
 NeoBundleLazy 'AndrewRadev/gapply.vim', {'autoload': {'commands': ['Gapply']}}
 " }}}
