@@ -639,6 +639,7 @@ colorscheme jellybeans
 " I expect colorschemes to override these highlight settings.
 hi VertSplit ctermfg=144 ctermbg=NONE guifg=lightblue guibg=NONE
 hi Visual term=reverse ctermbg=30
+hi CursorLine ctermbg=235
 set fillchars=vert:║,fold:-
 hi StatusLine term=NONE ctermbg=black ctermfg=40 gui=bold guibg=black guifg=#00aa00
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%2.l/%2.L]\ C[%2.c]%5P
