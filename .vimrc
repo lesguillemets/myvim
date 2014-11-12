@@ -74,7 +74,7 @@ NeoBundleLazy 'davidhalter/jedi-vim', {'autoload': {'filetypes': ['python']}}
     let g:jedi#auto_vim_configuration=0
     let g:jedi#rename_command = ""
     " <K> conflicts with vim-ref.
-    let g:jedi#documentation_command = ""
+    let g:jedi#documentation_command = "<Leader>K"
     let g:jedi#force_py_version = 3
 " NeoBundle 'mkomitee/vim-gf-python' -- not for python3
 NeoBundle 'tmhedberg/SimpylFold'
