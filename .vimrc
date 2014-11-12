@@ -334,6 +334,7 @@ NeoBundle 'lesguillemets/ft-grass.vim'
 NeoBundleLazy 'osyo-manga/vim-monster', {'autoload':{'filetype':['ruby']}}
 
 NeoBundleLazy 'AndrewRadev/gapply.vim', {'autoload': {'commands': ['Gapply']}}
+NeoBundle "diffchar.vim"
 " }}}
 
 " leisure{{{2
