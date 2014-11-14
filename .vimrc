@@ -205,6 +205,12 @@ NeoBundle 'kana/vim-textobj-user'
     NeoBundle 'kana/vim-textobj-indent'
     NeoBundle 'h1mesuke/textobj-wiw'
     NeoBundle 'rhysd/vim-textobj-word-column'
+    NeoBundle 'thinca/vim-textobj-between'
+        let g:textobj_between_no_default_key_mappings=1
+        xmap ab <Plug>(textobj-between-a)
+        omap ab <Plug>(textobj-between-a)
+        xmap ib <Plug>(textobj-between-i)
+        omap ib <Plug>(textobj-between-i)
     NeoBundle 'reedes/vim-textobj-quote'
         augroup textobj_quote
             autocmd!
