@@ -201,6 +201,9 @@ NeoBundle 'rhysd/committia.vim'
     function! g:committia_hooks.edit_open(e)
         setlocal spell
     endfunction
+    function! g:committia_hooks.diff_open(e)
+        setlocal nofoldenable
+    endfunction
 
 NeoBundle 'kana/vim-textobj-user'
     NeoBundle 'kana/vim-textobj-indent'
