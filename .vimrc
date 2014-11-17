@@ -84,6 +84,7 @@ NeoBundle 'tmhedberg/SimpylFold'
 
 " haskell {{{
 NeoBundleLazy 'ujihisa/neco-ghc', {'autoload' : {'filetypes': ['haskell']}}
+    let g:necoghc_enable_detailed_browse = 1
 " NeoBundleLazy 'haskell.vim'
 NeoBundleLazy 'dag/vim2hs', {'autoload' : {'filetypes': ['haskell']}}
     " disable concealing of "enumerations": commatized lists like
@@ -772,6 +773,7 @@ autocmd FileType haskell call SetTabs(4)
 autocmd FileType haskell setlocal shiftround
 autocmd FileType haskell setlocal nojoinspaces
 autocmd FileType haskell setlocal foldlevel=0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 autocmd FileType haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
 autocmd FileType haskell nnoremap <buffer><slient> <Space>T :<C-u>GhcModType<CR>:nohlsearch<CR>
 autocmd FileType haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
