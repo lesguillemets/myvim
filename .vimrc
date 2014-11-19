@@ -585,6 +585,8 @@ nnoremap <C-Right> <C-w>l
 " current line at the top - but not the very top
 nnoremap zt zt2<C-y>
 nnoremap zT zt
+nnoremap zb zb2<C-e>
+nnoremap zB zb
 
 " I know what you wanted to type here..
 noremap <F1> <Esc>
