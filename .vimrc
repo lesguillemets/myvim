@@ -439,7 +439,10 @@ NeoBundle "mhinz/vim-janah"
 NeoBundle "crusoexia/vim-dream"
 NeoBundle "crusoexia/vim-dracula"
 " NeoBundle "cseelus/vim-colors-clearance" " no support for 256.
- "}}}
+NeoBundle 'mdlerch/vim-tungsten'
+NeoBundle 'JcDelay/vim-frictionless'
+NeoBundle 'micha/vim70style'
+"}}}
 
 call neobundle#end()
 "}}}
