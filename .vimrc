@@ -14,6 +14,10 @@ call neobundle#begin(expand('$HOME/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 " }}}
 
+if neobundle#has_fresh_cache()
+    NeoBundleLoadCache
+else
+
 " Essentials {{{2
 
 NeoBundle 'Shougo/neocomplete.vim'
@@ -441,6 +445,8 @@ NeoBundle 'mdlerch/vim-tungsten'
 NeoBundle 'JcDelay/vim-frictionless'
 NeoBundle 'micha/vim70style'
 "}}}
+NeoBundleSaveCache
+endif
 
 call neobundle#end()
 "}}}
