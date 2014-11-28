@@ -446,6 +446,7 @@ NeoBundle 'JcDelay/vim-frictionless'
 NeoBundle 'micha/vim70style'
 "}}}
 NeoBundleSaveCache
+echom "NeoBundle: cache created."
 endif
 
 call neobundle#end()
