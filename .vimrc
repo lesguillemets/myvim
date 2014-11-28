@@ -95,6 +95,7 @@ NeoBundleLazy 'dag/vim2hs', {'autoload' : {'filetypes': ['haskell']}}
     " deriving clauses and LANGUAGE pragmas,
     " otherwise collapsed into a single ellipsis
     let g:haskell_conceal_enumerations=0
+    let g:haskell_conceal_wide=0
 " NeoBundleLazy 'travitch/hasksyn'
 NeoBundleLazy 'eagletmt/ghcmod-vim', {'autoload' : {'filetypes': ['haskell']}}
 NeoBundleLazy 'ujihisa/ref-hoogle', {'autoload' : {'filetypes': ['haskell']}}
