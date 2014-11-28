@@ -101,7 +101,7 @@ NeoBundleLazy 'c9s/perlomni.vim', {'autoload': {'filetypes': ['perl']}}
 " }}}
 
 " ruby {{{
-"NeoBundleLazy 'vim-ruby/vim-ruby'
+NeoBundleLazy 'osyo-manga/vim-monster', {'autoload':{'filetypes':['ruby']}}
 " }}}
 
 " html {{{
@@ -340,8 +340,6 @@ NeoBundle 'thinca/vim-fontzoom'
 NeoBundle 'h1mesuke/vim-alignta'
 
 NeoBundle 'lesguillemets/ft-grass.vim'
-
-NeoBundleLazy 'osyo-manga/vim-monster', {'autoload':{'filetypes':['ruby']}}
 
 NeoBundleLazy 'AndrewRadev/gapply.vim', {'autoload': {'commands': ['Gapply']}}
 NeoBundle "diffchar.vim"
