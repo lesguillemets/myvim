@@ -359,7 +359,8 @@ NeoBundle 'Shougo/vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
-NeoBundle 'mopp/rogue.vim', {'autoload': {'commands': ['RogueStart'] }}
+" NeoBundle 'mopp/rogue.vim', {'autoload': {'commands': ['RogueStart'] }}
+NeoBundleLazy 'katono/rogue.vim', {'autoload' : {'commands' : ['Rogue','RogueRestore']}}
 " }}}
 
 "new colorschemes {{{2
