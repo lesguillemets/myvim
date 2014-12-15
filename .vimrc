@@ -591,6 +591,10 @@ nnoremap zT zt
 nnoremap zb zb2<C-e>
 nnoremap zB zb
 
+" from reading_vimrc #128, by Songmu
+nnoremap <C-e> <C-e>j
+nnoremap <C-y> <C-y>k
+
 " I know what you wanted to type here..
 noremap <F1> <Esc>
 inoremap <F1> <Esc>
