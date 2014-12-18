@@ -325,6 +325,7 @@ NeoBundle 'tyru/open-browser.vim'
 "NeoBundle 'FriedSock/smeargle'
 "    let g:smeargle_colouring_scheme = ''
 "    let g:smeargle_newline_term_colour = 'None'
+NeoBundle 'mhinz/vim-signify'
 
 NeoBundle 'lesguillemets/threejsify.vim.dev'
 
