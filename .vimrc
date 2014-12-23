@@ -443,6 +443,7 @@ NeoBundle "crusoexia/vim-dracula"
 NeoBundle 'mdlerch/vim-tungsten'
 NeoBundle 'JcDelay/vim-frictionless'
 NeoBundle 'micha/vim70style'
+NeoBundle 'CruizeMissile/Revolution.vim'
 "}}}
 
 call neobundle#end()
