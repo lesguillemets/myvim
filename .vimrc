@@ -861,6 +861,8 @@ autocmd FileType mediawiki setlocal foldmethod=expr
 " TeX {{{2
 "autocmd FileType tex,plaintex,latex map <buffer> <silent> ]s :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
 "autocmd FileType tex,plaintex,latex map <buffer> [s :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
+" par http://www.reddit.com/r/vim/comments/2pwis9/cn0z01p
+let g:tex_flavor="latex"
 autocmd FileType tex,plaintex,latex call s:displaymovement()
 autocmd FileType tex,plaintex,latex call SetTabs(2)
 autocmd FileType tex,plaintex,latex setlocal conceallevel=0
