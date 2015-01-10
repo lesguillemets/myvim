@@ -789,6 +789,7 @@ autocmd FileType haskell setlocal nojoinspaces
 autocmd FileType haskell setlocal foldlevel=0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 autocmd FileType haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
+autocmd FileType haskell vnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
 autocmd FileType haskell nnoremap <buffer><silent> <Space>T :<C-u>GhcModTypeClear<CR>
 autocmd FileType haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
 " }}}
