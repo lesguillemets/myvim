@@ -444,6 +444,8 @@ NeoBundle 'mdlerch/vim-tungsten'
 NeoBundle 'JcDelay/vim-frictionless'
 NeoBundle 'micha/vim70style'
 NeoBundle 'CruizeMissile/Revolution.vim'
+NeoBundle 'hellabyte/lichen'
+NeoBundle 'aliou/moriarty.vim'
 "}}}
 
 call neobundle#end()
