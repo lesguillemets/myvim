@@ -446,6 +446,8 @@ NeoBundle 'micha/vim70style'
 NeoBundle 'CruizeMissile/Revolution.vim'
 NeoBundle 'hellabyte/lichen'
 NeoBundle 'aliou/moriarty.vim'
+NeoBundle 'asafonov/metropolis-vim'
+NeoBundle 'thmsaurel/beargeektheme'
 "}}}
 
 call neobundle#end()
