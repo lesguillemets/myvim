@@ -1257,6 +1257,7 @@ function! s:setIndentLine()
         endif
     endfor
     execute "IndentLinesEnable"
+    execute "IndentLinesReset"
 endfunction
 
 augroup IndentLineGroup
