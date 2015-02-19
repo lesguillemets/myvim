@@ -1117,7 +1117,12 @@ endfunction
 let g:quickrun_config = {}
 let g:quickrun_config.ox = {'command' : 'autoox.sh'}
 let g:quickrun_config.st = {'command' : 'gst'}
-let g:quickrun_config.scheme = {'command' : 'guile'}
+if executable('ikarus')
+    let g:quickrun_config.scheme = {'command' : 'ikarus'}
+elseif executable('guile')
+    let g:quickrun_config.scheme = {'command' : 'guile'}
+endif
+
 " watchdogs
 
 let g:quickrun_config["watchdogs_checker/_"] = {"runner/vimproc/updatetime" : 40, "hook/echo/enable":1, "hook/echo/output_success": "> No Errors Found."}
