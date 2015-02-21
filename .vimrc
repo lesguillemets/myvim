@@ -449,6 +449,7 @@ NeoBundle 'aliou/moriarty.vim'
 NeoBundle 'asafonov/metropolis-vim'
 NeoBundle 'thmsaurel/beargeektheme'
 NeoBundle 'rivayama/twiga.vim'
+NeoBundle 'RyanPattison/ghibli256'
 "}}}
 
 call neobundle#end()
