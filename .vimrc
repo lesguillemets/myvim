@@ -688,6 +688,7 @@ function! MyHighlights()
 endfunction
 function! TransparentBackground()
     hi Normal ctermbg=NONE
+    hi NonText ctermbg=NONE
 endfunction
 
 call MyHighlights()
