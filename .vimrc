@@ -672,17 +672,25 @@ let g:jellybeans_overrides = {
     \}
 colorscheme jellybeans
 
-" I expect colorschemes to override these highlight settings.
-hi VertSplit ctermfg=144 ctermbg=NONE guifg=lightblue guibg=NONE
-hi Visual term=reverse ctermbg=30
-hi CursorLine ctermbg=235
 set fillchars=vert:║,fold:-
-hi StatusLine cterm=bold ctermbg=235 ctermfg=71 gui=bold guibg=black guifg=#00aa00
-hi StatusLineNC cterm=bold ctermbg=black ctermfg=22
-set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%2.l/%2.L]\ C[%2.c]%5P
-" [4] .vimrc [+] [vim] [~/]                      L[ 474/ 981] C[ 65] 45%
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=[%{&ff}]\ L[%2.l/%2.L]\ C[%2.c]%5P
 " [4] .vimrc [+] [vim] [~/] [master]                     [unix]  L[ 474/ 981] C[ 65] 45%
+" set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%2.l/%2.L]\ C[%2.c]%5P
+" [4] .vimrc [+] [vim] [~/]                      L[ 474/ 981] C[ 65] 45%
+
+" I expect colorschemes to override these highlight settings.
+function! MyHighlights()
+    hi VertSplit ctermfg=144 ctermbg=NONE guifg=lightblue guibg=NONE
+    hi Visual term=reverse ctermbg=30
+    hi CursorLine cterm=NONE ctermbg=235
+    hi StatusLine cterm=bold ctermbg=235 ctermfg=71 gui=bold guibg=black guifg=#00aa00
+    hi StatusLineNC cterm=bold ctermbg=black ctermfg=22
+endfunction
+function! TransparentBackground()
+    hi Normal ctermbg=NONE
+endfunction
+
+call MyHighlights()
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
 set foldtext=NeatFoldText()
