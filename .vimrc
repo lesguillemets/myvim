@@ -689,6 +689,8 @@ endfunction
 function! TransparentBackground()
     hi Normal ctermbg=NONE
     hi NonText ctermbg=NONE
+    hi VertSplit ctermbg=NONE
+    hi LineNr ctermbg=NONE
 endfunction
 
 call MyHighlights()
