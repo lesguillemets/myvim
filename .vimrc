@@ -811,6 +811,8 @@ autocmd FileType haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
 autocmd FileType haskell vnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
 autocmd FileType haskell nnoremap <buffer><silent> <Space>T :<C-u>GhcModTypeClear<CR>
 autocmd FileType haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
+autocmd FileType haskell setlocal colorcolumn=79
+autocmd FileType haskell command! -buffer DocTest !doctest %
 " }}}
 
 " ruby {{{2
