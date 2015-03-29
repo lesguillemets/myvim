@@ -450,6 +450,9 @@ NeoBundle 'asafonov/metropolis-vim'
 NeoBundle 'thmsaurel/beargeektheme'
 NeoBundle 'rivayama/twiga.vim'
 NeoBundle 'RyanPattison/ghibli256'
+NeoBundle 'rafcamlet/shadowmoth'
+NeoBundle 'christophermca/meta5'
+NeoBundle 'flaflasun/vim-nightowl'
 "}}}
 
 call neobundle#end()
