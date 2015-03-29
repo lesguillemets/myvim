@@ -55,7 +55,7 @@ NeoBundle 't9md/vim-quickhl'
     xmap <Space>m <Plug>(quickhl-manual-this)
     nmap <Space>M <Plug>(quickhl-manual-reset)
     xmap <Space>M <Plug>(quickhl-manual-reset)
-    nmap <Space>j <Plug>(quickhl-cword-toggle)
+    nmap <Space>J <Plug>(quickhl-cword-toggle)
 NeoBundleLazy 'cohama/agit.vim', {'autoload': {'commands':['Agit', 'AgitFile']}}
 NeoBundle 'nanotech/jellybeans.vim'
 " }}}
@@ -254,6 +254,10 @@ NeoBundle 'Lokaltog/vim-easymotion'
     map <Leader>k <Plug>(easymotion-k)
     map <Leader>h <Plug>(easymotion-linebackward)
     map <Leader>l <Plug>(easymotion-lineforward)
+    map <Space>j <Plug>(easymotion-j)
+    map <Space>k <Plug>(easymotion-k)
+    map <Space>h <Plug>(easymotion-linebackward)
+    map <Space>l <Plug>(easymotion-lineforward)
     map <Leader>w <Plug>(easymotion-bd-wl)
     map <Leader>e <Plug>(easymotion-bd-el)
     augroup VemSettings
