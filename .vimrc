@@ -860,6 +860,11 @@ autocmd FileType vim nnoremap <buffer> K :<C-u>help <C-r>=expand("<cword>")<CR><
 autocmd FileType vim nnoremap <leader>b :<C-u>call OpenBundle()<CR>
 " }}}
 
+" sh {{{2
+" use ~/.bash_history for completions
+autocmd FileType sh badd ~/.bash_history
+" }}}
+
 " markdown {{{2
 " I want it to be consistent. ref:#16
 autocmd FileType markdown call SetTabs(2)
