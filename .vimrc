@@ -524,12 +524,6 @@ set mouse=
 
 let g:typewritersound = 0
 
-" set filetype to sh when <C-x><C-e> on terminal
-" http://stackoverflow.com/questions/7115324/
-if expand('%:t') =~?'bash-fc-\d\+'
-    setfiletype sh
-endif
-
 augroup UserHooks
 autocmd QuickFixCmdPost vimgrep cwindow
 augroup END
@@ -1133,6 +1127,13 @@ endfunction
 "}}}
 "}}}
 "_________________________________________
+" Settings to be set in the last part {{{
+" set filetype to sh when <C-x><C-e> on terminal
+" http://stackoverflow.com/questions/7115324/
+if expand('%:t') =~?'bash-fc-\d\+'
+    setfiletype sh
+endif
+" }}}
 "_________________________________________
 " Additional, extensible settings for plugins {{{
 
