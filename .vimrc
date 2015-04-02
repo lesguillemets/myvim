@@ -525,7 +525,7 @@ set mouse=
 let g:typewritersound = 0
 
 augroup UserHooks
-autocmd QuickFixCmdPost vimgrep cwindow
+    autocmd QuickFixCmdPost vimgrep cwindow
 augroup END
 
 " }}}
