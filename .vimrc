@@ -277,7 +277,8 @@ NeoBundleLazy 'KabbAmine/vullScreen.vim'
 
 " Appearance {{{
 NeoBundle 'guns/xterm-color-table.vim'
-NeoBundle 'lilydjwg/colorizer'
+NeoBundleLazy 'lilydjwg/colorizer', {'autoload': {
+    \ 'filetypes':['css', 'html', 'javascript'], 'commands' : ['ColorHighlight', 'ColorToggle']}}
 " NeoBundle 'git://github.com/cocopon/colorswatch.vim.git'
     " enable when needed.
 " NeoBundle 'git://github.com/vim-scripts/CSApprox.git'
