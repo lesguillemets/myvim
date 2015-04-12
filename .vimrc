@@ -807,6 +807,8 @@ autocmd FileType haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
 autocmd FileType haskell vnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
 autocmd FileType haskell nnoremap <buffer><silent> <Space>T :<C-u>GhcModTypeClear<CR>
 autocmd FileType haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
+" inspired by gregstallings's vimrc, from reading_vimrc #145.
+autocmd FileType haskell inoremap <buffer> <C-l> ->
 autocmd FileType haskell setlocal colorcolumn=79
 autocmd FileType haskell command! -buffer DocTest !doctest %
 " }}}
