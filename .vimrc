@@ -704,7 +704,7 @@ set foldtext=NeatFoldText()
 " http://stackoverflow.com/questions/17399533/vim-plugin-rainbow-parentheses-using-tab
 
 let g:rainbow_off_fts = [
-    \ "css", "text", "html", "javascript", "quickrun", "haskell"
+    \ "css", "text", "html", "javascript", "quickrun", "haskell", "lua"
     \ ]
 
 function! Config_Rainbow()
