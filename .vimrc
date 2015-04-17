@@ -354,7 +354,7 @@ NeoBundle "diffchar.vim"
 
 " leisure{{{2
 NeoBundleLazy 'deris/vim-duzzle', {'autoload' : {'commands': ['DuzzleStart']}}
-NeoBundle 'thinca/vim-threes', {'autoload' : {'commands': ['ThreesStart']}}
+NeoBundleLazy 'thinca/vim-threes', {'autoload' : {'commands': ['ThreesStart']}}
 " NeoBundle 'osyo-manga/vim-sound' => load in typewriter section.
 " I think we should be using neobundlelazy by now.
 NeoBundle 'Shougo/vimproc', {
