@@ -452,6 +452,7 @@ NeoBundle 'RyanPattison/ghibli256'
 NeoBundle 'rafcamlet/shadowmoth'
 NeoBundle 'christophermca/meta5'
 NeoBundle 'flaflasun/vim-nightowl'
+NeoBundle 'freeo/vim-kalisi'
 "}}}
 
 call neobundle#end()
