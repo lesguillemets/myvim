@@ -240,7 +240,7 @@ NeoBundle 'thinca/vim-qfreplace'
 NeoBundleLazy 'osyo-manga/vim-watchdogs', {'autoload': {'commands': ['WatchdogsRun']}}
 NeoBundle 'osyo-manga/shabadou.vim'
 augroup WatchDogs
-    autocmd FileType c,cpp,vim,python,ruby,perl nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
+    autocmd FileType c,cpp,vim,python,ruby,perl,go nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
 augroup END
 NeoBundleLazy 'jceb/vim-hier', {'autoload': {'commands': ['WatchdogsRun', 'GhcModCheckAndLintAsync']}}
 
