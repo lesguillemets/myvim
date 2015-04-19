@@ -97,10 +97,6 @@ NeoBundleLazy 'eagletmt/ghcmod-vim', {'autoload' : {'filetypes': ['haskell']}}
 NeoBundleLazy 'ujihisa/ref-hoogle', {'autoload' : {'filetypes': ['haskell']}}
 " }}}
 
-" {{{ perl
-NeoBundleLazy 'c9s/perlomni.vim', {'autoload': {'filetypes': ['perl']}}
-" }}}
-
 " ruby {{{
 NeoBundleLazy 'osyo-manga/vim-monster', {'autoload':{'filetypes':['ruby']}}
 " }}}
@@ -152,22 +148,6 @@ NeoBundleLazy 'gabrielelana/vim-markdown', {'autoload': {'filetypes': ['markdown
 
 " wikipedia {{{
 " NeoBundleLazy 'wikipedia.vim' " this is not good..
-" }}}
-
-" smalltalk {{{
-NeoBundleLazy 'st.vim', {'autoload': {'filetypes': ['smalltalk']}}
-" }}}
-
-" conky {{{
-NeoBundleLazy 'smancill/conky-syntax.vim', {'autoload': {'filetypes': ['conky']}}
-"}}}
-
-" processing {{{
-NeoBundleLazy 'sophacles/vim-processing', {'autoload': {'filetypes': ['processing']}}
-" }}}
-
-" actionscript {{{
-NeoBundleLazy 'jeroenbourgois/vim-actionscript', {'autoload': {'filetypes': ['actionscript']}}
 " }}}
 
 " others
@@ -274,9 +254,6 @@ NeoBundle 'haya14busa/incsearch.vim'
     map / <Plug>(incsearch-forward)
     map ? <Plug>(incsearch-backward)
     map g/ <Plug>(incsearch-stay)
-
-NeoBundleLazy 'KabbAmine/vullScreen.vim'
-" source in .gvimrc (or write here with autocmd?)
 "}}}
 
 " Appearance {{{
@@ -298,13 +275,6 @@ NeoBundleLazy 'lilydjwg/colorizer', {'autoload': {
 " }}}
 
 " Trial {{{2
-" NeoBundle 'itchyny/thumbnail.vim'
-NeoBundle 'CountJump'
-    " supposed to be good with latex
-
-" NeoBundle 'vim-scripts/swap-parameters'
-    " too specific a command, perhaps?
-
 NeoBundleLazy 'lyokha/vim-publish-helper',
     \ {'autoload' : {'commands': [
         \ 'MakeHtmlCodeHighlight', 'MakeTexCodeHighlight'
@@ -328,12 +298,6 @@ NeoBundle 'tyru/open-browser.vim'
     nmap <leader>b <Plug>(openbrowser-smart-search)
     vmap <leader>b <Plug>(openbrowser-smart-search)
 
-" NeoBundle 'yuratomo/w3m.vim'
-    "seems nice, but uses up CPU?
-
-"NeoBundle 'FriedSock/smeargle'
-"    let g:smeargle_colouring_scheme = ''
-"    let g:smeargle_newline_term_colour = 'None'
 NeoBundle 'mhinz/vim-signify'
 
 NeoBundle 'lesguillemets/threejsify.vim.dev'
@@ -636,8 +600,6 @@ vnoremap * "ly:let @/ = @l<CR>n
 " handy with quickrun
 command! Pynew call s:quick_new('python', 's')
 command! VPynew call s:quick_new('python', 'v')
-command! Rubynew call s:quick_new('ruby', 's')
-command! VRubynew call s:quick_new('ruby', 'v')
 
 " open current buffer in firefox
 function! s:open_in_firefox()
@@ -1185,8 +1147,6 @@ let g:user_emmet_settings = {
 
 " NeoComplete {{{
 " copied from neocomplete's readme
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
 " Use neocomplete.
 let g:neocomplete#enable_at_startup = 1
 " Use smartcase.
