@@ -137,6 +137,10 @@ NeoBundleLazy 'osyo-manga/vim-marching', {'autoload' : {'filetypes': ['cpp']}}
 " NeoBundleLazy 'Vim-LaTeX' "
 " }}}
 
+" go, just in case {{{
+NeoBundleLazy 'vim-jp/vim-go-extra', {'autoload': {'filetypes' : ['go']}}
+" }}}
+
 " markdown {{{
 NeoBundleLazy 'gabrielelana/vim-markdown', {'autoload': {'filetypes': ['markdown']}}
     let g:markdown_include_jekyll_support = 1
@@ -821,6 +825,11 @@ autocmd FileType ruby call SetTabs(2)
 
 " C, C++  {{{2
 autocmd FileType c,cpp call SetTabs(2)
+" }}}
+
+" golang, just in case {{{2
+autocmd FileType go set noexpandtab
+autocmd FileType go call SetTabs(4)
 " }}}
 
 " java {{{2
