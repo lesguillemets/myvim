@@ -224,7 +224,7 @@ NeoBundle 'thinca/vim-qfreplace'
 NeoBundleLazy 'osyo-manga/vim-watchdogs', {'autoload': {'commands': ['WatchdogsRun']}}
 NeoBundle 'osyo-manga/shabadou.vim'
 augroup WatchDogs
-    autocmd FileType c,cpp,vim,python,ruby,perl,go nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
+    autocmd FileType c,cpp,vim,python,ruby,perl,sh,go nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
 augroup END
 NeoBundleLazy 'jceb/vim-hier', {'autoload': {'commands': ['WatchdogsRun', 'GhcModCheckAndLintAsync']}}
 
@@ -1134,6 +1134,8 @@ let g:quickrun_config["watchdogs_checker/_"] = {"runner/vimproc/updatetime" : 40
             \ "hook/echo/enable":1, "hook/echo/output_success": "> No Errors Found."}
 let g:quickrun_config["watchdogs_checker/pyflakes3"] = {"command": "pyflakes3", "exec" : '%c %o %s:p', "errorformat": '%f:%l:%m'}
 let g:quickrun_config["python/watchdogs_checker"] = { "type" : "watchdogs_checker/pyflakes3" }
+let g:quickrun_config["watchdogs_checker/shellcheck"] = {"command" : "shellcheck", "cmdopt" : "-f gcc"}
+let g:quickrun_config["sh/watchdogs_checker"] = {"type" : "watchdogs_checker/shellcheck"}
 call watchdogs#setup(g:quickrun_config)
 " }}}
 
