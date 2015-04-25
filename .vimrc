@@ -422,6 +422,7 @@ function! s:loadcolors()
     NeoBundle 'christophermca/meta5'
     NeoBundle 'flaflasun/vim-nightowl'
     NeoBundle 'freeo/vim-kalisi'
+    NeoBundle 'kh3phr3n/today-theme'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
