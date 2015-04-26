@@ -423,6 +423,7 @@ function! s:loadcolors()
     NeoBundle 'flaflasun/vim-nightowl'
     NeoBundle 'freeo/vim-kalisi'
     NeoBundle 'kh3phr3n/today-theme'
+    NeoBundle 'thinkpixellab/flatland', {'rtp': 'Vim'}
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
