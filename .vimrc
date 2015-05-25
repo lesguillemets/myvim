@@ -784,7 +784,7 @@ autocmd FileType haskell nnoremap <buffer><silent> <Space>T :<C-u>GhcModTypeClea
 autocmd FileType haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
 " inspired by gregstallings's vimrc, from reading_vimrc #145.
 " <C-l> <Space> is hard to type because <C-<Space>> is taken by the os.
-autocmd FileType haskell inoremap <buffer> <C-l> -> 
+autocmd FileType haskell inoremap <buffer> <C-l>  <Space>-> 
 autocmd FileType haskell setlocal colorcolumn=79
 autocmd FileType haskell command! -buffer DocTest !doctest %
 " }}}
