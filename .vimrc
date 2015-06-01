@@ -427,6 +427,7 @@ function! s:loadcolors()
     NeoBundle "Dru89/vim-adventurous"
     NeoBundle "centaurialpha/gabo-vim-colorscheme"
     NeoBundle "queyenth/oxeded.vim"
+    NeoBundle "NLKNguyen/papercolor-theme"
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
