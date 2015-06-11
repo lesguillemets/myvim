@@ -318,6 +318,8 @@ NeoBundle 'lesguillemets/ft-grass.vim'
 
 NeoBundleLazy 'AndrewRadev/gapply.vim', {'autoload': {'commands': ['Gapply']}}
 NeoBundle "diffchar.vim"
+
+NeoBundle 'ctrlpvim/ctrlp.vim'
 " }}}
 
 " leisure{{{2
