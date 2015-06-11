@@ -319,6 +319,9 @@ NeoBundle 'lesguillemets/ft-grass.vim'
 NeoBundleLazy 'AndrewRadev/gapply.vim', {'autoload': {'commands': ['Gapply']}}
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
+    let g:ctrlp_follow_symlinks=1
+    let g:ctrlp_switch_buffer='Et'
+
 " }}}
 
 " leisure{{{2
