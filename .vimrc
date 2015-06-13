@@ -2,6 +2,18 @@
 " vim:fileencoding=utf-8 ts=4 sts=4 sw=4
 scriptencoding  utf-8
 "_________________________________________
+" display startup time on start {{{
+" from: https://gist.github.com/thinca/1518874
+if has('vim_starting') && has('reltime')
+    let s:startuptime = reltime()
+    augroup vimrc-startuptime
+        autocmd! VimEnter *
+        \   echomsg 'startuptime: ' . reltimestr(reltime(s:startuptime))
+        \ | unlet s:startuptime
+    augroup END
+endif
+" }}}
+
 " NeoBundle {{{1
 " NeoBundle itself {{{2
 filetype off
