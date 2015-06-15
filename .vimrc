@@ -444,6 +444,7 @@ function! s:loadcolors()
     NeoBundle "centaurialpha/gabo-vim-colorscheme"
     NeoBundle "queyenth/oxeded.vim"
     NeoBundle "NLKNguyen/papercolor-theme"
+    NeoBundle 'henrybw/vim-colors-aurora'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
