@@ -445,6 +445,7 @@ function! s:loadcolors()
     NeoBundle 'queyenth/oxeded.vim'
     NeoBundle 'NLKNguyen/papercolor-theme'
     NeoBundle 'henrybw/vim-colors-aurora'
+    NeoBundle 'lisposter/vim-blackboard'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
