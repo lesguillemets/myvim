@@ -638,6 +638,15 @@ function! s:open_in_firefox()
     let &t_te=l:t_te_back
 endfunction
 command! Firefox call s:open_in_firefox()
+
+function! s:setLatin()
+    inoremap a- ā
+    inoremap e- ē
+    inoremap i- ī
+    inoremap o- ō
+    inoremap u- ū
+endfunction
+command! SetLatin call s:setLatin()
 " }}}
 "_________________________________________
 "_________________________________________
