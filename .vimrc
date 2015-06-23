@@ -89,7 +89,7 @@ NeoBundleLazy 'davidhalter/jedi-vim', {'autoload': {'filetypes': ['python']}}
     let g:jedi#documentation_command = "<Leader>K"
     let g:jedi#force_py_version = 3
 " NeoBundle 'mkomitee/vim-gf-python' -- not for python3
-NeoBundle 'tmhedberg/SimpylFold'
+NeoBundleLazy 'tmhedberg/SimpylFold', {'autoload': {'filetypes' : ['python']}}
 "NeoBundle 'nvie/vim-flake8' -- less likely to use?
 "    autocmd FileType python nnoremap <Space>q :call Flake8()<CR>
 " }}}
@@ -319,10 +319,10 @@ NeoBundleLazy 'rhysd/git-messenger.vim', {'autoload':{'commands':
 " NeoBundle 'rhysd/inazuma.vim'
 " http://rhysd.hatenablog.com/entry/2013/12/31/191302
 
-NeoBundle 'thinca/vim-fontzoom'
-    let g:fontzoom_no_default_key_mappings=1
-    silent! nmap <unique> <silent> + <Plug>(fontzoom-larger)
-    silent! nmap <unique> <silent> - <Plug>(fontzoom-smaller)
+" NeoBundle 'thinca/vim-fontzoom'
+"     let g:fontzoom_no_default_key_mappings=1
+"     silent! nmap <unique> <silent> + <Plug>(fontzoom-larger)
+"     silent! nmap <unique> <silent> - <Plug>(fontzoom-smaller)
 
 NeoBundle 'h1mesuke/vim-alignta'
 
