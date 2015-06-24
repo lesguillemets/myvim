@@ -645,6 +645,11 @@ function! s:setLatin()
     inoremap i- ī
     inoremap o- ō
     inoremap u- ū
+    inoremap A- Ā
+    inoremap E- Ē
+    inoremap I- Ī
+    inoremap O- Ō
+    inoremap U- Ū
 endfunction
 command! SetLatin call s:setLatin()
 " }}}
