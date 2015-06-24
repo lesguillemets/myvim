@@ -240,7 +240,7 @@ augroup WatchDogs
 augroup END
 NeoBundleLazy 'jceb/vim-hier', {'autoload': {'commands': ['WatchdogsRun', 'GhcModCheckAndLintAsync']}}
 
-NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'easymotion/vim-easymotion'
     let g:EasyMotion_smartcase = 1
     let g:EasyMotion_startofline = 0
     nmap s <Plug>(easymotion-s2)
