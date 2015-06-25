@@ -359,6 +359,7 @@ NeoBundle 'thomd/vim-wasabi-colorscheme'
 NeoBundle 'reedes/vim-colors-pencil'
 NeoBundle 'Pychimp/vim-luna'
 NeoBundle 'mdlerch/vim-tungsten'
+NeoBundle 'w0ng/vim-hybrid'
 function! s:loadcolors()
     NeoBundle 'ataraxer/sapphire256.vim'
     NeoBundle 'sk1418/last256'
@@ -446,6 +447,7 @@ function! s:loadcolors()
     NeoBundle 'NLKNguyen/papercolor-theme'
     NeoBundle 'henrybw/vim-colors-aurora'
     NeoBundle 'lisposter/vim-blackboard'
+    NeoBundle 'kristijanhusak/vim-hybrid-material'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
