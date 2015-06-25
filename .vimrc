@@ -638,6 +638,15 @@ function! s:open_in_firefox()
     let &t_te=l:t_te_back
 endfunction
 command! Firefox call s:open_in_firefox()
+function! s:open_in_chromium()
+    let l:t_ti_back=&t_ti
+    let l:t_te_back=&t_te
+    set t_ti= t_te=
+    silent! exec "! chromium-browser % &"
+    let &t_ti=l:t_ti_back
+    let &t_te=l:t_te_back
+endfunction
+command! Chromium call s:open_in_chromium()
 
 function! s:setLatin()
     inoremap a- ā
