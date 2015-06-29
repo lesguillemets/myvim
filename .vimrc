@@ -502,7 +502,6 @@ set t_Co=256
 
 " allow incrementing alphabets.
 set nrformats&
-set nrformats+=alpha
 
 " folding?
 "set foldmethod=manual
