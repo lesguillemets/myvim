@@ -356,6 +356,7 @@ NeoBundleLazy 'katono/rogue.vim', {'autoload' : {'commands' : ['Rogue','RogueRes
 "new colorschemes {{{2
 NeoBundle 'junegunn/seoul256.vim'
 NeoBundle 'thomd/vim-wasabi-colorscheme'
+NeoBundle 'romainl/Apprentice'
 NeoBundle 'reedes/vim-colors-pencil'
 NeoBundle 'Pychimp/vim-luna'
 NeoBundle 'mdlerch/vim-tungsten'
@@ -388,7 +389,6 @@ function! s:loadcolors()
     NeoBundle 'leo256'
     NeoBundle 'ftzeng/futora'
     NeoBundle 'octol/vombatidae-vim'
-    NeoBundle 'romainl/Apprentice' " Quite nice.
     NeoBundle 'xenomachina/vim-holodark'
     NeoBundle 'Risto-Color-Scheme'
     NeoBundle 'rdark-terminal'
