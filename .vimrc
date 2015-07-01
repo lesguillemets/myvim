@@ -684,7 +684,8 @@ let g:jellybeans_overrides = {
     \'rubyRegexpSpecial' : {'ctermfg':'206'},
     \'rubyRegexpDelimiter' : {'ctermfg': '126'},
     \}
-colorscheme jellybeans
+" colorscheme jellybeans
+colorscheme hybrid
 
 set fillchars=vert:║,fold:-
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=[%{&ff}]\ L[%2.l/%2.L]\ C[%2.c]%5P
