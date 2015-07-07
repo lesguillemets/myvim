@@ -448,6 +448,7 @@ function! s:loadcolors()
     NeoBundle 'henrybw/vim-colors-aurora'
     NeoBundle 'lisposter/vim-blackboard'
     NeoBundle 'kristijanhusak/vim-hybrid-material'
+    NeoBundle 'mtglsk/mushroom'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
