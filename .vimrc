@@ -687,7 +687,7 @@ let g:jellybeans_overrides = {
     \'rubyRegexpDelimiter' : {'ctermfg': '126'},
     \}
 " colorscheme jellybeans
-colorscheme wasabi256
+colorscheme hybrid
 hi MatchParen ctermfg=7 ctermbg=240
 
 set fillchars=vert:║,fold:-
