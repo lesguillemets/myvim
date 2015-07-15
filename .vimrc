@@ -361,6 +361,7 @@ NeoBundle 'reedes/vim-colors-pencil'
 NeoBundle 'Pychimp/vim-luna'
 NeoBundle 'mdlerch/vim-tungsten'
 NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'kbenzie/vim-fresh'
 function! s:loadcolors()
     NeoBundle 'ataraxer/sapphire256.vim'
     NeoBundle 'sk1418/last256'
@@ -687,7 +688,7 @@ let g:jellybeans_overrides = {
     \'rubyRegexpDelimiter' : {'ctermfg': '126'},
     \}
 " colorscheme jellybeans
-colorscheme hybrid
+colorscheme fresh
 hi MatchParen ctermfg=7 ctermbg=240
 
 set fillchars=vert:║,fold:-
