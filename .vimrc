@@ -692,6 +692,7 @@ let g:jellybeans_overrides = {
 " colorscheme jellybeans
 colorscheme fresh
 hi MatchParen ctermfg=7 ctermbg=240
+hi Search term=reverse cterm=underline
 
 set fillchars=vert:║,fold:-
 set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=[%{&ff}]\ L[%2.l/%2.L]\ C[%2.c]%5P
