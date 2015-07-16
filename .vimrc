@@ -500,6 +500,8 @@ set listchars=tab:>-
 " set listchars=tab:\ ,trail:˼,extends:»,precedes:«,nbsp:%
 set conceallevel=1
 set matchpairs=(:),{:},[:]
+set showmatch
+set matchtime=2
 
 set t_Co=256
 
