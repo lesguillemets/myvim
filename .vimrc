@@ -505,7 +505,7 @@ set matchtime=2
 
 set t_Co=256
 
-" allow incrementing alphabets.
+" what does <C-a> increment?
 set nrformats&
 
 " folding?
