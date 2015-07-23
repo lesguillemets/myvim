@@ -718,6 +718,7 @@ function! TransparentBackground()
 endfunction
 
 call MyHighlights()
+call TransparentBackground()
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
 set foldtext=NeatFoldText()
