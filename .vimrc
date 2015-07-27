@@ -362,6 +362,7 @@ NeoBundle 'Pychimp/vim-luna'
 NeoBundle 'mdlerch/vim-tungsten'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'kbenzie/vim-fresh'
+NeoBundle 'xero/sourcerer.vim'
 function! s:loadcolors()
     NeoBundle 'ataraxer/sapphire256.vim'
     NeoBundle 'sk1418/last256'
