@@ -1336,5 +1336,10 @@ augroup IndentLineGroup
     autocmd Filetype * call s:setIndentLine()
 augroup END
 " }}}
+
+" {{{ ctrlP
+let ctrlp_custom_ignore = {}
+let ctrlp_custom_ignore.file = '\v\.(hi|o|out)$'
+" }}}
 "_________________________________________
 "
