@@ -363,6 +363,7 @@ NeoBundle 'mdlerch/vim-tungsten'
 NeoBundle 'w0ng/vim-hybrid'
 NeoBundle 'kbenzie/vim-fresh'
 NeoBundle 'xero/sourcerer.vim'
+NeoBundle 'KKPMW/moonshine-vim'
 function! s:loadcolors()
     NeoBundle 'ataraxer/sapphire256.vim'
     NeoBundle 'sk1418/last256'
@@ -452,7 +453,6 @@ function! s:loadcolors()
     NeoBundle 'kristijanhusak/vim-hybrid-material'
     NeoBundle 'mtglsk/mushroom'
     NeoBundle 'MakeNowJust/islenauts.vim'
-    NeoBundle 'KKPMW/moonshine-vim'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
@@ -692,7 +692,7 @@ let g:jellybeans_overrides = {
     \'rubyRegexpDelimiter' : {'ctermfg': '126'},
     \}
 " colorscheme jellybeans
-colorscheme fresh
+colorscheme moonshine
 hi MatchParen ctermfg=7 ctermbg=240
 hi Search term=reverse cterm=underline
 hi SpecialKey term=bold ctermfg=237 ctermbg=234 guifg=#444444 guibg=#1c1c1c
