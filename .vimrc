@@ -139,6 +139,13 @@ NeoBundleLazy 'osyo-manga/vim-marching', {'autoload' : {'filetypes': ['cpp']}}
     let g:marching#clang_command#options = { "cpp" : "-std=gnu++1y" }
 " }}}
 
+" coq ?{{{
+NeoBundle 'jvoorhis/coq.vim'
+NeoBundleLazy 'vim-scripts/CoqIDE', {'autoload' : { 'filetypes' : 'coq'}}
+NeoBundleLazy 'eagletmt/coqtop-vim', {'autoload':{
+    \ 'filetypes': 'coq', 'commands': 'CoqStart'}}
+" }}}
+
 " tex / latex {{{
 " Both seemed too much. Let's reconsider when necessary.
 " NeoBundleLazy 'vim-scripts/tex.vim--Brauner.git'
