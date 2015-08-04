@@ -916,6 +916,10 @@ let g:markdown_fenced_languages = [
 \]
 "}}}
 
+" {{{ coq
+autocmd FileType coq inoremap <buffer> <C-l>  <Space>-> 
+" }}}
+
 " mediawiki {{{2
 autocmd FileType mediawiki call s:displaymovement()
 autocmd FileType mediawiki inoremap <buffer> </ </<C-x><C-o>
