@@ -461,6 +461,7 @@ function! s:loadcolors()
     NeoBundle 'mtglsk/mushroom'
     NeoBundle 'MakeNowJust/islenauts.vim'
     NeoBundle 'thecodesmith/vim-colorscheme-codesmith'
+    NeoBundle 'idling-mind/vim-color-subtle'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
