@@ -463,6 +463,7 @@ function! s:loadcolors()
     NeoBundle 'thecodesmith/vim-colorscheme-codesmith'
     NeoBundle 'idling-mind/vim-color-subtle'
     NeoBundle 'rhysd/vim-color-splatoon'
+    NeoBundle 'geoffharcourt/one-dark.vim'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
