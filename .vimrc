@@ -464,6 +464,7 @@ function! s:loadcolors()
     NeoBundle 'idling-mind/vim-color-subtle'
     NeoBundle 'rhysd/vim-color-splatoon'
     NeoBundle 'geoffharcourt/one-dark.vim'
+    NeoBundle 'dylanaraps/crayon-theme'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
