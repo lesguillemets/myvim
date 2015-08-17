@@ -135,7 +135,7 @@ NeoBundleLazy 'Shutnik/jshint2.vim', {'autoload': {'filetypes': ['javascript']}}
 " typescript {{{
 NeoBundleLazy 'leafgarland/typescript-vim', {'autoload': {'filetypes':['typescript']}}
 NeoBundleLazy 'Quramy/tsuquyomi', {'autoload': {'filetypes':['typescript']}}
-let g:tsuquyomi_disable_quickfix=1
+    let g:tsuquyomi_disable_quickfix=1
 " }}}
 
 " c/cpp {{{
@@ -903,6 +903,10 @@ autocmd FileType javascript call SetTabs(2)
 autocmd FileType javascript nnoremap <buffer> <Space>q :<C-u>JSHint<CR>
 autocmd FileType javascript vnoremap <buffer> <Space>q :<C-u>JSHint<CR>
 "}}}
+
+" typescript {{{
+autocmd FileType typescript nmap <buffer> <Space>R <Plug>(TsuquyomiReferences)
+" }}}
 
 " vim {{{2
 autocmd FileType vim setlocal foldmethod=marker
