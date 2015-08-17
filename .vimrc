@@ -132,6 +132,12 @@ NeoBundleLazy 'Shutnik/jshint2.vim', {'autoload': {'filetypes': ['javascript']}}
 " configurations in the language settings
 " }}}
 
+" typescript {{{
+NeoBundleLazy 'leafgarland/typescript-vim', {'autoload': {'filetypes':['typescript']}}
+NeoBundleLazy 'Quramy/tsuquyomi', {'autoload': {'filetypes':['typescript']}}
+let g:tsuquyomi_disable_quickfix=1
+" }}}
+
 " c/cpp {{{
 NeoBundleLazy 'octol/vim-cpp-enhanced-highlight', {'autoload': {'filetypes': ['cpp']}}
 NeoBundleLazy 'osyo-manga/vim-marching', {'autoload' : {'filetypes': ['cpp']}}
@@ -243,7 +249,7 @@ NeoBundle 'thinca/vim-qfreplace'
 NeoBundleLazy 'osyo-manga/vim-watchdogs', {'autoload': {'commands': ['WatchdogsRun']}}
 NeoBundle 'osyo-manga/shabadou.vim'
 augroup WatchDogs
-    autocmd FileType c,cpp,vim,python,ruby,perl,sh,go nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
+    autocmd FileType c,cpp,vim,python,ruby,perl,sh,go,typescript nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
 augroup END
 NeoBundleLazy 'jceb/vim-hier', {'autoload': {'commands': ['WatchdogsRun', 'GhcModCheckAndLintAsync']}}
 
