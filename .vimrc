@@ -905,6 +905,7 @@ autocmd FileType javascript vnoremap <buffer> <Space>q :<C-u>JSHint<CR>
 "}}}
 
 " typescript {{{
+autocmd FileType typescript call SetTabs(2)
 autocmd FileType typescript nmap <buffer> <Space>R <Plug>(TsuquyomiReferences)
 " }}}
 
