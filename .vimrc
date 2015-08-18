@@ -1213,7 +1213,9 @@ if executable('ikarus')
 elseif executable('guile')
     let g:quickrun_config.scheme = {'command' : 'guile'}
 endif
-
+let g:quickrun_config['haskell/cabal'] =
+    \ {'command' : 'cabal', 'cmdopt' : 'exec runghc'}
+let g:quickrun_config.haskell = {'type': 'haskell/cabal'}
 " watchdogs
 
 call quickrun#module#register(shabadou#make_quickrun_hook_anim(
