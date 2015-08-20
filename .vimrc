@@ -325,7 +325,7 @@ NeoBundle 'tyru/open-browser.vim'
 
 NeoBundle 'mhinz/vim-signify'
 
-NeoBundle 'lesguillemets/threejsify.vim.dev'
+" NeoBundle 'lesguillemets/threejsify.vim.dev'
 
 NeoBundleLazy 'rhysd/git-messenger.vim', {'autoload':{'commands':
     \ ['GitMessengerToggle', 'GitMessengerBalloonToggle']}}
