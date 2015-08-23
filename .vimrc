@@ -176,7 +176,6 @@ NeoBundleLazy 'gabrielelana/vim-markdown', {'autoload': {'filetypes': ['markdown
 " }}}
 
 " others
-NeoBundleLazy 'Colortest'
 "NeoBundleLazy 'git://github.com/lesguillemets/Ox-syntax.vim' ", 'dev'
 
 " }}}
