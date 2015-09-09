@@ -472,6 +472,7 @@ function! s:loadcolors()
     NeoBundle 'dylanaraps/crayon-theme'
     NeoBundle 'evgenyzinoviev/vim-vendetta', {'script_type':'colorscheme'}
     NeoBundle 'gilgigilgil/anderson.vim'
+    NeoBundle 'iplog/vim-popsicles'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
