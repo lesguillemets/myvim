@@ -892,6 +892,8 @@ autocmd FileType html,xhtml setlocal mps+=<:>
 autocmd FileType html,xhtml inoremap <buffer> </ </<C-x><C-o>
 autocmd FileType html,xhtml inoremap <buffer> <C-b> <br />
 autocmd FileType html,xhtml setlocal synmaxcol=300
+
+autocmd FileType css setlocal noexpandtab
 " }}}
 
 " XML {{{2
