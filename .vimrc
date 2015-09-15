@@ -712,7 +712,7 @@ let g:jellybeans_overrides = {
     \'rubyRegexpDelimiter' : {'ctermfg': '126'},
     \}
 " colorscheme jellybeans
-colorscheme wasabi256
+colorscheme hybrid
 hi MatchParen ctermfg=7 ctermbg=240
 hi Search term=reverse cterm=underline
 hi SpecialKey term=bold ctermfg=237 ctermbg=234 guifg=#444444 guibg=#1c1c1c
@@ -776,24 +776,24 @@ augroup TastetheRainbow
     autocmd Syntax * call Config_Rainbow()
     autocmd VimEnter,BufRead,BufWinEnter,BufNewFile * call Load_Rainbow()
 augroup END
-let g:rbpt_colorpairs = [
-    \ ['240',  'LightGray'],
-    \ ['247',  'gray'],
-    \ ['255',  'LightGray'],
-    \ ['240',  'white'],
-    \ ['247',  'LightGray'],
-    \ ['255',  'gray'],
-    \ ['240',  'LightGray'],
-    \ ['247',  'white'],
-    \ ['255',  'LightGray'],
-    \ ['240',  'gray'],
-    \ ['247',  'LightGray'],
-    \ ['255',  'white'],
-    \ ['247',  'LightGray'],
-    \ ['240',  'gray'],
-    \ ['247',  'LightGray'],
-    \ ['None', 'white'],
-\ ]
+" let g:rbpt_colorpairs = [
+"     \ ['240',  'LightGray'],
+"     \ ['247',  'gray'],
+"     \ ['255',  'LightGray'],
+"     \ ['240',  'white'],
+"     \ ['247',  'LightGray'],
+"     \ ['255',  'gray'],
+"     \ ['240',  'LightGray'],
+"     \ ['247',  'white'],
+"     \ ['255',  'LightGray'],
+"     \ ['240',  'gray'],
+"     \ ['247',  'LightGray'],
+"     \ ['255',  'white'],
+"     \ ['247',  'LightGray'],
+"     \ ['240',  'gray'],
+"     \ ['247',  'LightGray'],
+"     \ ['None', 'white'],
+" \ ]
 " }}}
 " }}}
 "_________________________________________
