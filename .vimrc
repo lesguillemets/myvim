@@ -346,6 +346,8 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_follow_symlinks=2
     let g:ctrlp_switch_buffer='Et'
 
+NeoBundleLazy 'KabbAmine/vullScreen.vim', {'autoload': {'commands': ['VullScreen']}}
+
 " }}}
 
 " leisure{{{2
