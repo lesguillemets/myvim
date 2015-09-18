@@ -757,7 +757,7 @@ set foldtext=NeatFoldText()
 
 let g:rainbow_off_fts = [
     \ "css", "text", "html", "javascript", "quickrun", "haskell", "lua",
-    \ "Quickfix List", "agit", "agit_diff", "agit_stat", "diff", "gitcommit"
+    \ "qf", "agit", "agit_diff", "agit_stat", "diff", "gitcommit"
     \ ]
 
 function! Config_Rainbow()
