@@ -472,9 +472,10 @@ function! s:loadcolors()
     NeoBundle 'rhysd/vim-color-splatoon'
     NeoBundle 'geoffharcourt/one-dark.vim'
     NeoBundle 'dylanaraps/crayon-theme'
-    NeoBundle 'evgenyzinoviev/vim-vendetta', {'script_type':'colorscheme'}
+    NeoBundle 'evgenyzinoviev/vim-vendetta'
     NeoBundle 'gilgigilgil/anderson.vim'
     NeoBundle 'iplog/vim-popsicles'
+    NeoBundle 'mbrand12/vim-citizen256'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
