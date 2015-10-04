@@ -43,19 +43,6 @@ NeoBundle 'osyo-manga/vim-anzu'
     nmap # <Plug>(anzu-sharp-with-echo)
 
 NeoBundle 'Yggdroot/indentLine'
-" settings in the last section.
-
-" When in the mood for a smoother appearance
-" NeoBundle 'git://github.com/nathanaelkane/vim-indent-guides.git'
-" let g:indent_guides_guide_size=1
-" augroup iguidessettings
-" autocmd!
-" autocmd FileType * IndentGuidesDisable  " disabled for normal files
-" autocmd FileType python IndentGuidesEnable
-" autocmd FileType haskell IndentGuidesEnable
-" autocmd FileType ruby IndentGuidesEnable
-" augroup END
-
 NeoBundle 'kien/rainbow_parentheses.vim'
     " settings are in the appearance section.
 
@@ -109,10 +96,6 @@ NeoBundleLazy 'eagletmt/ghcmod-vim', {'autoload' : {'filetypes': ['haskell']}}
 NeoBundleLazy 'ujihisa/ref-hoogle', {'autoload' : {'filetypes': ['haskell']}}
 " }}}
 
-" ruby {{{
-NeoBundleLazy 'osyo-manga/vim-monster', {'autoload':{'filetypes':['ruby']}}
-" }}}
-
 " html {{{
 NeoBundleLazy 'othree/html5.vim', {'autoload': {'filetypes': ['html', 'css']}}
 NeoBundleLazy 'mattn/emmet-vim', {'autoload': {'filetypes': ['html', 'css', 'markdown']}}
@@ -152,43 +135,11 @@ NeoBundleLazy 'eagletmt/coqtop-vim', {'autoload':{
     \ 'filetypes': 'coq', 'commands': 'CoqStart'}}
 " }}}
 
-" tex / latex {{{
-" Both seemed too much. Let's reconsider when necessary.
-" NeoBundleLazy 'vim-scripts/tex.vim--Brauner.git'
-" NeoBundleLazy 'Vim-LaTeX' "
-" }}}
-
-" go, just in case {{{
-NeoBundleLazy 'vim-jp/vim-go-extra', {'autoload': {'filetypes' : ['go']}}
-" }}}
-
-" markdown {{{
-NeoBundleLazy 'gabrielelana/vim-markdown', {'autoload': {'filetypes': ['markdown']}}
-    let g:markdown_include_jekyll_support = 1
-    let g:markdown_enable_mappings = 0
-"NeoBundleLazy 'jtratner/vim-flavored-markdown'
-"NeoBundleLazy 'kannokanno/previm'
-"let g:previm_open_cmd="epiphany"
-" }}}
-
-" wikipedia {{{
-" NeoBundleLazy 'wikipedia.vim' " this is not good..
-" }}}
-
-" others
-"NeoBundleLazy 'git://github.com/lesguillemets/Ox-syntax.vim' ", 'dev'
-
-" }}}
-
 " Benri {{{2
 NeoBundleLazy 'loremipsum', {'autoload': {'commands':
     \ ['Loremipsum', 'Loreplace']}}
 NeoBundleLazy 'scrooloose/nerdtree', {'autoload': {'commands':['NERDTree']}}
     let NERDTreeShowHidden=1
-NeoBundle 'deris/columnjump'
-    " Hey, remember me!
-    nmap <C-k> <Plug>(columnjump-backward)
-    nmap <C-j> <Plug>(columnjump-forward)
 NeoBundle 'tyru/caw.vim'
     nmap <Leader>c <Plug>(caw:I:toggle)
     vmap <Leader>c <Plug>(caw:I:toggle)
@@ -198,9 +149,6 @@ NeoBundle 'thinca/vim-ref'
         let g:ref_detect_filetype = {}
     endif
     let g:ref_detect_filetype.sh = "man"
-NeoBundleLazy 'osyo-manga/vim-hideout', {'autoload': {
-    \ 'commands': ['HideoutOn']
-    \ }}
 NeoBundle 'motemen/git-vim'
     let g:git_no_map_default=1
 
@@ -213,25 +161,6 @@ NeoBundle 'rhysd/committia.vim'
     function! g:committia_hooks.diff_open(e)
         setlocal nofoldenable
     endfunction
-
-NeoBundle 'kana/vim-textobj-user'
-    NeoBundle 'kana/vim-textobj-indent'
-    NeoBundle 'h1mesuke/textobj-wiw'
-    NeoBundle 'rhysd/vim-textobj-word-column'
-    NeoBundle 'thinca/vim-textobj-between'
-        let g:textobj_between_no_default_key_mappings=1
-        xmap ab <Plug>(textobj-between-a)
-        omap ab <Plug>(textobj-between-a)
-        xmap ib <Plug>(textobj-between-i)
-        omap ib <Plug>(textobj-between-i)
-    NeoBundle 'reedes/vim-textobj-quote'
-        augroup textobj_quote
-            autocmd!
-            " autocmd FileType markdown call textobj#quote#init()
-            autocmd FileType text call textobj#quote#init()
-        augroup END
-        nnoremap <Space>Q :<C-u>ToggleEducate<CR>
-        " q because it was once called vim-quotable
 
 NeoBundle 'tyru/capture.vim'
 " http://d.hatena.ne.jp/osyo-manga/20131230/1388413632
@@ -284,77 +213,26 @@ NeoBundle 'haya14busa/incsearch.vim'
 NeoBundle 'guns/xterm-color-table.vim'
 NeoBundleLazy 'lilydjwg/colorizer', {'autoload': {
     \ 'filetypes':['css', 'html', 'javascript'], 'commands' : ['ColorHighlight', 'ColorToggle']}}
-" NeoBundle 'git://github.com/cocopon/colorswatch.vim.git'
-    " enable when needed.
-" NeoBundle 'git://github.com/vim-scripts/CSApprox.git'
-    " this plugin seems very good, although I don't need it for now.
-    " Thanks jellybeans!
-" NeoBundle 'git://github.com/jlanzarotta/colorSchemeExplorer'
-    " Errors.. why?
-" NeoBundle 'itchyny/lightline.vim'
-    " Cool, but perhaps too shiny with too many informations for me.
-" NeoBundle 'git://github.com/thinca/vim-splash'
-    " from https://gist.github.com/OrgaChem/7630711
-" NeoBundle 'ntpeters/vim-better-whitespace'
 " }}}
 
 " Trial {{{2
-NeoBundleLazy 'lyokha/vim-publish-helper',
-    \ {'autoload' : {'commands': [
-        \ 'MakeHtmlCodeHighlight', 'MakeTexCodeHighlight'
-    \ ] } }
-
-NeoBundle 'reedes/vim-wordy'
-NeoBundleLazy 'reedes/vim-pencil', {'autoload': {'commands':
-    \ ['SoftPencil', 'HardPencil', 'TogglePencil']}}
-
-NeoBundle 'sjl/gundo.vim'
-    let g:gundo_prefer_python3 = 1
-    nnoremap <silent> <Space>u :GundoToggle<CR>
-
 NeoBundleLazy 'mattn/benchvimrc-vim', {'autoload': {'commands': ['BenchVimrc']}}
 " NeoBundle 'kana/vim-smartinput'
 
-NeoBundleLazy 'junegunn/goyo.vim', {'autoload': {'commands': ['Goyo']}}
-
-NeoBundle 'tyru/open-browser.vim'
-    let g:netrw_nogx=1
-    nmap <leader>b <Plug>(openbrowser-smart-search)
-    vmap <leader>b <Plug>(openbrowser-smart-search)
-
 NeoBundle 'mhinz/vim-signify'
-
-" NeoBundle 'lesguillemets/threejsify.vim.dev'
 
 NeoBundleLazy 'rhysd/git-messenger.vim', {'autoload':{'commands':
     \ ['GitMessengerToggle', 'GitMessengerBalloonToggle']}}
 " NeoBundle 'rhysd/inazuma.vim'
 " http://rhysd.hatenablog.com/entry/2013/12/31/191302
 
-" NeoBundle 'thinca/vim-fontzoom'
-"     let g:fontzoom_no_default_key_mappings=1
-"     silent! nmap <unique> <silent> + <Plug>(fontzoom-larger)
-"     silent! nmap <unique> <silent> - <Plug>(fontzoom-smaller)
-
 NeoBundle 'h1mesuke/vim-alignta'
-
-NeoBundle 'lesguillemets/ft-grass.vim'
-
-NeoBundleLazy 'AndrewRadev/gapply.vim', {'autoload': {'commands': ['Gapply']}}
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
     let g:ctrlp_follow_symlinks=2
     let g:ctrlp_switch_buffer='Et'
 
-NeoBundleLazy 'KabbAmine/vullScreen.vim', {'autoload': {'commands': ['VullScreen']}}
 
-" }}}
-
-" leisure{{{2
-NeoBundleLazy 'deris/vim-duzzle', {'autoload' : {'commands': ['DuzzleStart']}}
-NeoBundleLazy 'thinca/vim-threes', {'autoload' : {'commands': ['ThreesStart']}}
-" NeoBundle 'osyo-manga/vim-sound' => load in typewriter section.
-" I think we should be using neobundlelazy by now.
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \     'windows' : 'make -f make_mingw32.mak',
@@ -363,124 +241,7 @@ NeoBundle 'Shougo/vimproc', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
-" NeoBundle 'mopp/rogue.vim', {'autoload': {'commands': ['RogueStart'] }}
-NeoBundleLazy 'katono/rogue.vim', {'autoload' : {'commands' : ['Rogue','RogueRestore']}}
 " }}}
-
-"new colorschemes {{{2
-NeoBundle 'junegunn/seoul256.vim'
-NeoBundle 'thomd/vim-wasabi-colorscheme'
-NeoBundle 'romainl/Apprentice'
-NeoBundle 'reedes/vim-colors-pencil'
-NeoBundle 'Pychimp/vim-luna'
-NeoBundle 'mdlerch/vim-tungsten'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'kbenzie/vim-fresh'
-NeoBundle 'xero/sourcerer.vim'
-NeoBundle 'KKPMW/moonshine-vim'
-NeoBundle 'JcDelay/vim-frictionless'
-function! s:loadcolors()
-    NeoBundle 'ataraxer/sapphire256.vim'
-    NeoBundle 'sk1418/last256'
-    NeoBundle 'john2x/flatui.vim'
-    NeoBundle 'csexton/spacemanspiff.vim'
-    NeoBundle 'atelierbram/vim-colors_atelier-schemes'
-    NeoBundle 'cocopon/iceberg.vim'
-    NeoBundle 'kiudee/greymeans'
-    NeoBundle 'hail2u/h2u_colorscheme'
-    "NeoBundle 'pocke/funyapoyo.vim'
-    NeoBundle 'MaxSt/FlatColor'
-    NeoBundle 'vaibhav276/lego-vim-colorscheme'
-    NeoBundle 'dbb/vim-gummybears-colorscheme'
-    NeoBundle 'TaurusOlson/darkburn.vim'
-    NeoBundle 'arnau/teaspoon.vim'
-    NeoBundle 'svjunic/RadicalGoodSpeed.vim'
-    NeoBundle 'candy.vim'
-    NeoBundle 'morhetz/gruvbox'
-    NeoBundle 'peaksea'
-    NeoBundle 'tylerball/vim-hypertint'
-    NeoBundle 'miyakogi/slateblue.vim'
-    NeoBundle 'bronzehedwick/impactjs-colorscheme'
-    NeoBundle 'beardedprojamz/vim-colors-blayden'
-    NeoBundle 'khaki.vim'
-    NeoBundle 'tabula.vim'
-    NeoBundle 'leo256'
-    NeoBundle 'ftzeng/futora'
-    NeoBundle 'octol/vombatidae-vim'
-    NeoBundle 'xenomachina/vim-holodark'
-    NeoBundle 'Risto-Color-Scheme'
-    NeoBundle 'rdark-terminal'
-    NeoBundle 'Pychimp/vim-sol'
-    NeoBundle 'xironix/zarniwoop.vim'
-    NeoBundle 'JohnnyMudcrab/vim-mudcrab'
-    NeoBundle 'wolf-dog/sceaduhelm.vim'
-    NeoBundle 'jordwalke/flatlandia'
-    NeoBundle 'romainl/Disciple'
-    NeoBundle 'philananin/seastone.vim'
-    NeoBundle 'gryftir/gryffin'
-    NeoBundle 'chriskempson/base16-vim'
-    NeoBundle 'mgutz/vim-colors'
-    NeoBundle 'toupeira/vim-desertink'
-    NeoBundle 'endel/vim-github-colorscheme'
-    NeoBundle 'xoria256.vim'
-    NeoBundle 'mne/as_xoria.vim'
-    NeoBundle 'hhubbell/vim-hubs'
-    NeoBundle 'ChrisKempson/Vim-Tomorrow-Theme'
-    NeoBundle 'dstrunk/atom-dark-vim'
-    NeoBundle 'twerth/ir_black'
-    NeoBundle 'scheakur/vim-scheakur'
-    NeoBundle 'AlxHnr/clear_colors'
-    NeoBundle 'guns/jellyx.vim'
-    NeoBundle 'alem0lars/vim-colorscheme-darcula'
-    NeoBundle 'https://bitbucket.org/kb/vim-colorscheme-krxt.git'
-    NeoBundle 'fisadev/fisa-vim-colorscheme'
-    "NeoBundle 'Grimy/vim-rainbow'
-    NeoBundle 'qwelyt/TrippingRobot'
-    NeoBundle 'petobens/heraldish'
-    NeoBundle 'MichaelMalick/vim-colors-bluedrake'
-        let g:bluedrake_256=1
-    NeoBundle "YorickPeterse/happy_hacking.vim"
-    NeoBundle "mhinz/vim-janah"
-    NeoBundle "crusoexia/vim-dream"
-    NeoBundle "crusoexia/vim-dracula"
-    " NeoBundle "cseelus/vim-colors-clearance" " no support for 256.
-    NeoBundle 'micha/vim70style'
-    NeoBundle 'CruizeMissile/Revolution.vim'
-    NeoBundle 'hellabyte/lichen'
-    NeoBundle 'aliou/moriarty.vim'
-    NeoBundle 'asafonov/metropolis-vim'
-    NeoBundle 'thmsaurel/beargeektheme'
-    NeoBundle 'rivayama/twiga.vim'
-    NeoBundle 'RyanPattison/ghibli256'
-    NeoBundle 'rafcamlet/shadowmoth'
-    NeoBundle 'christophermca/meta5'
-    NeoBundle 'flaflasun/vim-nightowl'
-    NeoBundle 'freeo/vim-kalisi'
-    NeoBundle 'kh3phr3n/today-theme'
-    NeoBundle 'thinkpixellab/flatland', {'rtp': 'Vim'}
-    NeoBundle 'Dru89/vim-adventurous'
-    NeoBundle 'centaurialpha/gabo-vim-colorscheme'
-    NeoBundle 'queyenth/oxeded.vim'
-    NeoBundle 'NLKNguyen/papercolor-theme'
-    NeoBundle 'henrybw/vim-colors-aurora'
-    NeoBundle 'lisposter/vim-blackboard'
-    NeoBundle 'kristijanhusak/vim-hybrid-material'
-    NeoBundle 'mtglsk/mushroom'
-    NeoBundle 'MakeNowJust/islenauts.vim'
-    NeoBundle 'thecodesmith/vim-colorscheme-codesmith'
-    NeoBundle 'idling-mind/vim-color-subtle'
-    NeoBundle 'rhysd/vim-color-splatoon'
-    NeoBundle 'geoffharcourt/one-dark.vim'
-    NeoBundle 'dylanaraps/crayon-theme'
-    NeoBundle 'evgenyzinoviev/vim-vendetta'
-    NeoBundle 'gilgigilgil/anderson.vim'
-    NeoBundle 'iplog/vim-popsicles'
-    NeoBundle 'mbrand12/vim-citizen256'
-    NeoBundle 'zeis/vim-kolor'
-    NeoBundle 'KabbAmine/yowish.vim'
-endfunction
-command! LoadColors :call s:loadcolors()
-"}}}
 
 call neobundle#end()
 "}}}
@@ -551,8 +312,6 @@ set virtualedit+=block
 
 " disable mouse
 set mouse=
-
-let g:typewritersound = 0
 
 augroup UserHooks
     autocmd QuickFixCmdPost vimgrep cwindow
@@ -657,10 +416,6 @@ inoremap <C-@> <Nop>
 " via http://labs.timedia.co.jp/2014/09/learn-about-vim-in-the-workplace.html
 vnoremap * "ly:let @/ = @l<CR>n
 
-" handy with quickrun
-command! Pynew call s:quick_new('python', 's')
-command! VPynew call s:quick_new('python', 'v')
-
 " open current buffer in firefox
 function! s:open_in_firefox()
     let l:t_ti_back=&t_ti
@@ -680,20 +435,6 @@ function! s:open_in_chromium()
     let &t_te=l:t_te_back
 endfunction
 command! Chromium call s:open_in_chromium()
-
-function! s:setLatin()
-    inoremap a- ā
-    inoremap e- ē
-    inoremap i- ī
-    inoremap o- ō
-    inoremap u- ū
-    inoremap A- Ā
-    inoremap E- Ē
-    inoremap I- Ī
-    inoremap O- Ō
-    inoremap U- Ū
-endfunction
-command! SetLatin call s:setLatin()
 " }}}
 "_________________________________________
 "_________________________________________
@@ -782,59 +523,7 @@ augroup TastetheRainbow
     autocmd Syntax * call Config_Rainbow()
     autocmd VimEnter,BufRead,BufWinEnter,BufNewFile * call Load_Rainbow()
 augroup END
-" let g:rbpt_colorpairs = [
-"     \ ['240',  'LightGray'],
-"     \ ['247',  'gray'],
-"     \ ['255',  'LightGray'],
-"     \ ['240',  'white'],
-"     \ ['247',  'LightGray'],
-"     \ ['255',  'gray'],
-"     \ ['240',  'LightGray'],
-"     \ ['247',  'white'],
-"     \ ['255',  'LightGray'],
-"     \ ['240',  'gray'],
-"     \ ['247',  'LightGray'],
-"     \ ['255',  'white'],
-"     \ ['247',  'LightGray'],
-"     \ ['240',  'gray'],
-"     \ ['247',  'LightGray'],
-"     \ ['None', 'white'],
-" \ ]
 " }}}
-" }}}
-"_________________________________________
-"_________________________________________
-" Typewriter {{{
-
-if !exists("g:typewritersound")
-    let g:typewritersound = 0
-endif
-if g:typewritersound
-    NeoBundle 'osyo-manga/vim-sound'
-    let s:se_path = "~/Music/typewriter/"
-    let s:se_ext = ".wav"
-    function! s:change_sound_name(base_name)
-        return expand(s:se_path . a:base_name . s:se_ext)
-    endfunction
-    
-    function! PlaySE(name)
-        call sound#play_wav(s:change_sound_name(a:name))
-    endfunction
-    augroup typesound
-        autocmd!
-        autocmd CompleteDone * call PlaySE("spacebarpress")
-        autocmd BufEnter * call PlaySE("Clamp")
-        autocmd InsertCharPre * call PlaySE("key1pressrelease")
-        autocmd BufWrite * call PlaySE("Ding")
-        autocmd InsertEnter * call PlaySE("Ding")
-        autocmd InsertLeave * call PlaySE("Ding")
-        autocmd TabEnter * call PlaySE("newline1")
-    augroup END
-    nnoremap <silent> j j:<C-u>call PlaySE("arrowkeypressrelease")<CR>
-    nnoremap <silent> k k:<C-u>call PlaySE("arrowkeypressrelease")<CR>
-    nnoremap <silent> l l:<C-u>call PlaySE("arrowkeypressrelease")<CR>
-    nnoremap <silent> h h:<C-u>call PlaySE("arrowkeypressrelease")<CR>
-endif
 " }}}
 "_________________________________________
 "_________________________________________
@@ -870,25 +559,8 @@ autocmd FileType haskell setlocal colorcolumn=79
 autocmd FileType haskell command! -buffer DocTest !doctest %
 " }}}
 
-" ruby {{{2
-autocmd FileType ruby call SetTabs(2)
-" }}}
-
 " C, C++  {{{2
 autocmd FileType c,cpp call SetTabs(2)
-" }}}
-
-" golang, just in case {{{2
-autocmd FileType go set noexpandtab
-autocmd FileType go call SetTabs(4)
-" }}}
-
-" java {{{2
-autocmd FileType java call SetTabs(2)
-"}}}
-
-" lua {{{
-autocmd FileType lua call SetTabs(2)
 " }}}
 
 " HTML, XHTML {{{2
@@ -913,11 +585,6 @@ autocmd FileType javascript nnoremap <buffer> <Space>q :<C-u>JSHint<CR>
 autocmd FileType javascript vnoremap <buffer> <Space>q :<C-u>JSHint<CR>
 "}}}
 
-" typescript {{{
-autocmd FileType typescript call SetTabs(2)
-autocmd FileType typescript nmap <buffer> <Space>R <Plug>(TsuquyomiReferences)
-" }}}
-
 " vim {{{2
 autocmd FileType vim setlocal foldmethod=marker
 autocmd FileType vim call SetTabs(4)
@@ -932,56 +599,12 @@ autocmd FileType vim nnoremap <leader>b :<C-u>call OpenBundle()<CR>
 autocmd FileType sh badd ~/.bash_history
 " }}}
 
-" markdown {{{2
-" I want it to be consistent. ref:#16
-autocmd FileType markdown call SetTabs(2)
-autocmd FileType markdown call s:displaymovement()
-autocmd FileType markdown nnoremap <buffer> ,tim a<C-r>=strftime("%Y-%m-%d %H:%M:%S UTC+9")<CR><Esc>
-let g:markdown_fenced_languages = [
-\ 'python', 'ruby', 'vim', 'haskell', 'javascript'
-\]
-"}}}
-
-" {{{ coq
-autocmd FileType coq inoremap <buffer> <C-l>  <Space>-> 
-" }}}
-
-" mediawiki {{{2
-autocmd FileType mediawiki call s:displaymovement()
-autocmd FileType mediawiki inoremap <buffer> </ </<C-x><C-o>
-autocmd FileType mediawiki setlocal synmaxcol=-1
-autocmd FileType mediawiki setlocal foldexpr=
-            \getline(v:lnum)=~'^\\(=\\+\\)[^=]\\+\\1\\(\\s*<!--.*-->\\)\\=\\s*$'?\">\".(len(matchstr(getline(v:lnum),'^=\\+'))-1):\"=\"
-autocmd FileType mediawiki setlocal foldmethod=expr
-"autocmd FileType mediawiki QuotableEducateOn
-" }}}
-
-" TeX {{{2
-"autocmd FileType tex,plaintex,latex map <buffer> <silent> ]s :/\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
-"autocmd FileType tex,plaintex,latex map <buffer> [s :?\\\(sub\)\{,2}section\s*{<CR> :noh<CR>
-" par http://www.reddit.com/r/vim/comments/2pwis9/cn0z01p
-let g:tex_flavor="latex"
-autocmd FileType tex,plaintex,latex call s:displaymovement()
-autocmd FileType tex,plaintex,latex call SetTabs(2)
-autocmd FileType tex,plaintex,latex setlocal conceallevel=0
-" hiding $$ ? hiding \textbf? doesn't sound like a good idea at all.
-let g:tex_conceal=""
-" }}}
-
-" common lisp {{{2
-autocmd FileType lisp call SetTabs(2)
-"}}}
-
 " csv {{{
 autocmd FileType csv setlocal nowrap
 " }}}
 
 " quickrun output {{{2
 autocmd FileType quickrun call s:displaymovement()
-"}}}
-
-" w3m {{{2
-autocmd FileType w3m call s:displaymovement()
 "}}}
 
 " NERDTree {{{
@@ -1050,57 +673,7 @@ endfunction
 command! SyntaxInfo call s:get_syn_info()
 "_______________________________________________
 " }}}
-
-" dm in normal mode {{{
-" (http://lingr.com/room/vim/archives/2014/04/12#message-18780856)
-function! s:norelativenumber()
-    augroup restore_op
-        autocmd!
-        autocmd CursorMoved * setlocal norelativenumber
-        autocmd CursorMoved * augroup restore_op | execute "autocmd!" | execute "augroup END"
-        autocmd CursorHold * setlocal norelativenumber
-        autocmd CursorHold * augroup restore_op | execute "autocmd!" | execute "augroup END"
-    augroup END
-    return ""
-endfunction
-
-function! s:ToggleRelativeNumber()
-    if &relativenumber
-        set norelativenumber
-        let &number = exists("b:togglernu_number") ? b:togglernu_number : 1
-    else
-        let b:togglernu_number = &number
-        set relativenumber
-    endif
-    redraw!  " these two lines required for omap
-    
-    return ''
-endfunction
-
-nnoremap <silent> <Space>r :call <SID>ToggleRelativeNumber()<CR>
-onoremap <expr> r <SID>ToggleRelativeNumber() . <SID>norelativenumber()
 "}}}
-
-" detect filetype based on shebang {{{
-function! s:mydetectft()
-    if did_filetype()
-        return
-    endif
-    let shebang = getline(1)
-    if shebang =~# '^#!.*python[23]\=$'
-        setfiletype python
-    elseif shebang =~# '^#!.*ruby[0-9\.]*$'
-        setfiletype ruby
-    elseif shebang =~# '^#!.*perl[0-9\.]*$'
-        setfiletype perl
-    endif
-    unlet shebang
-endfunction
-augroup detectft
-autocmd!
-autocmd BufRead call mydetectft
-augroup END
-" }}}
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
 function! NeatFoldText()
@@ -1180,27 +753,6 @@ function! s:quick_new(ft, pos)
 endfunction
 " }}}
 
-" openbundle! {{{
-" TODO : need more comprehensive support.
-function! OpenBundle()
-    let bundle_name = substitute(
-                \ substitute(split(expand("<cWORD>"),',')[0], "[\'\"]", "", 'g'),
-                \ "git://", "https://", '')
-    call openbrowser#open(neobundle#parser#path(bundle_name)['uri'])
-endfunction
-
-" }}}
-
-" config for vim-anywhere {{{
-" where should we store these settings?
-function! ConfigAnywhere()
-    set bg=light
-    colorscheme pencil
-    set guifont=Ubuntu\ Mono\ 12
-    set guifontwide=IPAGothic
-    set ft=text
-endfunction
-"}}}
 "}}}
 "_________________________________________
 " Settings to be set in the last part {{{
