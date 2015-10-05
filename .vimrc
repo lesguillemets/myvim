@@ -476,6 +476,8 @@ function! s:loadcolors()
     NeoBundle 'gilgigilgil/anderson.vim'
     NeoBundle 'iplog/vim-popsicles'
     NeoBundle 'mbrand12/vim-citizen256'
+    NeoBundle 'zeis/vim-kolor'
+    NeoBundle 'KabbAmine/yowish.vim'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
