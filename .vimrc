@@ -943,7 +943,7 @@ let g:markdown_fenced_languages = [
 "}}}
 
 " {{{ coq
-autocmd FileType coq inoremap <buffer> <C-l>  <Space>-> 
+autocmd FileType coq inoremap <buffer> <C-l>  <Space>=> 
 " }}}
 
 " mediawiki {{{2
