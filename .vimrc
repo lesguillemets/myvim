@@ -944,6 +944,8 @@ let g:markdown_fenced_languages = [
 
 " {{{ coq
 autocmd FileType coq inoremap <buffer> <C-l>  <Space>=> 
+autocmd FileType coq setlocal colorcolumn=79
+autocmd FileType coq call SetTabs(2)
 " }}}
 
 " mediawiki {{{2
@@ -1380,7 +1382,7 @@ augroup END
 
 " {{{ ctrlP
 let ctrlp_custom_ignore = {}
-let ctrlp_custom_ignore.file = '\v\.(hi|o|out|jsmod)$'
+let ctrlp_custom_ignore.file = '\v\.(hi|o|out|jsmod|vo|v\.d|glob)$'
 " }}}
 "_________________________________________
 "
