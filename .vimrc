@@ -1229,9 +1229,16 @@ endif
 let g:quickrun_config['haskell/cabal'] =
     \ {'command' : 'cabal', 'cmdopt' : 'exec runghc'}
 let g:quickrun_config.haskell = {'type': 'haskell/cabal'}
+" todo : make local
+function TempfileWithAlph()
+    return substitute(tempname(), '/tmp/[^/]\+/\zs\(.*\)\ze$', 'temp\1','g')
+endfunction
 let g:quickrun_config.coq =
     \ {'command' : 'coqc',
-    \ 'hook/sweep/files': ['%S:p:r.glob', '%S:p:r.vo']}
+    \ 'hook/sweep/files': ['%S:p:r.glob', '%S:p:r.vo'],
+    \ 'tempfile' :
+    \ "%{TempfileWithAlph() . '.v'}"
+    \ }
 " watchdogs
 
 call quickrun#module#register(shabadou#make_quickrun_hook_anim(
