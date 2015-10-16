@@ -478,6 +478,8 @@ function! s:loadcolors()
     NeoBundle 'mbrand12/vim-citizen256'
     NeoBundle 'zeis/vim-kolor'
     NeoBundle 'KabbAmine/yowish.vim'
+    NeoBundle 'Haron-Prime/Antares'
+    NeoBundle 'DrSpatula/vim-buddy'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
