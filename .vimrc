@@ -946,7 +946,7 @@ let g:markdown_fenced_languages = [
 "}}}
 
 " {{{ coq
-autocmd FileType coq inoremap <buffer> <C-l>  <Space>=> 
+autocmd FileType coq inoremap <buffer> <C-l>  <Space>-> 
 autocmd FileType coq setlocal colorcolumn=79
 autocmd FileType coq call SetTabs(2)
 " }}}
