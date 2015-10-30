@@ -99,6 +99,7 @@ NeoBundleLazy 'tmhedberg/SimpylFold', {'autoload': {'filetypes' : ['python']}}
 NeoBundleLazy 'ujihisa/neco-ghc', {'autoload' : {'filetypes': ['haskell']}}
     let g:necoghc_enable_detailed_browse = 1
 " NeoBundleLazy 'haskell.vim'
+NeoBundleLazy 'itchyny/vim-haskell-indent', {'autoload' : {'filetypes': ['haskell']}}
 NeoBundleLazy 'dag/vim2hs', {'autoload' : {'filetypes': ['haskell']}}
     " disable concealing of "enumerations": commatized lists like
     " deriving clauses and LANGUAGE pragmas,
