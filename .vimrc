@@ -1393,7 +1393,7 @@ augroup END
 
 " {{{ ctrlP
 let ctrlp_custom_ignore = {}
-let ctrlp_custom_ignore.file = '\v\.(hi|o|out|jsmod|vo|v\.d|glob)$'
+let ctrlp_custom_ignore.file = '\v\.(hi|o|out|jsmod|vo|v\.d|glob|pyc)$'
 " }}}
 "_________________________________________
 "
