@@ -482,6 +482,7 @@ function! s:loadcolors()
     NeoBundle 'KabbAmine/yowish.vim'
     NeoBundle 'Haron-Prime/Antares'
     NeoBundle 'DrSpatula/vim-buddy'
+    NeoBundle 'mdlerch/yttrium.vim'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
