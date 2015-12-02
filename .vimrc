@@ -483,6 +483,7 @@ function! s:loadcolors()
     NeoBundle 'Haron-Prime/Antares'
     NeoBundle 'DrSpatula/vim-buddy'
     NeoBundle 'mdlerch/yttrium.vim'
+    NeoBundle 'smemsh/vim-smemsh256'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
