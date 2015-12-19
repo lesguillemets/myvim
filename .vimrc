@@ -353,6 +353,9 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
     NeoBundle 'mattn/ctrlp-register'
         let g:ctrlp_extensions+=['register']
         nnoremap <Leader>r :<C-u>CtrlPRegister<CR>
+    NeoBundle 'mattn/ctrlp-mark'
+        let g:ctrlp_extensions+=['mark']
+        nnoremap <Leader>m :<C-u>CtrlPMark<CR>
 NeoBundleLazy 'KabbAmine/vullScreen.vim', {'autoload': {'commands': ['VullScreen']}}
 
 " }}}
