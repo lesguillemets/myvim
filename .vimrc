@@ -493,6 +493,7 @@ function! s:loadcolors()
     NeoBundle 'mdlerch/yttrium.vim'
     NeoBundle 'smemsh/vim-smemsh256'
     NeoBundle 'Donearm/Laederon'
+    NeoBundle 'minoue/untitledColor'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
