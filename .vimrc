@@ -494,6 +494,10 @@ function! s:loadcolors()
     NeoBundle 'smemsh/vim-smemsh256'
     NeoBundle 'Donearm/Laederon'
     NeoBundle 'minoue/untitledColor'
+    NeoBundle 'AlessandroYorba/Alduin'
+    NeoBundle 'bronzdoc/samurai'
+    NeoBundle 'rakr/vim-colors-rakr'
+    NeoBundle 'baskerville/bubblegum'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
