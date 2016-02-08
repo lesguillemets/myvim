@@ -1257,11 +1257,12 @@ let g:quickrun_config.coq =
     \ 'tempfile' :
     \ "%{TempfileWithAlph() . '.v'}"
     \ }
-let g:quickrun_config.prolog ={
-    \ 'type' : 'prolog',
+" http://stackoverflow.com/a/26330527/3026489
+let g:quickrun_config['prolog/swipl'] ={
     \ 'command' : 'swipl',
     \ 'exec' : ['%c -g "consult(%s), main, halt."']
     \ }
+let g:quickrun_config.prolog = {'type' : 'prolog/swipl'}
 " watchdogs
 
 call quickrun#module#register(shabadou#make_quickrun_hook_anim(
