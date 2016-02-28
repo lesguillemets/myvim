@@ -499,6 +499,7 @@ function! s:loadcolors()
     NeoBundle 'rakr/vim-colors-rakr'
     NeoBundle 'baskerville/bubblegum'
     NeoBundle 'AlessandroYorba/Sierra'
+    NeoBundle 'benburwell/vim-colorscheme-benji'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
