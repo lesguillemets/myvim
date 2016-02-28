@@ -74,6 +74,23 @@ NeoBundle 'nanotech/jellybeans.vim'
 " }}}
 
 " Language specific plugins {{{
+
+" haskell {{{
+NeoBundleLazy 'ujihisa/neco-ghc', {'autoload' : {'filetypes': ['haskell']}}
+    let g:necoghc_enable_detailed_browse = 1
+" NeoBundleLazy 'haskell.vim'
+NeoBundleLazy 'itchyny/vim-haskell-indent', {'autoload' : {'filetypes': ['haskell']}}
+NeoBundleLazy 'dag/vim2hs', {'autoload' : {'filetypes': ['haskell']}}
+    " disable concealing of "enumerations": commatized lists like
+    " deriving clauses and LANGUAGE pragmas,
+    " otherwise collapsed into a single ellipsis
+    let g:haskell_conceal_enumerations=0
+    let g:haskell_conceal_wide=0
+" NeoBundleLazy 'travitch/hasksyn'
+NeoBundleLazy 'eagletmt/ghcmod-vim', {'autoload' : {'filetypes': ['haskell']}}
+NeoBundleLazy 'ujihisa/ref-hoogle', {'autoload' : {'filetypes': ['haskell']}}
+" }}}
+
 " python {{{
 NeoBundleLazy 'hynek/vim-python-pep8-indent', {'autoload': {'filetypes': ['python']}}
 NeoBundleLazy 'davidhalter/jedi-vim', {'autoload': {'filetypes': ['python']}}
@@ -93,22 +110,6 @@ NeoBundleLazy 'davidhalter/jedi-vim', {'autoload': {'filetypes': ['python']}}
 NeoBundleLazy 'tmhedberg/SimpylFold', {'autoload': {'filetypes' : ['python']}}
 "NeoBundle 'nvie/vim-flake8' -- less likely to use?
 "    autocmd FileType python nnoremap <Space>q :call Flake8()<CR>
-" }}}
-
-" haskell {{{
-NeoBundleLazy 'ujihisa/neco-ghc', {'autoload' : {'filetypes': ['haskell']}}
-    let g:necoghc_enable_detailed_browse = 1
-" NeoBundleLazy 'haskell.vim'
-NeoBundleLazy 'itchyny/vim-haskell-indent', {'autoload' : {'filetypes': ['haskell']}}
-NeoBundleLazy 'dag/vim2hs', {'autoload' : {'filetypes': ['haskell']}}
-    " disable concealing of "enumerations": commatized lists like
-    " deriving clauses and LANGUAGE pragmas,
-    " otherwise collapsed into a single ellipsis
-    let g:haskell_conceal_enumerations=0
-    let g:haskell_conceal_wide=0
-" NeoBundleLazy 'travitch/hasksyn'
-NeoBundleLazy 'eagletmt/ghcmod-vim', {'autoload' : {'filetypes': ['haskell']}}
-NeoBundleLazy 'ujihisa/ref-hoogle', {'autoload' : {'filetypes': ['haskell']}}
 " }}}
 
 " ruby {{{
