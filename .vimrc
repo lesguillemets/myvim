@@ -800,7 +800,8 @@ set foldtext=NeatFoldText()
 
 let g:rainbow_off_fts = [
     \ "css", "text", "html", "javascript", "quickrun", "haskell", "lua",
-    \ "qf", "agit", "agit_diff", "agit_stat", "diff", "gitcommit", "coq"
+    \ "qf", "agit", "agit_diff", "agit_stat", "diff", "gitcommit", "coq",
+    \ "clojure"
     \ ]
 
 function! Config_Rainbow()
@@ -1415,7 +1416,7 @@ let g:indentLine_color_gui='#aabbdd'
 let g:indentLine_fileType=[]
 let g:indentLine_fileTypeExclude = [
         \ 'text', 'quickrun', 'help', 'quickfix', 'man',
-        \ 'w3m',
+        \ 'w3m', 'clojure',
         \]
 " This is a dirty workaround.
 " It seems something is hiding indentLine
