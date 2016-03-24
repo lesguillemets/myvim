@@ -914,6 +914,7 @@ autocmd FileType haskell command! -buffer DocTest !doctest %
 " clojure {{{
 autocmd FileType clojure setlocal omnifunc=neoclojure#complete#omni_auto
 autocmd FileType clojure call SetTabs(2)
+autocmd BufRead *.cljs set makeprg=lein\ cljsbuild\ once
 " }}}
 
 " ruby {{{2
