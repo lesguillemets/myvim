@@ -193,8 +193,8 @@ NeoBundle 'deris/columnjump'
     nmap <C-k> <Plug>(columnjump-backward)
     nmap <C-j> <Plug>(columnjump-forward)
 NeoBundle 'tyru/caw.vim'
-    nmap <Leader>c <Plug>(caw:I:toggle)
-    vmap <Leader>c <Plug>(caw:I:toggle)
+    nmap <Leader>c <Plug>(caw:zeropos:toggle)
+    vmap <Leader>c <Plug>(caw:zeropos:toggle)
 NeoBundle 'thinca/vim-ref'
     let g:ref_pydoc_cmd = "pydoc3"
     if !exists("g:ref_detect_filetype")
