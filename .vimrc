@@ -554,6 +554,10 @@ set showmatch
 set matchtime=2
 
 set t_Co=256
+if has('termtruecolor')
+    set guicolors
+endif
+
 
 " what does <C-a> increment?
 set nrformats&
@@ -726,12 +730,13 @@ command! SetLatin call s:setLatin()
 
 augroup myappearance
     autocmd!
-    autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=lightgreen
+    autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=darkgrey
     autocmd ColorScheme * hi ZenkakuSpace ctermbg=white guibg=white
     autocmd VimEnter,WinEnter,Bufread * call s:syntax_additional()
 augroup END
 
 let g:jellybeans_background_color_256 = 'NONE'
+let g:jellybeans_background_color = '000000'
 " although this does not seem to be working...
 let g:jellybeans_overrides = {
     \'CursorLine' : {'ctermbg' : '235'},
@@ -757,14 +762,14 @@ function! MyHighlights()
     hi Visual term=reverse ctermbg=30
     hi CursorLine cterm=NONE ctermbg=235
     hi StatusLine cterm=bold ctermbg=235 ctermfg=2 gui=bold guibg=black guifg=#00aa00
-    hi StatusLineNC cterm=bold ctermbg=black ctermfg=22
+    hi StatusLineNC cterm=bold ctermbg=black ctermfg=22 guibg=black guifg=#005500
     hi ColorColumn ctermbg=237
 endfunction
 function! TransparentBackground()
-    hi Normal ctermbg=NONE
-    hi NonText ctermbg=NONE
-    hi VertSplit ctermbg=NONE
-    hi LineNr ctermbg=NONE
+    hi Normal ctermbg=NONE guibg=black
+    hi NonText ctermbg=NONE guibg=black
+    hi VertSplit ctermbg=NONE guibg=black
+    hi LineNr ctermbg=NONE guibg=black
 endfunction
 
 call MyHighlights()
@@ -1383,7 +1388,7 @@ let g:indentLine_char = '⟩'
     " other candidates : '❭', '║', '⦙'
 " these settings affect ALL conceal highlighting.
 let g:indentLine_color_term=62
-let g:indentLine_color_gui='#aabbaa'
+let g:indentLine_color_gui='#aabbdd'
 let g:indentLine_fileType=[]
 let g:indentLine_fileTypeExclude = [
         \ 'text', 'quickrun', 'help', 'quickfix', 'man',
