@@ -501,6 +501,9 @@ function! s:loadcolors()
     NeoBundle 'baskerville/bubblegum'
     NeoBundle 'AlessandroYorba/Sierra'
     NeoBundle 'benburwell/vim-colorscheme-benji'
+    NeoBundle 'taniarascia/new-moon.vim'
+    NeoBundle 'chyxwzn/skittles_berry.vim'
+    NeoBundle 'tstelzer/welpe.vim'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
@@ -745,8 +748,8 @@ let g:jellybeans_overrides = {
     \'rubyRegexpDelimiter' : {'ctermfg': '126'},
     \}
 " colorscheme jellybeans
-colorscheme jellybeans
-hi MatchParen ctermfg=7 ctermbg=240
+colorscheme hybrid
+hi MatchParen ctermfg=7 ctermbg=240 guifg=#bb33bb guibg=#444444
 hi Search term=reverse cterm=underline
 hi SpecialKey term=bold ctermfg=237 ctermbg=234 guifg=#444444 guibg=#1c1c1c
 
@@ -763,7 +766,7 @@ function! MyHighlights()
     hi CursorLine cterm=NONE ctermbg=235
     hi StatusLine cterm=bold ctermbg=235 ctermfg=2 gui=bold guibg=black guifg=#00aa00
     hi StatusLineNC cterm=bold ctermbg=black ctermfg=22 guibg=black guifg=#005500
-    hi ColorColumn ctermbg=237
+    hi ColorColumn ctermbg=237 guibg=#224422
 endfunction
 function! TransparentBackground()
     hi Normal ctermbg=NONE guibg=black
