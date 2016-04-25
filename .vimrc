@@ -150,9 +150,9 @@ NeoBundleLazy 'osyo-manga/vim-marching', {'autoload' : {'filetypes': ['cpp']}}
 
 " coq ?{{{
 NeoBundle 'jvoorhis/coq.vim'
-NeoBundleLazy 'vim-scripts/CoqIDE', {'autoload' : { 'filetypes' : 'coq'}}
-NeoBundleLazy 'lesguillemets/coqtop-vim', 'add_support_for_bullets', {'autoload':{
-    \ 'filetypes': 'coq', 'commands': 'CoqStart'}}
+NeoBundleLazy 'vim-scripts/CoqIDE', {'autoload' : { 'filetypes' : ['coq']}}
+NeoBundleLazy 'lesguillemets/coqtop-vim', {'autoload':{
+    \ 'filetypes': ['coq'], 'commands': ['CoqStart']}}
 " }}}
 
 " tex / latex {{{
