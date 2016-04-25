@@ -286,7 +286,7 @@ NeoBundle 'haya14busa/incsearch.vim'
 " Appearance {{{
 NeoBundle 'guns/xterm-color-table.vim'
 NeoBundleLazy 'lilydjwg/colorizer', {'autoload': {
-    \ 'filetypes':['css', 'html', 'javascript'], 'commands' : ['ColorHighlight', 'ColorToggle']}}
+    \ 'filetypes':['css', 'html', 'javascript', 'vim'], 'commands' : ['ColorHighlight', 'ColorToggle']}}
 " NeoBundle 'git://github.com/cocopon/colorswatch.vim.git'
     " enable when needed.
 " NeoBundle 'git://github.com/vim-scripts/CSApprox.git'
