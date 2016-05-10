@@ -504,6 +504,7 @@ function! s:loadcolors()
     NeoBundle 'taniarascia/new-moon.vim'
     NeoBundle 'chyxwzn/skittles_berry.vim'
     NeoBundle 'tstelzer/welpe.vim'
+    NeoBundle 'jacoborus/tender'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
