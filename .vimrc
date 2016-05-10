@@ -557,8 +557,8 @@ set showmatch
 set matchtime=2
 
 set t_Co=256
-if has('termtruecolor')
-    set guicolors
+if has('termguicolors')
+    set termguicolors
 endif
 
 
