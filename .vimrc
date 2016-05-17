@@ -505,6 +505,8 @@ function! s:loadcolors()
     NeoBundle 'chyxwzn/skittles_berry.vim'
     NeoBundle 'tstelzer/welpe.vim'
     NeoBundle 'jacoborus/tender'
+    NeoBundle 'jeetsukumaran/vim-nefertiti'
+        let g:nefertiti_base_brightness_level=20
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
