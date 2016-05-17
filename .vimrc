@@ -390,6 +390,7 @@ NeoBundle 'kbenzie/vim-fresh'
 NeoBundle 'xero/sourcerer.vim'
 NeoBundle 'KKPMW/moonshine-vim'
 NeoBundle 'JcDelay/vim-frictionless'
+NeoBundle 'freeo/vim-kalisi'
 function! s:loadcolors()
     NeoBundle 'ataraxer/sapphire256.vim'
     NeoBundle 'sk1418/last256'
@@ -466,7 +467,6 @@ function! s:loadcolors()
     NeoBundle 'rafcamlet/shadowmoth'
     NeoBundle 'christophermca/meta5'
     NeoBundle 'flaflasun/vim-nightowl'
-    NeoBundle 'freeo/vim-kalisi'
     NeoBundle 'kh3phr3n/today-theme'
     NeoBundle 'thinkpixellab/flatland', {'rtp': 'Vim'}
     NeoBundle 'Dru89/vim-adventurous'
@@ -507,6 +507,7 @@ function! s:loadcolors()
     NeoBundle 'jacoborus/tender'
     NeoBundle 'jeetsukumaran/vim-nefertiti'
         let g:nefertiti_base_brightness_level=20
+    NeoBundle 'noahfrederick/vim-hemisu'
 endfunction
 command! LoadColors :call s:loadcolors()
 "}}}
