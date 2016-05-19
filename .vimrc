@@ -156,9 +156,7 @@ NeoBundleLazy 'lesguillemets/coqtop-vim', {'autoload':{
 " }}}
 
 " tex / latex {{{
-" Both seemed too much. Let's reconsider when necessary.
-" NeoBundleLazy 'vim-scripts/tex.vim--Brauner.git'
-" NeoBundleLazy 'Vim-LaTeX' "
+NeoBundleLazy 'lervag/vimtex', {'autoload' : {'filetypes' : ['tex', 'latex', 'plaintex']}}
 " }}}
 
 " go, just in case {{{
