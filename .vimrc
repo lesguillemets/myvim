@@ -356,7 +356,6 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
         let g:ctrlp_extensions+=['mark']
         nnoremap <Leader>m :<C-u>CtrlPMark<CR>
 NeoBundleLazy 'KabbAmine/vullScreen.vim', {'autoload': {'commands': ['VullScreen']}}
-
 " }}}
 
 " leisure{{{2
@@ -998,6 +997,7 @@ autocmd FileType mediawiki setlocal foldmethod=expr
 let g:tex_flavor="latex"
 autocmd FileType tex,plaintex,latex call s:displaymovement()
 autocmd FileType tex,plaintex,latex call SetTabs(2)
+autocmd FileType tex,plaintex,latex setlocal noexpandtab
 autocmd FileType tex,plaintex,latex setlocal conceallevel=0
 " hiding $$ ? hiding \textbf? doesn't sound like a good idea at all.
 let g:tex_conceal=""
