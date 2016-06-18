@@ -1259,7 +1259,9 @@ elseif executable('guile')
 endif
 let g:quickrun_config['haskell/cabal'] =
     \ {'command' : 'cabal', 'cmdopt' : 'exec runghc'}
-let g:quickrun_config.haskell = {'type': 'haskell/cabal'}
+let g:quickrun_config['haskell/stack'] =
+    \ {'command' : 'stack', 'cmdopt' : 'runghc'}
+let g:quickrun_config.haskell = {'type': 'haskell/stack'}
 " todo : make local
 function! TempfileWithAlph()
     return substitute(tempname(), '/tmp/[^/]\+/\zs\(.*\)\ze$', 'temp\1','g')
