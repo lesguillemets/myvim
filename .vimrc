@@ -356,6 +356,7 @@ NeoBundle 'ctrlpvim/ctrlp.vim'
         let g:ctrlp_extensions+=['mark']
         nnoremap <Leader>m :<C-u>CtrlPMark<CR>
 NeoBundleLazy 'KabbAmine/vullScreen.vim', {'autoload': {'commands': ['VullScreen']}}
+NeoBundleLazy 'lesguillemets/rainfall-vim-hs', {'autoload': {'commands': ['RainfallStart']}, 'rtp' : 'vim'}
 " }}}
 
 " leisure{{{2
