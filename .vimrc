@@ -136,7 +136,7 @@ NeoBundleLazy 'JulesWang/css.vim', {'autoload': {'filetypes': ['css']}}
 " javascript {{{
 NeoBundleLazy 'jelera/vim-javascript-syntax', {'autoload': {'filetypes': ['javascript', 'html']}}
 NeoBundleLazy 'pangloss/vim-javascript', {'autoload': {'filetypes': ['javascript', 'html']}}
-NeoBundleLazy '1995eaton/vim-better-javascript-completion', {'autoload': {'filetypes': ['javascript', 'html']}}
+NeoBundleLazy 'ternjs/tern_for_vim', {'autoload': {'filetypes': ['javascript']}}
 NeoBundleLazy 'Shutnik/jshint2.vim', {'autoload': {'filetypes': ['javascript']}}
 " configurations in the language settings
 " }}}
@@ -1387,7 +1387,7 @@ augroup NeoComp
     " Enable omni completion.
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=js#CompleteJS
+    autocmd FileType javascript setlocal omnifunc=tern#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
     
     " disable for certain filetypes.
