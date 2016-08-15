@@ -112,6 +112,12 @@ NeoBundleLazy 'tmhedberg/SimpylFold', {'autoload': {'filetypes' : ['python']}}
 "    autocmd FileType python nnoremap <Space>q :call Flake8()<CR>
 " }}}
 
+
+" clojure {{{
+NeoBundleLazy 'thinca/vim-ft-clojure', {'autoload': {'filetypes': ['clojure']}}
+NeoBundleLazy 'ujihisa/neoclojure.vim', {'autoload': {'filetypes': ['clojure']}}
+" }}}
+
 " ruby {{{
 NeoBundleLazy 'osyo-manga/vim-monster', {'autoload':{'filetypes':['ruby']}}
 " }}}
@@ -794,7 +800,8 @@ set foldtext=NeatFoldText()
 
 let g:rainbow_off_fts = [
     \ "css", "text", "html", "javascript", "quickrun", "haskell", "lua",
-    \ "qf", "agit", "agit_diff", "agit_stat", "diff", "gitcommit", "coq"
+    \ "qf", "agit", "agit_diff", "agit_stat", "diff", "gitcommit", "coq",
+    \ "clojure"
     \ ]
 
 function! Config_Rainbow()
@@ -902,6 +909,14 @@ autocmd FileType haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsyn
 autocmd FileType haskell inoremap <buffer> <C-l>  <Space>-> 
 autocmd FileType haskell setlocal colorcolumn=79
 autocmd FileType haskell command! -buffer DocTest !doctest %
+" }}}
+
+" clojure {{{
+autocmd FileType clojure setlocal omnifunc=neoclojure#complete#omni_auto
+autocmd FileType clojure call SetTabs(2)
+autocmd FileType clojure setlocal nojoinspaces
+autocmd FileType clojure setlocal colorcolumn=79
+autocmd BufRead *.cljs set makeprg=lein\ cljsbuild\ once
 " }}}
 
 " ruby {{{2
@@ -1281,6 +1296,8 @@ let g:quickrun_config['prolog/swipl'] ={
     \ 'exec' : ['%c -g "consult(%s), main, halt."']
     \ }
 let g:quickrun_config.prolog = {'type' : 'prolog/swipl'}
+let g:quickrun_config.clojure = {'runner': 'neoclojure', 'command': 'dummy',
+      \ 'tempfile'  : '%{tempname()}.clj'}
 " watchdogs
 
 call quickrun#module#register(shabadou#make_quickrun_hook_anim(
@@ -1402,7 +1419,7 @@ let g:indentLine_color_gui='#aabbdd'
 let g:indentLine_fileType=[]
 let g:indentLine_fileTypeExclude = [
         \ 'text', 'quickrun', 'help', 'quickfix', 'man',
-        \ 'w3m',
+        \ 'w3m', 'clojure',
         \]
 " This is a dirty workaround.
 " It seems something is hiding indentLine
