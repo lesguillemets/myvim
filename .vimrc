@@ -778,10 +778,15 @@ function! MyHighlights()
     hi ColorColumn ctermbg=237 guibg=#224422
 endfunction
 function! TransparentBackground()
-    hi Normal ctermbg=NONE guibg=black
-    hi NonText ctermbg=NONE guibg=black
-    hi VertSplit ctermbg=NONE guibg=black
-    hi LineNr ctermbg=NONE guibg=black
+    if (&bg == "dark")
+        let l:gbg = "black"
+    else
+        let l:gbg = "white"
+    endif
+    exec "hi Normal ctermbg=NONE guibg=" . l:gbg
+    exec "hi NonText ctermbg=NONE guibg=" . l:gbg
+    exec "hi VertSplit ctermbg=NONE guibg=" . l:gbg
+    exec "hi LineNr ctermbg=NONE guibg=" . l:gbg
 endfunction
 
 call MyHighlights()
