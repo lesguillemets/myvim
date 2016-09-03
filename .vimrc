@@ -773,8 +773,13 @@ function! MyHighlights()
     hi VertSplit ctermfg=144 ctermbg=NONE guifg=lightblue guibg=NONE
     hi Visual term=reverse ctermbg=30
     hi CursorLine cterm=NONE ctermbg=235
-    hi StatusLine cterm=bold ctermbg=235 ctermfg=2 gui=bold guibg=black guifg=#00aa00
-    hi StatusLineNC cterm=bold ctermbg=black ctermfg=22 guibg=black guifg=#005500
+    if (&bg == "dark")
+        hi StatusLine cterm=bold ctermbg=235 ctermfg=2 gui=bold guibg=black guifg=#00aa00
+        hi StatusLineNC cterm=bold ctermbg=black ctermfg=22 guibg=black guifg=#005500
+    else
+        hi StatusLine cterm=bold ctermbg=2 ctermfg=235 gui=bold guibg=white guifg=#00aa00
+        hi StatusLineNC cterm=bold ctermbg=white ctermfg=22 guibg=white guifg=#005500
+    endif
     hi ColorColumn ctermbg=237 guibg=#224422
 endfunction
 function! TransparentBackground()
