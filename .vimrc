@@ -897,6 +897,7 @@ command! PyFold call JJPythonFold()
 autocmd FileType haskell call SetTabs(4)
 autocmd FileType haskell setlocal shiftround
 autocmd FileType haskell setlocal nojoinspaces
+autocmd FileType haskell setlocal fdm=marker
 autocmd FileType haskell setlocal foldlevel=0
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 autocmd FileType haskell setlocal cpoptions+=M
