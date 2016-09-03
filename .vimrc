@@ -789,8 +789,11 @@ function! TransparentBackground()
     exec "hi LineNr ctermbg=NONE guibg=" . l:gbg
 endfunction
 
-call MyHighlights()
-call TransparentBackground()
+augroup HightlightInit
+    autocmd!
+    autocmd VimEnter * call MyHighlights()
+    autocmd VimEnter * call TransparentBackground()
+augroup END
 
 " foldtext (from : http://dhruvasagar.com/2013/03/28/vim-better-foldtext) {{{
 set foldtext=NeatFoldText()
