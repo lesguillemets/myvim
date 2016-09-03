@@ -776,11 +776,12 @@ function! MyHighlights()
     if (&bg == "dark")
         hi StatusLine cterm=bold ctermbg=235 ctermfg=2 gui=bold guibg=black guifg=#00aa00
         hi StatusLineNC cterm=bold ctermbg=black ctermfg=22 guibg=black guifg=#005500
+        hi ColorColumn ctermbg=237 guibg=#224422
     else
         hi StatusLine cterm=bold ctermbg=2 ctermfg=235 gui=bold guibg=white guifg=#00aa00
         hi StatusLineNC cterm=bold ctermbg=white ctermfg=22 guibg=white guifg=#005500
+        hi ColorColumn ctermbg=237 guibg=#99ff99
     endif
-    hi ColorColumn ctermbg=237 guibg=#224422
 endfunction
 function! TransparentBackground()
     if (&bg == "dark")
