@@ -771,7 +771,7 @@ set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()
 " I expect colorschemes to override these highlight settings.
 function! MyHighlights()
     hi VertSplit ctermfg=144 ctermbg=NONE guifg=lightblue guibg=NONE
-    hi Visual term=reverse ctermbg=30
+    hi Visual term=reverse ctermbg=30 guibg=#004499
     hi CursorLine cterm=NONE ctermbg=235
     if (&bg == "dark")
         hi StatusLine cterm=bold ctermbg=235 ctermfg=2 gui=bold guibg=black guifg=#00aa00
