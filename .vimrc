@@ -80,12 +80,13 @@ NeoBundleLazy 'ujihisa/neco-ghc', {'autoload' : {'filetypes': ['haskell']}}
     let g:necoghc_enable_detailed_browse = 1
 " NeoBundleLazy 'haskell.vim'
 NeoBundleLazy 'itchyny/vim-haskell-indent', {'autoload' : {'filetypes': ['haskell']}}
-NeoBundleLazy 'dag/vim2hs', {'autoload' : {'filetypes': ['haskell']}}
+NeoBundleLazy 'parsonsmatt/vim2hs', {'autoload' : {'filetypes': ['haskell']}}
     " disable concealing of "enumerations": commatized lists like
     " deriving clauses and LANGUAGE pragmas,
     " otherwise collapsed into a single ellipsis
     let g:haskell_conceal_enumerations=0
     let g:haskell_conceal_wide=0
+    let g:haskell_fold = 0
 " NeoBundleLazy 'travitch/hasksyn'
 NeoBundleLazy 'eagletmt/ghcmod-vim', {'autoload' : {'filetypes': ['haskell']}}
 NeoBundleLazy 'ujihisa/ref-hoogle', {'autoload' : {'filetypes': ['haskell']}}
