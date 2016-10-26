@@ -1,0 +1,497 @@
+plugin:
+
+  Shougo/neocomplete.vim: {}
+
+  thinca/vim-quickrun: {}
+
+  osyo-manga/vim-anzu: {}
+
+  Yggdroot/indentLine: {}
+
+  kien/rainbow_parentheses.vim: {}
+
+  vim-characterize: {}
+
+  tpope/vim-surround: {}
+
+  tpope/vim-repeat: {}
+
+  t9md/vim-quickhl: {}
+
+  cohama/agit.vim:
+    command:
+      - Agit
+      - AgitFile
+
+  nanotech/jellybeans.vim: {}
+
+  ujihisa/neco-ghc:
+    filetype: haskell
+
+  itchyny/vim-haskell-indent:
+    filetype: haskell
+
+  parsonsmatt/vim2hs:
+    filetype: haskell
+
+  eagletmt/ghcmod-vim:
+    filetype: haskell
+
+  ujihisa/ref-hoogle:
+    filetype: haskell
+
+  hynek/vim-python-pep8-indent:
+    filetype: python
+
+  davidhalter/jedi-vim:
+    filetype: python
+
+  tmhedberg/SimpylFold:
+    filetype: python
+
+  thinca/vim-ft-clojure:
+    filetype: clojure
+
+  ujihisa/neoclojure.vim:
+    filetype: clojure
+
+  osyo-manga/vim-monster:
+    filetype: ruby
+
+  othree/html5.vim:
+    filetype:
+      - html
+      - css
+
+  mattn/emmet-vim:
+    filetype:
+      - html
+      - css
+      - markdown
+
+  JulesWang/css.vim:
+    filetype: css
+
+  jelera/vim-javascript-syntax:
+    filetype:
+      - javascript
+      - html
+
+  pangloss/vim-javascript:
+    filetype:
+      - javascript
+      - html
+
+  ternjs/tern_for_vim:
+    filetype: javascript
+
+  Shutnik/jshint2.vim:
+    filetype: javascript
+
+  leafgarland/typescript-vim:
+    filetype: typescript
+
+  Quramy/tsuquyomi:
+    filetype: typescript
+
+  octol/vim-cpp-enhanced-highlight:
+    filetype: cpp
+
+  osyo-manga/vim-marching:
+    filetype: cpp
+
+  jvoorhis/coq.vim: {}
+
+  vim-scripts/CoqIDE:
+    filetype: coq
+
+  lesguillemets/coqtop-vim:
+    command: CoqStart
+    filetype: coq
+
+  lervag/vimtex:
+    filetype:
+      - tex
+      - latex
+      - plaintex
+
+  vim-jp/vim-go-extra:
+    filetype: go
+
+  gabrielelana/vim-markdown:
+    filetype: markdown
+
+  loremipsum:
+    command:
+      - Loremipsum
+      - Loreplace
+
+  scrooloose/nerdtree:
+    command: NERDTree
+
+  deris/columnjump: {}
+
+  tyru/caw.vim: {}
+
+  thinca/vim-ref: {}
+
+  osyo-manga/vim-hideout:
+    command: HideoutOn
+
+  motemen/git-vim: {}
+
+  rhysd/committia.vim: {}
+
+  kana/vim-textobj-user: {}
+
+  kana/vim-textobj-indent: {}
+
+  h1mesuke/textobj-wiw: {}
+
+  rhysd/vim-textobj-word-column: {}
+
+  thinca/vim-textobj-between: {}
+
+  reedes/vim-textobj-quote: {}
+
+  tyru/capture.vim: {}
+
+  lesguillemets/ag.vim: {}
+
+  kshenoy/vim-signature: {}
+
+  thinca/vim-qfreplace: {}
+
+  osyo-manga/vim-watchdogs:
+    command: WatchdogsRun
+
+  osyo-manga/shabadou.vim: {}
+
+  jceb/vim-hier:
+    command:
+      - WatchdogsRun
+      - GhcModCheckAndLintAsync
+
+  easymotion/vim-easymotion: {}
+
+  haya14busa/incsearch.vim: {}
+
+  guns/xterm-color-table.vim: {}
+
+  lilydjwg/colorizer:
+    command:
+      - ColorHighlight
+      - ColorToggle
+    filetype:
+      - css
+      - html
+      - javascript
+      - vim
+
+  reedes/vim-wordy: {}
+
+  reedes/vim-pencil:
+    command:
+      - SoftPencil
+      - HardPencil
+      - TogglePencil
+
+  sjl/gundo.vim: {}
+
+  mattn/benchvimrc-vim:
+    command: BenchVimrc
+
+  junegunn/goyo.vim:
+    command: Goyo
+
+  tyru/open-browser.vim: {}
+
+  mhinz/vim-signify: {}
+
+  rhysd/git-messenger.vim:
+    command:
+      - GitMessengerToggle
+      - GitMessengerBalloonToggle
+
+  h1mesuke/vim-alignta: {}
+
+  lesguillemets/ft-grass.vim: {}
+
+  AndrewRadev/gapply.vim:
+    command: Gapply
+
+  ctrlpvim/ctrlp.vim: {}
+
+  mattn/ctrlp-register: {}
+
+  mattn/ctrlp-mark: {}
+
+  KabbAmine/vullScreen.vim:
+    command: VullScreen
+
+  lesguillemets/rainfall-vim-hs:
+    command: RainfallStart
+
+  deris/vim-duzzle:
+    command: DuzzleStart
+
+  thinca/vim-threes:
+    command: ThreesStart
+
+  Shougo/vimproc: {}
+
+  katono/rogue.vim:
+    command:
+      - Rogue
+      - RogueRestore
+
+  junegunn/seoul256.vim: {}
+
+  thomd/vim-wasabi-colorscheme: {}
+
+  romainl/Apprentice: {}
+
+  reedes/vim-colors-pencil: {}
+
+  Pychimp/vim-luna: {}
+
+  mdlerch/vim-tungsten: {}
+
+  w0ng/vim-hybrid: {}
+
+  kbenzie/vim-fresh: {}
+
+  xero/sourcerer.vim: {}
+
+  KKPMW/moonshine-vim: {}
+
+  JcDelay/vim-frictionless: {}
+
+  freeo/vim-kalisi: {}
+
+  ataraxer/sapphire256.vim: {}
+
+  sk1418/last256: {}
+
+  john2x/flatui.vim: {}
+
+  csexton/spacemanspiff.vim: {}
+
+  atelierbram/vim-colors_atelier-schemes: {}
+
+  cocopon/iceberg.vim: {}
+
+  kiudee/greymeans: {}
+
+  hail2u/h2u_colorscheme: {}
+
+  MaxSt/FlatColor: {}
+
+  vaibhav276/lego-vim-colorscheme: {}
+
+  dbb/vim-gummybears-colorscheme: {}
+
+  TaurusOlson/darkburn.vim: {}
+
+  arnau/teaspoon.vim: {}
+
+  svjunic/RadicalGoodSpeed.vim: {}
+
+  candy.vim: {}
+
+  morhetz/gruvbox: {}
+
+  peaksea: {}
+
+  tylerball/vim-hypertint: {}
+
+  miyakogi/slateblue.vim: {}
+
+  bronzehedwick/impactjs-colorscheme: {}
+
+  beardedprojamz/vim-colors-blayden: {}
+
+  khaki.vim: {}
+
+  tabula.vim: {}
+
+  leo256: {}
+
+  ftzeng/futora: {}
+
+  octol/vombatidae-vim: {}
+
+  xenomachina/vim-holodark: {}
+
+  Risto-Color-Scheme: {}
+
+  rdark-terminal: {}
+
+  Pychimp/vim-sol: {}
+
+  xironix/zarniwoop.vim: {}
+
+  JohnnyMudcrab/vim-mudcrab: {}
+
+  wolf-dog/sceaduhelm.vim: {}
+
+  jordwalke/flatlandia: {}
+
+  romainl/Disciple: {}
+
+  philananin/seastone.vim: {}
+
+  gryftir/gryffin: {}
+
+  chriskempson/base16-vim: {}
+
+  mgutz/vim-colors: {}
+
+  toupeira/vim-desertink: {}
+
+  endel/vim-github-colorscheme: {}
+
+  xoria256.vim: {}
+
+  mne/as_xoria.vim: {}
+
+  hhubbell/vim-hubs: {}
+
+  ChrisKempson/Vim-Tomorrow-Theme: {}
+
+  dstrunk/atom-dark-vim: {}
+
+  twerth/ir_black: {}
+
+  scheakur/vim-scheakur: {}
+
+  AlxHnr/clear_colors: {}
+
+  guns/jellyx.vim: {}
+
+  alem0lars/vim-colorscheme-darcula: {}
+
+  https://bitbucket.org/kb/vim-colorscheme-krxt.git: {}
+
+  fisadev/fisa-vim-colorscheme: {}
+
+  qwelyt/TrippingRobot: {}
+
+  petobens/heraldish: {}
+
+  MichaelMalick/vim-colors-bluedrake: {}
+
+  YorickPeterse/happy_hacking.vim: {}
+
+  mhinz/vim-janah: {}
+
+  crusoexia/vim-dream: {}
+
+  crusoexia/vim-dracula: {}
+
+  micha/vim70style: {}
+
+  CruizeMissile/Revolution.vim: {}
+
+  hellabyte/lichen: {}
+
+  aliou/moriarty.vim: {}
+
+  asafonov/metropolis-vim: {}
+
+  thmsaurel/beargeektheme: {}
+
+  rivayama/twiga.vim: {}
+
+  RyanPattison/ghibli256: {}
+
+  rafcamlet/shadowmoth: {}
+
+  christophermca/meta5: {}
+
+  flaflasun/vim-nightowl: {}
+
+  kh3phr3n/today-theme: {}
+
+  thinkpixellab/flatland: {}
+
+  Dru89/vim-adventurous: {}
+
+  centaurialpha/gabo-vim-colorscheme: {}
+
+  queyenth/oxeded.vim: {}
+
+  NLKNguyen/papercolor-theme: {}
+
+  henrybw/vim-colors-aurora: {}
+
+  lisposter/vim-blackboard: {}
+
+  kristijanhusak/vim-hybrid-material: {}
+
+  mtglsk/mushroom: {}
+
+  MakeNowJust/islenauts.vim: {}
+
+  thecodesmith/vim-colorscheme-codesmith: {}
+
+  idling-mind/vim-color-subtle: {}
+
+  rhysd/vim-color-splatoon: {}
+
+  geoffharcourt/one-dark.vim: {}
+
+  dylanaraps/crayon-theme: {}
+
+  evgenyzinoviev/vim-vendetta: {}
+
+  gilgigilgil/anderson.vim: {}
+
+  iplog/vim-popsicles: {}
+
+  mbrand12/vim-citizen256: {}
+
+  zeis/vim-kolor: {}
+
+  KabbAmine/yowish.vim: {}
+
+  Haron-Prime/Antares: {}
+
+  DrSpatula/vim-buddy: {}
+
+  mdlerch/yttrium.vim: {}
+
+  smemsh/vim-smemsh256: {}
+
+  Donearm/Laederon: {}
+
+  minoue/untitledColor: {}
+
+  AlessandroYorba/Alduin: {}
+
+  bronzdoc/samurai: {}
+
+  rakr/vim-colors-rakr: {}
+
+  baskerville/bubblegum: {}
+
+  AlessandroYorba/Sierra: {}
+
+  benburwell/vim-colorscheme-benji: {}
+
+  taniarascia/new-moon.vim: {}
+
+  chyxwzn/skittles_berry.vim: {}
+
+  tstelzer/welpe.vim: {}
+
+  jacoborus/tender: {}
+
+  jeetsukumaran/vim-nefertiti: {}
+
+  noahfrederick/vim-hemisu: {}
+
+  tyrannicaltoucan/vim-deep-space: {}
+
+  osyo-manga/vim-sound: {}
+
