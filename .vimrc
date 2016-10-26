@@ -352,10 +352,13 @@ NeoBundleLazy 'AndrewRadev/gapply.vim', {'autoload': {'commands': ['Gapply']}}
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
     if executable('files')
-        let g:ctrlp_user_command = 'files -a %s'
+        let g:ctrlp_user_command = 'files -i="^(\\.git|\\.hg|\\.svn|\\.stack-work)$" -a %s '
     endif
     let g:ctrlp_follow_symlinks=2
     let g:ctrlp_switch_buffer='Et'
+    let g:ctrlp_custom_ignore = {}
+    let g:ctrlp_custom_ignore.file = '\v\.(hi|o|out|jsmod|vo|v\.d|glob|pyc)$'
+    let g:ctrlp_custom_ignore.dir = '\v[\/]\.(git|hg|svn|stack-work)$'
     if !exists('g:ctrlp_extensions')
         let g:ctrlp_extensions = []
     endif
@@ -1469,10 +1472,6 @@ augroup IndentLineGroup
 augroup END
 " }}}
 
-" {{{ ctrlP
-let ctrlp_custom_ignore = {}
-let ctrlp_custom_ignore.file = '\v\.(hi|o|out|jsmod|vo|v\.d|glob|pyc)$'
-" }}}
 "_________________________________________
 "
 
