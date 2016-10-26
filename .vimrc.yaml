@@ -29,7 +29,9 @@ plugin:
       let g:neocomplete#sources#omni#input_patterns.javascript = '[[:alpha:]./"''$]\+'
       let g:neocomplete#sources#omni#input_patterns.typescript = '[[:alpha:]./"''$]\+'
       let g:neocomplete#sources#omni#input_patterns.haskell = 'import\s\+.*\|[:alpha:]\.\w*'
-      if !exists('g:neocomplete#keyword_patterns') let g:neocomplete#keyword_patterns = {} endif
+      if !exists('g:neocomplete#keyword_patterns')
+        let g:neocomplete#keyword_patterns = {}
+      endif
       let g:neocomplete#keyword_patterns['default'] = '\h\w*'
     after: |
       " <CR>: close popup and save indent.
