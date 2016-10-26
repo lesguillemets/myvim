@@ -352,7 +352,7 @@ NeoBundleLazy 'AndrewRadev/gapply.vim', {'autoload': {'commands': ['Gapply']}}
 
 NeoBundle 'ctrlpvim/ctrlp.vim'
     if executable('files')
-        let g:ctrlp_user_command = 'files -i="^(\\.git|\\.hg|\\.svn|\\.stack-work)$" -a %s '
+        let g:ctrlp_user_command = 'files -i="^(\\.git|\\.hg|\\.svn|\\.stack-work|\\.cabal-sandbox)$" -a %s '
     endif
     let g:ctrlp_follow_symlinks=2
     let g:ctrlp_switch_buffer='Et'
