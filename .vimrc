@@ -779,7 +779,7 @@ set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()
 function! MyHighlights()
     hi VertSplit ctermfg=144 ctermbg=NONE guifg=lightblue guibg=NONE
     hi Visual term=reverse ctermbg=30 guibg=#004499
-    hi CursorLine cterm=NONE ctermbg=235
+    hi CursorLine  ctermbg=235 guibg=#303030
     if (&bg == "dark")
         hi StatusLine cterm=bold ctermbg=235 ctermfg=2 gui=bold guibg=black guifg=#00aa00
         hi StatusLineNC cterm=bold ctermbg=black ctermfg=22 guibg=black guifg=#005500
