@@ -1,14 +1,161 @@
 plugin:
 
-  Shougo/neocomplete.vim: {}
+  Shougo/neocomplete.vim:
+    before: |
+      " from readme
+      let g:neocomplete#enable_at_startup = 1
+      let g:neocomplete#enable_smart_case = 1
+      let g:neocomplete#auto_completion_start_length = 2
+      let g:neocomplete#sources#syntax#min_keyword_length = 3
+      let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+      " Define dictionary.
+      let g:neocomplete#sources#dictionary#dictionaries = {
+        \ 'default' : '',
+        \ 'vimshell' : $HOME.'/.vimshell_hist',
+        \ 'scheme' : $HOME.'/.gosh_completions',
+        \ 'sh' : $HOME.'/.bash_history'
+        \ }
+      if !exists('g:neocomplete#sources#omni#input_patterns')
+        let g:neocomplete#sources#omni#input_patterns = {}
+      endif
+      if !exists('g:neocomplete#force_omni_input_patterns')
+        let g:neocomplete#force_omni_input_patterns = {}
+      endif
+      let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+      let g:neocomplete#force_omni_input_patterns.haskell = '[A-Z][a-z]*\.\w*\|import.*'
+      let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+      let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+      let g:neocomplete#sources#omni#input_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
+      let g:neocomplete#sources#omni#input_patterns.javascript = '[[:alpha:]./"''$]\+'
+      let g:neocomplete#sources#omni#input_patterns.typescript = '[[:alpha:]./"''$]\+'
+      let g:neocomplete#sources#omni#input_patterns.haskell = 'import\s\+.*\|[:alpha:]\.\w*'
+      if !exists('g:neocomplete#keyword_patterns') let g:neocomplete#keyword_patterns = {} endif
+      let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+    after: |
+      " <CR>: close popup and save indent.
+      inoremap <expr><C-l> neocomplete#complete_common_string()
+      function! s:my_cr_function()
+          return neocomplete#close_popup() . "\<CR>"
+          "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+      endfunction
+      inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+      inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+      " <C-h>, <BS>: close popup and delete backword char.
+      inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+      inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+      inoremap <expr><C-x><C-f> neocomplete#start_manual_complete('file')
 
-  thinca/vim-quickrun: {}
+  thinca/vim-quickrun:
+    before: |
+      let g:quickrun_config = {}
+      let g:quickrun_config["_"] = {"runner":'vimproc',"runner/vimproc/updatetime" : 40, "hook/dots/enable":1}
+      let g:quickrun_config.ox = {'command' : 'autoox.sh'}
+      let g:quickrun_config.st = {'command' : 'gst'}
+      if executable('ikarus')
+          let g:quickrun_config.scheme = {'command' : 'ikarus'}
+      elseif executable('guile')
+          let g:quickrun_config.scheme = {'command' : 'guile'}
+      endif
+      let g:quickrun_config['haskell/cabal'] =
+          \ {'command' : 'cabal', 'cmdopt' : 'exec runghc'}
+      let g:quickrun_config['haskell/stack'] =
+          \ {'command' : 'stack', 'cmdopt' : 'runghc'}
+      let g:quickrun_config.haskell = {'type': 'haskell/stack'}
+      " todo : make local
+      function! TempfileWithAlph()
+          return substitute(tempname(), '/tmp/[^/]\+/\zs\(.*\)\ze$', 'temp\1','g')
+      endfunction
+      let g:quickrun_config.coq =
+          \ {'command' : 'coqc',
+          \ 'hook/sweep/files': ['%S:p:r.glob', '%S:p:r.vo'],
+          \ 'tempfile' :
+          \ "%{TempfileWithAlph() . '.v'}"
+          \ }
+      " http://stackoverflow.com/a/26330527/3026489
+      let g:quickrun_config['prolog/swipl'] ={
+          \ 'command' : 'swipl',
+          \ 'exec' : ['%c -g "consult(%s), main, halt."']
+          \ }
+      let g:quickrun_config.prolog = {'type' : 'prolog/swipl'}
+      let g:quickrun_config.clojure = {'runner': 'neoclojure', 'command': 'dummy',
+            \ 'tempfile'  : '%{tempname()}.clj'}
+    after: |
+      command! Q QuickRun
 
-  osyo-manga/vim-anzu: {}
+  osyo-manga/vim-anzu:
+    after: |
+      nmap n <Plug>(anzu-n-with-echo)zv
+      nmap N <Plug>(anzu-N-with-echo)zv
+      nmap * <Plug>(anzu-star-with-echo)N
+      nmap # <Plug>(anzu-sharp-with-echo)
 
-  Yggdroot/indentLine: {}
 
-  kien/rainbow_parentheses.vim: {}
+  Yggdroot/indentLine:
+    before: |
+      let g:indentLine_showFirstIndentLevel=1
+      let g:indentLine_first_char = '┆'
+          " other candidates : '❯', '║', '⧫',
+      let g:indentLine_char = '⟩'
+          " other candidates : '❭', '║', '⦙'
+      let g:indentLine_color_term=62
+      let g:indentLine_color_gui='#aabbdd'
+      let g:indentLine_fileType=[]
+      let g:indentLine_fileTypeExclude = [
+              \ 'text', 'quickrun', 'help', 'quickfix', 'man',
+              \ 'w3m', 'clojure',
+              \]
+      " This is a dirty workaround.
+      " It seems something is hiding indentLine
+      " when setting ft after opening buffer.
+      " :enew
+      " :set ft=py
+      " (no indent shown)
+      " :IndentLinesToggle
+      " (no indent shown)
+      " :IndentLinesToggle
+      " (indent shown)
+      function! s:setIndentLine()
+          for excludeft in g:indentLine_fileTypeExclude
+              if &ft ==# excludeft
+                  " execute "IndentLinesDisable"
+                  return
+              endif
+          endfor
+          execute "IndentLinesEnable"
+          execute "IndentLinesReset"
+      endfunction
+      augroup IndentLineGroup
+          autocmd!
+          autocmd Filetype * call s:setIndentLine()
+      augroup END
+
+  kien/rainbow_parentheses.vim:
+    before: |
+      let g:rainbow_off_fts = [
+          \ "css", "text", "html", "javascript", "quickrun", "haskell", "lua",
+          \ "qf", "agit", "agit_diff", "agit_stat", "diff", "gitcommit", "coq",
+          \ "clojure"
+          \ ]
+    after: |
+      function! Config_Rainbow()
+          if (index(g:rainbow_off_fts, &l:filetype) == -1)
+              call rainbow_parentheses#load(0)
+              call rainbow_parentheses#load(1)
+              call rainbow_parentheses#load(2)
+          endif
+      endfunction
+
+      function! Load_Rainbow()
+          if (index(g:rainbow_off_fts, &l:filetype) == -1)
+              call rainbow_parentheses#activate()
+          endif
+      endfunction
+
+      augroup TastetheRainbow
+          autocmd!
+          autocmd Syntax * call Config_Rainbow()
+          autocmd VimEnter,BufRead,BufWinEnter,BufNewFile * call Load_Rainbow()
+      augroup END
 
   vim-characterize: {}
 
@@ -16,7 +163,13 @@ plugin:
 
   tpope/vim-repeat: {}
 
-  t9md/vim-quickhl: {}
+  t9md/vim-quickhl:
+    after:
+      nmap <Space>m <Plug>(quickhl-manual-this)
+      xmap <Space>m <Plug>(quickhl-manual-this)
+      nmap <Space>M <Plug>(quickhl-manual-reset)
+      xmap <Space>M <Plug>(quickhl-manual-reset)
+      nmap <Space>J <Plug>(quickhl-cword-toggle)
 
   cohama/agit.vim:
     command:
@@ -24,6 +177,8 @@ plugin:
       - AgitFile
 
   nanotech/jellybeans.vim: {}
+
+
 
   ujihisa/neco-ghc:
     filetype: haskell
@@ -33,21 +188,50 @@ plugin:
 
   parsonsmatt/vim2hs:
     filetype: haskell
+    before: |
+      let g:haskell_conceal_enumerations=0
+      let g:haskell_conceal_wide=0
+      let g:haskell_fold = 0
 
   eagletmt/ghcmod-vim:
     filetype: haskell
-
+    dependon: vimproc
+    after: |
+      nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
+      vnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
+      nnoremap <buffer> <Space>i :<C-u>GhcModInfoPreview<CR>
+      vnoremap <buffer> <Space>i :<C-u>GhcModInfoPreview<CR>
+      nnoremap <buffer><silent> <Space>T :<C-u>GhcModTypeClear<CR>
+      nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
   ujihisa/ref-hoogle:
     filetype: haskell
+
+
 
   hynek/vim-python-pep8-indent:
     filetype: python
 
   davidhalter/jedi-vim:
     filetype: python
+    before: |
+      let g:jedi#auto_initialization = 1
+      let g:jedi#popup_on_dot = 0
+      let g:jedi#show_call_signatures = 0
+      let g:jedi#completions_enabled = 1
+      let g:jedi#show_call_signatures = 0
+      augroup jedigroup
+          autocmd!
+          autocmd FileType python let b:did_ftplugin = 1
+      augroup END
+      let g:jedi#auto_vim_configuration=0
+      let g:jedi#rename_command = ""
+      " <K> conflicts with vim-ref.
+      let g:jedi#documentation_command = "<Leader>K"
+      let g:jedi#force_py_version = 3
 
   tmhedberg/SimpylFold:
     filetype: python
+
 
   thinca/vim-ft-clojure:
     filetype: clojure
@@ -64,6 +248,15 @@ plugin:
       - css
 
   mattn/emmet-vim:
+    before: |
+      let g:user_emmet_settings = {
+      \  'markdown' : {
+      \      'indentation' : '  ',
+      \      'snippets' : {
+      \          'syn' : "{% highlight | %}\n|\n{% endhighlight %}",
+      \       },
+      \   },
+      \ }
     filetype:
       - html
       - css
@@ -93,12 +286,18 @@ plugin:
 
   Quramy/tsuquyomi:
     filetype: typescript
+    before: |
+      let g:tsuquyomi_disable_quickfix=1
 
   octol/vim-cpp-enhanced-highlight:
     filetype: cpp
 
   osyo-manga/vim-marching:
     filetype: cpp
+    before: |
+      let g:marching_enable_neocomplete = 1
+      let g:marching#clang_command#options = { "cpp" : "-std=gnu++1y" }
+
 
   jvoorhis/coq.vim: {}
 
@@ -120,6 +319,9 @@ plugin:
 
   gabrielelana/vim-markdown:
     filetype: markdown
+    before: |
+      let g:markdown_include_jekyll_support = 1
+      let g:markdown_enable_mappings = 0
 
   loremipsum:
     command:
@@ -128,55 +330,140 @@ plugin:
 
   scrooloose/nerdtree:
     command: NERDTree
+    before: |
+      let g:NERDTreeShowHidden=1
 
-  deris/columnjump: {}
+  deris/columnjump:
+    after: |
+      nmap <C-k> <Plug>(columnjump-backward)
+      nmap <C-j> <Plug>(columnjump-forward)
 
-  tyru/caw.vim: {}
+  tyru/caw.vim:
+    after: |
+      nmap <Leader>c <Plug>(caw:zeropos:toggle)
+      vmap <Leader>c <Plug>(caw:zeropos:toggle)
 
-  thinca/vim-ref: {}
+  thinca/vim-ref:
+    before: |
+      let g:ref_pydoc_cmd = "pydoc3"
+      if !exists("g:ref_detect_filetype")
+          let g:ref_detect_filetype = {}
+      endif
+      let g:ref_detect_filetype.sh = "man"
 
   osyo-manga/vim-hideout:
     command: HideoutOn
 
-  motemen/git-vim: {}
+  motemen/git-vim:
+    before: |
+      let g:git_no_map_default=1
 
-  rhysd/committia.vim: {}
+  rhysd/committia.vim:
+    before: |
+      let g:committia_hooks = {}
+      let g:committia_min_window_width = 100
+      function! g:committia_hooks.edit_open(e)
+          setlocal spell
+      endfunction
+      function! g:committia_hooks.diff_open(e)
+          setlocal nofoldenable
+      endfunction
 
   kana/vim-textobj-user: {}
 
-  kana/vim-textobj-indent: {}
+  kana/vim-textobj-indent:
+    dependon: vim-textobj-user
 
-  h1mesuke/textobj-wiw: {}
+  h1mesuke/textobj-wiw:
+    dependon: vim-textobj-user
 
-  rhysd/vim-textobj-word-column: {}
+  rhysd/vim-textobj-word-column:
+    dependon: vim-textobj-user
 
-  thinca/vim-textobj-between: {}
+  thinca/vim-textobj-between:
+    dependon: vim-textobj-user
+    before: |
+      let g:textobj_between_no_default_key_mappings=1
+        xmap ab <Plug>(textobj-between-a)
+        omap ab <Plug>(textobj-between-a)
+        xmap ib <Plug>(textobj-between-i)
+        omap ib <Plug>(textobj-between-i)
+    after : |
 
-  reedes/vim-textobj-quote: {}
+  reedes/vim-textobj-quote:
+    dependon: vim-textobj-user
 
-  tyru/capture.vim: {}
+  tyru/capture.vim:
+    command: Capture
 
-  lesguillemets/ag.vim: {}
+  rking/ag.vim:
+    command: Ag
 
   kshenoy/vim-signature: {}
 
   thinca/vim-qfreplace: {}
+  # http://blog.supermomonga.com/articles/vim/qfreplace-benri.html
 
   osyo-manga/vim-watchdogs:
+    dependon:
+      - quickrun
+      - shabadou
     command: WatchdogsRun
+    before: |
+      augroup WatchDogs
+        autocmd FileType c,cpp,vim,python,ruby,perl,sh,go,typescript nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
+      augroup END
+    after: |
+      call quickrun#module#register(shabadou#make_quickrun_hook_anim( 'dots', ['.','..','...','....','.....'], 10,),1)
+      let g:quickrun_config["watchdogs_checker/_"] = {"runner/vimproc/updatetime" : 40, "hook/dots/enable":1,
+      \ "hook/echo/enable":1, "hook/echo/output_success": "> No Errors Found."}
+      let g:quickrun_config["watchdogs_checker/pyflakes3"] = {"command": "pyflakes3", "exec" : '%c %o %s:p', "errorformat": '%f:%l:%m'}
+      let g:quickrun_config["python/watchdogs_checker"] = { "type" : "watchdogs_checker/pyflakes3" }
+      let g:quickrun_config["watchdogs_checker/shellcheck"] = {"command" : "shellcheck", "cmdopt" : "-f gcc"}
+      let g:quickrun_config["sh/watchdogs_checker"] = {"type" : "watchdogs_checker/shellcheck"}
+      call watchdogs#setup(g:quickrun_config)
 
-  osyo-manga/shabadou.vim: {}
+
+  osyo-manga/shabadou.vim:
+    loadbefore: watchdogs
 
   jceb/vim-hier:
     command:
       - WatchdogsRun
       - GhcModCheckAndLintAsync
 
-  easymotion/vim-easymotion: {}
+  easymotion/vim-easymotion:
+    before: |
+      let g:EasyMotion_smartcase = 1
+      let g:EasyMotion_startofline = 0
+    after: |
+      nmap s <Plug>(easymotion-s2)
+      vmap s <Plug>(easymotion-s2)
+      omap <Leader>s <Plug>(easymotion-s2)
+      map <Leader>j <Plug>(easymotion-j)
+      map <Leader>k <Plug>(easymotion-k)
+      map <Leader>h <Plug>(easymotion-linebackward)
+      map <Leader>l <Plug>(easymotion-lineforward)
+      map <Space>j <Plug>(easymotion-j)
+      map <Space>k <Plug>(easymotion-k)
+      map <Space>h <Plug>(easymotion-linebackward)
+      map <Space>l <Plug>(easymotion-lineforward)
+      map <Leader>w <Plug>(easymotion-bd-wl)
+      map <Leader>e <Plug>(easymotion-bd-el)
+      augroup VemSettings
+          autocmd!
+          autocmd ColorScheme * hi EasyMotionTargetMine cterm=bold ctermfg=blue gui=bold guifg=#0044ff
+      augroup END
+      hi link EasyMotionTarget EasyMotionTargetMine
 
-  haya14busa/incsearch.vim: {}
+  haya14busa/incsearch.vim:
+    after: |
+      map / <Plug>(incsearch-forward)
+      map ? <Plug>(incsearch-backward)
+      map g/ <Plug>(incsearch-stay)
 
-  guns/xterm-color-table.vim: {}
+  guns/xterm-color-table.vim:
+    command: XtermColorTable
 
   lilydjwg/colorizer:
     command:
@@ -188,6 +475,11 @@ plugin:
       - javascript
       - vim
 
+  lyokha/vim-publish-helper:
+    command:
+      - MakeHtmlCodeHighlight
+      - MakeTexCodeHighlight
+
   reedes/vim-wordy: {}
 
   reedes/vim-pencil:
@@ -196,7 +488,11 @@ plugin:
       - HardPencil
       - TogglePencil
 
-  sjl/gundo.vim: {}
+  sjl/gundo.vim:
+    before: |
+      let g:gundo_prefer_python3 = 1
+    after: |
+      nnoremap <silent> <Space>u :GundoToggle<CR>
 
   mattn/benchvimrc-vim:
     command: BenchVimrc
@@ -204,7 +500,10 @@ plugin:
   junegunn/goyo.vim:
     command: Goyo
 
-  tyru/open-browser.vim: {}
+  tyru/open-browser.vim:
+    after:
+      nmap <leader>b <Plug>(openbrowser-smart-search)
+      vmap <leader>b <Plug>(openbrowser-smart-search)
 
   mhinz/vim-signify: {}
 
@@ -220,11 +519,32 @@ plugin:
   AndrewRadev/gapply.vim:
     command: Gapply
 
-  ctrlpvim/ctrlp.vim: {}
+  ctrlpvim/ctrlp.vim:
+    before: |
+      if executable('files')
+          let g:ctrlp_user_command = 'files -i="^(\\.git|\\.hg|\\.svn|\\.stack-work|\\.cabal-sandbox)$" -a %s '
+      endif
+      let g:ctrlp_follow_symlinks=2
+      let g:ctrlp_switch_buffer='Et'
+      let g:ctrlp_custom_ignore = {}
+      let g:ctrlp_custom_ignore.file = '\v\.(hi|o|out|jsmod|vo|v\.d|glob|pyc)$'
+      let g:ctrlp_custom_ignore.dir = '\v[\/]\.(git|hg|svn|stack-work)$'
+      if !exists('g:ctrlp_extensions')
+          let g:ctrlp_extensions = []
+      endif
 
-  mattn/ctrlp-register: {}
+  mattn/ctrlp-register:
+    dependon: ctrlp.vim
+    before: |
+      let g:ctrlp_extensions+=['register']
+    after: |
+      nnoremap <Leader>r :<C-u>CtrlPRegister<CR>
 
-  mattn/ctrlp-mark: {}
+  mattn/ctrlp-mark:
+    before: |
+      let g:ctrlp_extensions+=['mark']
+    after: |
+      nnoremap <Leader>m :<C-u>CtrlPMark<CR>
 
   KabbAmine/vullScreen.vim:
     command: VullScreen
@@ -238,7 +558,12 @@ plugin:
   thinca/vim-threes:
     command: ThreesStart
 
-  Shougo/vimproc: {}
+  Shougo/vimproc:
+    build: make
+    function: vimproc
+    loadbefore:
+      - ghcmod
+      - quickrun
 
   katono/rogue.vim:
     command:
@@ -257,7 +582,9 @@ plugin:
 
   mdlerch/vim-tungsten: {}
 
-  w0ng/vim-hybrid: {}
+  w0ng/vim-hybrid:
+    after: |
+      colorscheme hybrid
 
   kbenzie/vim-fresh: {}
 
@@ -269,229 +596,366 @@ plugin:
 
   freeo/vim-kalisi: {}
 
-  ataraxer/sapphire256.vim: {}
+  ataraxer/sapphire256.vim:
+    command: LoadColors
 
-  sk1418/last256: {}
+  sk1418/last256:
+    command: LoadColors
 
-  john2x/flatui.vim: {}
+  john2x/flatui.vim:
+    command: LoadColors
 
-  csexton/spacemanspiff.vim: {}
+  csexton/spacemanspiff.vim:
+    command: LoadColors
 
-  atelierbram/vim-colors_atelier-schemes: {}
+  atelierbram/vim-colors_atelier-schemes:
+    command: LoadColors
 
-  cocopon/iceberg.vim: {}
+  cocopon/iceberg.vim:
+    command: LoadColors
 
-  kiudee/greymeans: {}
+  kiudee/greymeans:
+    command: LoadColors
 
-  hail2u/h2u_colorscheme: {}
+  hail2u/h2u_colorscheme:
+    command: LoadColors
 
-  MaxSt/FlatColor: {}
+  MaxSt/FlatColor:
+    command: LoadColors
 
-  vaibhav276/lego-vim-colorscheme: {}
+  vaibhav276/lego-vim-colorscheme:
+    command: LoadColors
 
-  dbb/vim-gummybears-colorscheme: {}
+  dbb/vim-gummybears-colorscheme:
+    command: LoadColors
 
-  TaurusOlson/darkburn.vim: {}
+  TaurusOlson/darkburn.vim:
+    command: LoadColors
 
-  arnau/teaspoon.vim: {}
+  arnau/teaspoon.vim:
+    command: LoadColors
 
-  svjunic/RadicalGoodSpeed.vim: {}
+  svjunic/RadicalGoodSpeed.vim:
+    command: LoadColors
 
-  candy.vim: {}
+  candy.vim:
+    command: LoadColors
 
-  morhetz/gruvbox: {}
+  morhetz/gruvbox:
+    command: LoadColors
 
-  peaksea: {}
+  peaksea:
+    command: LoadColors
 
-  tylerball/vim-hypertint: {}
+  tylerball/vim-hypertint:
+    command: LoadColors
 
-  miyakogi/slateblue.vim: {}
+  miyakogi/slateblue.vim:
+    command: LoadColors
 
-  bronzehedwick/impactjs-colorscheme: {}
+  bronzehedwick/impactjs-colorscheme:
+    command: LoadColors
 
-  beardedprojamz/vim-colors-blayden: {}
+  beardedprojamz/vim-colors-blayden:
+    command: LoadColors
 
-  khaki.vim: {}
+  khaki.vim:
+    command: LoadColors
 
-  tabula.vim: {}
+  tabula.vim:
+    command: LoadColors
 
-  leo256: {}
+  leo256:
+    command: LoadColors
 
-  ftzeng/futora: {}
+  ftzeng/futora:
+    command: LoadColors
 
-  octol/vombatidae-vim: {}
+  octol/vombatidae-vim:
+    command: LoadColors
 
-  xenomachina/vim-holodark: {}
+  xenomachina/vim-holodark:
+    command: LoadColors
 
-  Risto-Color-Scheme: {}
+  Risto-Color-Scheme:
+    command: LoadColors
 
-  rdark-terminal: {}
+  rdark-terminal:
+    command: LoadColors
 
-  Pychimp/vim-sol: {}
+  Pychimp/vim-sol:
+    command: LoadColors
 
-  xironix/zarniwoop.vim: {}
+  xironix/zarniwoop.vim:
+    command: LoadColors
 
-  JohnnyMudcrab/vim-mudcrab: {}
+  JohnnyMudcrab/vim-mudcrab:
+    command: LoadColors
 
-  wolf-dog/sceaduhelm.vim: {}
+  wolf-dog/sceaduhelm.vim:
+    command: LoadColors
 
-  jordwalke/flatlandia: {}
+  jordwalke/flatlandia:
+    command: LoadColors
 
-  romainl/Disciple: {}
+  romainl/Disciple:
+    command: LoadColors
 
-  philananin/seastone.vim: {}
+  philananin/seastone.vim:
+    command: LoadColors
 
-  gryftir/gryffin: {}
+  gryftir/gryffin:
+    command: LoadColors
 
-  chriskempson/base16-vim: {}
+  chriskempson/base16-vim:
+    command: LoadColors
 
-  mgutz/vim-colors: {}
+  mgutz/vim-colors:
+    command: LoadColors
 
-  toupeira/vim-desertink: {}
+  toupeira/vim-desertink:
+    command: LoadColors
 
-  endel/vim-github-colorscheme: {}
+  endel/vim-github-colorscheme:
+    command: LoadColors
 
-  xoria256.vim: {}
+  xoria256.vim:
+    command: LoadColors
 
-  mne/as_xoria.vim: {}
+  mne/as_xoria.vim:
+    command: LoadColors
 
-  hhubbell/vim-hubs: {}
+  hhubbell/vim-hubs:
+    command: LoadColors
 
-  ChrisKempson/Vim-Tomorrow-Theme: {}
+  ChrisKempson/Vim-Tomorrow-Theme:
+    command: LoadColors
 
-  dstrunk/atom-dark-vim: {}
+  dstrunk/atom-dark-vim:
+    command: LoadColors
 
-  twerth/ir_black: {}
+  twerth/ir_black:
+    command: LoadColors
 
-  scheakur/vim-scheakur: {}
+  scheakur/vim-scheakur:
+    command: LoadColors
 
-  AlxHnr/clear_colors: {}
+  AlxHnr/clear_colors:
+    command: LoadColors
 
-  guns/jellyx.vim: {}
+  guns/jellyx.vim:
+    command: LoadColors
 
-  alem0lars/vim-colorscheme-darcula: {}
+  alem0lars/vim-colorscheme-darcula:
+    command: LoadColors
 
-  https://bitbucket.org/kb/vim-colorscheme-krxt.git: {}
+  https://bitbucket.org/kb/vim-colorscheme-krxt.git:
+    command: LoadColors
 
-  fisadev/fisa-vim-colorscheme: {}
+  fisadev/fisa-vim-colorscheme:
+    command: LoadColors
 
-  qwelyt/TrippingRobot: {}
+  qwelyt/TrippingRobot:
+    command: LoadColors
 
-  petobens/heraldish: {}
+  petobens/heraldish:
+    command: LoadColors
 
-  MichaelMalick/vim-colors-bluedrake: {}
+  MichaelMalick/vim-colors-bluedrake:
+    command: LoadColors
 
-  YorickPeterse/happy_hacking.vim: {}
+  YorickPeterse/happy_hacking.vim:
+    command: LoadColors
 
-  mhinz/vim-janah: {}
+  mhinz/vim-janah:
+    command: LoadColors
 
-  crusoexia/vim-dream: {}
+  crusoexia/vim-dream:
+    command: LoadColors
 
-  crusoexia/vim-dracula: {}
+  crusoexia/vim-dracula:
+    command: LoadColors
 
-  micha/vim70style: {}
+  micha/vim70style:
+    command: LoadColors
 
-  CruizeMissile/Revolution.vim: {}
+  CruizeMissile/Revolution.vim:
+    command: LoadColors
 
-  hellabyte/lichen: {}
+  hellabyte/lichen:
+    command: LoadColors
 
-  aliou/moriarty.vim: {}
+  aliou/moriarty.vim:
+    command: LoadColors
 
-  asafonov/metropolis-vim: {}
+  asafonov/metropolis-vim:
+    command: LoadColors
 
-  thmsaurel/beargeektheme: {}
+  thmsaurel/beargeektheme:
+    command: LoadColors
 
-  rivayama/twiga.vim: {}
+  rivayama/twiga.vim:
+    command: LoadColors
 
-  RyanPattison/ghibli256: {}
+  RyanPattison/ghibli256:
+    command: LoadColors
 
-  rafcamlet/shadowmoth: {}
+  rafcamlet/shadowmoth:
+    command: LoadColors
 
-  christophermca/meta5: {}
+  christophermca/meta5:
+    command: LoadColors
 
-  flaflasun/vim-nightowl: {}
+  flaflasun/vim-nightowl:
+    command: LoadColors
 
-  kh3phr3n/today-theme: {}
+  kh3phr3n/today-theme:
+    command: LoadColors
 
-  thinkpixellab/flatland: {}
+  thinkpixellab/flatland:
+    command: LoadColors
 
-  Dru89/vim-adventurous: {}
+  Dru89/vim-adventurous:
+    command: LoadColors
 
-  centaurialpha/gabo-vim-colorscheme: {}
+  centaurialpha/gabo-vim-colorscheme:
+    command: LoadColors
 
-  queyenth/oxeded.vim: {}
+  queyenth/oxeded.vim:
+    command: LoadColors
 
-  NLKNguyen/papercolor-theme: {}
+  NLKNguyen/papercolor-theme:
+    command: LoadColors
 
-  henrybw/vim-colors-aurora: {}
+  henrybw/vim-colors-aurora:
+    command: LoadColors
 
-  lisposter/vim-blackboard: {}
+  lisposter/vim-blackboard:
+    command: LoadColors
 
-  kristijanhusak/vim-hybrid-material: {}
+  kristijanhusak/vim-hybrid-material:
+    command: LoadColors
 
-  mtglsk/mushroom: {}
+  mtglsk/mushroom:
+    command: LoadColors
 
-  MakeNowJust/islenauts.vim: {}
+  MakeNowJust/islenauts.vim:
+    command: LoadColors
 
-  thecodesmith/vim-colorscheme-codesmith: {}
+  thecodesmith/vim-colorscheme-codesmith:
+    command: LoadColors
 
-  idling-mind/vim-color-subtle: {}
+  idling-mind/vim-color-subtle:
+    command: LoadColors
 
-  rhysd/vim-color-splatoon: {}
+  rhysd/vim-color-splatoon:
+    command: LoadColors
 
-  geoffharcourt/one-dark.vim: {}
+  geoffharcourt/one-dark.vim:
+    command: LoadColors
 
-  dylanaraps/crayon-theme: {}
+  dylanaraps/crayon-theme:
+    command: LoadColors
 
-  evgenyzinoviev/vim-vendetta: {}
+  evgenyzinoviev/vim-vendetta:
+    command: LoadColors
 
-  gilgigilgil/anderson.vim: {}
+  gilgigilgil/anderson.vim:
+    command: LoadColors
 
-  iplog/vim-popsicles: {}
+  iplog/vim-popsicles:
+    command: LoadColors
 
-  mbrand12/vim-citizen256: {}
+  mbrand12/vim-citizen256:
+    command: LoadColors
 
-  zeis/vim-kolor: {}
+  zeis/vim-kolor:
+    command: LoadColors
 
-  KabbAmine/yowish.vim: {}
+  KabbAmine/yowish.vim:
+    command: LoadColors
 
-  Haron-Prime/Antares: {}
+  Haron-Prime/Antares:
+    command: LoadColors
 
-  DrSpatula/vim-buddy: {}
+  DrSpatula/vim-buddy:
+    command: LoadColors
 
-  mdlerch/yttrium.vim: {}
+  mdlerch/yttrium.vim:
+    command: LoadColors
 
-  smemsh/vim-smemsh256: {}
+  smemsh/vim-smemsh256:
+    command: LoadColors
 
-  Donearm/Laederon: {}
+  Donearm/Laederon:
+    command: LoadColors
 
-  minoue/untitledColor: {}
+  minoue/untitledColor:
+    command: LoadColors
 
-  AlessandroYorba/Alduin: {}
+  AlessandroYorba/Alduin:
+    command: LoadColors
 
-  bronzdoc/samurai: {}
+  bronzdoc/samurai:
+    command: LoadColors
 
-  rakr/vim-colors-rakr: {}
+  rakr/vim-colors-rakr:
+    command: LoadColors
 
-  baskerville/bubblegum: {}
+  baskerville/bubblegum:
+    command: LoadColors
 
-  AlessandroYorba/Sierra: {}
+  AlessandroYorba/Sierra:
+    command: LoadColors
 
-  benburwell/vim-colorscheme-benji: {}
+  benburwell/vim-colorscheme-benji:
+    command: LoadColors
 
-  taniarascia/new-moon.vim: {}
+  taniarascia/new-moon.vim:
+    command: LoadColors
 
-  chyxwzn/skittles_berry.vim: {}
+  chyxwzn/skittles_berry.vim:
+    command: LoadColors
 
-  tstelzer/welpe.vim: {}
+  tstelzer/welpe.vim:
+    command: LoadColors
 
-  jacoborus/tender: {}
+  jacoborus/tender:
+    command: LoadColors
 
-  jeetsukumaran/vim-nefertiti: {}
+  jeetsukumaran/vim-nefertiti:
+    command: LoadColors
 
-  noahfrederick/vim-hemisu: {}
+  noahfrederick/vim-hemisu:
+    command: LoadColors
 
-  tyrannicaltoucan/vim-deep-space: {}
+  tyrannicaltoucan/vim-deep-space:
+    command: LoadColors
 
   osyo-manga/vim-sound: {}
+
+
+filetype:
+  clojure: |
+    setlocal omnifunc=neoclojure#complete#omni_auto
+  haskell: |
+    setlocal omnifunc=necoghc#omnifunc
+  python: |
+    setlocal omnifunc=jedi#completions
+  text: |
+    NeoCompleteLock
+  quickrun: |
+    NeoCompleteLock
+  help: |
+    NeoCompleteLock
+  css: |
+    setlocal omnifunc=csscomplete#CompleteCSS
+  html: |
+    setlocal omnifunc=htmlcomplete#CompleteTags
+  markdown: |
+    setlocal omnifunc=htmlcomplete#CompleteTags
+  javascript: |
+    setlocal omnifunc=tern#Complete
+  xml: |
+    setlocal omnifunc=xmlcomplete#CompleteTags
 
