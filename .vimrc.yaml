@@ -159,7 +159,7 @@ plugin:
           autocmd VimEnter,BufRead,BufWinEnter,BufNewFile * call Load_Rainbow()
       augroup END
 
-  vim-characterize: {}
+  tpope/vim-characterize: {}
 
   tpope/vim-surround: {}
 
