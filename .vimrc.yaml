@@ -411,7 +411,7 @@ plugin:
       - quickrun
       - shabadou
     command: WatchdogsRun
-    before: |
+    script: |
       augroup WatchDogs
         autocmd FileType c,cpp,vim,python,ruby,perl,sh,go,typescript nnoremap <buffer> <Space>q :<C-u>WatchdogsRun<CR>
       augroup END
