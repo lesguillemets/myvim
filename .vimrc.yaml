@@ -238,12 +238,12 @@ plugin:
     filetype: haskell
     dependon: vimproc
     after: |
-      nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
-      vnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
-      nnoremap <buffer> <Space>i :<C-u>GhcModInfoPreview<CR>
-      vnoremap <buffer> <Space>i :<C-u>GhcModInfoPreview<CR>
-      nnoremap <buffer><silent> <Space>T :<C-u>GhcModTypeClear<CR>
-      nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
+      autocmd filetype haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
+      autocmd filetype haskell vnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
+      autocmd filetype haskell nnoremap <buffer> <Space>i :<C-u>GhcModInfoPreview<CR>
+      autocmd filetype haskell vnoremap <buffer> <Space>i :<C-u>GhcModInfoPreview<CR>
+      autocmd filetype haskell nnoremap <buffer><silent> <Space>T :<C-u>GhcModTypeClear<CR>
+      autocmd filetype haskell nnoremap <buffer> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
   ujihisa/ref-hoogle:
     filetype: haskell
 
