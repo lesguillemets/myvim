@@ -418,6 +418,9 @@ plugin:
 
   h1mesuke/textobj-wiw:
     dependon: vim-textobj-user
+    mapping:
+      - a,w
+      - i,w
 
   rhysd/vim-textobj-word-column:
     dependon: vim-textobj-user
