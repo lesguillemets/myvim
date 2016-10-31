@@ -646,6 +646,9 @@ plugin:
 
   igungor/schellar : {}
 
+  jacoborus/tender.vim:
+    command: LoadColors
+
   ataraxer/sapphire256.vim:
     command: LoadColors
 
