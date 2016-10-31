@@ -644,6 +644,8 @@ plugin:
 
   freeo/vim-kalisi: {}
 
+  igungor/schellar : {}
+
   ataraxer/sapphire256.vim:
     command: LoadColors
 
