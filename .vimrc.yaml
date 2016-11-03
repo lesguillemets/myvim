@@ -377,8 +377,8 @@ plugin:
 
   deris/columnjump:
     after: |
-      nmap <C-k> <Plug>(columnjump-backward)
-      nmap <C-j> <Plug>(columnjump-forward)
+      nmap <C-k> ^<Plug>(columnjump-backward)
+      nmap <C-j> ^<Plug>(columnjump-forward)
 
   tyru/caw.vim:
     after: |
