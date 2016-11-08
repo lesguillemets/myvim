@@ -553,7 +553,9 @@ plugin:
       nmap <leader>b <Plug>(openbrowser-smart-search)
       vmap <leader>b <Plug>(openbrowser-smart-search)
 
-  mhinz/vim-signify: {}
+  mhinz/vim-signify:
+    before: |
+      let g:signify_vcs_list = ['git', 'hg']
 
   rhysd/git-messenger.vim:
     command:
