@@ -166,7 +166,7 @@ plugin:
   tpope/vim-repeat: {}
 
   t9md/vim-quickhl:
-    after:
+    after: |
       nmap <Space>m <Plug>(quickhl-manual-this)
       xmap <Space>m <Plug>(quickhl-manual-this)
       nmap <Space>M <Plug>(quickhl-manual-reset)
