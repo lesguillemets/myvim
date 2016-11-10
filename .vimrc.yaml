@@ -223,6 +223,8 @@ plugin:
 
   ujihisa/neco-ghc:
     filetype: haskell
+    before: |
+      let g:necoghc_enable_detailed_browse=1
 
   itchyny/vim-haskell-indent:
     filetype: haskell
