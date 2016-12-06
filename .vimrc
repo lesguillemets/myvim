@@ -248,6 +248,7 @@ augroup myappearance
     autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=darkgrey
     autocmd ColorScheme * hi ZenkakuSpace ctermbg=white guibg=white
     autocmd VimEnter,WinEnter,Bufread * call s:syntax_additional()
+    autocmd VimEnter * hi MatchParen ctermfg=7 ctermbg=240 guifg=#aaaaaa guibg=#000000
 augroup END
 
 let g:jellybeans_background_color_256 = 'NONE'
@@ -261,7 +262,6 @@ let g:jellybeans_overrides = {
     \}
 " colorscheme jellybeans
 colorscheme hybrid
-hi MatchParen ctermfg=7 ctermbg=240 guifg=#bb33bb guibg=#444444
 hi Search term=reverse cterm=underline
 hi SpecialKey term=bold ctermfg=237 ctermbg=234 guifg=#444444 guibg=#1c1c1c
 
