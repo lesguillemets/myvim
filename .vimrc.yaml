@@ -290,6 +290,7 @@ plugin:
     filetype: rust
     before: |
       let g:racer_cmd="racer"
+      let g:racer_experimental_completer = 1
 
   osyo-manga/vim-monster:
     filetype: ruby
