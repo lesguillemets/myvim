@@ -377,6 +377,8 @@ autocmd FileType clojure setlocal colorcolumn=79
 autocmd BufRead *.cljs set makeprg=lein\ cljsbuild\ once
 " }}}
 
+autocmd FileType rust inoremap <buffer> <C-l>  <Space>-> 
+
 " ruby {{{2
 autocmd FileType ruby call SetTabs(2)
 " }}}
