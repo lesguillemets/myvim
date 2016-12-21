@@ -84,6 +84,16 @@ plugin:
     after: |
       command! Q QuickRun
 
+  cohama/lexima.vim:
+    filetype:
+      - c
+      - cpp
+      - clojure
+      - javascript
+      - rust
+      - tex
+      - typescript
+
   osyo-manga/vim-anzu:
     after: |
       nmap n <Plug>(anzu-n-with-echo)zv
