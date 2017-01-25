@@ -601,8 +601,6 @@ plugin:
 
   h1mesuke/vim-alignta: {}
 
-  lesguillemets/ft-grass.vim: {}
-
   AndrewRadev/gapply.vim:
     command: Gapply
 
@@ -748,9 +746,6 @@ plugin:
   bronzehedwick/impactjs-colorscheme:
     command: LoadColors
 
-  beardedprojamz/vim-colors-blayden:
-    command: LoadColors
-
   khaki.vim:
     command: LoadColors
 
@@ -823,9 +818,6 @@ plugin:
   ChrisKempson/Vim-Tomorrow-Theme:
     command: LoadColors
 
-  dstrunk/atom-dark-vim:
-    command: LoadColors
-
   twerth/ir_black:
     command: LoadColors
 
@@ -839,9 +831,6 @@ plugin:
     command: LoadColors
 
   alem0lars/vim-colorscheme-darcula:
-    command: LoadColors
-
-  https://bitbucket.org/kb/vim-colorscheme-krxt.git:
     command: LoadColors
 
   fisadev/fisa-vim-colorscheme:
@@ -880,9 +869,6 @@ plugin:
   aliou/moriarty.vim:
     command: LoadColors
 
-  asafonov/metropolis-vim:
-    command: LoadColors
-
   thmsaurel/beargeektheme:
     command: LoadColors
 
@@ -908,9 +894,6 @@ plugin:
     command: LoadColors
 
   Dru89/vim-adventurous:
-    command: LoadColors
-
-  centaurialpha/gabo-vim-colorscheme:
     command: LoadColors
 
   queyenth/oxeded.vim:
@@ -944,9 +927,6 @@ plugin:
     command: LoadColors
 
   geoffharcourt/one-dark.vim:
-    command: LoadColors
-
-  dylanaraps/crayon-theme:
     command: LoadColors
 
   evgenyzinoviev/vim-vendetta:
