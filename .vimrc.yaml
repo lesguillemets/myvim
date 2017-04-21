@@ -308,6 +308,8 @@ plugin:
 
   rust-lang/rust.vim:
     filetype: rust
+    before: |
+      let g:rustfmt_autosave = 1
 
   racer-rust/vim-racer:
     filetype: rust
