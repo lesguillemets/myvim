@@ -520,7 +520,22 @@ plugin:
         \ '%Wwarning: %m,' .
         \ '%Inote: %m,' .
         \ '%C %#--> %f:%l:%c' }
-      let g:quickrun_config["rust/watchdogs_checker"] = {"type" : "watchdogs_checker/rustc"}
+      let g:quickrun_config["watchdogs_checker/clippy"] = {"command" : "cargo", "exec": '%c clippy', "outputter": 'quickfix',
+        \ "errorformat" :
+        \ '%E%f:%l:%c: %\d%#:%\d%# %.%\{-}error:%.%\{-} %m,'   .
+        \ '%W%f:%l:%c: %\d%#:%\d%# %.%\{-}warning:%.%\{-} %m,' .
+        \ '%C%f:%l %m' .
+        \ ',' .
+        \ '%-G,' .
+        \ '%-Gerror: aborting %.%#,' .
+        \ '%-Gerror: Could not compile %.%#,' .
+        \ '%Eerror: %m,' .
+        \ '%Eerror[E%n]: %m,' .
+        \ '%-Gwarning: the option `Z` is unstable %.%#,' .
+        \ '%Wwarning: %m,' .
+        \ '%Inote: %m,' .
+        \ '%C %#--> %f:%l:%c' }
+      let g:quickrun_config["rust/watchdogs_checker"] = {"type" : "watchdogs_checker/clippy"}
       call watchdogs#setup(g:quickrun_config)
 
 
