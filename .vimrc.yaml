@@ -1044,6 +1044,10 @@ filetype:
     setlocal omnifunc=necoghc#omnifunc
   python: |
     setlocal omnifunc=jedi#completions
+  tex: |
+    iabbrev an &
+  latex: |
+    iabbrev an &
   text: |
     NeoCompleteLock
   quickrun: |
