@@ -93,6 +93,7 @@ plugin:
       - rust
       - tex
       - typescript
+      - maxima
 
   osyo-manga/vim-anzu:
     after: |
