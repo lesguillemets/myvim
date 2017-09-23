@@ -36,7 +36,7 @@ set ignorecase smartcase
 set hlsearch incsearch
 set ruler
 set title
-set number
+set number relativenumber
 set showcmd
 set showmode  " tells us which mode we're in.
 set showtabline=1
