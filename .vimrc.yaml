@@ -49,6 +49,7 @@ plugin:
 
   thinca/vim-quickrun:
     before: |
+      let g:quickrun_no_default_key_mappings=1
       let g:quickrun_config = {}
       let g:quickrun_config["_"] = {"runner":'job', "hook/dots/enable":1}
       let g:quickrun_config.ox = {'command' : 'autoox.sh'}
@@ -402,6 +403,11 @@ plugin:
       let g:markdown_include_jekyll_support = 1
       let g:markdown_enable_mappings = 0
 
+  jalvesaq/Nvim-R:
+    filetype:
+      - r
+      - rmd
+
   loremipsum:
     command:
       - Loremipsum
@@ -669,7 +675,7 @@ plugin:
     before: |
       let g:ctrlp_extensions+=['register']
     after: |
-      nnoremap <Leader>r :<C-u>CtrlPRegister<CR>
+      nnoremap <Leader><C-r> :<C-u>CtrlPRegister<CR>
 
   mattn/ctrlp-mark:
     before: |
