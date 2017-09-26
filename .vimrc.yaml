@@ -753,8 +753,7 @@ plugin:
   atelierbram/vim-colors_atelier-schemes:
     command: LoadColors
 
-  cocopon/iceberg.vim:
-    command: LoadColors
+  cocopon/iceberg.vim: {}
 
   kiudee/greymeans:
     command: LoadColors
