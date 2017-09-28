@@ -659,7 +659,7 @@ plugin:
   ctrlpvim/ctrlp.vim:
     before: |
       if executable('files')
-          let g:ctrlp_user_command = 'files -i="^(\\.git|\\.hg|\\.svn|\\.stack-work|\\.cabal-sandbox)$" -a %s '
+          let g:ctrlp_user_command = 'files -i="^(\\.git|\\.hg|\\.svn|\\.stack-work|\\.cabal-sandbox|\\..*\.sw.)$" -a %s '
       endif
       let g:ctrlp_follow_symlinks=2
       let g:ctrlp_switch_buffer='Et'
