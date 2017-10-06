@@ -1065,6 +1065,9 @@ filetype:
     setlocal omnifunc=neoclojure#complete#omni_auto
   haskell: |
     setlocal omnifunc=necoghc#omnifunc
+    if executable('hindent')
+      set formatprg=hindent
+    endif
   python: |
     setlocal omnifunc=jedi#completions
   tex: |
