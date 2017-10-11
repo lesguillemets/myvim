@@ -34,6 +34,9 @@ set tabstop=4 softtabstop=4 shiftwidth=4
 set expandtab
 set ignorecase smartcase
 set hlsearch incsearch
+if exists('&inchlsearch')
+    set inchlsearch
+endif
 set ruler
 set title
 set number relativenumber
