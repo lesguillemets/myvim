@@ -726,6 +726,7 @@ plugin:
 
   w0ng/vim-hybrid:
     after: |
+      set bg=dark
       colorscheme hybrid
 
   kbenzie/vim-fresh: {}
