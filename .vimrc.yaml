@@ -598,7 +598,7 @@ plugin:
 
   haya14busa/incsearch.vim:
     enable: |
-      !exists("&inchlsearch")
+      !has("patch-8.0.1238")
     after: |
       map / <Plug>(incsearch-forward)
       map ? <Plug>(incsearch-backward)
