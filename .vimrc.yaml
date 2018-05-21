@@ -313,11 +313,21 @@ plugin:
     before: |
       let g:rustfmt_autosave = 1
 
-  racer-rust/vim-racer:
-    filetype: rust
+  autozimu/LanguageClient-neovim:
     before: |
-      let g:racer_cmd="racer"
-      let g:racer_experimental_completer = 1
+      let g:LanguageClient_serverCommands = {
+        \ 'rust': ['rustup', 'run', 'nightly', 'rls']
+        \ }
+    after: |
+      autocmd Filetype rust nnoremap <buffer><silent> <Space>t :call LanguageClient#textDocument_hover()<CR>
+      autocmd Filetype rust nnoremap <buffer><silent> gd :call LanguageClient#textDocument_definition()<CR>
+      autocmd Filetype rust nnoremap <buffer><silent> <F2> :call LanguageClient#textDocument_rename()<CR>e
+      
+#   racer-rust/vim-racer:
+#     filetype: rust
+#     before: |
+#       let g:racer_cmd="racer"
+#       let g:racer_experimental_completer = 1
 
   osyo-manga/vim-monster:
     filetype: ruby
