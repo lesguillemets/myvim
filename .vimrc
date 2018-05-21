@@ -277,8 +277,8 @@ function! MyHighlights()
     hi Visual term=reverse ctermbg=30 guibg=#004499
     hi CursorLine  ctermbg=235 guibg=#303030
     if (&bg == "dark")
-        hi StatusLine cterm=bold ctermbg=235 ctermfg=2 gui=bold guibg=black guifg=#00aa00
-        hi StatusLineNC cterm=bold ctermbg=black ctermfg=22 guibg=black guifg=#005500
+        hi StatusLine cterm=bold ctermbg=235 ctermfg=2 gui=bold guibg=NONE guifg=#00aa00
+        hi StatusLineNC cterm=bold ctermbg=NONE ctermfg=22 guibg=black guifg=#005500
         hi ColorColumn ctermbg=237 guibg=#224422
     else
         hi StatusLine cterm=bold ctermbg=2 ctermfg=235 gui=bold guibg=white guifg=#00aa00
@@ -288,7 +288,7 @@ function! MyHighlights()
 endfunction
 function! TransparentBackground()
     if (&bg == "dark")
-        let l:gbg = "black"
+        let l:gbg = "NONE"
     else
         let l:gbg = "white"
     endif
