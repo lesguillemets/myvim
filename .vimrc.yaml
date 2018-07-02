@@ -245,11 +245,11 @@ plugin:
       let g:tagbar_compact = 1
       let g:tagbar_iconchars = ['▸', '▾']
 
-  eagletmt/neco-ghc:
-    filetype: haskell
-    before: |
-      let g:haskellmode_completion_ghc=0
-      let g:necoghc_enable_detailed_browse=1
+#   eagletmt/neco-ghc:
+#     filetype: haskell
+#     before: |
+#       let g:haskellmode_completion_ghc=0
+#       let g:necoghc_enable_detailed_browse=1
 
   itchyny/vim-haskell-indent:
     filetype: haskell
@@ -316,12 +316,43 @@ plugin:
   autozimu/LanguageClient-neovim:
     before: |
       let g:LanguageClient_serverCommands = {
-        \ 'rust': ['rustup', 'run', 'nightly', 'rls']
+        \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+        \ 'haskell': ['hie', '--lsp'],
         \ }
+      let g:LanguageClient_diagnosticsDisplay =
+        \  {
+        \      1: {
+        \          "name": "Error",
+        \          "texthl": "ALEError",
+        \          "signText": "E",
+        \          "signTexthl": "ALEErrorSign",
+        \      },
+        \      2: {
+        \          "name": "Warning",
+        \          "texthl": "ALEWarning",
+        \          "signText": "W",
+        \          "signTexthl": "ALEWarningSign",
+        \      },
+        \      3: {
+        \          "name": "Information",
+        \          "texthl": "ALEInfo",
+        \          "signText": "I",
+        \          "signTexthl": "ALEInfoSign",
+        \      },
+        \      4: {
+        \          "name": "Hint",
+        \          "texthl": "ALEInfo",
+        \          "signText": "I",
+        \          "signTexthl": "ALEInfoSign",
+        \      },
+        \  }
     after: |
       autocmd Filetype rust nnoremap <buffer><silent> <Space>t :call LanguageClient#textDocument_hover()<CR>
       autocmd Filetype rust nnoremap <buffer><silent> gd :call LanguageClient#textDocument_definition()<CR>
       autocmd Filetype rust nnoremap <buffer><silent> <F2> :call LanguageClient#textDocument_rename()<CR>e
+      autocmd Filetype haskell nnoremap <buffer><silent> <Space>t :call LanguageClient#textDocument_hover()<CR>
+      autocmd Filetype haskell nnoremap <buffer><silent> gd :call LanguageClient#textDocument_definition()<CR>
+      autocmd Filetype haskell nnoremap <buffer><silent> <F2> :call LanguageClient#textDocument_rename()<CR>e
       
 #   racer-rust/vim-racer:
 #     filetype: rust
@@ -1079,7 +1110,9 @@ filetype:
   clojure: |
     setlocal omnifunc=neoclojure#complete#omni_auto
   haskell: |
-    setlocal omnifunc=necoghc#omnifunc
+    " setlocal omnifunc=necoghc#omnifunc
+    setlocal omnifunc=LanguageClient#complete
+
     if executable('hindent')
       set formatprg=hindent
     endif
