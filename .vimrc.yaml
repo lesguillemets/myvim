@@ -318,6 +318,11 @@ plugin:
     before: |
       let g:racer_cmd="racer"
       let g:racer_experimental_completer = 1
+    after: |
+      autocmd FileType rust nmap K <Plug>(rust-doc)
+      autocmd FileType rust nmap gs <Plug>(rust-def-split)
+      autocmd FileType rust nmap gx <Plug>(rust-def-vertical)
+      autocmd FileType rust nmap gd <Plug>(rust-def)
 
   osyo-manga/vim-monster:
     filetype: ruby
