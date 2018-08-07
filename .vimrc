@@ -170,6 +170,9 @@ nnoremap zB zb
 nnoremap <C-e> <C-e>j
 nnoremap <C-y> <C-y>k
 
+" Disable IM when leaving to Normal mode. `:h iminsert`
+inoremap <ESC> <ESC>:set iminsert=0<CR>
+
 " I know what you wanted to type here..
 noremap <F1> <Esc>
 inoremap <F1> <Esc>
