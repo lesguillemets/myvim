@@ -444,10 +444,8 @@ plugin:
   osyo-manga/vim-hideout:
     command: HideoutOn
 
-  motemen/git-vim:
-    before: |
-      let g:git_no_map_default=1
-
+  itchyny/vim-gitbranch: {}
+ 
   rhysd/committia.vim:
     before: |
       let g:committia_hooks = {}

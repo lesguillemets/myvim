@@ -269,7 +269,7 @@ hi Search term=reverse cterm=underline
 hi SpecialKey term=bold ctermfg=237 ctermbg=234 guifg=#444444 guibg=#1c1c1c
 
 set fillchars=vert:║,fold:-
-set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{GitBranch()}]\ %=[%{&ff}]\ L[%2.l/%2.L]\ C[%2.c]%5P
+set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}][%{gitbranch#name()}]\ %=[%{&ff}]\ L[%2.l/%2.L]\ C[%2.c]%5P
 " [4] .vimrc [+] [vim] [~/] [master]                     [unix]  L[ 474/ 981] C[ 65] 45%
 " set statusline=[%n]\ %f\ %m\ %y\ %<[%{fnamemodify(getcwd(),':~')}]\ %=L[%2.l/%2.L]\ C[%2.c]%5P
 " [4] .vimrc [+] [vim] [~/]                      L[ 474/ 981] C[ 65] 45%
