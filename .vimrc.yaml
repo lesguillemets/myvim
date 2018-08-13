@@ -713,6 +713,11 @@ plugin:
       - Rogue
       - RogueRestore
 
+  szymonmaszke/vimpyter:
+    command:
+      - VimpyterStartJupyter
+    filetype: ipynb
+
   junegunn/seoul256.vim: {}
 
   thomd/vim-wasabi-colorscheme: {}
