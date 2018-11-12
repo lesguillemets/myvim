@@ -25,6 +25,11 @@ set hlsearch incsearch
 set number relativenumber
 set showcmd
 
+set noautowrite
+set backspace=
+set cryptmethod=blowfish2 " files can NOT be read by vim 7.3 and older.
+
+set cursorline
 
 "- Mapping ------------------------------------------------------
-nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
+nnoremap <Esc><Esc> :<C-u>silent! nohlsearch<CR>
