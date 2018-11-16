@@ -30,6 +30,8 @@ set backspace=
 set cryptmethod=blowfish2 " files can NOT be read by vim 7.3 and older.
 
 set cursorline
+set display="truncate"
+" mark M
 
 "- Mapping ------------------------------------------------------
 nnoremap <Esc><Esc> :<C-u>silent! nohlsearch<CR>
