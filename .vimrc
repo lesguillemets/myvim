@@ -75,6 +75,12 @@ set nostartofline
 
 set statusline=%f\ %m%h%r%y%=%<[%{fnamemodify(getcwd(),':~')}]%02.l/%02.L;c%v\ %5P[%n]
 " tags
+if has('termguicolors')
+    set termguicolors
+endif
+set t_Co=256
+set tildeop
+set timeout ttimeout timeoutlen=2000 ttimeoutlen=50
 
 "- Mapping ------------------------------------------------------
 nnoremap <Esc><Esc> :<C-u>silent! nohlsearch<CR>
