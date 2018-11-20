@@ -43,7 +43,7 @@ set history=2000
 " IM
 set imactivatekey="C-space"
 " turn off IM automatically when leaving insert mode
-inoremap <ESC> <ESC>:set iminsert=0<CR>
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
 function! ImStatus()
   let is_active = system('fcitx-remote') == 2
@@ -86,6 +86,32 @@ set wildmode=list:longest,full
 
 "- Mapping ------------------------------------------------------
 nnoremap <silent> <Esc><Esc> :<C-u> nohlsearch<CR>
+nnoremap Y y$
+nnoremap * *N
+" set working directory to the current file
+nnoremap ,cd :lcd %:p:h <CR>
+
+" when in command line, it feels a little like we're in shell..
+cnoremap <C-a> <Home>
+cnoremap <C-k> <End><C-u>
+" but let's keep handy digraph
+cnoremap <C-g> <C-k>
+
+" 'stronger' h and l.
+nnoremap <C-h> ^
+vnoremap <C-h> ^
+nnoremap <C-l> $
+vnoremap <C-l> $
+
+" smash. <C-y> n is sometimes mistaken
+nnoremap <C-n> <Nop>
+nnoremap <C-p> <Nop>
+
+" Paste and fix indentation.
+" cf: github:gregstallings/vimfiles/vimrc
+nnoremap <Leader>p p`[v`]=
+nnoremap <Leader>P P`[v`]=
+
 
 "
 " http://qiita.com/kefir_/items/c725731d33de4d8fb096 {{{
