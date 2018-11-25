@@ -27,10 +27,12 @@ set showcmd
 
 set noautowrite
 set backspace=
+set belloff=all
 set cryptmethod=blowfish2 " files can NOT be read by vim 7.3 and older.
 
 set cursorline
 set display="truncate"
+set fileencodings=utf-8,iso-2022-jp-3,euc-jisx0213,cp932,euc-jp,sjis,jis,latin,iso-2022-jp
 set fillchars=vert:║,fold:┅
 " other candidates; ░, ▚
 
@@ -78,6 +80,8 @@ set statusline=%f\ %m%h%r%y%=%<[%{fnamemodify(getcwd(),':~')}]%02.l/%02.L;c%v\ %
 if has('termguicolors')
     set termguicolors
 endif
+set tags=tags,./tags,../tags,../../tags,../../../tags,../../../../tags,../../../../../tags
+set tags+=../../../../../../tags,../../../../../../../tags
 set t_Co=256
 set tildeop
 set timeout ttimeout timeoutlen=2000 ttimeoutlen=50
@@ -87,7 +91,14 @@ set wildmode=list:longest,full
 "- Mapping ------------------------------------------------------
 nnoremap <silent> <Esc><Esc> :<C-u> nohlsearch<CR>
 nnoremap Y y$
+
 nnoremap * *N
+" search for selected text in visual mode
+" at the cost of the l register.
+" from : http://memo.officebrook.net/20091022.html
+" via http://labs.timedia.co.jp/2014/09/learn-about-vim-in-the-workplace.html
+vnoremap * "ly:let @/ = @l<CR>n
+
 " set working directory to the current file
 nnoremap ,cd :lcd %:p:h <CR>
 
@@ -112,6 +123,31 @@ nnoremap <C-p> <Nop>
 nnoremap <Leader>p p`[v`]=
 nnoremap <Leader>P P`[v`]=
 
+" from reading_vimrc #128, by Songmu
+nnoremap <C-e> <C-e>j
+nnoremap <C-y> <C-y>k
+
+
+" Paste what yanked in C-v mode as a independent block.
+function! MakeLineWise()
+    call setreg(v:register, getreg(),'l')
+endfunction
+nnoremap <silent> ,p :<C-u>call MakeLineWise()<CR>p
+nnoremap <silent> ,P :<C-u>call MakeLineWise()<CR>P
+
+augroup MyAppearance
+  autocmd!
+  autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=darkgrey
+  autocmd ColorScheme * hi ZenkakuSpace ctermbg=white guibg=white
+  autocmd VimEnter,WinEnter,Bufread * call s:syntax_additional()
+augroup END
+function! s:syntax_additional()
+  let l:matches = [
+        \ matchadd("ZenkakuSpace", '　', 0),
+        \ matchadd('ExtraWhiteSpace', '\s\+$',0),
+        \ ]
+  return l:matches
+endfunction
 
 "
 " http://qiita.com/kefir_/items/c725731d33de4d8fb096 {{{

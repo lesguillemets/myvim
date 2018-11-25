@@ -1,0 +1,10 @@
+plugin:
+  w0ng/vim-hybrid:
+    before: |
+      let g:hybrid_custom_term_colors=1
+    after: |
+      set bg=dark
+      colorscheme hybrid
+
+
+# vim: set expandtab ts=2 sw=2 sts=2:
