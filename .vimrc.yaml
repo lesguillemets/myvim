@@ -1,5 +1,36 @@
 plugin:
 
+  Shougo/deoplete.nvim:
+    dependson:
+      - roxma/nvim-yarp
+      - roxma/vim-hug-neovim-rpc
+    before: |
+      let g:deoplete#enable_at_startup=1
+      let g:deoplete#enable_smart_case=1
+      let g:deoplete#auto_completion_start_length = 2
+      let g:deoplete#max_menu_width = 0
+    after: |
+      set completeopt-=preview
+      inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space()
+         \  ? "\<TAB>" : deoplete#mappings#manual_complete()
+      function! s:check_back_space() abort
+        let col = col('.') - 1
+        return !col || getline('.')[col - 1]  =~ '\s'
+      endfunction
+      inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+      inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
+      call deoplete#custom#var('omni', 'input_patterns', {
+        \ 'haskell' : '[A-Z][a-z]*\.\w*\|import.*',
+        \ 'python' : '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*',
+        \ 'cpp' :  '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::',
+        \ } )
+
+  roxma/nvim-yarp:
+    dependedby:
+      - Shougo/deoplete.nvim
+  roxma/vim-hug-neovim-rpc:
+    dependedby:
+      - Shougo/deoplete.nvim
   Yggdroot/indentLine:
     before: |
       let g:indentLine_faster = 1
@@ -25,7 +56,5 @@ plugin:
       colorscheme jellybeans
       hi Normal guibg=NONE
       hi NonText guibg=NONE
-
-
 
 # vim: set expandtab ts=2 sw=2 sts=2:
