@@ -1,10 +1,4 @@
 plugin:
-  w0ng/vim-hybrid:
-    before: |
-      let g:hybrid_custom_term_colors=1
-    after: |
-      set bg=dark
-      colorscheme hybrid
 
   Yggdroot/indentLine:
     before: |
@@ -15,6 +9,22 @@ plugin:
   itchyny/lightline.vim: {}
   itchyny/vim-gitbranch: {}
 
+  mhinz/vim-signify: {}
+  rhysd/committia.vim: {}
+  cohama/agit.vim:
+    command:
+      - Agit
+      - AgitFile
+
+  w0ng/vim-hybrid:
+    before: |
+      let g:hybrid_custom_term_colors=1
+
+  nanotech/jellybeans.vim:
+    after: |
+      colorscheme jellybeans
+      hi Normal guibg=NONE
+      hi NonText guibg=NONE
 
 
 

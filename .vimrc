@@ -68,6 +68,7 @@ set lazyredraw
 set nolinebreak
 
 set list listchars=tab:>-
+" consider using eol :┆, ╱, ??
 set showmatch matchtime=2
 set pyxversion=3 " prefer python 3
 set scrolloff=2
