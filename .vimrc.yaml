@@ -31,6 +31,33 @@ plugin:
   roxma/vim-hug-neovim-rpc:
     dependedby:
       - Shougo/deoplete.nvim
+
+  thinca/vim-quickrun:
+    command: QuickRun
+    before: |
+      let g:quickrun_no_default_key_mappings=1
+      let g:quickrun_config = {}
+      let g:quickrun_config["_"] = {"runner":'job', "hook/dots/enable":1}
+      if executable('ikarus')
+          let g:quickrun_config.scheme = {'command' : 'ikarus'}
+      elseif executable('guile')
+          let g:quickrun_config.scheme = {'command' : 'guile'}
+      endif
+      let g:quickrun_config['haskell/cabal'] =
+          \ {'command' : 'cabal', 'cmdopt' : 'exec runghc'}
+      let g:quickrun_config['haskell/stack'] =
+          \ {'command' : 'stack', 'cmdopt' : 'runghc'}
+      let g:quickrun_config.haskell = {'type': 'haskell/stack'}
+    after: |
+      command! Q QuickRun
+
+  osyo-manga/vim-anzu:
+    after: |
+      nmap n <Plug>(anzu-n-with-echo)zv
+      nmap N <Plug>(anzu-N-with-echo)zv
+      nmap * <Plug>(anzu-star-with-echo)N
+      nmap # <Plug>(anzu-sharp-with-echo)
+
   Yggdroot/indentLine:
     before: |
       let g:indentLine_faster = 1
@@ -39,6 +66,14 @@ plugin:
 
   itchyny/lightline.vim: {}
   itchyny/vim-gitbranch: {}
+
+  tyru/capture.vim:
+    command: Capture
+
+  tyru/caw.vim: {}
+
+  kana/vim-repeat: {}
+
 
   mhinz/vim-signify: {}
   rhysd/committia.vim: {}
