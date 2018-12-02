@@ -70,7 +70,12 @@ plugin:
   tyru/capture.vim:
     command: Capture
 
-  tyru/caw.vim: {}
+  tyru/caw.vim:
+    dependson: kana/vim-repeat
+    after: |
+      nmap <Leader>c <Plug>(caw:hatpos:toggle)
+      vmap <Leader>c <Plug>(caw:hatpos:toggle)
+
 
   kana/vim-repeat: {}
 
