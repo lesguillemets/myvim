@@ -3,6 +3,18 @@
 scriptencoding  utf-8
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" display startup time on start {{{
+" from: https://gist.github.com/thinca/1518874
+if has('vim_starting') && has('reltime')
+    let s:startuptime = reltime()
+    augroup vimrc-startuptime
+        autocmd! VimEnter *
+        \ redraw!
+        \ | echomsg 'startuptime: ' . reltimestr(reltime(s:startuptime))
+        \ | unlet s:startuptime
+    augroup END
+endif
+" }}}
 
 " load miv
 filetype off
@@ -141,6 +153,11 @@ augroup MyAppearance
   autocmd ColorScheme * hi ExtraWhiteSpace ctermbg=darkgrey guibg=darkgrey
   autocmd ColorScheme * hi ZenkakuSpace ctermbg=white guibg=white
   autocmd VimEnter,WinEnter,Bufread * call s:syntax_additional()
+augroup END
+
+augroup MiVLive
+  autocmd!
+  autocmd BufWritePost .vimrc.yaml call system('miv generate')
 augroup END
 function! s:syntax_additional()
   let l:matches = [
