@@ -53,7 +53,7 @@ inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 "   return is_active
 " endfunction
 " set imstatusfunc=ImStatus
- 
+
 function! ImActivate(active)
   if a:active
     call system('fcitx-remote -o')
@@ -86,7 +86,7 @@ set tags+=../../../../../../tags,../../../../../../../tags
 set t_Co=256
 set tildeop
 set timeout ttimeout timeoutlen=2000 ttimeoutlen=50
-set virtualedit="block"
+set virtualedit=block
 set wildmode=list:longest,full
 
 "- Mapping ------------------------------------------------------
