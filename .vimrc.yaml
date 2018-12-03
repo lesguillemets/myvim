@@ -64,8 +64,33 @@ plugin:
       let g:indentLine_char = '▏'
       let g:indentLine_bufTypeExclude = ["help", "terminal"]
 
-  itchyny/lightline.vim: {}
-  itchyny/vim-gitbranch: {}
+  itchyny/lightline.vim:
+    before: |
+      let g:lightline = {}
+      let g:lightline.colorscheme = 'jellybeans'
+      let g:lightline.active = {}
+      let g:lightline.active.left = [
+        \ ['mode', 'paste'],
+        \ ['relativepath',  'modified', 'readonly', 'filetype', 'gitbranch'],
+        \ ['bufnum']
+        \ ]
+      let g:lightline.active.right = [
+        \ [ 'lineinfo' ],
+        \ [ 'percent' ],
+        \ [ 'fileencoding' ]
+        \ ]
+      let g:lightline.inactive = {}
+      let g:lightline.inactive.left = [  ['filename', 'modified'] ]
+      let g:lightline.component_function = {
+        \ 'gitbranch' : 'gitbranch#name',
+        \ 'curdir' : 'LightlineCurDir',
+        \ }
+      let g:lightline.mode_map = {
+        \ 'n' : 'N',  'i' : 'I',  'R' : 'R',  'v' : 'v', 'V' : 'V',
+        \ "\<C-v>": 'V-B', 'c' : 'C', 's' : 'S', 'S' : 'S-l',
+        \ "\<C-s>": 'S-B', 't': 'TERMINAL' }
+  itchyny/vim-gitbranch:
+    dependedby: itchyny/lightline.vim
 
   tyru/capture.vim:
     command: Capture
