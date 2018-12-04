@@ -89,12 +89,13 @@ set splitbelow splitright
 set nostartofline
 
 set statusline=%f\ %m%h%r%y%=%<[%{fnamemodify(getcwd(),':~')}]%02.l/%02.L;c%v\ %5P[%n]
-" tags
 if has('termguicolors')
     set termguicolors
 endif
-set tags=tags,./tags,../tags,../../tags,../../../tags,../../../../tags,../../../../../tags
-set tags+=../../../../../../tags,../../../../../../../tags
+" tags
+" https://stackoverflow.com/questions/5017500/#comment19200059_5019111
+set tags&
+set tags+=tags;~
 set t_Co=256
 set tildeop
 set timeout ttimeout timeoutlen=2000 ttimeoutlen=50
