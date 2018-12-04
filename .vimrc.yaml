@@ -32,6 +32,16 @@ plugin:
     dependedby:
       - Shougo/deoplete.nvim
 
+  racer-rust/vim-racer:
+    filetype: rust
+    before: |
+      let g:racer_experimental_completer = 1
+
+  rust-lang/rust.vim:
+    filetype: rust
+    before: |
+      let g:rustfmt_autosave=1
+
   thinca/vim-quickrun:
     command: QuickRun
     before: |
