@@ -150,7 +150,11 @@ plugin:
 
 
   mhinz/vim-signify: {}
-  rhysd/committia.vim: {}
+
+  rhysd/committia.vim:
+    before: |
+      let g:committia_min_window_width = 120
+
   cohama/agit.vim:
     command:
       - Agit
