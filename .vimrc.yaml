@@ -1,7 +1,7 @@
 plugin:
 
   Shougo/deoplete.nvim:
-    dependson:
+    dependon:
       - roxma/nvim-yarp
       - roxma/vim-hug-neovim-rpc
     before: |
@@ -140,7 +140,7 @@ plugin:
     command: Capture
 
   tyru/caw.vim:
-    dependson: kana/vim-repeat
+    dependon: kana/vim-repeat
     after: |
       nmap <Leader>c <Plug>(caw:hatpos:toggle)
       vmap <Leader>c <Plug>(caw:hatpos:toggle)
