@@ -92,6 +92,50 @@ plugin:
   itchyny/vim-gitbranch:
     dependedby: itchyny/lightline.vim
 
+  ctrlpvim/ctrlp.vim:
+    before: |
+      if executable('files')
+          let g:ctrlp_user_command = 'files -i="^(target|\\.git|\\.hg|\\.svn|\\.stack-work|\\.cabal-sandbox|\\..*\.sw.)$" -a %s '
+      endif
+      let g:ctrlp_follow_symlinks=2
+      let g:ctrlp_switch_buffer='Et'
+      let g:ctrlp_custom_ignore = {}
+      let g:ctrlp_custom_ignore.file = '\v\.(hi|o|out|jsmod|vo|v\.d|glob|pyc)$'
+      let g:ctrlp_custom_ignore.dir = '\v[\/]\.(git|hg|svn|stack-work)$'
+      if !exists('g:ctrlp_extensions')
+          let g:ctrlp_extensions = []
+      endif
+
+  ctrlpvim/ctrlp.vim:
+    before: |
+      if executable('files')
+          let g:ctrlp_user_command = 'files -i="^(\\.git|\\.hg|\\.svn|\\.stack-work|\\.cabal-sandbox|\\..*\.sw.)$" -a %s '
+      endif
+      let g:ctrlp_follow_symlinks=2
+      let g:ctrlp_switch_buffer='Et'
+      let g:ctrlp_custom_ignore = {}
+      let g:ctrlp_custom_ignore.file = '\v\.(hi|o|out|jsmod|vo|v\.d|glob|pyc)$'
+      let g:ctrlp_custom_ignore.dir = '\v[\/]\.(git|hg|svn|stack-work)$'
+      if !exists('g:ctrlp_extensions')
+          let g:ctrlp_extensions = []
+      endif
+
+  mattn/ctrlp-register:
+    dependon: ctrlpvim/ctrlp.vim
+    before: |
+      let g:ctrlp_extensions+=['register']
+    command: CtrlPRegister
+    script: |
+      nnoremap <Leader><C-r> :<C-u>CtrlPRegister<CR>
+
+  mattn/ctrlp-mark:
+    dependon: ctrlpvim/ctrlp.vim
+    before: |
+      let g:ctrlp_extensions+=['mark']
+    command: CtrlPMark
+    script: |
+      nnoremap <Leader>m :<C-u>CtrlPMark<CR
+
   tyru/capture.vim:
     command: Capture
 
