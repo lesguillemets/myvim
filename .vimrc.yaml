@@ -178,6 +178,50 @@ plugin:
       vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
 
+  kana/vim-textobj-user: {}
+
+  thinca/vim-textobj-between:
+    dependon: kana/vim-textobj-user
+    mapmode:
+      - o
+      - v
+    mapping:
+      - af
+      - <Plug>(textobj-between-a)
+      - if
+      - <Plug>(textobj-between-i)
+  kana/vim-textobj-indent:
+    dependon: kana/vim-textobj-user
+    mapmode:
+      - o
+      - v
+    mapping:
+      - <Plug>(textobj-indent-a)
+      - ai
+      - <Plug>(textobj-indent-i)
+      - ii
+      - <Plug>(textobj-indent-same-a)
+      - aI
+      - <Plug>(textobj-indent-same-i)
+      - iI
+  sgur/vim-textobj-parameter:
+    dependon: kana/vim-textobj-user
+    before: |
+      let g:vim_textobj_parameter_mapping = '.'
+    mapmode:
+      - o
+      - v
+    mapping:
+      - i.
+      - a.
+  h1mesuke/textobj-wiw:
+    dependon: kana/vim-textobj-user
+    mapmode:
+      - o
+      - v
+    mapping:
+      - a,w
+      - i,w
   kana/vim-repeat: {}
 
 
