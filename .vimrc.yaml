@@ -96,6 +96,10 @@ plugin:
       let g:indentLine_char = '▏'
       let g:indentLine_bufTypeExclude = ["help", "terminal"]
 
+  kshenoy/vim-signature:
+    before: |
+      let g:SignatureMap = ""
+
   itchyny/lightline.vim:
     before: |
       let g:lightline = {}
