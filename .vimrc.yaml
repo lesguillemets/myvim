@@ -103,19 +103,25 @@ plugin:
       let g:lightline.active = {}
       let g:lightline.active.left = [
         \ ['mode', 'paste'],
-        \ ['relativepath',  'modified', 'readonly', 'filetype', 'gitbranch'],
-        \ ['bufnum']
+        \ ['relativepath',  'modified', 'readonly', 'myFiletype', 'gitbranch', 'curdir'],
+        \ [ 'bufnum']
         \ ]
       let g:lightline.active.right = [
-        \ [ 'lineinfo' ],
+        \ [ 'myLineInfo' ],
         \ [ 'percent' ],
         \ [ 'fileencoding' ]
         \ ]
       let g:lightline.inactive = {}
       let g:lightline.inactive.left = [  ['filename', 'modified'] ]
+      let g:lightline.component = { 'bufnum': '%([%n]%)',
+        \ 'myFiletype': '%{&ft}',
+        \ 'myLineInfo' :  '%03l/%03L:%-2v',
+        \ 'curdir' : "%<%{fnamemodify(getcwd(),':~')}"
+        \ }
+      let g:lightline.component_type = { 'bufnum': 'raw', 'gitbranch': 'raw' , 'myFiletype': 'raw'}
+      let g:lightline.component_visible_condition = {'myFiletype': '&ft !=# ""' }
       let g:lightline.component_function = {
         \ 'gitbranch' : 'gitbranch#name',
-        \ 'curdir' : 'LightlineCurDir',
         \ }
       let g:lightline.mode_map = {
         \ 'n' : 'N',  'i' : 'I',  'R' : 'R',  'v' : 'v', 'V' : 'V',
