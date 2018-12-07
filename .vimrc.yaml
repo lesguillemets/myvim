@@ -53,11 +53,6 @@ plugin:
       let g:ale_open_list = 1
       let g:ale_set_highlights = 0
     after: |
-      let g:ale_running = 0
-      function! s:lintreport()
-        let g:ale_running= ! g:ale_running
-        call lightline#update()
-      endfunction
       function! s:lintreportifnone() abort
         echom "called"
         if ale#statusline#Count('%').total == 0
@@ -67,8 +62,8 @@ plugin:
       nmap <Space>q <Plug>(ale_lint)
       augroup ALERelated
         autocmd!
-        autocmd User ALELintPre call s:lintreport()
-        autocmd User ALELintPost call s:lintreport()
+          autocmd User ALELintPre let b:ale_running=1 | call lightline#update()
+          autocmd User ALELintPost let b:ale_running=0 | call lightline#update()
         autocmd User ALELintPost call s:lintreportifnone()
       augroup END
 
@@ -145,9 +140,9 @@ plugin:
       let g:lightline.component_type = { 'bufnum': 'raw', 'gitbranch': 'raw' , 'myFiletype': 'raw'}
       let g:lightline.component_visible_condition = {
         \ 'myFiletype': '&ft !=# ""',
-        \ 'aleRunning': 'get(g:, "ale_running", 0)' }
+        \ 'aleRunning': 'get(b:, "ale_running", 0)' }
       function! Ale_show_status()
-        if get(g:, "ale_running", 0)
+        if get(b:, "ale_running", 0)
           return "linting"
         else
           return ""
