@@ -52,7 +52,24 @@ plugin:
       let g:ale_open_list = 1
       let g:ale_set_highlights = 0
     after: |
-      nmap <silent> <Space>q <Plug>(ale_lint)
+      let g:ale_running = 0
+      function! s:lintreport()
+        let g:ale_running= ! g:ale_running
+        call lightline#update()
+      endfunction
+      function! s:lintreportifnone() abort
+        echom "called"
+        if ale#statusline#Count('%').total == 0
+          echom "no error found."
+        endif
+      endfunction
+      nmap <Space>q <Plug>(ale_lint)
+      augroup ALERelated
+        autocmd!
+        autocmd User ALELintPre call s:lintreport()
+        autocmd User ALELintPost call s:lintreport()
+        autocmd User ALELintPost call s:lintreportifnone()
+      augroup END
 
   racer-rust/vim-racer:
     filetype: rust
@@ -109,25 +126,35 @@ plugin:
       let g:lightline.active = {}
       let g:lightline.active.left = [
         \ ['mode', 'paste'],
-        \ ['relativepath',  'modified', 'readonly', 'myFiletype', 'gitbranch', 'curdir'],
+        \ ['relativepath',  'modified', 'myFiletype', 'gitbranch', 'curdir'],
         \ [ 'bufnum']
         \ ]
       let g:lightline.active.right = [
         \ [ 'myLineInfo' ],
         \ [ 'percent' ],
-        \ [ 'fileencoding' ]
+        \ [ 'fileencoding', 'aleRunning' ],
         \ ]
       let g:lightline.inactive = {}
       let g:lightline.inactive.left = [  ['filename', 'modified'] ]
       let g:lightline.component = { 'bufnum': '%([%n]%)',
         \ 'myFiletype': '%{&ft}',
         \ 'myLineInfo' :  '%03l/%03L:%-2v',
-        \ 'curdir' : "%<%{fnamemodify(getcwd(),':~')}"
+        \ 'curdir' : "%<%{fnamemodify(getcwd(),':~')}",
         \ }
       let g:lightline.component_type = { 'bufnum': 'raw', 'gitbranch': 'raw' , 'myFiletype': 'raw'}
-      let g:lightline.component_visible_condition = {'myFiletype': '&ft !=# ""' }
+      let g:lightline.component_visible_condition = {
+        \ 'myFiletype': '&ft !=# ""',
+        \ 'aleRunning': 'get(g:, "ale_running", 0)' }
+      function! Ale_show_status()
+        if get(g:, "ale_running", 0)
+          return "linting"
+        else
+          return ""
+        endif
+      endfunction
       let g:lightline.component_function = {
         \ 'gitbranch' : 'gitbranch#name',
+        \ 'aleRunning': 'Ale_show_status'
         \ }
       let g:lightline.mode_map = {
         \ 'n' : 'N',  'i' : 'I',  'R' : 'R',  'v' : 'v', 'V' : 'V',
