@@ -133,7 +133,7 @@ plugin:
       let g:lightline.active.right = [
         \ [ 'myLineInfo' ],
         \ [ 'percent' ],
-        \ [ 'fileencoding', 'aleRunning' ],
+        \ [ 'aleRunning', 'fileencoding' ],
         \ ]
       let g:lightline.inactive = {}
       let g:lightline.inactive.left = [  ['filename', 'modified'] ]
@@ -154,9 +154,11 @@ plugin:
         endif
       endfunction
       let g:lightline.component_function = {
-        \ 'gitbranch' : 'gitbranch#name',
+        \ 'gitbranch' : 'gitbranch#name' }
+      let g:lightline.component_expand = {
         \ 'aleRunning': 'Ale_show_status'
         \ }
+      let g:lightline.component_type = {'aleRunning': 'left'}
       let g:lightline.mode_map = {
         \ 'n' : 'N',  'i' : 'I',  'R' : 'R',  'v' : 'v', 'V' : 'V',
         \ "\<C-v>": 'V-B', 'c' : 'C', 's' : 'S', 'S' : 'S-l',
