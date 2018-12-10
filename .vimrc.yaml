@@ -98,12 +98,21 @@ plugin:
   itchyny/vim-haskell-indent:
     filetype: haskell
 
-  bitc/vim-hdevtools:
+  eagletmt/ghcmod-vim:
     filetype: haskell
+    dependon: vimproc
     after: |
-      au FileType haskell nnoremap <buffer> <Space>t :HdevtoolsType<CR>
-      au FileType haskell nnoremap <buffer> <silent> K :HdevtoolsInfo<CR>
-      au FileType haskell nnoremap <buffer> <silent> <Space>T :HdevtoolsClear<CR>
+      autocmd filetype haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
+      autocmd filetype haskell vnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
+      autocmd filetype haskell nnoremap <buffer> <Space>i :<C-u>GhcModInfoPreview<CR>
+      autocmd filetype haskell vnoremap <buffer> <Space>i :<C-u>GhcModInfoPreview<CR>
+      autocmd filetype haskell nnoremap <buffer><silent> <Space>T :<C-u>GhcModTypeClear<CR>
+
+  Shougo/vimproc:
+    build: make
+    function: vimproc
+    dependedby:
+      - ghcmod
 
   thinca/vim-quickrun:
     command: QuickRun
