@@ -65,6 +65,11 @@ plugin:
       let g:ale_lint_on_save = 0
       let g:ale_open_list = 1
       let g:ale_set_highlights = 0
+      let g:ale_set_loclist=0
+      let g:ale_set_quickfix=1
+      let g:ale_linters = {}
+      " try out hie "
+      let g:ale_linters.haskell = ['hie']
     after: |
       function! s:lintreportifnone() abort
         echom "called"
@@ -75,8 +80,8 @@ plugin:
       nmap <Space>q <Plug>(ale_lint)
       augroup ALERelated
         autocmd!
-          autocmd User ALELintPre let b:ale_running=1 | call lightline#update()
-          autocmd User ALELintPost let b:ale_running=0 | call lightline#update()
+        autocmd User ALELintPre let b:ale_running=1 | call lightline#update()
+        autocmd User ALELintPost let b:ale_running=0 | call lightline#update()
         autocmd User ALELintPost call s:lintreportifnone()
       augroup END
 
@@ -92,6 +97,13 @@ plugin:
 
   itchyny/vim-haskell-indent:
     filetype: haskell
+
+  bitc/vim-hdevtools:
+    filetype: haskell
+    after: |
+      au FileType haskell nnoremap <buffer> <Space>t :HdevtoolsType<CR>
+      au FileType haskell nnoremap <buffer> <silent> K :HdevtoolsInfo<CR>
+      au FileType haskell nnoremap <buffer> <silent> <Space>T :HdevtoolsClear<CR>
 
   thinca/vim-quickrun:
     command: QuickRun
