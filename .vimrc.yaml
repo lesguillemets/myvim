@@ -32,6 +32,19 @@ plugin:
     dependedby:
       - Shougo/deoplete.nvim
 
+  autozimu/LanguageClient-neovim:
+    build: bash install.sh
+    dependon:
+      Shougo/deoplete.nvim
+    filetype:
+      - haskell
+    before: |
+      let g:LanguageClient_diagnosticsEnable = 0
+      let g:LanguageClient_hasSnippetSupport = 0
+      let g:LanguageClient_serverCommands = {
+        \ 'haskell': ['hie', '--lsp']
+        \ }
+
   w0rp/ale:
     filetype:
       - rust
