@@ -110,9 +110,8 @@ plugin:
 
   Shougo/vimproc:
     build: make
-    function: vimproc
     dependedby:
-      - ghcmod
+      - eagletmt/ghcmod-vim
 
   thinca/vim-quickrun:
     command: QuickRun
