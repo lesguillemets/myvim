@@ -281,6 +281,18 @@ plugin:
     mapping:
       - a,w
       - i,w
+
+  kana/vim-operator-user:
+    dependedby:
+      - rhysd/vim-operator-surround
+
+  rhysd/vim-operator-surround:
+    dependon: kana/vim-operator-user
+    after: |
+      map <silent>sa <Plug>(operator-surround-append)
+      map <silent>sd <Plug>(operator-surround-delete)
+      map <silent>sr <Plug>(operator-surround-replace)
+
   kana/vim-repeat: {}
 
   cohama/lexima.vim:
@@ -338,6 +350,8 @@ plugin:
       hi Normal guibg=NONE
       hi NonText guibg=NONE
 
+script: |
+  map s <Nop>
 
 filetype:
   haskell: |
