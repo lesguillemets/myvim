@@ -324,6 +324,14 @@ plugin:
         let g:rainbow_conf.separately[ft] = 0
       endfor
 
+  t9md/vim-quickhl:
+    after: |
+      nmap <Space>m <Plug>(quickhl-manual-this)
+      xmap <Space>m <Plug>(quickhl-manual-this)
+      nmap <Space>M <Plug>(quickhl-manual-reset)
+      xmap <Space>M <Plug>(quickhl-manual-reset)
+      nmap <Space>j <Plug>(quickhl-cword-toggle)
+
   nanotech/jellybeans.vim:
     after: |
       colorscheme jellybeans
