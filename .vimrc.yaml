@@ -32,23 +32,19 @@ plugin:
     dependedby:
       - Shougo/deoplete.nvim
 
-  autozimu/LanguageClient-neovim:
-    build: bash install.sh
-    dependon:
-      Shougo/deoplete.nvim
-    filetype:
-      - haskell
-    before: |
-      let g:LanguageClient_diagnosticsEnable = 0
-      let g:LanguageClient_hasSnippetSupport = 0
-      let g:LanguageClient_serverCommands = {
-        \ 'haskell': ['hie', '--lsp']
-        \ }
+  # autozimu/LanguageClient-neovim:
+  #   build: bash install.sh
+  #   dependon:
+  #     Shougo/deoplete.nvim
+  #   filetype: {}
+  #   before: |
+  #     let g:LanguageClient_diagnosticsEnable = 0
+  #     let g:LanguageClient_hasSnippetSupport = 0
+  #     let g:LanguageClient_serverCommands = { }
 
   w0rp/ale:
     filetype:
       - rust
-      - haskell
       - bash
       - sh
       - c
@@ -69,7 +65,7 @@ plugin:
       let g:ale_set_quickfix=1
       let g:ale_linters = {}
       " try out hie "
-      let g:ale_linters.haskell = ['hie']
+      " let g:ale_linters.haskell = ['hie'] "
     after: |
       function! s:lintreportifnone() abort
         echom "called"
@@ -84,6 +80,13 @@ plugin:
         autocmd User ALELintPost let b:ale_running=0 | call lightline#update()
         autocmd User ALELintPost call s:lintreportifnone()
       augroup END
+
+  eagletmt/neco-ghc:
+    filetype: haskell
+    before: |
+      let g:necoghc_enable_detailed_browse = 1
+    after: |
+      autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
   racer-rust/vim-racer:
     filetype: rust
@@ -107,6 +110,7 @@ plugin:
       autocmd filetype haskell nnoremap <buffer> <Space>i :<C-u>GhcModInfoPreview<CR>
       autocmd filetype haskell vnoremap <buffer> <Space>i :<C-u>GhcModInfoPreview<CR>
       autocmd filetype haskell nnoremap <buffer><silent> <Space>T :<C-u>GhcModTypeClear<CR>
+      autocmd filetype haskell nnoremap <buffer><silent> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
 
   Shougo/vimproc:
     build: make
