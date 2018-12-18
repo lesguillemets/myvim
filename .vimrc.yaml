@@ -350,6 +350,8 @@ plugin:
       hi Normal guibg=NONE
       hi NonText guibg=NONE
 
+  wincent/terminus: {}
+
 script: |
   map s <Nop>
 
