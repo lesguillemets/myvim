@@ -362,11 +362,12 @@ plugin:
 
 after: |
   nnoremap <silent> s <Nop>
+  autocmd filetype haskell setlocal cpoptions+=M
 
 filetype:
   haskell: |
     inoremap <buffer> <C-l> <space>-> 
-    setlocal cpoptions+=M colorcolumn=79 shiftround nojoinspaces
+    setlocal colorcolumn=79 shiftround nojoinspaces
   rust: |
     inoremap <buffer> <C-l> <space>-> 
 
