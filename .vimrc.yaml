@@ -360,9 +360,8 @@ plugin:
       let g:TerminusFocusReporting=0
       let g:TerminusBracketedPaste=0
 
-
-script: |
-  map s <Nop>
+after: |
+  nnoremap <silent> s <Nop>
 
 filetype:
   haskell: |
