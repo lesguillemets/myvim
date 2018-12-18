@@ -350,7 +350,12 @@ plugin:
       hi Normal guibg=NONE
       hi NonText guibg=NONE
 
-  wincent/terminus: {}
+  wincent/terminus:
+    before: |
+      let g:TerminusMouse=0
+      let g:TerminusFocusReporting=0
+      let g:TerminusBracketedPaste=0
+
 
 script: |
   map s <Nop>
