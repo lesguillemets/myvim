@@ -141,6 +141,13 @@ nnoremap <Leader>P P`[v`]=
 nnoremap <C-e> <C-e>j
 nnoremap <C-y> <C-y>k
 
+if has('terminal')
+  " Try mapping gt.
+  " I think I'll find it annoying only when using vim inside :terminal.
+  tnoremap gt <C-w>:<C-u>tabnext<CR>
+  tnoremap gT <C-w>:<C-u>tabprevious<CR>
+endif
+
 
 " Paste what yanked in C-v mode as a independent block.
 function! MakeLineWise()
