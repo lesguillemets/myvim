@@ -151,6 +151,27 @@ plugin:
       let g:indentLine_first_char = "▍"
       let g:indentLine_bufTypeExclude = ["help", "terminal"]
 
+  easymotion/vim-easymotion:
+    before: |
+      let g:EasyMotion_smartcase = 1
+      let g:EasyMotion_startofline = 0
+    after: |
+      nmap <Leader>s <Plug>(easymotion-s2)
+      vmap <Leader>s <Plug>(easymotion-s2)
+      omap <Leader>s <Plug>(easymotion-s2)
+      map <Leader>j <Plug>(easymotion-j)
+      map <Leader>k <Plug>(easymotion-k)
+      map <Leader>h <Plug>(easymotion-linebackward)
+      map <Leader>l <Plug>(easymotion-lineforward)
+      map <Leader>w <Plug>(easymotion-bd-wl)
+      map <Leader>e <Plug>(easymotion-bd-el)
+      augroup VemSettings
+          autocmd!
+          autocmd ColorScheme * hi EasyMotionTargetMine cterm=bold ctermfg=blue gui=bold guifg=#0044ff
+      augroup END
+      hi link EasyMotionTarget EasyMotionTargetMine
+
+
   kshenoy/vim-signature:
     before: |
       let g:SignatureMap = ""
@@ -240,6 +261,9 @@ plugin:
       nmap <Leader>c <Plug>(caw:hatpos:toggle)
       vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
+  h1mesuke/vim-alignta:
+    command:
+      - Align
 
   kana/vim-textobj-user: {}
 
@@ -312,6 +336,11 @@ plugin:
       - typescript
 
   mhinz/vim-signify: {}
+
+  tpope/vim-characterize:
+    mapping:
+      - <Plug>(characterize)
+      - ga
 
   rhysd/committia.vim:
     before: |
