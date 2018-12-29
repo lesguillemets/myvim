@@ -209,6 +209,10 @@ plugin:
     before: |
       let g:SignatureMap = ""
 
+  majutsushi/tagbar:
+    command:
+      - TagbarToggle
+
   itchyny/lightline.vim:
     before: |
       let g:lightline = {}
