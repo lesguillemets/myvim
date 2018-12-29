@@ -112,6 +112,36 @@ plugin:
       autocmd filetype haskell nnoremap <buffer><silent> <Space>T :<C-u>GhcModTypeClear<CR>
       autocmd filetype haskell nnoremap <buffer><silent> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
 
+  mattn/emmet-vim:
+    filetype:
+      - html
+      - css
+
+  othree/html5.vim:
+    filetype:
+      - html
+      - css
+
+  pangloss/vim-javascript:
+    filetype:
+      - javascript
+
+  elzr/vim-json:
+    before: |
+      let g:vim_json_syntax_conceal = 0
+    filetype:
+      - json
+
+  lilydjwg/colorizer:
+    command:
+      - ColorHighlight
+      - ColorToggle
+    filetype:
+      - css
+      - html
+      - javascript
+      - vim
+
   Shougo/vimproc:
     build: make
     dependedby:
