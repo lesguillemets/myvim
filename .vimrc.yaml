@@ -189,12 +189,15 @@ plugin:
       nmap <Leader>s <Plug>(easymotion-s2)
       vmap <Leader>s <Plug>(easymotion-s2)
       omap <Leader>s <Plug>(easymotion-s2)
-      map <Leader>j <Plug>(easymotion-j)
-      map <Leader>k <Plug>(easymotion-k)
-      map <Leader>h <Plug>(easymotion-linebackward)
-      map <Leader>l <Plug>(easymotion-lineforward)
-      map <Leader>w <Plug>(easymotion-bd-wl)
-      map <Leader>e <Plug>(easymotion-bd-el)
+      nmap <Space>s <Plug>(easymotion-s2)
+      vmap <Space>s <Plug>(easymotion-s2)
+      omap <Space>s <Plug>(easymotion-s2)
+      map <Space>j <Plug>(easymotion-j)
+      map <Space>k <Plug>(easymotion-k)
+      map <Space>h <Plug>(easymotion-linebackward)
+      map <Space>l <Plug>(easymotion-lineforward)
+      map <Space>w <Plug>(easymotion-bd-wl)
+      map <Space>e <Plug>(easymotion-bd-el)
       augroup VemSettings
           autocmd!
           autocmd ColorScheme * hi EasyMotionTargetMine cterm=bold ctermfg=blue gui=bold guifg=#0044ff
@@ -405,7 +408,7 @@ plugin:
       xmap <Space>m <Plug>(quickhl-manual-this)
       nmap <Space>M <Plug>(quickhl-manual-reset)
       xmap <Space>M <Plug>(quickhl-manual-reset)
-      nmap <Space>j <Plug>(quickhl-cword-toggle)
+      nmap <Leader>j <Plug>(quickhl-cword-toggle)
 
   nanotech/jellybeans.vim:
     after: |
