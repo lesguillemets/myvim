@@ -126,6 +126,14 @@ plugin:
     filetype:
       - javascript
 
+  leafgarland/typescript-vim:
+    filetype:
+      - typescript
+
+  Quramy/tsuquyomi:
+    filetype:
+      - typescript
+
   elzr/vim-json:
     before: |
       let g:vim_json_syntax_conceal = 0
