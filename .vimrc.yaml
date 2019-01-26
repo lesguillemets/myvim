@@ -134,6 +134,11 @@ plugin:
     filetype:
       - typescript
 
+
+  zchee/deoplete-jedi:
+    filetype:
+      - python
+
   elzr/vim-json:
     before: |
       let g:vim_json_syntax_conceal = 0
