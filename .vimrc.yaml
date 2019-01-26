@@ -370,7 +370,7 @@ plugin:
       map <silent>sa <Plug>(operator-surround-append)
       map <silent>sd <Plug>(operator-surround-delete)
       map <silent>sr <Plug>(operator-surround-replace)
-      map <silent>ds <Plug>(operator-surround-delete)a
+      map <silent>ss <Plug>(operator-surround-delete)a
 
   kana/vim-repeat: {}
 
