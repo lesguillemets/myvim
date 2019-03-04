@@ -179,6 +179,11 @@ plugin:
     after: |
       command! Q QuickRun
 
+  rhysd/reply.vim:
+    command:
+      - Repl
+      - ReplAuto
+
   osyo-manga/vim-anzu:
     after: |
       nmap n <Plug>(anzu-n-with-echo)zv
