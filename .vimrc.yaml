@@ -44,9 +44,16 @@ plugin:
         autocmd FileType haskell setlocal omnifunc=lsp#complete
         au User lsp_setup call lsp#register_server({
         \ 'name' : 'hie',
-        \ 'cmd' : { server_info->['hie', '--lsp'] },
+        \ 'cmd' : { server_info->[ 'hie', '--lsp'] },
         \ 'whitelist' : ['haskell', 'lhaskell']
         \ })
+      endif
+      if executable('rls')
+          au User lsp_setup call lsp#register_server({
+              \ 'name': 'rls',
+              \ 'cmd': {server_info->[ 'rustup', 'run', 'nightly', 'rls']},
+              \ 'whitelist': ['rust'],
+              \ })
       endif
 
   w0rp/ale:
@@ -89,10 +96,6 @@ plugin:
         autocmd User ALELintPost call s:lintreportifnone()
       augroup END
 
-  racer-rust/vim-racer:
-    filetype: rust
-    before: |
-      let g:racer_experimental_completer = 1
 
   rust-lang/rust.vim:
     filetype: rust
