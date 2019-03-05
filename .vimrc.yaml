@@ -1,36 +1,26 @@
 plugin:
 
-  Shougo/deoplete.nvim:
-    dependon:
-      - roxma/nvim-yarp
-      - roxma/vim-hug-neovim-rpc
-    before: |
-      let g:deoplete#enable_at_startup=1
-      let g:deoplete#enable_smart_case=1
-      let g:deoplete#auto_completion_start_length = 2
-      let g:deoplete#max_menu_width = 0
+  prabirshrestha/asyncomplete.vim:
     after: |
+      inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+      inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+      inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+      let g:asyncomplete_remove_duplicates = 1
+      let g:asyncomplete_smart_completion = 1
+      let g:asyncomplete_auto_popup = 1
       set completeopt-=preview
-      inoremap <silent><expr> <TAB> pumvisible() ? "\<C-n>" : <SID>check_back_space()
-         \  ? "\<TAB>" : deoplete#mappings#manual_complete()
-      function! s:check_back_space() abort
-        let col = col('.') - 1
-        return !col || getline('.')[col - 1]  =~ '\s'
-      endfunction
-      inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-      inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
-      call deoplete#custom#var('omni', 'input_patterns', {
-        \ 'haskell' : '[A-Z][a-z]*\.\w*\|import.*',
-        \ 'python' : '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*',
-        \ 'cpp' :  '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::',
-        \ } )
 
-  roxma/nvim-yarp:
+  prabirshrestha/asyncomplete-buffer.vim:
     dependedby:
-      - Shougo/deoplete.nvim
-  roxma/vim-hug-neovim-rpc:
+      prabirshrestha/asyncomplete.vim
+
+  prabirshrestha/asyncomplete-file.vim:
     dependedby:
-      - Shougo/deoplete.nvim
+      prabirshrestha/asyncomplete.vim
+
+  prabirshrestha/asyncomplete-omni.vim:
+    dependedby:
+      prabirshrestha/asyncomplete.vim
 
   prabirshrestha/async.vim:
     dependedby:
@@ -39,6 +29,9 @@ plugin:
   prabirshrestha/vim-lsp:
     dependon:
       - prabirshrestha/async.vim
+    filetype:
+      - haskell
+      - rust
     before: |
       let g:lsp_diagnostics_enabled = 0
       let g:lsp_async_completion = 1
@@ -75,7 +68,7 @@ plugin:
       let g:ale_set_loclist=0
       let g:ale_set_quickfix=1
       let g:ale_linters = {}
-      " try out hie
+      " try out hie "
       let g:ale_linters.haskell = ['hie', '--lsp' ]
     after: |
       function! s:lintreportifnone() abort
