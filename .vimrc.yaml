@@ -102,17 +102,6 @@ plugin:
   itchyny/vim-haskell-indent:
     filetype: haskell
 
-  # eagletmt/ghcmod-vim:
-  #   filetype: haskell
-  #   dependon: vimproc
-  #   after: |
-  #     autocmd filetype haskell nnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
-  #     autocmd filetype haskell vnoremap <buffer> <Space>t :<C-u>GhcModType<CR>
-  #     autocmd filetype haskell nnoremap <buffer> <Space>i :<C-u>GhcModInfoPreview<CR>
-  #     autocmd filetype haskell vnoremap <buffer> <Space>i :<C-u>GhcModInfoPreview<CR>
-  #     autocmd filetype haskell nnoremap <buffer><silent> <Space>T :<C-u>GhcModTypeClear<CR>
-  #     autocmd filetype haskell nnoremap <buffer><silent> <Space>q :<C-u>GhcModCheckAndLintAsync<CR>
-
   mattn/emmet-vim:
     filetype:
       - html
