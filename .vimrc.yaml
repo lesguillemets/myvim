@@ -22,6 +22,10 @@ plugin:
     dependedby:
       prabirshrestha/asyncomplete.vim
 
+  prabirshrestha/asyncomplete-lsp.vim:
+    dependedby:
+      prabirshrestha/asyncomplete.vim
+
   prabirshrestha/async.vim:
     dependedby:
       - prabirshrestha/vim-lsp
