@@ -57,6 +57,7 @@ plugin:
     filetype:
       - haskell
       - rust
+      - python
     before: |
       let g:lsp_diagnostics_enabled = 0
       let g:lsp_async_completion = 1
@@ -75,7 +76,15 @@ plugin:
               \ 'name': 'rls',
               \ 'cmd': {server_info->[ 'rustup', 'run', 'nightly', 'rls']},
               \ 'whitelist': ['rust'],
-              \ 'workspace_config' : { 'unstable_features' : 'true' }
+              \ 'workspace_config' : { 'rust': { 'unstable_features' : 'true' }}
+              \ })
+      endif
+      if executable('pyls')
+          autocmd FileType python setlocal omnifunc=lsp#complete
+          au User lsp_setup call lsp#register_server({
+              \ 'name': 'pyls',
+              \ 'cmd': {server_info->['pyls']},
+              \ 'whitelist': ['python'],
               \ })
       endif
 
@@ -150,10 +159,6 @@ plugin:
     filetype:
       - typescript
 
-
-  zchee/deoplete-jedi:
-    filetype:
-      - python
 
   elzr/vim-json:
     before: |
