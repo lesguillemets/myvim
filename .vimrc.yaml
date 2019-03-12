@@ -165,6 +165,9 @@ plugin:
     filetype:
       - typescript
 
+  lesguillemets/qqsharp.vim:
+    filetype:
+      - qsharp
 
   elzr/vim-json:
     before: |
