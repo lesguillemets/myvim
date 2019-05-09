@@ -215,6 +215,8 @@ plugin:
       - ReplAuto
 
   osyo-manga/vim-anzu:
+    enable: |
+      ! has('patch-8.1.1270')
     after: |
       nmap n <Plug>(anzu-n-with-echo)zv
       nmap N <Plug>(anzu-N-with-echo)zv

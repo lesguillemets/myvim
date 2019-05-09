@@ -81,6 +81,9 @@ set nolinebreak
 
 set list listchars=tab:>-
 " consider using eol :┆, ╱, ??
+if has('patch-8.1.1270')
+  set shortmess-=S
+endif
 set showmatch matchtime=2
 set pyxversion=3 " prefer python 3
 set scrolloff=2
