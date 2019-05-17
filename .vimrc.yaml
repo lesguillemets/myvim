@@ -471,6 +471,9 @@ plugin:
       hi Normal guibg=NONE
       hi NonText guibg=NONE
 
+  reedes/vim-colors-pencil: {}
+  freeo/vim-kalisi: {}
+
   wincent/terminus:
     before: |
       let g:TerminusMouse=0
