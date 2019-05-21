@@ -175,6 +175,29 @@ plugin:
     filetype:
       - json
 
+  lervag/vimtex:
+    filetype:
+      - latex
+      - plaintex
+      - tex
+    before: |
+      let g:vimtex_mappings_enabled = 0
+    after: |
+      nmap <silent><nowait><buffer> <localleader>lm <plug><vimtex-compile-ss>
+      xmap <silent><nowait><buffer> ae <plug>(vimtex-ae)
+      omap <silent><nowait><buffer> ae <plug>(vimtex-ae)
+      xmap <silent><nowait><buffer> ie <plug>(vimtex-ie)
+      omap <silent><nowait><buffer> ie <plug>(vimtex-ie)
+      xmap <silent><nowait><buffer> a$ <plug>(vimtex-a$)
+      omap <silent><nowait><buffer> a$ <plug>(vimtex-a$)
+      xmap <silent><nowait><buffer> i$ <plug>(vimtex-i$)
+      omap <silent><nowait><buffer> i$ <plug>(vimtex-i$)
+      nmap <silent><nowait><buffer> %  <plug>(vimtex-%)
+      xmap <silent><nowait><buffer> %  <plug>(vimtex-%)
+      omap <silent><nowait><buffer> %  <plug>(vimtex-%)
+      imap <silent><nowait><buffer> ]] <plug>(vimtex-delim-close)
+
+
   lilydjwg/colorizer:
     command:
       - ColorHighlight
@@ -419,6 +442,7 @@ plugin:
       - javascript
       - latex
       - lisp
+      - plaintex
       - rust
       - tex
       - typescript
@@ -490,5 +514,16 @@ filetype:
     setlocal colorcolumn=79 shiftround nojoinspaces
   rust: |
     inoremap <buffer> <C-l> <space>-> 
+  plaintex: |
+    iabbrev an &
+    let g:tex_conceal=""
+  tex: |
+    iabbrev an &
+    let g:tex_conceal=""
+# setlocal foldmethod=marker foldmarker=\:\:\:,;;;
+  latex: |
+    iabbrev an &
+    let g:tex_conceal=""
+# setlocal foldmethod=marker foldmarker=\:\:\:,;;;
 
 # vim: set expandtab ts=2 sw=2 sts=2:
