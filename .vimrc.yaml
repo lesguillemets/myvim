@@ -196,6 +196,16 @@ plugin:
       xmap <silent><nowait><buffer> %  <plug>(vimtex-%)
       omap <silent><nowait><buffer> %  <plug>(vimtex-%)
       imap <silent><nowait><buffer> ]] <plug>(vimtex-delim-close)
+      " changes "
+      nmap <silent><nowait><buffer> ]] <plug>(vimtex-delim-close)
+      nmap <silent><nowait><buffer> dse <plug>(vimtex-env-delete)
+      nmap <silent><nowait><buffer> dsc <plug>(vimtex-cmd-delete)
+      nmap <silent><nowait><buffer> ds$ <plug>(vimtex-env-delete-math)
+      nmap <silent><nowait><buffer> dsd <plug>(vimtex-delim-delete)
+      nmap <silent><nowait><buffer> cse <plug>(vimtex-env-change)
+      nmap <silent><nowait><buffer> csc <plug>(vimtex-cmd-change)
+      nmap <silent><nowait><buffer> cs$ <plug>(vimtex-env-change-math)
+      nmap <silent><nowait><buffer> csd <plug>(vimtex-delim-change-math)
 
 
   lilydjwg/colorizer:
