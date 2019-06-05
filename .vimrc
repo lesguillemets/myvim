@@ -105,7 +105,7 @@ set virtualedit=block
 set wildmode=list:longest,full
 
 "- Mapping ------------------------------------------------------
-nnoremap <silent> <Esc><Esc> :<C-u> nohlsearch<CR>
+nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 nnoremap Y y$
 
 nnoremap * *N
