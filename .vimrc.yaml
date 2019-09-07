@@ -66,6 +66,7 @@ plugin:
         autocmd FileType haskell setlocal omnifunc=lsp#complete
         autocmd FileType haskell nnoremap <buffer> <C-]> :LspDefinition<CR>
         autocmd FileType haskell nnoremap <buffer> gh :LspHover<CR>
+        autocmd FileType haskell nnoremap <buffer> K :LspHover<CR>
         au User lsp_setup call lsp#register_server({
         \ 'name' : 'hie',
         \ 'cmd' : { server_info->[ 'hie', '--lsp'] },
@@ -76,6 +77,7 @@ plugin:
           autocmd FileType rust setlocal omnifunc=lsp#complete
           autocmd FileType rust nnoremap <buffer> <C-]> :LspDefinition<CR>
           autocmd FileType rust nnoremap <buffer> gh :LspHover<CR>
+          autocmd FileType rust nnoremap <buffer> K :LspHover<CR>
           au User lsp_setup call lsp#register_server({
               \ 'name': 'rls',
               \ 'cmd': {server_info->[ 'rustup', 'run', 'nightly', 'rls']},
@@ -87,6 +89,7 @@ plugin:
           autocmd FileType python setlocal omnifunc=lsp#complete
           autocmd FileType python nnoremap <buffer> <C-]> :LspDefinition<CR>
           autocmd FileType python nnoremap <buffer> gh :LspHover<CR>
+          autocmd FileType python nnoremap <buffer> K :LspHover<CR>
           au User lsp_setup call lsp#register_server({
               \ 'name': 'pyls',
               \ 'cmd': {server_info->['pyls']},
