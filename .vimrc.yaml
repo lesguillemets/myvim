@@ -540,5 +540,7 @@ filetype:
     iabbrev an &
     let g:tex_conceal=""
 # setlocal foldmethod=marker foldmarker=\:\:\:,;;;
+  gitcommit: |
+    setlocal spell
 
 # vim: set expandtab ts=2 sw=2 sts=2:
