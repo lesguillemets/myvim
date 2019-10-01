@@ -535,10 +535,12 @@ filetype:
   tex: |
     iabbrev an &
     let g:tex_conceal=""
+    setlocal backspace=indent,eol,start
 # setlocal foldmethod=marker foldmarker=\:\:\:,;;;
   latex: |
     iabbrev an &
     let g:tex_conceal=""
+    setlocal backspace=indent,eol,start
 # setlocal foldmethod=marker foldmarker=\:\:\:,;;;
   gitcommit: |
     setlocal spell
