@@ -458,6 +458,7 @@ plugin:
       - latex
       - lisp
       - plaintex
+      - python
       - rust
       - tex
       - typescript
