@@ -483,6 +483,15 @@ plugin:
     before: |
       let g:hybrid_custom_term_colors=1
 
+  gkapfham/vim-vitamin-onec : {}
+  datMaffin/vim-colors-bionik: {}
+  FrancescoMagliocco/CmptrClr: {}
+  sainnhe/vim-color-forest-night: {}
+  sainnhe/edge: {}
+  ludokng/vim-odyssey: {}
+  sblauen/chalk: {}
+  ethantrithon/elementary.vim: {}
+
   luochen1990/rainbow:
     before: |
       let g:rainbow_active = 1
