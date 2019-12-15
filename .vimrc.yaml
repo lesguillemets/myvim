@@ -212,6 +212,15 @@ plugin:
       nmap <silent><nowait><buffer> cs$ <plug>(vimtex-env-change-math)
       nmap <silent><nowait><buffer> csd <plug>(vimtex-delim-change-math)
 
+  plasticboy/vim-markdown:
+    before: |
+      let g:vim_markdown_no_default_key_mappings = 1
+      let g:vim_markdown_auto_insert_bullets = 0
+      let g:vim_markdown_new_list_item_indent = 0
+      let g:vim_markdown_conceal = 0
+      let g:vim_markdown_strikethrough = 1
+    filetype:
+      - markdown
 
   lilydjwg/colorizer:
     command:
