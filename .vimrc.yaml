@@ -32,7 +32,7 @@ plugin:
       \ 'completor': function('asyncomplete#sources#file#completor')
       \ }))
 
-  prabirshrestha/asyncomplete-omni.vim:
+  yami-beta/asyncomplete-omni.vim:
     dependedby:
       prabirshrestha/asyncomplete.vim
     after: |
