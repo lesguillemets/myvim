@@ -55,15 +55,14 @@ set foldmethod=marker
 set history=2000
 
 " IM
-set imactivatekey="C-space"
+" set imactivatekey="C-space"
 " turn off IM automatically when leaving insert mode
-inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+" inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
-" function! ImStatus()
-"   let is_active = system('fcitx-remote') == 2
-"   return is_active
-" endfunction
-" set imstatusfunc=ImStatus
+function! ImStatus()
+  return system('fcitx-remote')[0] == 2
+endfunction
+set imstatusfunc=ImStatus
 "
 function! ImActivate(active)
   if a:active
