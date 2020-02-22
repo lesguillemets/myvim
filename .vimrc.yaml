@@ -232,11 +232,6 @@ plugin:
       - javascript
       - vim
 
-  Shougo/vimproc:
-    build: make
-    dependedby:
-      - eagletmt/ghcmod-vim
-
   thinca/vim-quickrun:
     command: QuickRun
     before: |
