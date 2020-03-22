@@ -29,6 +29,21 @@ plugin:
       - am
       - im
 
+  thinca/vim-textobj-between:
+    dependon: kana/vim-textobj-user
+    mapmode:
+      - o
+      - v
+    mapping:
+      - <Plug>(textobj-between-a)
+      - <Plug>(textobj-between-i)
+    before: |
+      let g:textobj_between_no_default_key_mappings = 1
+      omap ib <Plug>(textobj-between-i)
+      omap ab <Plug>(textobj-between-a)
+      vmap ib <Plug>(textobj-between-i)
+      vmap ab <Plug>(textobj-between-a)
+
   sgur/vim-textobj-parameter:
     dependon: kana/vim-textobj-user
     mapmode:
