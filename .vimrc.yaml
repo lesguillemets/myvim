@@ -2,6 +2,8 @@ plugin:
 
   # Editing <<<
 
+  kana/vim-repeat: {}
+
   ## Operators <<<
   kana/vim-operator-user: {}
 
@@ -57,6 +59,7 @@ plugin:
       let g:indentLine_char_list = ['▏', '┆', '┊', '┊', '┊']
       let g:indentLine_showFirstIndentLevel = 1
       let g:indentLine_faster = 1
+      let g:indentLine_bufTypeExclude = ["help", "terminal"]
 
   luochen1990/rainbow:
     before: |
@@ -110,4 +113,4 @@ filetype:
   gitcommit: |
     setlocal spell
 
-# vim: set expandtab ts=2 sw=2 sts=2 fdm=marker fmr=<<<,>>> fdl=5:
+# vim: set expandtab ts=2 sw=2 sts=2 fdm=marker fmr=<<<,>>> fdl=1:
