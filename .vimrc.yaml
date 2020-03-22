@@ -1,5 +1,55 @@
 plugin:
 
+  # Editing <<<
+
+  ## Operators <<<
+  kana/vim-operator-user: {}
+
+  rhysd/vim-operator-surround:
+    dependon: kana/vim-operator-user
+    before: |
+      map <silent>sa <Plug>(operator-surround-append)
+      map <silent>sd <Plug>(operator-surround-delete)
+      map <silent>sr <Plug>(operator-surround-replace)
+      map <silent>ss <Plug>(operator-surround-delete)a
+
+  ## >>>
+
+  ## Textobjs <<<
+  kana/vim-textobj-user: {}
+
+  rhysd/vim-textobj-wiw:
+    dependon: kana/vim-textobj-user
+    mapmode:
+      - o
+      - v
+    mapping:
+      - am
+      - im
+
+  sgur/vim-textobj-parameter:
+    dependon: kana/vim-textobj-user
+    mapmode:
+      - o
+      - v
+    mapping:
+      - a,
+      - i,
+
+  kana/vim-textobj-underscore:
+    dependon: textobj-user
+    mapmode:
+      - o
+      - v
+    mapping:
+      - <Plug>(textobj-underscore-a)
+      - <Plug>(textobj-underscore-i)
+      - i_
+      - a_
+  ## >>>
+
+  # >>>
+
   # Visuals <<<
   Yggdroot/indentLine:
     before: |
