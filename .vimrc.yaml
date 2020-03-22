@@ -1,4 +1,26 @@
 plugin:
+
+  # Visuals <<<
+  Yggdroot/indentLine:
+    before: |
+      let g:indentLine_first_char = "▍"
+      let g:indentLine_char_list = ['▏', '┆', '┊', '┊', '┊']
+      let g:indentLine_showFirstIndentLevel = 1
+      let g:indentLine_faster = 1
+
+  luochen1990/rainbow:
+    before: |
+      let g:rainbow_active = 1
+      let g:rainbow_conf = { 'separately': {} }
+      for ft in [
+          \ "css", "text", "html", "javascript", "quickrun", "lua", "help",
+          \ "qf", "agit", "agit_diff", "agit_stat", "diff", "gitcommit", "coq",
+          \ "clojure"
+          \ ]
+        let g:rainbow_conf.separately[ft] = 0
+      endfor
+  # >>>
+
   # Colorschemes <<<
   nanotech/jellybeans.vim:
     before: |
@@ -10,6 +32,9 @@ plugin:
       let g:hybrid_transparent = 1
 
   reedes/vim-colors-pencil: {}
+  franbach/miramare:
+    before: |
+      let g:miramare_transparent_background = 1
   # >>>
 
 after:
