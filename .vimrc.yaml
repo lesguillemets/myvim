@@ -88,6 +88,15 @@ plugin:
       - scheme
       - tex
       - typescript
+    after: |
+      for specifier in [['left', 'right'], ['bigl', 'bigr'], ['Bigl', 'Bigr'], ['biggl', 'biggr'], ['Biggl', 'Biggr']]
+        for bracket in [ ['(', ')'] , ['[', ']'], ]
+          call lexima#add_rule({ 'char': bracket[0], 'at': '\\' . specifier[0] . '\%#', 'input_after': '\' . specifier[1] . bracket[1], 'priority' : 5, 'filetype': ['tex', 'latex'] })
+        endfor
+        for bracket in [ ['{', '}'] ]
+          call lexima#add_rule({ 'char': bracket[0], 'at': '\\' . specifier[0] . '\\' . '\%#', 'input_after': '\' . specifier[1] . '\' . bracket[1], 'priority' : 5, 'filetype': ['tex', 'latex'] })
+        endfor
+      endfor
 
   ### Git <<<
   mhinz/vim-signify: {}
