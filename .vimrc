@@ -54,7 +54,7 @@ set history=2000
 set imactivatekey="C-space"
 " turn off IM automatically when leaving insert mode
 " only works in gvim?
-" inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
 " the solution below breaks plugins such as operator-surround
 " function! ImStatus()
