@@ -148,6 +148,17 @@ plugin:
       endfor
   # >>>
 
+  # Filetypes <<<
+  lervag/vimtex:
+    filetype:
+      - tex
+      - latex
+    before: |
+      " Let's see how this conflicts"
+      let g:vimtex_mappings_enabled = 1
+
+  # >>>
+
   # Colorschemes <<<
   nanotech/jellybeans.vim:
     before: |
