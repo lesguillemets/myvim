@@ -27,11 +27,10 @@ endif
 syntax on
 filetype plugin on
 filetype indent on
-
+colorscheme jellybeans
 
 set smartindent smartindent
-set smarttab
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+set smarttab tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 set ignorecase smartcase
 set hlsearch incsearch
 set number relativenumber
@@ -45,12 +44,10 @@ set cryptmethod=blowfish2 " files can NOT be read by vim 7.3 and older.
 set cursorline
 set display="truncate"
 set fileencodings=utf-8,iso-2022-jp-3,euc-jisx0213,cp932,euc-jp,sjis,jis,latin,iso-2022-jp
-set fillchars=vert:║,fold:┅
+set fillchars=vert:║,fold:┅,stl:_
 " other candidates; ░, ▚
 
-set foldcolumn=0
-set foldmethod=marker
-" set foldtext : TODO
+set foldcolumn=0 foldmethod=marker
 " set highlight
 set history=2000
 
@@ -149,7 +146,6 @@ if has('terminal')
   tnoremap gT <C-w>:<C-u>tabprevious<CR>
 endif
 
-
 " Paste what yanked in C-v mode as a independent block.
 function! MakeLineWise()
     call setreg(v:register, getreg(),'l')
@@ -168,6 +164,7 @@ augroup MiVLive
   autocmd!
   autocmd BufWritePost .vimrc.yaml call system('miv generate')
 augroup END
+
 function! s:syntax_additional()
   let l:matches = [
         \ matchadd("ZenkakuSpace", '　', 0),
