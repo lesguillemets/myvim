@@ -65,6 +65,57 @@ plugin:
       - a_
   ## >>>
 
+  ## Utilities <<<
+  tyru/caw.vim:
+    dependon: kana/vim-repeat
+    after: |
+      nmap <Leader>c <Plug>(caw:hatpos:toggle)
+      vmap <Leader>c <Plug>(caw:hatpos:toggle)
+
+  cohama/lexima.vim:
+    dependon: kana/vim-repeat
+    filetype:
+      - c
+      - cfg
+      - clojure
+      - cpp
+      - javascript
+      - latex
+      - lisp
+      - plaintex
+      - python
+      - rust
+      - scheme
+      - tex
+      - typescript
+
+  ### Git <<<
+  mhinz/vim-signify: {}
+
+  rhysd/committia.vim:
+    after: |
+      imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
+      imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
+      nmap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
+      nmap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
+
+  ### >>>
+
+  kshenoy/vim-signature:
+    before: |
+      let g:SignatureMap = {
+        \ 'GotoNextSpotByPos'  :  "]`",
+        \ 'GotoPrevSpotByPos'  :  "[`",
+        \ 'ListBufferMarks'    :  "m/",
+        \ }
+
+  junegunn/vim-easy-align:
+    command:
+      - EasyAlign
+      - LiveEasyAlign
+
+  ## >>>
+
   # >>>
 
   # Visuals <<<
