@@ -27,7 +27,6 @@ endif
 syntax on
 filetype plugin on
 filetype indent on
-colorscheme jellybeans
 
 set smartindent smartindent
 set smarttab tabstop=4 softtabstop=4 shiftwidth=4 expandtab
