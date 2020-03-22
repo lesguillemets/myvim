@@ -51,24 +51,26 @@ set foldcolumn=0 foldmethod=marker
 set history=2000
 
 " IM
-" set imactivatekey="C-space"
+set imactivatekey="C-space"
 " turn off IM automatically when leaving insert mode
+" only works in gvim?
 " inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
-function! ImStatus()
-  return system('fcitx-remote')[0] == 2
-endfunction
-set imstatusfunc=ImStatus
-"
-function! ImActivate(active)
-  if a:active
-    call system('fcitx-remote -o')
-  else
-    call system('fcitx-remote -c')
-  endif
-endfunction
-set imactivatefunc=ImActivate
-"
+" the solution below breaks plugins such as operator-surround
+" function! ImStatus()
+"   return system('fcitx-remote')[0] == 2
+" endfunction
+" set imstatusfunc=ImStatus
+" "
+" function! ImActivate(active)
+"   if a:active
+"     call system('fcitx-remote -o')
+"   else
+"     call system('fcitx-remote -c')
+"   endif
+" endfunction
+" set imactivatefunc=ImActivate
+
 set laststatus=2
 set lazyredraw
 set nolinebreak
