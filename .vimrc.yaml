@@ -93,11 +93,19 @@ plugin:
   mhinz/vim-signify: {}
 
   rhysd/committia.vim:
-    after: |
-      imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
-      imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
-      nmap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
-      nmap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
+    before: |
+      let g:committia_hooks = {}
+      function! g:committia_hooks.edit_open(info)
+        nmap <buffer><C-b> <Plug>(committia-scroll-diff-up-page)
+        nmap <buffer><C-f> <Plug>(committia-scroll-diff-down-page)
+        nmap <buffer><C-y> <Plug>(committia-scroll-diff-up)
+        nmap <buffer><C-e> <Plug>(committia-scroll-diff-down)
+
+        imap <buffer><C-b> <Plug>(committia-scroll-diff-up-page)
+        imap <buffer><C-f> <Plug>(committia-scroll-diff-down-page)
+        imap <buffer><C-y> <Plug>(committia-scroll-diff-up)
+        imap <buffer><C-e> <Plug>(committia-scroll-diff-down)
+      endfunction
 
   ### >>>
 
