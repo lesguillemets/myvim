@@ -193,8 +193,9 @@ plugin:
       let g:ctrlp_custom_ignore = {}
       let g:ctrlp_custom_ignore.file = '\v\.(hi|o|out|jsmod|vo|v\.d|glob|pyc)$'
       let g:ctrlp_custom_ignore.dir = '\v[\/]\.(git|hg|svn|stack-work|target)$'
-    let g:ctrlp_follow_symlinks = 1
-    let g:ctrlp_switch_buffer = 'Et'
+      let g:ctrlp_follow_symlinks = 1
+      let g:ctrlp_switch_buffer = 'Et'
+      let g:ctrlp_match_func = {'match': 'cpsm#CtrlPMatch'}
 
   ## >>>
 
