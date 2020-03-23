@@ -255,14 +255,9 @@ plugin:
       let g:jellybeans_overrides= { 'background': {'guibg': 'none' } }
       let g:jellybeans_use_term_italics = 1
 
-  micke/vim-hybrid:
-    before: |
-      let g:hybrid_transparent = 1
-
+  micke/vim-hybrid: {}
   reedes/vim-colors-pencil: {}
-  franbach/miramare:
-    before: |
-      let g:miramare_transparent_background = 1
+  franbach/miramare: {}
   # >>>
 
 after:
