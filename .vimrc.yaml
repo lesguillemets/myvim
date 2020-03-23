@@ -8,7 +8,7 @@ plugin:
   kana/vim-operator-user: {}
 
   rhysd/vim-operator-surround:
-    dependon: kana/vim-operator-user
+    dependon: operator-user
     before: |
       map <silent>sa <Plug>(operator-surround-append)
       map <silent>sd <Plug>(operator-surround-delete)
@@ -21,7 +21,7 @@ plugin:
   kana/vim-textobj-user: {}
 
   rhysd/vim-textobj-wiw:
-    dependon: kana/vim-textobj-user
+    dependon: textobj-user
     mapmode:
       - o
       - v
@@ -30,7 +30,7 @@ plugin:
       - im
 
   thinca/vim-textobj-between:
-    dependon: kana/vim-textobj-user
+    dependon: textobj-user
     mapmode:
       - o
       - v
@@ -45,7 +45,7 @@ plugin:
       vmap ab <Plug>(textobj-between-a)
 
   sgur/vim-textobj-parameter:
-    dependon: kana/vim-textobj-user
+    dependon: textobj-user
     mapmode:
       - o
       - v
@@ -67,13 +67,13 @@ plugin:
 
   ## Utilities <<<
   tyru/caw.vim:
-    dependon: kana/vim-repeat
+    dependon: repeat
     after: |
       nmap <Leader>c <Plug>(caw:hatpos:toggle)
       vmap <Leader>c <Plug>(caw:hatpos:toggle)
 
   cohama/lexima.vim:
-    dependon: kana/vim-repeat
+    dependon: repeat
     filetype:
       - c
       - cfg
