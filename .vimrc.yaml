@@ -150,6 +150,7 @@ plugin:
       - scheme
       - tex
       - typescript
+      - yaml
     after: |
       for specifier in [['left', 'right'], ['bigl', 'bigr'], ['Bigl', 'Bigr'], ['biggl', 'biggr'], ['Biggl', 'Biggr']]
         for bracket in [ ['(', ')'] , ['[', ']'], ]
@@ -179,6 +180,23 @@ plugin:
       endfunction
 
   ### >>>
+
+  ## Browsing <<<
+
+  ctrlpvim/ctrlp.vim:
+    before: |
+      let g:ctrlp_map = '<C-p>'
+      " use mattn/files if available "
+      if executable('files')
+        let g:ctrlp_user_command = 'files -i="^(target|node_modules|\\.git|\\.hg|\\.svn|\\.stack-work|\\.cabal-sandbox|\\..*\.sw.)$" -a %s '
+      endif
+      let g:ctrlp_custom_ignore = {}
+      let g:ctrlp_custom_ignore.file = '\v\.(hi|o|out|jsmod|vo|v\.d|glob|pyc)$'
+      let g:ctrlp_custom_ignore.dir = '\v[\/]\.(git|hg|svn|stack-work|target)$'
+    let g:ctrlp_follow_symlinks = 1
+    let g:ctrlp_switch_buffer = 'Et'
+
+  ## >>>
 
   kshenoy/vim-signature:
     before: |
