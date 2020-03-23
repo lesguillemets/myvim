@@ -252,8 +252,13 @@ plugin:
   # Colorschemes <<<
   nanotech/jellybeans.vim:
     before: |
-      let g:jellybeans_overrides= { 'background': {'guibg': 'none' } }
       let g:jellybeans_use_term_italics = 1
+      if has('termguicolors') && &termguicolors
+        let g:jellybeans_overrides = { 'background': {'guibg': 'none' } }
+      endif
+      augroup JellyJelly
+        autocmd GUIEnter let g:jellybeans_overrides = {}
+      augroup END
 
   micke/vim-hybrid: {}
   reedes/vim-colors-pencil: {}
