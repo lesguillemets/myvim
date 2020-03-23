@@ -2,6 +2,68 @@ plugin:
 
   # Editing <<<
 
+  ## Completion <<<
+  prabirshrestha/async.vim: {}
+
+  prabirshrestha/asyncomplete.vim:
+    dependon: async
+    after: |
+      inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+      inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+      inoremap <expr> <CR> pumvisible() ? asyncomplete#close_popup() . "\<CR>" : "\<CR>"
+      " from the doc "
+      function! s:my_asyncomplete_preprocessor(options, matches) abort
+        let l:visited = {}
+        let l:items = []
+        for [l:source_name, l:matches] in items(a:matches)
+          for l:item in l:matches['items']
+            if stridx(l:item['word'], a:options['base']) == 0
+              if !has_key(l:visited, l:item['word'])
+                call add(l:items, l:item)
+                let l:visited[l:item['word']] = 1
+              endif
+            endif
+          endfor
+        endfor
+        call asyncomplete#preprocess_complete(a:options, l:items)
+      endfunction
+
+      let g:asyncomplete_preprocessor = [function('s:my_asyncomplete_preprocessor')]
+
+  prabirshrestha/asyncomplete-buffer.vim:
+    dependon: asyncomplete
+    after: |
+      call asyncomplete#register_source(asyncomplete#sources#buffer#get_source_options({
+        \ 'name': 'buffer',
+        \ 'whitelist': ['*'],
+        \ 'blacklist': ['go'],
+        \ 'completor': function('asyncomplete#sources#buffer#completor'),
+        \ 'config': {
+        \    'max_buffer_size': 5000000,
+        \  },
+        \ }))
+
+  prabirshrestha/asyncomplete-file.vim:
+    dependon: asyncomplete
+    after: |
+      call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+        \ 'name': 'file',
+        \ 'whitelist': ['*'],
+        \ 'priority': 10,
+        \ 'completor': function('asyncomplete#sources#file#completor')
+        \ }))
+
+  yami-beta/asyncomplete-omni.vim:
+    dependon: asyncomplete
+    after: |
+      call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
+          \ 'name': 'omni',
+          \ 'whitelist': ['*'],
+          \ 'completor': function('asyncomplete#sources#omni#completor'),
+          \ }))
+
+  ## >>>
+
   kana/vim-repeat: {}
 
   ## Operators <<<
