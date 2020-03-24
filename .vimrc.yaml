@@ -313,10 +313,12 @@ filetype:
     iabbrev an &
     let g:tex_conceal=""
   tex: |
+    setlocal noexpandtab ts=2 sts=2 sw=2
     iabbrev an &
     let g:tex_conceal=""
     setlocal backspace=indent,eol
   latex: |
+    setlocal noexpandtab ts=2 sts=2 sw=2
     iabbrev an &
     let g:tex_conceal=""
     setlocal backspace=indent,eol
