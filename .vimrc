@@ -161,6 +161,12 @@ augroup MyAppearance
   autocmd VimEnter,WinEnter,Bufread * call s:syntax_additional()
 augroup END
 
+augroup ToggleRelative
+  autocmd!
+  autocmd BufEnter * setlocal relativenumber
+  autocmd BufLeave * setlocal norelativenumber
+augroup END
+
 augroup MiVLive
   autocmd!
   autocmd BufWritePost .vimrc.yaml call system('miv generate')
