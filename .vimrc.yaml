@@ -295,6 +295,7 @@ plugin:
         autocmd GUIEnter let g:jellybeans_overrides = {}
       augroup END
 
+  jeetsukumaran/vim-nefertiti: {}
   micke/vim-hybrid: {}
   reedes/vim-colors-pencil: {}
   franbach/miramare: {}
