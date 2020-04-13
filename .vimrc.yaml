@@ -80,6 +80,7 @@ plugin:
           nmap <buffer> <C-]> <plug>(lsp-definition)
           nmap <buffer> gh <plug>(lsp-hover)
           nmap <buffer> K <plug>(lsp-hover)
+          nmap <buffer> <Space>q <plug>(lsp-document-diagnostics)
       endfunction
 
       augroup lsp_install
