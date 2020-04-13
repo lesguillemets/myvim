@@ -241,6 +241,25 @@ plugin:
       - EasyAlign
       - LiveEasyAlign
 
+  liuchengxu/vista.vim:
+    command:
+      - Vista
+    filetype:
+      - rust
+      - haskell
+    before: |
+      let g:vista_executive_for = {
+      \ 'rust': 'vim_lsp',
+      \ 'python': 'vim_lsp',
+      \ }
+      let g:vista#renderer#enable_icon = 0
+      let g:vista_sidebar_position = 'vertical topleft'
+    after: |
+      augroup VISTA
+        autocmd filetype vista_kind setl nonumber norelativenumber
+        autocmd BufEnter  __vista__ setlocal nonumber norelativenumber
+      augroup END
+
   ## >>>
 
   # >>>
