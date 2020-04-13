@@ -56,6 +56,7 @@ plugin:
     before: |
       let g:lsp_highlights_enabled = 1
       let g:lsp_textprop_enabled = 1
+      let g:lsp_diagnostics_float_cursor = 1
     after: |
       if executable('pyls')
         au User lsp_setup call lsp#register_server({
