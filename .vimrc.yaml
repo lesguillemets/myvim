@@ -245,12 +245,14 @@ plugin:
     command:
       - Vista
     filetype:
-      - rust
       - haskell
+      - python
+      - rust
     before: |
       let g:vista_executive_for = {
-      \ 'rust': 'vim_lsp',
+      \ 'haskell': 'vim_lsp',
       \ 'python': 'vim_lsp',
+      \ 'rust': 'vim_lsp',
       \ }
       let g:vista#renderer#enable_icon = 0
       let g:vista_sidebar_position = 'vertical topleft'
