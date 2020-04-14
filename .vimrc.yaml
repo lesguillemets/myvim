@@ -351,7 +351,10 @@ plugin:
   franbach/miramare: {}
   # >>>
 
-after:
+before: |
+  let g:vim_json_conceal = 0
+
+after: |
   colorscheme jellybeans
 
 filetype:
