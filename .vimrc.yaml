@@ -44,6 +44,17 @@ plugin:
           \ 'completor': function('asyncomplete#sources#omni#completor'),
           \ }))
 
+  prabirshrestha/asyncomplete-ultisnips.vim :
+    dependon:
+      - asyncomplete
+      - ultisnips
+    after: |
+      call asyncomplete#register_source(asyncomplete#sources#ultisnips#get_source_options({
+        \ 'name': 'ultisnips',
+        \ 'whitelist': ['*'],
+        \ 'completor': function('asyncomplete#sources#ultisnips#completor'),
+        \ }))
+
   ## >>>
 
   ## LSP <<<
@@ -192,6 +203,15 @@ plugin:
           call lexima#add_rule({ 'char': bracket[0], 'at': '\\' . specifier[0] . '\\' . '\%#', 'input_after': '\' . specifier[1] . '\' . bracket[1], 'priority' : 5, 'filetype': ['tex', 'latex'] })
         endfor
       endfor
+
+  SirVer/ultisnips:
+    before: |
+      let g:UltiSnipsExpandTrigger = "<C-y>"
+      let g:UltiSnipsJumpForwardTrigger = "<F2>"
+      let g:UltiSnipsJumpBackwardTrigger = "<F1>"
+
+  honza/vim-snippets:
+    dependon: ultisnips
 
   ### Git <<<
   mhinz/vim-signify: {}
