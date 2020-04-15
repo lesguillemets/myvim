@@ -5,3 +5,5 @@ colorscheme hybrid
 set listchars+=eol:↲
 
 set guioptions=ac
+
+nnoremap <F11> :<C-u>call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
