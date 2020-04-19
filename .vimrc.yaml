@@ -300,13 +300,13 @@ plugin:
   luochen1990/rainbow:
     before: |
       let g:rainbow_active = 1
-      let g:rainbow_conf = { 'separately': {} }
+      let g:rainbow_conf = { 'separately': { '*': 0 } }
       for ft in [
-          \ "css", "text", "html", "javascript", "quickrun", "lua", "help",
-          \ "qf", "agit", "agit_diff", "agit_stat", "diff", "gitcommit", "coq",
-          \ "clojure"
-          \ ]
-        let g:rainbow_conf.separately[ft] = 0
+        \ "c", "cpp", "go", "haskell", "java", "julia", "latex",
+        \ "lisp", "perl", "python", "ruby", "rust", "scheme",
+        \ "tex", "vim", "yaml", "toml",
+        \ ]
+        let g:rainbow_conf.separately[ft] = "default"
       endfor
   # >>>
 
