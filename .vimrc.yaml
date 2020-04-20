@@ -213,6 +213,18 @@ plugin:
   honza/vim-snippets:
     dependon: ultisnips
 
+  t9md/vim-quickhl:
+    mapping:
+      - <Space>m
+      - <Space>M
+      - <Plug>(quickhl-manual-this)
+      - <Plug>(quickhl-manual-reset)
+    after: |
+      nmap <Space>m <Plug>(quickhl-manual-this)
+      xmap <Space>m <Plug>(quickhl-manual-this)
+      nmap <Space>M <Plug>(quickhl-manual-reset)
+      xmap <Space>M <Plug>(quickhl-manual-reset)
+
   ### Git <<<
   mhinz/vim-signify: {}
 
