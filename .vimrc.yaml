@@ -142,8 +142,11 @@ plugin:
     mapping:
       - <Plug>(textobj-between-a)
       - <Plug>(textobj-between-i)
+      - ib
+      - ab
     before: |
       let g:textobj_between_no_default_key_mappings = 1
+    after: |
       omap ib <Plug>(textobj-between-i)
       omap ab <Plug>(textobj-between-a)
       vmap ib <Plug>(textobj-between-i)
