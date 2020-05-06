@@ -361,7 +361,9 @@ plugin:
       augroup END
 
   jeetsukumaran/vim-nefertiti: {}
-  micke/vim-hybrid: {}
+  w0ng/vim-hybrid:
+    before: |
+      let g:hybrid_custom_term_colors = 1
   reedes/vim-colors-pencil: {}
   franbach/miramare: {}
   # >>>
