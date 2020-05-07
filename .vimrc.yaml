@@ -366,6 +366,7 @@ plugin:
       let g:hybrid_custom_term_colors = 1
   reedes/vim-colors-pencil: {}
   franbach/miramare: {}
+  freeo/vim-kalisi: {}
   # >>>
 
 before: |
@@ -374,7 +375,7 @@ before: |
 after: |
   if $VIM_BACKGROUND == "light"
     set bg=light
-    colorscheme pencil
+    colorscheme kalisi
   else
     set bg=dark
     colorscheme jellybeans
