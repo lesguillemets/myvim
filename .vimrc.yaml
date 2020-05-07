@@ -372,7 +372,13 @@ before: |
   let g:vim_json_conceal = 0
 
 after: |
-  colorscheme jellybeans
+  if $VIM_BACKGROUND == "light"
+    set bg=light
+    colorscheme pencil
+  else
+    set bg=dark
+    colorscheme jellybeans
+  endif
 
 filetype:
   haskell: |
