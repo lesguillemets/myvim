@@ -216,6 +216,11 @@ plugin:
   honza/vim-snippets:
     dependon: ultisnips
 
+  lesguillemets/kagisnippets:
+    dependon: ultisnips
+    filetype:
+      - tex
+
   t9md/vim-quickhl:
     mapping:
       - <Space>m
