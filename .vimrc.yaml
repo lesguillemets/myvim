@@ -233,6 +233,8 @@ plugin:
       nmap <Space>M <Plug>(quickhl-manual-reset)
       xmap <Space>M <Plug>(quickhl-manual-reset)
 
+  editorconfig/editorconfig-vim: {}
+
   ### Git <<<
   mhinz/vim-signify: {}
 
@@ -328,6 +330,10 @@ plugin:
         \ ]
         let g:rainbow_conf.separately[ft] = "default"
       endfor
+
+  machakann/vim-highlightedyank:
+    before:
+      let g:highlightedyank_highlight_duration = 75
   # >>>
 
   # Filetypes <<<
