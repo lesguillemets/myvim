@@ -367,6 +367,9 @@ plugin:
       " Let's see how this conflicts"
       let g:vimtex_mappings_enabled = 1
 
+  itchyny/vim-haskell-indent:
+    filetype: haskell
+
   mattn/emmet-vim:
     filetype:
       - html
