@@ -68,6 +68,11 @@ plugin:
       let g:lsp_textprop_enabled = 1
       let g:lsp_diagnostics_float_cursor = 1
     after: |
+      augroup VIM_LSP
+        au!
+        autocmd colorscheme * hi LspWarningHighlight cterm=underline, gui=undercurl
+        autocmd colorscheme * hi LspErrorHighlight cterm=bold,underline, gui=bold,undercurl
+      augroup END
       if executable('pyls')
         au User lsp_setup call lsp#register_server({
             \ 'name': 'pyls',
