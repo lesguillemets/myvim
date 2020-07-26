@@ -425,6 +425,7 @@ after: |
   else
     set bg=dark
     colorscheme jellybeans
+    hi Visual guibg='#555555' cterm=underline gui=underline
   endif
 
 filetype:
