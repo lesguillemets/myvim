@@ -96,6 +96,19 @@ plugin:
             \ })
       endif
 
+      if executable('hie')
+        au User lsp_setup call lsp#register_server({
+        \ 'name': 'hie',
+        \ 'cmd': {server_info->[ "hie", "--lsp"]},
+        \ 'whitelist': ['haskell'],
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(
+          \ lsp#utils#find_nearest_parent_file_directory(
+          \  lsp#utils#get_buffer_path(),
+          \  ['.cabal', 'stack.yaml', 'package.yaml', '.git/']
+        \ ))},
+        \ })
+      endif
+
       if executable('typescript-language-server')
           au User lsp_setup call lsp#register_server({
               \ 'name': 'typescript-language-server',
