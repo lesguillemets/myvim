@@ -1,4 +1,4 @@
-set guifont=Iosevka\ Term\ Slab\ 11
+set guifont=Iosevka\ Fixed\ Slab\ Regular\ 11,Iosevka\ Term\ Slab\ 11
 set guifontwide=Source\ Han\ Sans\ Regular
 set bg=dark
 colorscheme hybrid
