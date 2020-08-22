@@ -66,7 +66,8 @@ plugin:
     before: |
       let g:lsp_highlights_enabled = 1
       let g:lsp_textprop_enabled = 1
-      let g:lsp_diagnostics_float_cursor = 1
+      let g:lsp_diagnostics_enabled = 0
+      " let g:lsp_diagnostics_float_cursor = 1 "
     after: |
       augroup VIM_LSP
         au!
@@ -124,7 +125,7 @@ plugin:
           nmap <buffer> <C-]> <plug>(lsp-definition)
           nmap <buffer> gh <plug>(lsp-hover)
           nmap <buffer> K <plug>(lsp-hover)
-          nmap <buffer> <Space>q <plug>(lsp-document-diagnostics)
+          " nmap <buffer> <Space>q <plug>(lsp-document-diagnostics) "
       endfunction
 
       augroup lsp_install
@@ -139,6 +140,15 @@ plugin:
 
   ## >>>
 
+  dense-analysis/ale:
+    filetype:
+      - rust
+    before: |
+      let g:ale_open_list = 1
+      let g:ale_keep_list_window_open = 1
+      let g:ale_rust_cargo_use_clippy = 1
+    after: |
+      nmap <Space>q <plug>(ale_detail)
   kana/vim-repeat: {}
 
   ## Operators <<<
