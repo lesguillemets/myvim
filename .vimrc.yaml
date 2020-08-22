@@ -364,6 +364,8 @@ plugin:
         let g:rainbow_conf.separately[ft] = "default"
       endfor
 
+  lesguillemets/rainbow_indent_experimental.vim: {}
+
   machakann/vim-highlightedyank:
     before:
       let g:highlightedyank_highlight_duration = 75
