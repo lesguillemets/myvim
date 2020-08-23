@@ -146,6 +146,8 @@ plugin:
     before: |
       let g:ale_open_list = 1
       let g:ale_keep_list_window_open = 1
+      let g:ale_set_quickfix = 1
+      let g:ale_hover_to_preview = 1
       let g:ale_rust_cargo_use_clippy = 1
     after: |
       nmap <Space>q <plug>(ale_detail)
