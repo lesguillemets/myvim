@@ -369,7 +369,7 @@ plugin:
       let g:rainbow_active = 1
       let g:rainbow_conf = { 'separately': { '*': 0 } }
       for ft in [
-        \ "c", "cpp", "go", "haskell", "java", "julia", "latex",
+        \ "c", "cpp", "glsl", "go", "haskell", "java", "julia", "latex",
         \ "lisp", "perl", "python", "ruby", "rust", "scheme",
         \ "tex", "vim", "yaml", "toml",
         \ ]
@@ -421,6 +421,10 @@ plugin:
     filetype:
       - typescript
 
+
+  tikhomirov/vim-glsl:
+    filetype:
+      - glsl
   # >>>
 
   # Colorschemes <<<
