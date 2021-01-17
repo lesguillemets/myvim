@@ -376,7 +376,7 @@ plugin:
         let g:rainbow_conf.separately[ft] = "default"
       endfor
 
-  lesguillemets/rainbow_indent_experimental.vim: {}
+  # lesguillemets/rainbow_indent_experimental.vim: {}
 
   machakann/vim-highlightedyank:
     before:
@@ -397,6 +397,7 @@ plugin:
     before: |
       " Let's see how this conflicts"
       let g:vimtex_mappings_enabled = 1
+      let g:vimtex_syntax_conceal_default = 0
 
   itchyny/vim-haskell-indent:
     filetype: haskell
@@ -420,6 +421,10 @@ plugin:
   HerringtonDarkholme/yats.vim :
     filetype:
       - typescript
+
+  whonore/Coqtail:
+    filetype:
+      - coq
 
 
   tikhomirov/vim-glsl:
@@ -483,6 +488,12 @@ filetype:
     iabbrev an &
     let g:tex_conceal=""
     setlocal backspace=indent,eol
+  javascript: |
+    setlocal noexpandtab ts=2 sts=2 sw=2
+  typescript: |
+    setlocal noexpandtab ts=2 sts=2 sw=2
+  html: |
+    setlocal noexpandtab ts=2 sts=2 sw=2
   gitcommit: |
     setlocal spell
 
