@@ -371,7 +371,7 @@ plugin:
       for ft in [
         \ "c", "cpp", "glsl", "go", "haskell", "java", "julia", "latex",
         \ "lisp", "perl", "python", "ruby", "rust", "scheme",
-        \ "tex", "vim", "yaml", "toml",
+        \ "tex", "vim", "yaml", "toml", "javascript", "typescript"
         \ ]
         let g:rainbow_conf.separately[ft] = "default"
       endfor
